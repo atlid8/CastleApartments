@@ -74,7 +74,7 @@ WSGI_APPLICATION = 'CastleApartments.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-DATABASES = {
+"""DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'yadcwxnr',
@@ -83,7 +83,7 @@ DATABASES = {
         'HOST' : 'manny.db.elephantsql.com',
         'PORT' : '5432'
     }
-}
+}"""
 
 
 # Password validation
