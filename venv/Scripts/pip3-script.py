@@ -1,4 +1,4 @@
-#!C:\Users\Atliu\Desktop\HR_2\Verklegt_namskeid2\CasteApartments\venv\Scripts\python.exe
+#!C:\Users\Atliu\Desktop\HR_2\Verklegt_namskeid2\CastleApartments\venv\Scripts\python.exe
 # EASY-INSTALL-ENTRY-SCRIPT: 'pip==19.0.3','console_scripts','pip3'
 __requires__ = 'pip==19.0.3'
 import re
