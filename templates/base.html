@@ -17,7 +17,7 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <a class="navbar-brand" href="#">Castle Apartments</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -38,9 +38,20 @@
     </nav>
 
     {% block content %}
+        <img id="background-img" src="http://www.friarswynd.co.uk/wp-content/uploads/2015/07/Stirling-Castle.jpg"/>
+        <div class="front-buttons">
+            <button id="left-front-button" type="button" class="btn btn-outline-primary">Search properties</button>
+            <button id="right-front-button" type="button" class="btn btn-outline-primary">Sell properties</button>
+        </div>
 
+    {#Prufa a sliding websit#}
     {% endblock %}
 
+    <footer class="footer">
+        <div>
+            <p>© 2018 Copyright: Castle Apartments</p>
+        </div>
+    </footer>
 
 </body>
 </html>
