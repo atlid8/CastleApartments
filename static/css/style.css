@@ -2,3 +2,24 @@
     left: auto !important;
     right: 0px;
 }
+
+#background-img {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 8em;
+}
+#right-front-button, #left-front-button {
+    width: 10em;
+}
+#right-front-button {
+    margin-left: 2em;
+}
+.front-buttons {
+    margin-top: 1em;
+    text-align: center;
+}
+.footer {
+    position: fixed;
+    bottom: 0;
+    right: 10px;
+}
