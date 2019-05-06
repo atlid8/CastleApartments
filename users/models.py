@@ -17,6 +17,6 @@ class UserInfo(models.Model):
     username = models.ForeignKey(UserLogIn, on_delete=models.CASCADE)
 
 
-class UserPicture(models.Model):
+class UserImage(models.Model):
     display_picture = models.CharField(max_length=999)
     username = models.ForeignKey(UserInfo, on_delete=models.CASCADE)

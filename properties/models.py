@@ -1,5 +1,5 @@
 from django.db import models
-from user.models import user
+from users.models import UserInfo
 
 # Create your models here.
 class Property(models.Model):
@@ -9,7 +9,7 @@ class Property(models.Model):
     commission = models.IntegerField()
     rooms = models.IntegerField()
     verified = models.BooleanField()
-    sellerID = models.ForeignKey(user, on_delete=models.CASCADE)
+    sellerID = models.ForeignKey(UserInfo, on_delete=models.CASCADE)
     #Todo offers, address, viewcount
     def __str__(self):
         return self.name
