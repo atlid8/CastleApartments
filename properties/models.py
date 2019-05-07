@@ -16,6 +16,6 @@ class Property(models.Model):
 
 class PropertyImage(models.Model):
     image = models.CharField(max_length=999)
-    Property_id = models.ForeignKey(Property, on_delete=models.CASCADE)
+    Property = models.ForeignKey(Property, on_delete=models.CASCADE)
     def __str__(self):
-        return self.property_id.name
+        return self.image
