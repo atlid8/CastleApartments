@@ -9,11 +9,13 @@ class Property(models.Model):
     commission = models.IntegerField()
     rooms = models.IntegerField()
     verified = models.BooleanField()
-    sellerID = models.ForeignKey(UserInfo, on_delete=models.CASCADE)
+    userinfo_id = models.ForeignKey(UserInfo, on_delete=models.CASCADE)
     #Todo offers, address, viewcount
     def __str__(self):
         return self.name
 
-class propertyImage(models.Model):
+class PropertyImage(models.Model):
     image = models.CharField(max_length=999)
-    property = models.ForeignKey(Property, on_delete=models.CASCADE)
+    Property_id = models.ForeignKey(Property, on_delete=models.CASCADE)
+    def __str__(self):
+        return self.property_id.name
