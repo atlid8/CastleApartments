@@ -18,5 +18,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path('', include('properties.urls')), #TODO: Breyta ur properties (gera restful)
-    path('login/', include('users.urls'))
+    path('', include('users.urls')),
 ]
