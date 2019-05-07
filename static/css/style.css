@@ -9,8 +9,9 @@
     margin-top: 8em;
 }
 #right-front-button, #left-front-button {
-    width: 10em;
-    background-color: transparent;
+    width: 20em;
+    height: 5em;
+    background:rgba(255,255,255, 0.1);
     color: white;
     border-color: white;
 }
@@ -47,7 +48,7 @@
 }
 
 .dropdown-divider{
-    border-color: black !important;
+    border-color: white !important;
 }
 .dropdown-item{
     color: white !important;
