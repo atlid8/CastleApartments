@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'properties.apps.PropertiesConfig',
+    'users.apps.UsersConfig',
 ]
 
 MIDDLEWARE = [
@@ -77,9 +79,9 @@ WSGI_APPLICATION = 'CastleApartments.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'yadcwxnr',
-        'USER': 'yadcwxnr',
-        'PASSWORD': 'kNnYCspFrd9RDlWgQUAN9Q2T92asiKQc',
+        'NAME': 'luodfthu',
+        'USER': 'luodfthu',
+        'PASSWORD': 'XG4XllyBDh216nn0n9roF-0LlQUaE2fy',
         'HOST' : 'manny.db.elephantsql.com',
         'PORT' : '5432'
     }
