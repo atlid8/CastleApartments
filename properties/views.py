@@ -6,10 +6,8 @@ def index(request):
     return render(request, 'base.html')
 
 def properties(request):
-    # context = {'castles': Property.objects.all()}
-    context2 = {'images': PropertyImage.objects.all()}
-    return render(request, 'properties/properties-index.html', context2)
-
+    context = {'castles': Property.objects.all()}
+    return render(request, 'properties/properties-index.html', context)
 
 
 

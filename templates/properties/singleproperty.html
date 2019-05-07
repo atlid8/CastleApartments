@@ -1,18 +1,12 @@
 {% block content %}
-
-    <div class="album py-5 bg-transparent">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-3">
-                        <div class="card mb-4 box-shadow">
-                            <img class="card-img-top"  alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src='image' data-holder-rendered="true">
-                            <div class="card-body">
-                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <div class="col-md-3">
+        <div class="card mb-4 box-shadow">
+            <img class="card-img-top"  alt="Thumbnail [100%x225]" src='{{castle.propertyimage_set.first.image}}' data-holder-rendered="true">
+            <div class="card-body">
+                <h1 class="card-text">{{ castle.name }}</h1>
+                <p class="card-text">price</p>
             </div>
+        </div>
     </div>
 {% endblock %}
 
