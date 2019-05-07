@@ -1,4 +1,4 @@
-.idea/
+git status.idea/
 
 # dotenv
 .env
@@ -6,6 +6,7 @@
 # virtualenv
 .venv
 venv/
+venv
 ENV/
 
 # Installer logs
@@ -48,3 +49,4 @@ wheels/
 .installed.cfg
 *.egg
 .cache
+.idea
