@@ -6,3 +6,5 @@ def index(request):
 
 def properties(request):
     return render(request, 'properties/properties-index.html')
+
+
