@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <img src='{{castle.propertyimage_set.first.image}}'>
+<h1>{{ castle.name }}</h1>
+    <p> {{ castle.info }}</p>
+        <p>Price: {{ castle.price }}</p>
+        <p>Commission: {{ castle.commission }}</p>
+        <p>zip: {{ castle.zip }}</p>
+        <p>number of rooms: {{ castle.rooms }}</p>
+    <p> {{ castle.userinfo_id.first_name }}, {{ castle.userinfo_id.last_name }}</p>
+<p> {{ castle.userinfo_id.email}}</p>
+
+
+
+{% endblock %}
