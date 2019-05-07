@@ -1,0 +1,33 @@
+
+#images {
+    min-width: 14em;
+}
+
+#contactus{
+    background:rgba(255,255,255, 0.1);
+    margin-left: 8em;
+    margin-right: 10em;
+    margin-bottom: 2em;
+    padding-bottom: 2em;
+    padding-right: 0px;
+
+}
+#about-text{
+    color: white;
+    background:rgba(255,255,255, 0.1);
+    margin-top: 2em;
+    margin-left: 8em;
+    margin-right: 10em;
+    padding-bottom: 1em;
+}
+
+address{
+    color:white;
+}
+
+legend{
+    color:white;
+}
+label{
+    color:white;
+}

@@ -1,18 +1,119 @@
 {% extends 'base.html' %}
-
-{% block content %}
-
 {% load static %}
+{% block content %}
+    <!doctype html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'css/about_us.css' %}">
+        <title>Document</title>
+    </head>
+    <body background="background.png" style="background-repeat: repeat">
+    <div id="about-text">
+        <h2>
+            About us!
+        </h2>
+        <p>
+            Hi guys!
+            We are the newest hip and cool castle real estate site in the Seven Kingdoms. We would very much like to help you sell your castle! On this site you make an account and start selling or buying the castle of your dreams! Help us help you TODAY!!!
+        </p>
+    </div>
+        <div class="album py-5 bg-transparent">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-1" id="images">
+                        <div class="card mb-2 box-shadow">
+                            <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="https://scontent-arn2-1.xx.fbcdn.net/v/t1.15752-9/58842271_426289888196515_8038877961367060480_n.jpg?_nc_cat=111&_nc_ht=scontent-arn2-1.xx&oh=19a17ecf240cc5720960e0b2d16854db&oe=5D641B76" data-holder-rendered="true">
+                        </div>
+                    </div>
+                    <div class="col-md-1" id="images">
+                        <div class="card mb-2 box-shadow">
+                            <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="https://scontent-arn2-1.xx.fbcdn.net/v/t1.15752-9/58895086_509022516298273_4203158075080704000_n.jpg?_nc_cat=106&_nc_ht=scontent-arn2-1.xx&oh=2687230a80718ffdb0ace4c861119fd4&oe=5D724D8F" data-holder-rendered="true">
+                        </div>
+                    </div>
+                    <div class="col-md-1" id="images">
+                        <div class="card mb-2 box-shadow">
+                            <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="https://scontent-arn2-1.xx.fbcdn.net/v/t1.15752-9/59501681_1975408619232325_141053726797332480_n.jpg?_nc_cat=105&_nc_ht=scontent-arn2-1.xx&oh=f3fa721f2a85d4d27eea8c1f232ecc3a&oe=5D5BDAF6" data-holder-rendered="true">
+                        </div>
+                    </div>
+                    <div class="col-md-1" id="images">
+                        <div class="card mb-2 box-shadow">
+                            <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="https://scontent-arn2-1.xx.fbcdn.net/v/t1.15752-9/59360389_350014789197528_9105109837481508864_n.jpg?_nc_cat=102&_nc_ht=scontent-arn2-1.xx&oh=a44414cfdcaffeaec986de734f6124a8&oe=5D302A61" data-holder-rendered="true">
+                        </div>
+                    </div>
+                    <div class="col-md-1" id="images">
+                        <div class="card mb-2 box-shadow">
+                            <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="https://scontent-arn2-1.xx.fbcdn.net/v/t1.15752-9/59360077_659475581159157_7349320837440208896_n.jpg?_nc_cat=101&_nc_ht=scontent-arn2-1.xx&oh=c580e10c8fa9966e0bd84423498866e9&oe=5D2F6C28" data-holder-rendered="true">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div class="container" id="contactus">
+    <div class="row">
+        <div class="col-md-8">
+            <div class="well well-sm">
+                <form>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="name">
+                                Name</label>
+                            <input type="text" class="form-control" id="name" placeholder="Enter name" required="required" />
+                        </div>
+                        <div class="form-group">
+                            <label for="email">
+                                Email Address</label>
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
+                                </span>
+                                <input type="email" class="form-control" id="email" placeholder="Enter email" required="required" /></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="name">
+                                Message</label>
+                            <textarea name="message" id="message" class="form-control" rows="5" cols="15" required="required"
+                                placeholder="Message"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-primary pull-right" id="btnContactUs">
+                            Send Message</button>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <form>
+            <legend><span class="glyphicon glyphicon-globe"></span> Our office</legend>
+            <address>
+                <strong>CastleApartments, Inc.</strong><br>
+                795 Kings Landing Road, Suite 600<br>
+                Kings Landing, KL 94107<br>
+                <abbr title="Phone">
+                    P:</abbr>
+                (354) 581-2345
+            </address>
+            <address>
+                <strong>Send us an email!</strong><br>
+                <a href="mailto:#">castle@castleapartments.com</a>
+            </address>
+            </form>
+        </div>
+    </div>
+</div>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>About Castle Apartments</title>
-</head>
-<body>
+    </body>
+    </html>
 
-</body>
-</html>
+
+
 
 {% endblock %}
