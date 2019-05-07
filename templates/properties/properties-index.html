@@ -20,6 +20,9 @@
 }
     </style>
     <body>
+        {% for image in images %}
+        {% include "properties/singleproperty.html" with image=image %}
+        {% endfor %}
         <div class="album py-5 bg-transparent">
             <div class="container">
                 <div class="row">
