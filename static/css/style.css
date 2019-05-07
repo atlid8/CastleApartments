@@ -10,16 +10,73 @@
 }
 #right-front-button, #left-front-button {
     width: 10em;
+    background-color: transparent;
+    color: white;
+    border-color: white;
 }
 #right-front-button {
-    margin-left: 2em;
+    margin-left: 6em;
 }
+
+#right-front-button:hover{
+    background-color: white;
+    color: black;
+}
+
+#left-front-button:hover{
+    background-color: white;
+    color: black;
+}
+
 .front-buttons {
-    margin-top: 1em;
+    margin-top: 14em;
     text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 .footer {
     position: fixed;
     bottom: 0;
     right: 10px;
+}
+.dropdown-menu{
+    background-color: transparent !important;
+    border: transparent !important;
+}
+
+.dropdown-divider{
+    border-color: black !important;
+}
+.dropdown-item{
+    color: white !important;
+}
+.dropdown-item:hover{
+    color: black !important;
+}
+
+#copyright {
+    color: white;
+}
+
+
+#navbarid {
+    background-color: black;
+}
+
+#logo{
+    color: white;
+}
+
+#navbarDropdown{
+    color: white;
+}
+
+html {
+  background: url(https://media.cntraveler.com/photos/5804e849fefb7fe774d641ff/master/pass/airbnb-courtesy-Night-at-Dracula-6.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
