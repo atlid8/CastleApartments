@@ -9,6 +9,7 @@ class Property(models.Model):
     commission = models.IntegerField()
     rooms = models.IntegerField()
     verified = models.BooleanField()
+    info = models.TextField()
     userinfo_id = models.ForeignKey(UserInfo, on_delete=models.CASCADE)
     #Todo offers, address, viewcount
     def __str__(self):
