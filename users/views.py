@@ -5,4 +5,4 @@ def login(request):
     return render(request, 'users/login.html')
 
 def about_us(request):
-    return render(request, 'about_us.html')
+    return render(request, 'about_us/about_us.html')
