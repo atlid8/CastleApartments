@@ -1,4 +1,5 @@
 {% block content %}
+      <a href="/properties/{{ castle.id }}"
     <div class="col-md-3">
         <div class="card mb-4 box-shadow">
             <img class="card-img-top"  alt="Thumbnail [100%x225]" src='{{castle.propertyimage_set.first.image}}' data-holder-rendered="true">
@@ -8,5 +9,6 @@
             </div>
         </div>
     </div>
+    </a>
 {% endblock %}
 
