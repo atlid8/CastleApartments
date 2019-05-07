@@ -6,3 +6,9 @@ def login(request):
 
 def about_us(request):
     return render(request, 'about_us/about_us.html')
+
+def signup(request):
+    return render(request, 'users/signup.html')
+
+def reset_password(request):
+    return render(request, 'users/reset-password.html')
