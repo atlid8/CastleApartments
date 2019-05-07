@@ -9,8 +9,7 @@
     margin-top: 8em;
 }
 #right-front-button, #left-front-button {
-    width: 20em;
-    height: 5em;
+    width: 10rem;
     background:rgba(255,255,255, 0.1);
     color: white;
     border-color: white;
