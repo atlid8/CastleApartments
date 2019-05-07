@@ -20,10 +20,6 @@
     z-index: 1;
 }
 
-.card bg-light {
-    background-color: red;
-}
-
 .login_btn{
 color: black;
 background-color: whitesmoke;
