@@ -15,6 +15,10 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/front-page.css' %}"/>
 
 <div class="container">
+<button type="button" class="close" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+</button>
+<h3>2 properties pending validation</h3>
 
 			{% for castle in castles %}
             {% include "front_page/single_property.html" with castle=castle %}

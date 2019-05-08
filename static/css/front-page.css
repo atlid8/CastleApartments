@@ -10,12 +10,20 @@ height: 100%;
 }
 
 .container{
-background-color: rgba(0,0,0,0) !important;
+background-color: rgba(0,0,0,0.5) !important;
     width: auto;
 height: auto;
 margin-top: auto;
 width: 45em;
     align-content: center;
+    margin: 1em auto;
+
+    padding: 2em;
+
+}
+
+.close{
+    color: rgba(0,0,0,0.7) !important;
 }
 
 .clearfix{
@@ -26,10 +34,10 @@ width: 45em;
 height: auto;
 
 width: 40em;
-background-color: rgba(0,1,0,0.5) !important;
-    margin: 0 auto;
-    margin-top: 1em;
+background-color: rgba(255,255,255, 0.2); !important;
+    margin: 0.3em auto;
     align-content: center;
+
     display:inline-block;
 
 
@@ -106,6 +114,8 @@ margin-left: 4px;
 
 h3 {
     text-align: center;
+    margin-bottom: 1em;
+    color: whitesmoke;
 }
 
 
