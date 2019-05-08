@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from properties.models import NotVerified
+from properties.models import Property
 
 # Create your views here.
 def login(request):
@@ -15,5 +15,5 @@ def reset_password(request):
     return render(request, 'users/reset-password.html')
 
 def front_page(request):
-    context = {'castles' : NotVerified.objects.all()}
+    context = {'castles' : Property.objects.filter(verified=False)}
     return render(request, 'front_page/front_page_staff.html', context)
