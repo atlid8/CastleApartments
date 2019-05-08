@@ -13,5 +13,6 @@ def get_property_by_id(request, id):
     return render(request, 'properties/property_details.html',
                    {'castle' : get_object_or_404(Property, pk=id)
                     })
-
+def payments(request):
+    return render(request, 'payments/payments.html')
 
