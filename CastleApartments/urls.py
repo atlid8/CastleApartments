@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('', include('properties.urls')), #TODO: Breyta ur properties (gera restful)
-    path('', include('users.urls')),
+    path('properties/', include('properties.urls')), #TODO: Breyta ur properties (gera restful)
+    path('users/', include('users.urls')),
+    path('', include('users.urls'))
 ]
