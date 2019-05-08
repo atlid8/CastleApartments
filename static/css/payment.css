@@ -1,0 +1,17 @@
+* {
+    color: white;
+}
+
+.container {
+    margin-top: 5em;
+    position: relative;
+}
+
+#container-2 {
+    position: absolute;
+    top: 5em;
+}
+
+#expityMonth {
+    margin-bottom: 1em;
+}
