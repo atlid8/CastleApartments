@@ -1,8 +1,15 @@
-.ml-auto .dropdown-menu {
-    left: auto !important;
-    right: 0px;
+html {
+    background: url(https://media.cntraveler.com/photos/5804e849fefb7fe774d641ff/master/pass/airbnb-courtesy-Night-at-Dracula-6.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
-
+html,body{
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+}
 #background-img {
     width: 100%;
     margin: 0 auto;
@@ -18,21 +25,34 @@
 #right-front-button {
     margin-left: 12em;
 }
-
 #right-front-button:hover{
     background-color: white;
     color: black;
 }
-
 #left-front-button:hover{
     background-color: white;
     color: black;
 }
-
-#signin{
-    color:white;
+#navbarid {
+    background-color: black;
 }
-
+#logo, #navbarDropdown, #sign-in, #about-us, #copyright{
+    color: white;
+}
+#about-us {
+    margin-left: 0.5em;
+    text-decoration: underline;
+}
+#copyright {
+    display: inline-block;
+    float: right;
+    margin: 0 auto;
+    margin-right: 0.5em;
+}
+.ml-auto .dropdown-menu {
+    left: auto !important;
+    right: 0;
+}
 .front-buttons {
     margin-top: 1em;
     text-align: center;
@@ -41,16 +61,10 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
-.footer {
-    position: fixed;
-    bottom: 0;
-    right: 10px;
-}
 .dropdown-menu{
     background-color: transparent !important;
     border: transparent !important;
 }
-
 .dropdown-divider{
     border-color: white !important;
 }
@@ -60,43 +74,12 @@
 .dropdown-item:hover{
     color: black !important;
 }
-
-#copyright {
-    color: white;
-}
-
-#navbarid {
-    background-color: black;
-}
-
-#logo{
-    color: white;
-}
-
-#navbarDropdown{
-    color: white;
-}
-
-html {
-  background: url(https://media.cntraveler.com/photos/5804e849fefb7fe774d641ff/master/pass/airbnb-courtesy-Night-at-Dracula-6.jpg) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-
-html,body{
-
-background-size: cover;
-background-repeat: no-repeat;
-height: 100%;
-
-}
-
 .card-img-top {
     width: 100%;
     height: 15em;
 }
-a #aboutUs{
-    color: white !important;
+.footer {
+    position: fixed;
+    bottom: 0.5em;
+    width: 100%;
 }
