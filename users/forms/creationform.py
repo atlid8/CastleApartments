@@ -10,14 +10,17 @@ class UserCreationForm(forms.ModelForm):
         'password_mismatch': ("The two password fields didn't match."),
     }
     password1 = forms.CharField(label=("Password"),
-        widget=forms.PasswordInput)
+        widget=forms.PasswordInput(attrs={'placeholder': 'password'}))
     password2 = forms.CharField(label=("Password confirmation"),
-        widget=forms.PasswordInput,
-        help_text=("Enter the same password as above, for verification."))
+        widget=forms.PasswordInput(attrs={'placeholder': 'password'}))
+    username = forms.CharField(label='username',
+                    widget=forms.TextInput(attrs={'placeholder': 'username'}))
+    email = forms.CharField(label='email',
+                    widget=forms.TextInput(attrs={'placeholder': 'email'}))
 
     class Meta:
         model = User
-        fields = ("username", "first_name", "last_name", "email", )
+        fields = ("username", "email", )
 
     def clean_password2(self):
         password1 = self.cleaned_data.get("password1")

@@ -19,12 +19,11 @@
 	<p class="sub-title">Get started with your free account</p>
 	<form>
             {% csrf_token %}
-    {{ form }}
 	<div class="form-group input-group">
 		<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
 		 </div>
-        <input name="" class="form-control" placeholder="full name" type="text">
+    {{ form.username }}
     </div> <!-- form-group// -->
 		<div class="form-group input-group">
 		<div class="input-group-prepend">
@@ -36,7 +35,7 @@
     	<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
 		 </div>
-        <input name="" class="form-control" placeholder="email address" type="email">
+        {{ form.email }}
     </div> <!-- form-group// -->
     <div class="form-group input-group">
     	<div class="input-group-prepend">
@@ -57,16 +56,17 @@
     	<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
 		</div>
-        <input class="form-control" placeholder="create password" type="password">
+        {{ form.password1 }}
     </div> <!-- form-group// -->
     <div class="form-group input-group">
     	<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
 		</div>
-        <input class="form-control" placeholder="repeat password" type="password">
+        {{ form.password2 }}
     </div> <!-- form-group// -->
     <div class="form-group">
         <button type="submit" class="btn btn-primary btn-block"> Create Account  </button>
+        <input type="submit" class="btn btn-primary" value="Sign up today for 899$ per day!!">
     </div> <!-- form-group// -->
     <p class="sub-title">Have an account? <a href="">Log In</a> </p>
 </form>
