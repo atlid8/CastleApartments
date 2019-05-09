@@ -19,10 +19,27 @@
     left: 0;
     z-index: 1;
 }
+
+textarea {
+  resize: none;
+}
+
+.image
 input[type='file'] {
   width: 3em;
 }
+#carouselExampleControls{
+    margin: 0 auto;
+    width:80%;
+    height:20%;
+}
 
+.carousel-inner {
+    margin: 2rem auto;
+    width: 50%;
+    height: 9rem;
+    border-radius: 4px;
+}
 .login_btn{
 color: black;
 background-color: whitesmoke;
@@ -53,7 +70,7 @@ background-color: white;
 }
 
 .card{
-height: 650px;
+height: 850px;
     margin: 0 auto;
 width: 700px;
 background-color: rgba(0,0,0,0.5) !important;
@@ -100,7 +117,7 @@ background-color: rgba(0,0,0,0.5) !important;
 
 }
 .card-body {
-    width: 80%;
+    width: 100%;
     align-content: center;
     margin: 0 auto;
 }
@@ -112,8 +129,4 @@ background-color: rgba(0,0,0,0.5) !important;
 .sub-title {
     text-align: center;
     color: white;
-}
-textarea {
-  resize: none;
-    border-color: black;
 }

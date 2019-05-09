@@ -24,4 +24,8 @@ def make_offer(request):
 def create(request):
     return render(request, 'properties/create_property.html')
 
+def edit_property(request, id):
+    return render(request, 'properties/edit_property.html',
+                  {'castle': get_object_or_404(Property, pk=id)
+                   })
 

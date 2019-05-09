@@ -1,0 +1,156 @@
+{% extends 'base.html' %} {% block content %} {% load static %}
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+<link rel="stylesheet" type="text/css" href="{% static 'css/edit_property.css' %}" />
+
+<div class="card bg-light">
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/app.js' %}"></script>
+    <title>Document</title>
+    </head>
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="d-block w-100" src='{{ castle.propertyimage_set.first.image }}' alt="First slide">
+            </div>
+            {% for image in castle.propertyimage_set.all %}
+            <div class="carousel-item">
+                <img class="d-block w-100" src='{{ image.image }}' alt="Second slide">
+            </div>
+            {% endfor %}
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+        <article class="card-body mx-auto">
+            <h3 class="card-title">Editing property: {{ castle.name }}</h3>
+            <p class="sub-title">Please make changes to the following fields</p>
+            <form>
+                <div class="row">
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fab fa-fort-awesome"></i></span>
+                        </div>
+                        <input name="" class="form-control" placeholder="castle name" value="{{castle.name}}" type="text">
+                    </div>
+                    <!-- form-group// -->
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                        </div>
+                        <input name="" disabled class="form-control" placeholder="seller" value="Jaime Lannister">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                        </div>
+                        <input name="" class="form-control" placeholder="street name" type="text">
+                    </div>
+                    <!-- form-group// -->
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                        </div>
+                        <input name="" class="form-control" placeholder="street number" value="{{castle.rooms}}" type="number">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-flag"></i> </span>
+                        </div>
+                        <select class="form-control">
+                            <option value="" disabled selected> select kingdom</option>
+                            <option>The North</option>
+                            <option>The Mountain and the Vale</option>
+                            <option>Isles and Rivers</option>
+                            <option>The Rock</option>
+                            <option>The Stormlands</option>
+                            <option>The Reach</option>
+                            <option>Dorne</option>
+                        </select>
+                    </div>
+                    <!-- form-group// -->
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fas fa-map-pin""></i> </span>
+                        </div>
+                        <input name="" disabled class="form-control" placeholder="zip code" value="{{ castle.zip }}" type="number">
+                    </div>
+                    <!-- form-group// -->
+                </div>
+                <!-- form-group end.// -->
+                <div class="row">
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-money-bill-wave-alt"></i> </span>
+                        </div>
+                        <input name="" class="form-control" placeholder="price" value="{{ castle.price }}" type="number">
+                    </div>
+                    <!-- form-group// -->
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                        </div>
+                        <input class="form-control" disabled placeholder="commission" value="{{ castle.commission }}" type="number">
+                    </div>
+                </div>
+                <!-- form-group// -->
+                <div class="row">
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                        </div>
+                        <input class="form-control" placeholder="condition" type="text">
+                    </div>
+                    <!-- form-group// -->
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                        </div>
+                        <div class="upload-btn-wrapper">
+                            <input type="file" name="myfile" />
+                            <button class="btn1">upload an image</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" id="add-info">
+                    <!-- form-group// -->
+
+                    <textarea name="" id="add-info" type="text" class="form-control"> {{ castle.info }}</textarea>
+                </div>
+                <div class="row" id="submit-buttons">
+                    <div class="form-group">
+                        <button type="submit" id="preview-button" class="btn btn-primary btn-block"> Preview Changes </button>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" id="submit-button" class="btn btn-primary btn-block"> Publish Changes </button>
+                    </div>
+                </div>
+                <!-- form-group// -->
+                <p class="sub-title">Need some help? <a href="">Contact us for assistance</a> </p>
+    </div>
+</div>
+</div>
+</form>
+</article>
+</div>
+<!-- card.// -->
+</div>
+<!--container end.//-->
+</div>
+<br>
+<br>
+</article>
+{% endblock %}
