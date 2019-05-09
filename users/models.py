@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 
 class Zip(models.Model):
-    Zip = models.IntegerField(primary_key=True)
+    Zip = models.CharField(max_length=255, primary_key=True)
     kingdom = models.CharField(max_length=255)
 
 class Profile(models.Model):
