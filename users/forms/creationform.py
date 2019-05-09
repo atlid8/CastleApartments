@@ -46,8 +46,8 @@ class UserCreationForm(forms.ModelForm):
 
 
 class ProfileCreationForm(forms.ModelForm):
-    zip = forms.IntegerField(label='zip',
-                    widget=forms.NumberInput(attrs={'placeholder': 'zip'}))
+    zip = forms.CharField(label='zip',
+                    widget=forms.TextInput(attrs={'placeholder': 'zip'}))
     profile_image = forms.CharField(label='profile_image', widget=forms.TextInput)
     street = forms.CharField(label='street',
                     widget=forms.TextInput(attrs={'placeholder': 'street name'}))
