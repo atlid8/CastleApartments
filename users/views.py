@@ -1,6 +1,7 @@
+from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from properties.models import Property
-from users.forms.creationform import UserCreationForm
+from users.forms.creationform import UserCreationForm, ProfileCreationForm
 from users.models import Profile
 
 # Create your views here.
@@ -30,11 +31,16 @@ def my_profile(request):
 def register(request):
     if request.method == 'POST':
         form = UserCreationForm(data=request.POST)
+        form2 =ProfileCreationForm(data=request.POST)
         if form.is_valid():
-            form.save()
-            return redirect('dennislog') #TODO:Check if this is the right path
+            if form2.is_valid():
+                form.save()
+                user_id = User.objects.last().id
+                form2.save(user_id)
+                return redirect('dennislog') #TODO:Check if this is the right path
     return render(request, 'users/register.html', {
-        'form': UserCreationForm()
+        'form': UserCreationForm(),
+        'form2': ProfileCreationForm()
     })
 
 def profile(request):

@@ -17,7 +17,7 @@
 <article class="card-body mx-auto" style="max-width: 400px;">
 	<h4 class="card-title">Sign up</h4>
 	<p class="sub-title">Get started with your free account</p>
-	<form>
+	<form method="post">
             {% csrf_token %}
 	<div class="form-group input-group">
 		<div class="input-group-prepend">
@@ -29,7 +29,7 @@
 		<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-address-card"></i> </span>
 		 </div>
-        <input name="" class="form-control" placeholder="social security number" type="text">
+        {{ form2.zip }}
     </div> <!-- form-group// -->
     <div class="form-group input-group">
     	<div class="input-group-prepend">
@@ -41,17 +41,26 @@
     	<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-flag"></i> </span>
 		</div>
-		<select class="form-control">
-			<option value="" disabled selected> select kingdom</option>
-			<option>The North</option>
-			<option>The Mountain and the Vale</option>
-			<option>Isles and Rivers</option>
-			<option>The Rock</option>
-			<option>The Stormlands</option>
-			<option>The Reach</option>
-			<option>Dorne</option>
-		</select>
+		{{ form2.street }}
 	</div> <!-- form-group end.// -->
+        <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+		</div>
+        {{ form2.housenumber }}
+    </div> <!-- form-group// -->
+        <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+		</div>
+        {{ form2.profile_image }}
+    </div> <!-- form-group// -->
+        <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+		</div>
+        {{ form2.ssn }}
+    </div> <!-- form-group// -->
     <div class="form-group input-group">
     	<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
