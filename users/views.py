@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from properties.models import Property
-from django.contrib.auth.forms import UserCreationForm
+from users.forms.creationform import UserCreationForm
 from users.models import Profile
 
 # Create your views here.
