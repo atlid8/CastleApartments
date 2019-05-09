@@ -1,0 +1,47 @@
+#castle-name {
+    font-size: 1.5em;
+}
+
+.header-text {
+    width: 100%;
+}
+
+.col-md-3 {
+    margin-top: 2em;
+    color: white;
+}
+
+.card {
+    background-color: transparent;
+}
+
+.card-img-top {
+    background-size: cover;
+    max-width: 253px;
+    max-height: 180px;
+}
+
+.card-body {
+    height: 145px;
+    background-color: rgba(255,255,255, 0.4);
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.card-text {
+    font-size: 0.75em;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h3 {
+    color:white;
+    width: 50%;
+    text-align: center;
+    background-color: rgba(255,255,255, 0.2);
+    height: 2em;
+    padding-top: 0.35em;
+    border-bottom-left-radius: 1em;
+    border-top-right-radius: 1em;
+    margin: auto;
+}
