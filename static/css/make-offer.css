@@ -1,3 +1,10 @@
+#btnContactUs {
+    float: right;
+    background-color: #4CAF50;
+    border-color: #4CAF50;
+}
+
+
 .header-text {
     width: 50%;
     margin: auto;
