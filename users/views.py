@@ -14,6 +14,12 @@ def signup(request):
 def reset_password(request):
     return render(request, 'users/reset-password.html')
 
-def front_page(request):
+def front_page_staff(request):
     context = {'castles' : Property.objects.filter(verified=False)}
     return render(request, 'front_page/front_page_staff.html', context)
+
+def front_page_admin(request):
+    return render(request, 'front_page/front_page_admin.html')
+
+def my_profile(request):
+    return render(request, 'users/my_profile.html')
