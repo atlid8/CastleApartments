@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!doctype html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'css/my-profile.css' %}">
+    <link rel="stylesheet" href="{% static 'css/make-offer.css' %}">
+    <title>My-profile</title>
+</head>
+
+<body>
+    <div class="header-text">
+        <h3>Make offer</h3>
+    </div>
+    <div class="container">
+        <label for="name">Email Address</label>
+        <input type="text" class="form-control" id="Email" placeholder="Enter email" required="required" />
+
+        <label for="offer">Offer</label>
+        <input type="email" class="form-control" id="offer" placeholder="Enter offer" required="required" />
+
+        <label for="massage">Additional info</label>
+        <textarea name="message" id="message" class="form-control" rows="5" cols="15" required="required" placeholder="Something you would like to add..."></textarea>
+
+        <button type="submit" class="btn btn-primary pull-right" id="btnContactUs">Send Message</button>
+    </div>
+</body>
+</html>
+
+{% endblock %}

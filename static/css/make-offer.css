@@ -1,0 +1,18 @@
+.header-text {
+    width: 50%;
+    margin: auto;
+}
+
+.container {
+    color: white;
+    margin-top: 3em;
+    width: 35em;
+}
+
+.row {
+    margin-left: 5em;
+}
+
+.form-control {
+    margin-bottom: 1em;
+}
