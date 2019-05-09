@@ -15,3 +15,4 @@ class Profile(models.Model):
     ssn = models.CharField(max_length= 11)
 
 
+

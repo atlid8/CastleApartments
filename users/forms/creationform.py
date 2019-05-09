@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
-from users.models import Profile
+from users.models import Profile, Postcode
 
 
 class UserCreationForm(forms.ModelForm):
@@ -46,8 +46,8 @@ class UserCreationForm(forms.ModelForm):
 
 
 class ProfileCreationForm(forms.ModelForm):
-    zip = forms.CharField(label='zip',
-                    widget=forms.TextInput(attrs={'placeholder': 'zip'}))
+    postcode = forms.CharField(label='postcode',
+                    widget=forms.TextInput(attrs={'placeholder': 'postcode'}))
     profile_image = forms.CharField(label='profile_image', widget=forms.TextInput)
     street = forms.CharField(label='street',
                     widget=forms.TextInput(attrs={'placeholder': 'street name'}))
@@ -59,10 +59,13 @@ class ProfileCreationForm(forms.ModelForm):
 
     class Meta:
         model = Profile
-        fields = ('zip', 'profile_image', 'street', 'housenumber', 'ssn')
+        fields = ('profile_image', 'street', 'housenumber', 'ssn')
 
     def save(self, user_id, commit=True):
         profile = super(ProfileCreationForm, self).save(commit=False)
-        profile.set_user(user_id)
+        user_id_number  = User.objects.filter(id=user_id)
+        profile.user = user_id_number
+        postcode = Postcode.objects.filter(postcode='postcode')
+        profile.postcode = postcode
         profile.save()
         return profile
