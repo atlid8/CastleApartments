@@ -1,0 +1,17 @@
+section {
+    margin-top: 1000px;
+    margin-bottom: 1000px;
+}
+h3 {
+    color: white;
+    text-align: center;
+}
+#slider-container {
+    border: 1px solid yellow;
+    height: 5000px;
+}
+.slier1 {
+    width: 20em;
+    float: left;
+    border: 1px solid red;
+}
