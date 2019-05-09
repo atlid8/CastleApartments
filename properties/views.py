@@ -18,6 +18,9 @@ def get_property_by_id(request, id):
 def payments(request):
     return render(request, 'payments/payments.html')
 
+def make_offer(request):
+    return render(request, 'payments/make-offer.html')
+
 def create(request):
     return render(request, 'properties/create_property.html')
 
