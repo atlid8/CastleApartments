@@ -1,5 +1,4 @@
 from django.db import models
-from users.models import UserInfo
 
 # Create your models here.
 class Property(models.Model):
