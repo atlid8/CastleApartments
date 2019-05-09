@@ -1,17 +1,31 @@
-* {
-    color: white;
-}
-
-.container {
-    margin-top: 5em;
+#payment-details {
+    display: inline-block;
     position: relative;
-}
-
-#container-2 {
-    position: absolute;
+    width: 18%;
     top: 5em;
+    color: red;
+    right: 0;
 }
-
 #expityMonth {
     margin-bottom: 1em;
+}
+#payment-receipt {
+    display: inline-block;
+    margin-top: 5em;
+    left: 0;
+    position: relative;
+    color: white;
+}
+.table {
+    color:white;
+}
+.container{
+    border: 1px solid white;
+}
+.row {
+    border: 1px solid yellow;
+}
+.container {
+    height: 500px;
+    width: 5000px;
 }
