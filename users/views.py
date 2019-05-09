@@ -22,4 +22,5 @@ def front_page_admin(request):
     return render(request, 'front_page/front_page_admin.html')
 
 def my_profile(request):
-    return render(request, 'users/my_profile.html')
+    context = {'castles': Property.objects.all()}
+    return render(request, 'users/my-profile.html', context)
