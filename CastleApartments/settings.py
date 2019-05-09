@@ -131,3 +131,6 @@ STATICFILES_DIRS = [
     os.path.join(STATIC_URL, "js"),
     os.path.join(BASE_DIR, "static"),
 ]
+
+LOGIN_URL = '/users/dennislog'
+LOGIN_REDIRECT_URL = "/"

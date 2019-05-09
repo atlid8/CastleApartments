@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from properties.models import Property
+from django.contrib.auth.forms import UserCreationForm
 
 # Create your views here.
 def login(request):
@@ -24,3 +25,13 @@ def front_page_admin(request):
 def my_profile(request):
     context = {'castles': Property.objects.all()}
     return render(request, 'users/my-profile.html', context)
+
+def register(request):
+    if request.method == 'POST':
+        form = UserCreationForm(data=request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('dennislog') #TODO:Check if this is the right path
+    return render(request, 'users/register.html', {
+        'form': UserCreationForm()
+    })

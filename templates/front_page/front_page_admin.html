@@ -1,0 +1,116 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load static %}
+
+    <script src="{% static 'js/admin-app.js' %}"></script>
+
+<!--Bootsrap 4 CDN-->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+<!--Fontawesome CDN-->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+<!--Custom styles-->
+<link rel="stylesheet" type="text/css" href="{% static 'css/front-page-admin.css' %}"/>
+
+
+
+    <div class="container">
+    <h3>Administrative table</h3>
+
+<div class="tab">
+    <button class="tablinks" disabled>View by:</button>
+  <button class="tablinks" onclick="openCity(event, 'employees')">Employees</button>
+  <button class="tablinks" onclick="openCity(event, 'customers')">Customers</button>
+  <button class="tablinks" onclick="openCity(event, 'properties')">Properties</button>
+</div>
+<div id="employees" class="tabcontent">
+  <h3>Here we'll display the employees</h3>
+    <table style="width:100%">
+  <tr>
+    <th>Name</th>
+    <th>email</th>
+    <th>Phone</th>
+      <th></th>
+  </tr>
+  <tr>
+    <td>Drowned God</td>
+    <td>dg@dg.com</td>
+    <td>693-4229</td>
+      <td><a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+      <a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a></td>
+  </tr>
+  <tr>
+    <td>Robert Baratheon</td>
+    <td>titsandwine@kingslanding.de</td>
+    <td>695-2323</td>
+      <td><a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+      <a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a></td>
+  </tr>
+</table>
+  <span aria-hidden="true" onclick="this.parentElement.style.display='none'"><h3>&times;</h3></span></span>
+</div>
+
+
+<div id="customers" class="tabcontent">
+  <h3>Here we'll display the customers</h3>
+    <table style="width:100%">
+  <tr>
+    <th>Name</th>
+    <th>email</th>
+    <th>Phone</th>
+      <th></th>
+  </tr>
+  <tr>
+    <td>Drowned God</td>
+    <td>dg@dg.com</td>
+    <td>693-4229</td>
+      <td><a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+      <a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a></td>
+  </tr>
+  <tr>
+    <td>Robert Baratheon</td>
+    <td>titsandwine@kingslanding.de</td>
+    <td>695-2323</td>
+      <td><a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+      <a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a></td>
+  </tr>
+</table>
+  <span aria-hidden="true" onclick="this.parentElement.style.display='none'"><h3>&times;</h3></span></span>
+</div>
+
+<div id="properties" class="tabcontent">
+  <h3>Here we'll display the properties</h3>
+    <table style="width:100%">
+  <tr>
+    <th>Name</th>
+    <th>Seller</th>
+    <th>Price</th>
+      <th></th>
+  </tr>
+  <tr>
+    <td>Highgarden</td>
+    <td>Joffrey</td>
+    <td>70000</td>
+      <td><a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+      <a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a></td>
+  </tr>
+  <tr>
+    <td>King's Landing</td>
+    <td>The King</td>
+    <td>10000000</td>
+      <td><a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+      <a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a></td>
+  </tr>
+</table>
+    <span aria-hidden="true" onclick="this.parentElement.style.display='none'"><h3>&times;</h3></span></span>
+
+</div>
+</div>
+
+
+</div>
+{% endblock %}
