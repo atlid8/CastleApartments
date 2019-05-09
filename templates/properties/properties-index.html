@@ -27,17 +27,46 @@
     </style>
     <body>
         <div class="container" id="slider-container">
-            <div class="slier1">
-                <input type="text" class="js-range-slider" name="my_range" value="" />
+            <div class="col-one">
                 <h3>Price</h3>
                 <input type="text" class="js-range-slider" name="my_range" value="" />
+                <select class="form-control">
+                    <option value="" disabled selected>Zip</option>
+                    <option>100</option>
+                    <option>200</option>
+                    <option>300</option>
+                    <option>400</option>
+                    <option>500</option>
+                    <option>600</option>
+                    <option>700</option>
+                    <option>800</option>
+                    <option>900</option>
+                </select>
+            </div>
+            <div class="col-two">
                 <h3>Square meters</h3>
                 <input type="text" class="js-range-slider" name="my_range" value="" />
+                <select class="form-control">
+                    <option value="" disabled selected>Order by</option>
+                    <option>Price</option>
+                    <option>Size</option>
+                    <option>Popularity</option>
+                    <option>Rooms</option>
+                </select>
+            </div>
+            <div class="col-three">
                 <h3>Rooms</h3>
+                <input type="text" class="js-range-slider" name="my_range" value="" />
+                <select class="form-control">
+                    <option value="" disabled selected>Search</option> #TODO: Add search history for loop
+                    <option>The North</option>
+                    <option>The Mountain and the Vale</option>
+                </select>
             </div>
         </div>
-
-
+        <div class="header-text">
+            <h3>Your sales properties</h3>
+        </div>
         <div class="album py-5 bg-transparent">
             <div class="container">
                 <div class="row">

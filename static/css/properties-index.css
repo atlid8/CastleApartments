@@ -7,11 +7,74 @@ h3 {
     text-align: center;
 }
 #slider-container {
-    border: 1px solid yellow;
-    height: 5000px;
+    height: 12em;
+    margin-top: 3em;
 }
-.slier1 {
+.form-control {
+    margin-top: 2em;
+}
+.col-one, .col-two, .col-three {
     width: 20em;
+    margin: 0 auto;
+}
+.col-one {
     float: left;
-    border: 1px solid red;
+}
+.col-two {
+    float: right;
+}
+.header-text {
+    width: 51%;
+    color:white;
+    height: 4em;;
+    text-align: center;
+    background-color: rgba(255,255,255, 0.2);
+    padding-top: 0.65em;
+    border-bottom-left-radius: 1em;
+    border-top-right-radius: 1em;
+    margin: auto;
+}
+
+#castle-name {
+    font-size: 1.5em;
+}
+
+.col-md-3 {
+    margin-top: 2em;
+    color: white;
+}
+
+.card {
+    background-color: transparent;
+}
+
+.card-img-top {
+    background-size: cover;
+    max-width: 253px;
+    max-height: 180px;
+}
+
+.card-body {
+    height: 145px;
+    background-color: rgba(255,255,255, 0.4);
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.card-text {
+    font-size: 0.75em;
+    justify-content: space-between;
+    align-items: center;
+}
+.irs--flat .irs-bar {
+    background-color: #656b74 !important;
+}
+.irs--flat .irs-from, .irs--flat .irs-to, .irs--flat .irs-single {
+    background-color: #656b74 !important;
+}
+.irs--flat .irs-handle>i:first-child {
+    background-color: #656b74 !important;
+}
+.irs--flat .irs-from:before, .irs--flat .irs-to:before, .irs--flat .irs-single:before {
+    border-top-color: #656b74 !important;
 }
