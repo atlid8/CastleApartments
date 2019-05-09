@@ -1,0 +1,26 @@
+#payment-receipt, #payment-details{
+    display: inline-block;
+    color: white;
+    position: relative;
+}
+#payment-receipt{
+    margin-top: 5em;
+    left: 0;
+    max-width: 25%;
+}
+#payment-details{
+    max-width: 20%;
+    top: 5em;
+    right: 0;
+}
+#expiry-month{
+    margin-bottom: 1em;
+}
+
+.table{
+    color:white;
+}
+/*.row {*/
+/*    width: inherit;*/
+/*    height: inherit;*/
+/*}*/
