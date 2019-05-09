@@ -63,9 +63,9 @@ class ProfileCreationForm(forms.ModelForm):
 
     def save(self, user_id, commit=True):
         profile = super(ProfileCreationForm, self).save(commit=False)
-        user_id_number  = User.objects.filter(id=user_id)
+        user_id_number  = User.objects.filter(id=user_id).first()
         profile.user = user_id_number
-        postcode = Postcode.objects.filter(postcode='postcode')
+        postcode = Postcode.objects.filter(postcode=self.postcode).first()
         profile.postcode = postcode
         profile.save()
         return profile
