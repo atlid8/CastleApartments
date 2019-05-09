@@ -3,6 +3,8 @@ from django.shortcuts import render, redirect
 from properties.models import Property
 from users.forms.creationform import UserCreationForm, ProfileCreationForm
 from users.models import Profile
+from django.shortcuts import render, get_object_or_404
+
 
 # Create your views here.
 def login(request):
@@ -50,3 +52,10 @@ def profile(request):
     return render(request, 'users/profile.html', {
         'form': ''
     })
+
+
+def my_property(request, id):
+    return render(request, 'users/my_property.html',
+                  {'castle': get_object_or_404(Property, pk=id)
+                   })
+
