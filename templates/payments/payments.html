@@ -4,77 +4,20 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <link rel="stylesheet" href="{% static 'css/payment.css' %}">
+    <link rel="stylesheet" href="{% static 'css/payments.css' %}">
     <script type="text/javascript" src="{% static 'js/payments-app.js' %}"></script>
     <title>Payments</title>
 </head>
 
 <body>
 
-<div class="container">
+<div class="px-4" id="px4-container">
     <div class="row" >
-        <div class="well col-xs-10 col-sm-10 col-md-6 col-xs-offset-1 col-sm-offset-1 col-md-offset-3" id="payment-receipt">
-            <div class="row" id="castle-information">
-                <div class="col-xs-6 col-sm-6 col-md-6">
-                    <address>
-                        <strong>Castle Name</strong><br/>
-                        <p>Address, zip etc</p><br/>
-                        <p>Kingdom</p>
-                    </address>
-                </div>
-                <div class="col-xs-6 col-sm-6 col-md-6 text-right">
-                    <p><script >document.write(getdate())</script></p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="text-center">
-                    <h1>Receipt</h1>
-                </div>
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th>Product</th>
-                            <th>#</th>
-                            <th class="text-center">Price</th>
-                            <th class="text-center">Total</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="col-md-9"><em>Castle name</em></td>
-                            <td class="col-md-1"> 1 </td>
-                            <td class="col-md-1 text-center">9.800.800</td>
-                            <td class="col-md-1 text-center">9.800.800</td>
-                        </tr>
-                        <tr>
-                            <td>   </td>
-                            <td>   </td>
-                            <td class="text-right">
-                                <p><strong>Subtotal:</strong></p>
-                                <p><strong>Tax:</strong></p>
-                            </td>
-                            <td class="text-center">
-                                <p><strong>9.800.800</strong></p>
-                                <p><strong>490.040</strong></p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>   </td>
-                            <td>   </td>
-                            <td class="text-right"><h4><strong>Total: </strong></h4></td>
-                            <td class="text-center text-danger"><h4><strong>10.290.840</strong></h4></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
         <div class="col-xs-12 col-md-4 ml-auto" id="payment-details">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Payment Details
-                    </h3>
-                    <div class="checkbox pull-right">
-                    </div>
+                    <h2 class="panel-title">Payment Details</h2>
+                    <div class="checkbox pull-right"></div>
                 </div>
                 <div class="panel-body">
                     <form role="form">
@@ -88,26 +31,68 @@
                     <div class="row">
                         <div class="col-xs-7 col-md-7">
                             <div class="form-group">
-                                <label for="expityMonth">EXPIRY DATE</label>
-                                <div class="col-xs-6 col-lg-6 pl-ziro">
-                                    <input type="text" class="form-control" id="expityMonth" placeholder="MM" required />
-                                </div>
-                                <div class="col-xs-6 col-lg-6 pl-ziro">
-                                    <input type="text" class="form-control" id="expityYear" placeholder="YY" required />
+                                <label>EXPIRY DATE</label>
+                                <div class="col-lg-6 pl-ziro">
+                                    <input type="text" class="form-control" id="expiry-month" placeholder="MM" required />
+                                    <input type="text" class="form-control" id="expiry-year" placeholder="YY" required />
                                 </div>
                             </div>
                         </div>
                         <div class="col-xs-5 col-md-5 pull-right">
                             <div class="form-group">
-                                <label for="cvCode">CV CODE</label>
-                                <input type="password" class="form-control" id="cvCode" placeholder="CV" required />
+                                <label for="cvcCode">CVC CODE</label>
+                                <input type="text" class="form-control" placeholder="CVC" required />
                             </div>
                         </div>
                     </div>
                     </form>
                 </div>
-            </div><br/>
-            <a href="http://www.jquery2dotnet.com" class="btn btn-success btn-lg btn-block" role="button">Pay</a>
+            </div>
+            <a href="http://www.jquery2dotnet.com" id="pay-button" class="btn btn-success btn-lg btn-block" role="button">Pay</a>
+        </div>
+        <div class="well col-xs-10 col-sm-10 col-md-6 col-xs-offset-1 col-sm-offset-1 col-md-offset-3" id="payment-receipt">
+            <div class="row">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th class="tr-font border-top-0 border-bottom-0">Receipt</th>
+                            <th class="tr-font border-top-0 border-bottom-0"><script>document.write(getdate())</script></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th class="border-top-0">Product</th>
+                            <th class="border-top-0">#</th>
+                            <th class="text-center border-top-0">Price</th>
+                            <th class="text-center border-top-0">Total</th>
+                        </tr>
+                        <tr>
+                            <td class="col-md-9"><em>Castle name</em></td>
+                            <td class="col-md-1"> 1 </td>
+                            <td class="col-md-1 text-center">988.800.800</td>
+                            <td class="col-md-1 text-center">988.800.800</td>
+                        </tr>
+                        <tr>
+                            <td>   </td>
+                            <td>   </td>
+                            <td class="text-right">
+                                <p><strong>Subtotal:</strong></p>
+                                <p><strong>Tax:</strong></p>
+                            </td>
+                            <td class="text-center">
+                                <p><strong>988.800.800</strong></p>
+                                <p><strong>488890.040</strong></p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>   </td>
+                            <td>   </td>
+                            <td class="text-right"><h4><strong>Total: </strong></h4></td>
+                            <td class="text-center text-danger"><h4><strong>1000.290.840</strong></h4></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>

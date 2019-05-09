@@ -2,25 +2,51 @@
     display: inline-block;
     color: white;
     position: relative;
+    margin: 0 auto;
+
 }
 #payment-receipt{
-    margin-top: 5em;
-    left: 0;
+    /*margin-top: 5em;*/
+    right: 15em;
     max-width: 25%;
 }
 #payment-details{
     max-width: 20%;
-    top: 5em;
-    right: 0;
+    left: 15em;
+}
+#expiry-month, #expiry-year{
+    display: inline-block;
+    position: relative;
 }
 #expiry-month{
-    margin-bottom: 1em;
+    margin-bottom: 0.5em;
+}
+#px4-container{
+    margin-top: 10em;
 }
 
+#getDate{
+    display: block;
+    position: relative;
+    left: 7.2em;
+}
+#pay-button{
+    margin-top: 0.1em;
+}
+.tr-font{
+    font-size: 1.5em;
+    font-weight: bold;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";}
 .table{
     color:white;
 }
-/*.row {*/
-/*    width: inherit;*/
-/*    height: inherit;*/
-/*}*/
+.row {
+    width: inherit;
+    height: inherit;
+}
+.text-danger {
+    color:greenyellow !important;
+}
+.form-group {
+    margin-bottom: 0.5rem !important;
+}
