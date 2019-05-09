@@ -1,8 +1,19 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-     <link rel="stylesheet" href="{% static 'css/property_details.css' %}">
+    <!doctype html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <link rel="stylesheet" href="{% static 'css/fuckface.css' %}">
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+        <script type="text/javascript" src="{% static 'js/app.js' %}"></script>
+        <title>Document</title>
+    </head>
 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
@@ -33,7 +44,8 @@
 <p> {{ castle.userinfo_id.email}}</p>
 
 
-
+            <a id="left-front-button" type="button" class="btn btn-outline"">Make offer</a> {# TODO: Add a link here for making an offer #}
+            <a id="right-front-button" type="button" class="btn btn-outline-primary" href="checkout">Buy now</a>
 
 
 

@@ -12,3 +12,9 @@ class UserInfo(models.Model):
 class UserImage(models.Model):
     display_picture = models.CharField(max_length=999)
     userid = models.ForeignKey(UserInfo, on_delete=models.CASCADE)
+
+
+class UserLogin(models.Model):
+    username = models.CharField(max_length=255)
+    password = models.CharField(max_length=255)
+    user = models.ForeignKey(UserInfo, on_delete=models.CASCADE)
