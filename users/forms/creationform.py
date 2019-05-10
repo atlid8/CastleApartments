@@ -51,15 +51,15 @@ class ProfileCreationForm(forms.ModelForm):
     profile_image = forms.CharField(label='profile_image', widget=forms.TextInput)
     street = forms.CharField(label='street',
                     widget=forms.TextInput(attrs={'placeholder': 'street name'}))
-    housenumber = forms.CharField(label='housenumber',
-                    widget=forms.TextInput(attrs={'placeholder': 'House number'}))
+    house_number = forms.IntegerField(label='house_number',
+                    widget=forms.NumberInput(attrs={'placeholder': 'House number'}))
     ssn = forms.CharField(label='ssn',
                     widget=forms.TextInput(attrs={'placeholder': 'SSN'}))
 
 
     class Meta:
         model = Profile
-        fields = ('profile_image', 'street', 'housenumber', 'ssn')
+        fields = ('profile_image', 'street', 'house_number', 'ssn')
 
 
     def save(self, user_id, postcode, commit=True):
