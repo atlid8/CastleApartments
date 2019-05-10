@@ -18,7 +18,6 @@
     height: 25rem;
     width: 25rem;
     margin-top: 2em;
-    margin-bottom: 1em;
 }
 
 h1.castle-name {
@@ -41,6 +40,7 @@ p {
 .information-castle {
     width: 40%;
     margin: auto;
+    margin-top: 1.5em;
     background-color: rgba(255,255,255, 0.2);
     border-radius: 1em;
     padding: 0.5em;
