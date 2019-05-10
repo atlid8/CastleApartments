@@ -1,0 +1,91 @@
+
+{%  extends 'base.html' %}
+
+{% block content %}
+
+{% load static %}
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+<link rel="stylesheet" type="text/css" href="{% static 'css/signup.css' %}"/>
+
+<div class="card bg-light">
+<article class="card-body mx-auto">
+	<h4 class="card-title">Sign up</h4>
+	<p class="sub-title">Get started with your free account</p>
+	<form method="post">
+            {% csrf_token %}
+	<div class="input-row"><div class="form-group input-group">
+		<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+		 </div>
+    {{ form.username }}
+    </div></div> <!-- form-group// -->
+		<div class="form-group input-group">
+		<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-address-card"></i> </span>
+		 </div>
+        {{ form2.postcode }}
+    </div> <!-- form-group// -->
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+		 </div>
+        {{ form.email }}
+    </div> <!-- form-group// -->
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-flag"></i> </span>
+		</div>
+		{{ form2.street }}
+	</div> <!-- form-group end.// -->
+        <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+		</div>
+        {{ form2.house_number }}
+    </div> <!-- form-group// -->
+        <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+		</div>
+        {{ form2.profile_image }}
+    </div> <!-- form-group// -->
+        <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+		</div>
+        {{ form2.ssn }}
+    </div> <!-- form-group// -->
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+		</div>
+        {{ form.password1 }}
+    </div> <!-- form-group// -->
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+		</div>
+        {{ form.password2 }}
+    </div> <!-- form-group// -->
+    <div class="form-group" id="create-button-container">
+        <input type="submit"  id="create-button" class="btn btn-primary" value="Create Account">
+    </div> <!-- form-group// -->
+    <p class="sub-title">Have an account? <a href="">Log In</a> </p>
+</form>
+</article>
+</div> <!-- card.// -->
+
+</div>
+<!--container end.//-->
+
+</div>
+<br><br>
+</article>
+
+{% endblock %}
