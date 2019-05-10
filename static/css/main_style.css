@@ -24,6 +24,7 @@ html,body{
 }
 #right-front-button {
     margin-left: 12em;
+
 }
 #right-front-button:hover{
     background-color: white;
@@ -62,11 +63,21 @@ html,body{
     transform: translate(-50%, -50%);
 }
 
-#dropdownMenuButton:active{
-    border-color: red;
+
+
+.dropdown {
+    border: none;
+    background: none;
+
 }
-.dropdown{
-    background-color: red;
+.dropdown:active{
+    border: none;
+    background: none;
+
+}
+
+.dropdown show{
+    border: none;
 }
 .dropdown-menu{
     background-color: transparent !important;
@@ -83,7 +94,7 @@ html,body{
 }
 
 .profile-image{
-    background-color: white;
+
 }
 .card-img-top {
     width: 100%;
@@ -96,11 +107,13 @@ html,body{
 }
 
 .header-item{
+
     margin-right: 2em;
+    margin-top: 1em;
     color: whitesmoke;
 }
 
 .header-item:hover{
-    margin-right: 3em;
-    color: whitesmoke;
+
+    color: lightcyan;
 }

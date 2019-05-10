@@ -7,8 +7,8 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Castle Apartments</title>
-    <link rel="stylesheet" href="{% static 'css/main-style.css' %}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/main_style.css' %}">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
@@ -24,23 +24,34 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="/users/login" id="sign-in">Sign In</a>
-                </li>
+
                 {% if user.is_authenticated %}
-                    <li><a href = "{% url 'logout' %}">Logout</a></li>
+                     <div class="header-item">Hello, {{ user.username }}</div>
+                    <div class="dropdown">
+                              <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                               <img src=https://i0.wp.com/www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png?resize=256%2C256&quality=100&ssl=1" class="profile-image" style="width:40px;height:40px;" class="profile-imagestyle="width:30px;height:30px;>
+
+                              </button>
+
+
+                              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href = "/users/my-profile/">My profile</a>
+                                <a class="dropdown-item" href = "/users/my-properties/1/">My properties</a>
+                                <a class="dropdown-item" href = "{% url 'logout' %}">Logout</a>
+                              </div>
+                            </div>
                 {% else %}
-                <li> <a href="{% url 'dennislog' %}">Login</a></li>
-                <li> <a href="{% url 'register' %}">Register</a></li>
+                    <li><a class="header-item" href = "{% url 'login-page' %}">Log In</a></li>
                 {% endif %}
             </ul>
+
         </div>
     </nav>
 
     {% block content %}
         <div class="front-buttons">
-            <a id="left-front-button" type="button" class="btn btn-outline" href="properties">Search properties</a>
-            <a id="right-front-button" type="button" class="btn btn-outline-primary" href="#">Sell properties</a> {# TODO: Add a link here for selling properties #}
+            <a id="left-front-button" type="button" class="btn btn-outline" href="/properties/search">Search properties</a>
+            <a id="right-front-button" type="button" class="btn btn-outline-primary" href="/properties/create">Sell properties</a> {# TODO: Add a link here for selling properties #}
         </div>
 
     {#Prufa a sliding websit#}
@@ -48,7 +59,7 @@
 
     <footer class="footer">
         <div>
-            <a href="/about-us" id="about-us">About us </a>
+            <a href="/users/about-us" id="about-us">About us </a>
             <p id="copyright">© 2019 Copyright: Castle Apartments</p>
         </div>
     </footer>

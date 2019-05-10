@@ -1,0 +1,52 @@
+#carouselExampleControls {
+    height: 25rem;
+    width: 25rem;
+    margin: auto;
+}
+
+.carousel-inner {
+    height: 25rem;
+    width: 25rem;
+}
+
+.carousel-item {
+    height: 25rem;
+    width: 25rem;
+}
+
+.d-block {
+    height: 25rem;
+    width: 25rem;
+    margin-top: 2em;
+}
+
+h1.castle-name {
+    color: white;
+    width: 50%;
+    text-align: center;
+    background-color: rgba(255,255,255, 0.1);
+    border-bottom-left-radius: 1em;
+    border-top-right-radius: 1em;
+    margin: auto;
+    padding-top: 0.2em;
+    padding-bottom: 0.2em;
+}
+
+p {
+    color: white;
+    padding-top: 0.3em;
+}
+
+.information-castle {
+    width: 40%;
+    margin: auto;
+    margin-top: 1.5em;
+    background-color: rgba(0,0,0, 0.4);
+    border-radius: 1em;
+    padding: 0.5em;
+}
+
+.buy-now-and-offer {
+    margin-top: 2em;
+    text-align: center;
+}

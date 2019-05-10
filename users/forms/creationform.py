@@ -12,18 +12,21 @@ class UserCreationForm(forms.ModelForm):
         'password_mismatch': ("The two password fields didn't match."),
     }
     password1 = forms.CharField(label=("Password"),
-        widget=forms.PasswordInput(attrs={'placeholder': 'password'}))
+        widget=forms.PasswordInput(attrs={'placeholder': 'password', 'class':'form-input-field'}))
     password2 = forms.CharField(label=("Password confirmation"),
-        widget=forms.PasswordInput(attrs={'placeholder': 'password'}))
+        widget=forms.PasswordInput(attrs={'placeholder': 'password', 'class':'form-input-field'}))
     username = forms.CharField(label='username',
-                    widget=forms.TextInput(attrs={'placeholder': 'username'}))
+                    widget=forms.TextInput(attrs={'placeholder': 'username', 'class':'form-input-field'}))
     email = forms.CharField(label='email',
-                    widget=forms.TextInput(attrs={'placeholder': 'email'}))
-
+                    widget=forms.TextInput(attrs={'placeholder': 'email', 'class':'form-input-field'}))
+    first_name = forms.CharField(label='first_name',
+                    widget=forms.TextInput(attrs={'placeholder': 'first name','class':'form-input-field'}))
+    last_name = forms.CharField(label='last_name',
+                                 widget=forms.TextInput(attrs={'placeholder': 'last name', 'class': 'form-input-field'}))
 
     class Meta:
         model = User
-        fields = ("username", "email", )
+        fields = ("username", "email", "first_name", "last_name")
 
 
     def clean_password2(self):
@@ -47,14 +50,14 @@ class UserCreationForm(forms.ModelForm):
 
 class ProfileCreationForm(forms.ModelForm):
     postcode = forms.CharField(label='postcode',
-                    widget=forms.TextInput(attrs={'placeholder': 'postcode'}))
-    profile_image = forms.CharField(label='profile_image', widget=forms.TextInput)
+                    widget=forms.TextInput(attrs={'placeholder': 'postcode', 'class':'form-input-field'}))
+    profile_image = forms.CharField(label='profile_image', widget=forms.TextInput(attrs={'placeholder': 'profile image', 'class':'form-input-field'}))
     street = forms.CharField(label='street',
-                    widget=forms.TextInput(attrs={'placeholder': 'street name'}))
+                    widget=forms.TextInput(attrs={'placeholder': 'street name', 'class':'form-input-field'}))
     house_number = forms.IntegerField(label='house_number',
-                    widget=forms.NumberInput(attrs={'placeholder': 'House number'}))
+                    widget=forms.NumberInput(attrs={'placeholder': 'house number', 'class':'form-input-field'}))
     ssn = forms.CharField(label='ssn',
-                    widget=forms.TextInput(attrs={'placeholder': 'SSN'}))
+                    widget=forms.TextInput(attrs={'placeholder': 'ssn', 'class':'form-input-field'}))
 
 
     class Meta:
