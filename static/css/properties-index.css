@@ -10,6 +10,12 @@ h3 {
     height: 12em;
     margin-top: 3em;
 }
+#castle-name {
+    font-size: 1.5em;
+}
+#slider-container-hidden {
+    visibility: hidden;
+}
 .form-control {
     margin-top: 2em;
 }
@@ -34,11 +40,6 @@ h3 {
     border-top-right-radius: 1em;
     margin: auto;
 }
-
-#castle-name {
-    font-size: 1.5em;
-}
-
 .col-md-3 {
     margin-top: 2em;
     color: white;
@@ -77,4 +78,105 @@ h3 {
 }
 .irs--flat .irs-from:before, .irs--flat .irs-to:before, .irs--flat .irs-single:before {
     border-top-color: #656b74 !important;
+}
+
+/*Settings below are regarding responsive website*/
+/*When the website is above 1202px*/
+@media screen and (min-width: 1202px) {
+        .header-text {
+            min-width: 45em;
+            max-width: 45em;
+    }
+}
+/*When the website is above 992px and below 1201px*/
+@media screen and (max-width: 1201px) and (min-width: 992px) {
+    .col-one,.col-two, .col-three {
+        width: 30%;
+    }
+    .header-text {
+        max-width: 35em;
+        min-width: 35em;
+    }
+}
+/*When the website is above 769px and below 991px*/
+@media screen and (max-width: 991px) and (min-width: 769px) {
+    /*#TODO: Try to put two or three properties per line instead of four*/
+    .col-one,.col-two, .col-three {
+        width: 30%;
+    }
+    .header-text {
+        max-width: 35em;
+        min-width: 35em;
+    }
+    .col-md-3 {
+        max-width: 25%;
+        min-width: 25%;
+    }
+
+
+}
+/*When the website is above 601px and below 768px*/
+@media screen and (max-width: 768px) and (min-width: 601px) {
+    /*#TODO: Try to put two properties per line instead of four and maybe change 'square meters to m2'*/
+    h3 {
+        text-align: center;
+        padding-bottom: 1em;
+    }
+    #slider-container {
+        width: 100%;
+        margin-top: unset;
+        color: white;
+        height: auto;
+        margin-bottom: 2em;
+    }
+    .col-one,.col-two, .col-three {
+        width: 30%;
+    }
+    .card-img-top{
+        margin: 0 auto;
+    }
+    .card-body{
+        max-width: 15.8em;
+        min-width: 15.8em;
+        margin: 0 auto;
+    }
+    .col-md-3 {
+    margin-top: unset;
+    }
+    .header-text {
+        max-width: 27em;
+        min-width: 27em;
+    }
+}
+/*When the website is below 600px*/
+@media screen and (max-width: 600px) {
+    /*#TODO: Change color of the hamburger*/
+    h1, p {
+        text-align: center;
+    }
+    #slider-container {
+        width: 100%;
+        margin-top: unset;
+        color: white;
+        height: auto;
+        margin-bottom: 2em;
+    }
+    .col-one,.col-two, .col-three {
+        float: unset;
+    }
+    .header-text {
+        min-width: 20em;
+        max-width: 20em;
+    }
+    .card-img-top{
+        margin: 0 auto;
+    }
+    .card-body{
+        max-width: 15.8em;
+        min-width: 15.8em;
+        margin: 0 auto;
+    }
+    .col-md-3 {
+    margin-top: unset;
+    }
 }

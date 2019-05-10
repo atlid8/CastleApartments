@@ -1,7 +1,7 @@
 // Changes title to 'blah'
-$(document).ready(function() {
-    document.title = 'blah';
-});
+// $(document).ready(function() {
+//     document.title = 'blah';
+// });
 
 // Creates the slider
 $(document).ready(function () {
