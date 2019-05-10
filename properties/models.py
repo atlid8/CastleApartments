@@ -22,7 +22,7 @@ class PropertyImage(models.Model):
 
 class Castle(models.Model):
     name = models.CharField(max_length=255)
-    zip = models.IntegerField()
+    postcode = models.IntegerField()
     price = models.IntegerField()
     commission = models.IntegerField()
     rooms = models.IntegerField()
