@@ -19,11 +19,14 @@ class UserCreationForm(forms.ModelForm):
                     widget=forms.TextInput(attrs={'placeholder': 'username', 'class':'form-input-field'}))
     email = forms.CharField(label='email',
                     widget=forms.TextInput(attrs={'placeholder': 'email', 'class':'form-input-field'}))
-
+    first_name = forms.CharField(label='first_name',
+                    widget=forms.TextInput(attrs={'placeholder': 'first name','class':'form-input-field'}))
+    last_name = forms.CharField(label='last_name',
+                                 widget=forms.TextInput(attrs={'placeholder': 'last name', 'class': 'form-input-field'}))
 
     class Meta:
         model = User
-        fields = ("username", "email", )
+        fields = ("username", "email", "first_name", "last_name")
 
 
     def clean_password2(self):

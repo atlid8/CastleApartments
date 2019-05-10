@@ -19,47 +19,29 @@
 	<p class="sub-title">Get started with your free account</p>
 	<form method="post">
             {% csrf_token %}
+    <div class="input-row"><div class="form-group input-group">
+		<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+		 </div>
+    {{ form.first_name }}
+    </div>
+    <div class="input-row"><div class="form-group input-group">
+		<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+		 </div>
+    {{ form.last_name }}
+    </div>
 	<div class="input-row"><div class="form-group input-group">
 		<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
 		 </div>
     {{ form.username }}
-    </div></div> <!-- form-group// -->
-		<div class="form-group input-group">
-		<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-address-card"></i> </span>
-		 </div>
-        {{ form2.postcode }}
-    </div> <!-- form-group// -->
+    </div>
     <div class="form-group input-group">
     	<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
 		 </div>
         {{ form.email }}
-    </div> <!-- form-group// -->
-    <div class="form-group input-group">
-    	<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-flag"></i> </span>
-		</div>
-		{{ form2.street }}
-	</div> <!-- form-group end.// -->
-        <div class="form-group input-group">
-    	<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-		</div>
-        {{ form2.house_number }}
-    </div> <!-- form-group// -->
-        <div class="form-group input-group">
-    	<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-		</div>
-        {{ form2.profile_image }}
-    </div> <!-- form-group// -->
-        <div class="form-group input-group">
-    	<div class="input-group-prepend">
-		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-		</div>
-        {{ form2.ssn }}
     </div> <!-- form-group// -->
     <div class="form-group input-group">
     	<div class="input-group-prepend">
