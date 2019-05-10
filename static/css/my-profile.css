@@ -19,6 +19,8 @@ h3 {
 #castle-name {
     font-size: 1.5em;
     overflow-y: hidden;
+    position: absolute;
+    padding-bottom: 2em;
 }
 
 #after-first-text {
@@ -47,8 +49,14 @@ h3 {
     border-bottom-left-radius: 5px;
 }
 
-.card-text {
-    font-size: 0.75em;
+p.card-text {
+    margin-bottom: 0.3em;
+    max-height: 4.8em;
+    font-size: 0.8em;
     justify-content: space-between;
     align-items: center;
+    overflow-y: hidden;
+    margin-top: 2.8em;
 }
+
+
