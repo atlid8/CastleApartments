@@ -85,6 +85,12 @@ html,body{
 }
 
 .header-item{
+    margin-right: 2em;
     color: whitesmoke;
-
 }
+
+.header-item:hover{
+    margin-right: 3em;
+    color: whitesmoke;
+}
+

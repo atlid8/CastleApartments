@@ -26,14 +26,21 @@
             <ul class="navbar-nav ml-auto">
 
                 {% if user.is_authenticated %}
-                    <li><a class="header-item" href = "{% url 'logout' %}">Logout</a></li>
+                    <div class="dropdown">
+                              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                               Hello, {{ user.username }}
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href = "/users/my-profile/"">My profile</a>
+                                <a class="dropdown-item" href = "/users/my-properties/1/">My properties</a>
+                                <a class="dropdown-item" href = "{% url 'logout' %}">Logout</a>
+                              </div>
+                            </div>
                 {% else %}
                     <li><a class="header-item" href = "{% url 'login-page' %}">Log In</a></li>
                 {% endif %}
             </ul>
-                 {% if user.is_authenticated %}
-                    <p class="header-item">Hello, {{ user.username }}</p>
-                {% endif %}
+
         </div>
     </nav>
 
