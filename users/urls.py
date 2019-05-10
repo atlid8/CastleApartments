@@ -12,7 +12,7 @@ urlpatterns = [
     path('my-profile/', views.my_profile, name='password-reset'),
     path('admin/', views.front_page_admin, name='front-page-admin'),
     path('register/', views.register, name='register'),
-    path('dennislog', LoginView.as_view(template_name= 'users/dennislog.html'), name='dennislog'),
+
     path('logout', LogoutView.as_view(next_page='login/'), name='logout'), #TODO: breyta next page ef ekki virkar
     path('my-properties/<int:id>/', views.my_property, name="edit_property"),
 ]
