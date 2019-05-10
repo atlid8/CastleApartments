@@ -1,6 +1,7 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from properties.models import *
+from users.models import Profile
 from properties.forms.create import CastleCreationForm, CastleImageCreationForm
 
 # Create your views here.
@@ -26,16 +27,20 @@ def create(request):
     if request.method == 'POST':
         form = CastleCreationForm(data=request.POST)
         form2 =CastleImageCreationForm(data=request.POST)
-        if form.is_valid():
-            if form2.is_valid():
-                form.save()
-                user_id = User.objects.last()
-                postcode = form2['postcode'].value()
-                form2.save(user_id, postcode)
-                return redirect('dennislog') #TODO:Check if this is the right path
+        if form.is_valid() and form2.is_valid():
+            seller = Profile.objects.filter(user=request.user).first().user
+            verified = False
+            postcode = form['postcode'].value()
+            commission = int(form['price'].value()) * 0.1
+            form.save(seller, verified, postcode, commission)
+            the_castle = Castle.objects.last()
+            form2.save(the_castle)
+            castleid = str(Castle.objects.last().id)
+            return redirect('/') #TODO:Check if this is the right path
     return render(request, 'properties/create_property.html', {
         'form': CastleCreationForm(),
-        'form2': CastleImageCreationForm()
+        'form2': CastleImageCreationForm(),
+        'profile': Profile.objects.filter(user=request.user).first()
     })
 
 def edit_property(request, id):

@@ -1,5 +1,6 @@
 from django.db import models
 from users.models import User
+from users.models import Postcode
 
 # Create your models here.
 class Property(models.Model):
@@ -22,7 +23,7 @@ class PropertyImage(models.Model):
 
 class Castle(models.Model):
     name = models.CharField(max_length=255)
-    postcode = models.IntegerField()
+    postcode = models.ForeignKey(Postcode, on_delete=models.CASCADE)
     price = models.IntegerField()
     commission = models.IntegerField()
     rooms = models.IntegerField()
