@@ -14,5 +14,16 @@ class Profile(models.Model):
     house_number = models.IntegerField()
     ssn = models.CharField(max_length= 11)
 
+class Buyer(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    postcode = models.ForeignKey(Postcode, on_delete=models.CASCADE)
+    street = models.CharField(max_length=255)
+    house_number = models.IntegerField()
+    ssn = models.CharField(max_length= 11)
+
+class Seller(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    profile_image = models.CharField(max_length=9999)
+
 
 
