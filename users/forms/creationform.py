@@ -48,7 +48,7 @@ class UserCreationForm(forms.ModelForm):
 class ProfileCreationForm(forms.ModelForm):
     postcode = forms.CharField(label='postcode',
                     widget=forms.TextInput(attrs={'placeholder': 'postcode', 'class':'form-input-field'}))
-    profile_image = forms.CharField(label='profile_image', widget=forms.TextInput(attrs={'placeholder': 'Image link', 'class':'form-input-field'}))
+    profile_image = forms.CharField(label='profile_image', widget=forms.TextInput(attrs={'placeholder': 'image link', 'class':'form-input-field'}))
     street = forms.CharField(label='street',
                     widget=forms.TextInput(attrs={'placeholder': 'street name', 'class':'form-input-field'}))
     house_number = forms.IntegerField(label='house_number',
