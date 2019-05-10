@@ -1,3 +1,4 @@
+
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
@@ -11,20 +12,21 @@
    <article class="card-body mx-auto">
       <h3 class="card-title">Create property listing</h3>
       <p class="sub-title">Please fill out the following information:</p>
-      <form>
+      <form method="post">
+          {% csrf_token %}
          <div class="row">
             <div class="form-group input-group">
                <div class="input-group-prepend">
                   <span class="input-group-text"><i class="fab fa-fort-awesome"></i></span>
                </div>
-               <input name="" class="form-control" placeholder="castle name" type="text">
+               {{ form.name }}
             </div>
             <!-- form-group// -->
             <div class="form-group input-group">
                <div class="input-group-prepend">
                   <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                </div>
-               <input name="" disabled class="form-control" placeholder="Robert Baratheon" type="text">
+                    <input disabled="disabled" value="{{ profile.user.username}}">
             </div>
          </div>
          <div class="row">
@@ -32,14 +34,14 @@
                <div class="input-group-prepend">
                   <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                </div>
-               <input name="" class="form-control" placeholder="street name" type="text">
+               {{ form.street }}
             </div>
             <!-- form-group// -->
             <div class="form-group input-group">
                <div class="input-group-prepend">
                   <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                </div>
-               <input name="" class="form-control" placeholder="street number" type="number">
+              {{ form.house_number }}
             </div>
          </div>
          <div class="row">
@@ -63,7 +65,7 @@
                <div class="input-group-prepend">
                   <span class="input-group-text"> <i class="fas fa-map-pin""></i> </span>
                </div>
-               <input name="" disabled class="form-control" placeholder="zip code" type="number">
+               {{ form.postcode }}
             </div>
             <!-- form-group// -->
          </div>
@@ -73,14 +75,14 @@
                <div class="input-group-prepend">
                   <span class="input-group-text"><i class="fas fa-money-bill-wave-alt"></i> </span>
                </div>
-               <input name="" class="form-control" placeholder="price" type="number">
+               {{ form.price }}
             </div>
             <!-- form-group// -->
             <div class="form-group input-group">
                <div class="input-group-prepend">
                   <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                </div>
-               <input class="form-control" disabled placeholder="commission" type="number">
+               {{ form.size }}
             </div>
          </div>
          <!-- form-group// -->
@@ -89,22 +91,19 @@
                <div class="input-group-prepend">
                   <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                </div>
-               <input  class="form-control" placeholder="condition" type="text">
+               {{ form.rooms }}
             </div>
             <!-- form-group// -->
             <div class="form-group input-group">
                <div class="input-group-prepend">
                   <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                </div>
-               <div class="upload-btn-wrapper">
-                  <input type="file" name="myfile" />
-                  <button class="btn1">upload an image</button>
-               </div>
+               {{ form2.image }}
             </div>
          </div>
          <div class="row" id="add-info">
             <!-- form-group// -->
-             <textarea name="" id="add-info" class="form-control" placeholder="additional information..."></textarea>
+             {{ form.info }}
          </div>
          <div class="row" id="submit-buttons">
             <div class="form-group">
