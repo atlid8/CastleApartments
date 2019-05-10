@@ -14,17 +14,17 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/signup.css' %}"/>
 
 <div class="card bg-light">
-<article class="card-body mx-auto" style="max-width: 400px;">
+<article class="card-body mx-auto">
 	<h4 class="card-title">Sign up</h4>
 	<p class="sub-title">Get started with your free account</p>
 	<form method="post">
             {% csrf_token %}
-	<div class="form-group input-group">
+	<div class="input-row"><div class="form-group input-group">
 		<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
 		 </div>
     {{ form.username }}
-    </div> <!-- form-group// -->
+    </div></div> <!-- form-group// -->
 		<div class="form-group input-group">
 		<div class="input-group-prepend">
 		    <span class="input-group-text"> <i class="fa fa-address-card"></i> </span>
@@ -73,9 +73,8 @@
 		</div>
         {{ form.password2 }}
     </div> <!-- form-group// -->
-    <div class="form-group">
-        <button type="submit" class="btn btn-primary btn-block"> Create Account  </button>
-        <input type="submit" class="btn btn-primary" value="Sign up today for 899$ per day!!">
+    <div class="form-group" id="create-button-container">
+        <input type="submit"  id="create-button" class="btn btn-primary" value="Create Account">
     </div> <!-- form-group// -->
     <p class="sub-title">Have an account? <a href="">Log In</a> </p>
 </form>
