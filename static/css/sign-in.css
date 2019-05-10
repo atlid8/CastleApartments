@@ -15,13 +15,17 @@ align-content: center;
 }
 
 .card{
-height: 370px;
+height: auto;
 margin-top: auto;
 margin-bottom: auto;
 width: 400px;
 background-color: rgba(0,0,0,0.5) !important;
 }
 
+.card-body{
+    width: 90%;
+    margin: 0 auto;
+}
 
 .social_icon span:hover{
 color: white;
@@ -30,6 +34,7 @@ cursor: pointer;
 
 .card-header h3{
 color: white;
+    margin: 1em auto;
 }
 
 input:focus{
@@ -41,6 +46,7 @@ box-shadow: 0 0 0 0 !important;
 .remember{
 color: white;
 }
+
 
 .remember input
 {
@@ -61,23 +67,50 @@ margin-right: 5px;
 
 }
 
-.input-group{
+.form-group{
+    border-radius: 4px;
+    margin: 0em auto;
+    width: 100%
 
+
+}
+#id_username, #id_password{
+    width: 86%;
+    border: none;
+    text-indent: 1em;
+
+}
+
+.input-group-prepend{
+    width: 3em;
+    overflow:hidden;
+    border-radius: 4px;
+}
+.input-group{
+    background-color: white;
     height:2.4em !important;
     margin: 1em auto;
     width: 92%;
 }
 
-.login_btn{
+
+#login_btn{
 color: white;
 background-color: dodgerblue;
 width: 100px;
+
+    margin: 2em auto !important;
+
 }
 
+#remember-me{
+   margin-left: 4em;
+}
 .login_btn:hover{
 color: grey;
 background-color: white;
 }
+
 
 .links{
 color: white;
@@ -93,4 +126,5 @@ margin-left: 4px;
 
 h3 {
     text-align: center;
+    margin-top: 1em;
 }
