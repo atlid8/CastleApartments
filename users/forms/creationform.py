@@ -51,8 +51,8 @@ class ProfileCreationForm(forms.ModelForm):
     profile_image = forms.CharField(label='profile_image', widget=forms.TextInput)
     street = forms.CharField(label='street',
                     widget=forms.TextInput(attrs={'placeholder': 'street name'}))
-    housenumber = forms.IntegerField(label='housenumber',
-                    widget=forms.NumberInput(attrs={'placeholder': 'House number'}))
+    housenumber = forms.CharField(label='housenumber',
+                    widget=forms.TextInput(attrs={'placeholder': 'House number'}))
     ssn = forms.CharField(label='ssn',
                     widget=forms.TextInput(attrs={'placeholder': 'SSN'}))
 
@@ -61,11 +61,11 @@ class ProfileCreationForm(forms.ModelForm):
         model = Profile
         fields = ('profile_image', 'street', 'housenumber', 'ssn')
 
-    def save(self, user_id, commit=True):
+
+    def save(self, user_id, postcode, commit=True):
         profile = super(ProfileCreationForm, self).save(commit=False)
-        user_id_number  = User.objects.filter(id=user_id).first()
-        profile.user = user_id_number
-        postcode = Postcode.objects.filter(postcode=self.postcode).first()
+        profile.user = user_id
+        postcode = Postcode.objects.filter(postcode=postcode).first()
         profile.postcode = postcode
         profile.save()
         return profile

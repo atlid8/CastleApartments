@@ -37,8 +37,9 @@ def register(request):
         if form.is_valid():
             if form2.is_valid():
                 form.save()
-                user_id = User.objects.last().id
-                form2.save(user_id)
+                user_id = User.objects.last()
+                postcode = form2['postcode'].value()
+                form2.save(user_id, postcode)
                 return redirect('dennislog') #TODO:Check if this is the right path
     return render(request, 'users/register.html', {
         'form': UserCreationForm(),

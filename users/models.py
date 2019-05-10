@@ -11,7 +11,7 @@ class Profile(models.Model):
     postcode = models.ForeignKey(Postcode, on_delete=models.CASCADE)
     profile_image = models.CharField(max_length=9999)
     street = models.CharField(max_length=255)
-    house_number = models.IntegerField()
+    house_number =  models.CharField(max_length=255)
     ssn = models.CharField(max_length= 11)
 
 
