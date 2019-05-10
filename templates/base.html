@@ -24,16 +24,23 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="/users/login" id="sign-in">Sign In</a>
-                </li>
+
                 {% if user.is_authenticated %}
-                    <li><a href = "{% url 'logout' %}">Logout</a></li>
+                    <div class="dropdown">
+                              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                               Hello, {{ user.username }}
+                              </button>
+                              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item" href = "/users/my-profile/"">My profile</a>
+                                <a class="dropdown-item" href = "/users/my-properties/1/">My properties</a>
+                                <a class="dropdown-item" href = "{% url 'logout' %}">Logout</a>
+                              </div>
+                            </div>
                 {% else %}
-                <li> <a href="{% url 'dennislog' %}">Login</a></li>
-                <li> <a href="{% url 'register' %}">Register</a></li>
+                    <li><a class="header-item" href = "{% url 'login-page' %}">Log In</a></li>
                 {% endif %}
             </ul>
+
         </div>
     </nav>
 
