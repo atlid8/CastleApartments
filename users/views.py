@@ -28,8 +28,9 @@ def front_page_admin(request):
     return render(request, 'front_page/front_page_admin.html')
 
 def my_profile(request):
-    context = {'castles': Property.objects.all()}
-    return render(request, 'users/my-profile.html', context)
+    userid = request.user.id
+    return render(request, 'users/my-profile.html', {'castles': Castle.objects.filter(seller_id=userid),
+                   })
 
 def register(request):
     if request.method == 'POST':
