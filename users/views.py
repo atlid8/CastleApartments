@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
-from properties.models import Property
+from properties.models import Property, Castle
 from users.forms.creationform import UserCreationForm
 from users.forms.ProfileForm import ProfileForm, UserEditForm
 from users.models import Profile
@@ -76,6 +76,6 @@ def my_property(request, id):
 
 def seller_profile(request, id):
     # TODO: Change from user to profile or similar
+    context = {'castles': Castle.objects.filter(seller_id = request.user)}
     return render(request, 'users/seller_profile.html',
-                  {'user': get_object_or_404(User, pk=id)
-                   })
+                  {'profile': get_object_or_404(Profile, pk=id)}, context)
