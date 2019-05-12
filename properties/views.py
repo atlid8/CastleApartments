@@ -33,7 +33,20 @@ def properties(request):
         return JsonResponse({'data': castles})
     if 'order' in request.GET:
         order_by = request.GET['order']
-        castles = [{Castle.objects.all().order_by(order_by)}]
+        castles = [{
+            'id': x.id,
+            'name': x.name,
+            'price': x.price,
+            'commission': x.commission,
+            'rooms': x.rooms,
+            'size': x.size,
+            'verified': x.verified,
+            'info': x.info,
+            'street': x.street,
+            'house_number': x.house_number,
+            'seller': x.seller.id,
+            'firstimage': x.castleimage_set.first().image
+        } for x in Castle.objects.all().order_by(order_by)]
         return JsonResponse({'data': castles})
     context = {'castles': Castle.objects.all().order_by('name')}
     return render(request, 'properties/properties-index.html', context)

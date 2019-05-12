@@ -20,6 +20,7 @@ $(document).ready(function () {
     $('#search-btn').on('click', function (e) {
         e.preventDefault();
         var searchText = $('#search-box').val();
+        console.log("Þú ert hér líka!!")
         $.ajax({
             url: '/properties/search/?search-filter=' + searchText,
             type: 'GET',
@@ -53,13 +54,13 @@ $(document).ready(function () {
 //<img class="card-img-top"  alt="Thumbnail [100%x225]" src='${d.image_set.first()}'data-holder-rendered="true">
 
 $(document).ready(function () {
-    $('#orderdropdown').on('onselect', function (e) {
+    $('#orderdropdown').on('change', function (e) {
         e.preventDefault();
-        var order = #orderdropdown.value;
+        var order = $('#orderdropdown').val();
         $.ajax({
             url: '/properties/search/?order=' + order,
             type: 'GET',
-           success: function (resp) {
+            success: function (resp) {
                 var newHTML = resp.data.map(d => {
                     return `
                     <div class="col-md-3 well castles">
@@ -74,7 +75,6 @@ $(document).ready(function () {
                     </div>`
                 });
                 $('.castles').html(newHTML.join(''))
-                $('#search-box').val('')
             },
             error: function (xhr, status, error) {
                 //Todo: gæti þurft eitthvað annað error handling
