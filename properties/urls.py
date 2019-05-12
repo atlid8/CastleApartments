@@ -7,8 +7,8 @@ urlpatterns = [
     path('<int:id>/', views.get_property_by_id, name="property_details"),
     # path('<int:id>/payments/', views.payments, name="payments"),
     # path('<int:id>/make-offer/', views.make_offer, name="make_offer"),
-    path('payments/', views.payments, name="payments"),
-    path('make-offer/', views.make_offer, name="make_offer"),
+    path('<int:id>/checkout/', views.payments, name="payments"),
+    path('<int:id>/make-offer/', views.make_offer, name="make_offer"),
     path('create/', views.create, name="create_property"),
     path('<int:id>/edit/', views.edit_property, name="edit_property"),
 ]
