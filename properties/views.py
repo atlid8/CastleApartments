@@ -32,14 +32,20 @@ def properties(request):
 
 def get_property_by_id(request, id):
     return render(request, 'properties/property_details.html',
-                   {'castle' : get_object_or_404(Property, pk=id)
+                   {'castle': get_object_or_404(Castle, pk=id)
                     })
-@login_required
-def payments(request):
-    return render(request, 'payments/payments.html')
 
-def make_offer(request):
-    return render(request, 'payments/make-offer.html')
+@login_required
+
+def payments(request, id):
+    return render(request, 'payments/payments.html',
+                  {'castle': get_object_or_404(Castle, pk=id)
+                   })
+
+def make_offer(request, id):
+    return render(request, 'payments/make-offer.html',
+                  {'castle': get_object_or_404(Castle, pk=id)
+                   })
 
 def create(request):
     if request.method == 'POST':

@@ -1,7 +1,20 @@
+#about-table {
+    margin-top: 1em;
+}
+.container{
+    margin-top: 2em;
+    height: 18em;
+    border-radius: 1em;
+    background-color: rgba(0,0,0,0.5);
+}
+.tab-content {
+    padding-top: 2.3em;
+    width: 98%;
+    padding-left: 1.5em;
+}
 .profile-user-info {
     display: table;
     width: 98%;
-    width: calc(100% - 24px);
     margin: 0 auto
 }
 .profile-info-row {
@@ -10,17 +23,18 @@
 .profile-info-name,
 .profile-info-value {
     display: table-cell;
-    border-top: 1px dotted #D5E4F1
+    border-bottom: 1px solid #D5E4F1
 }
 .profile-info-name {
     text-align: right;
     padding: 6px 10px 6px 4px;
     font-weight: 400;
-    color: #667E99;
+    color: #4f92ff;
     background-color: transparent;
     width: 110px;
     vertical-align: middle
 }
 .profile-info-value {
+    color: white;
     padding: 6px 4px 6px 6px
 }

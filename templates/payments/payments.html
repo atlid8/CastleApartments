@@ -40,7 +40,7 @@
                         </div>
                         <div class="col-xs-5 col-md-5 pull-right">
                             <div class="form-group">
-                                <label for="cvcCode">CVC CODE</label>
+                                <label for="cvcCode">CVC</label>
                                 <input type="text" class="form-control" placeholder="CVC" required />
                             </div>
                         </div>
@@ -58,7 +58,7 @@
                     <thead>
                         <tr>
                             <th class="tr-font border-top-0 border-bottom-0">Receipt</th>
-                            <th class="tr-font border-top-0 border-bottom-0" id="getdate"><script>document.write(getdate())</script></th>
+                            <th class="tr-font border-top-0 border-bottom-0" id="getdate"><script>document.write(get_date())</script></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -69,10 +69,10 @@
                             <th class="text-center border-top-0">Total</th>
                         </tr>
                         <tr>
-                            <td class="col-md-9"><em>Castle name</em></td>
+                            <td class="col-md-9"><em>{{ castle.name }}</em></td>
                             <td class="col-md-1"> 1 </td>
-                            <td class="col-md-1 text-center">988.800.800</td>
-                            <td class="col-md-1 text-center">988.800.800</td>
+                            <td class="col-md-1 text-center">{{ castle.price }}</td>
+                            <td class="col-md-1 text-center">{{ castle.price }}</td>
                         </tr>
                         <tr>
                             <td>   </td>
@@ -82,15 +82,15 @@
                                 <p><strong>Tax:</strong></p>
                             </td>
                             <td class="text-center">
-                                <p><strong>988.800.800</strong></p>
-                                <p><strong>488890.040</strong></p>
+                                <p id="subtotal">{{ castle.price }}</p>
+                                <p id="tax"><script>document.write(get_tax())</script></p>
                             </td>
                         </tr>
                         <tr>
                             <td>   </td>
                             <td>   </td>
                             <td class="text-right"><h4><strong>Total: </strong></h4></td>
-                            <td class="text-center"><h4><strong>1000.290.840</strong></h4></td>
+                            <td class="text-center"><h4><script>document.write(get_total())</script></h4></td>
                         </tr>
                     </tbody>
                 </table>
@@ -105,8 +105,8 @@
         <h4 id="title-success">Successful payment!</h4>
       </div>
       <div class="modal-body text-center">
-          <p class="lead">Your payment for CASTLE NAME was successfully submitted.</p>
-          <a href="/" class="rd_more btn btn-default">Go to Home</a>
+          <p class="lead">Your payment for {{ castle.name }} was successfully submitted.</p>
+          <a href="/" class="rd_more btn btn-default" id="home-button">Go to Home</a>
       </div>
 
     </div>
