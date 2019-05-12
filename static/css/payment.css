@@ -50,3 +50,8 @@
 .form-group {
     margin-bottom: 0.5rem !important;
 }
+
+#title-success {
+    margin: auto; !important;
+    color: #4CAF50; !important;
+}
