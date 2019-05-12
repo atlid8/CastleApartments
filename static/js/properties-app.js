@@ -49,3 +49,38 @@ $(document).ready(function () {
     })
 
 })
+
+//<img class="card-img-top"  alt="Thumbnail [100%x225]" src='${d.image_set.first()}'data-holder-rendered="true">
+
+$(document).ready(function () {
+    $('#orderdropdown').on('onselect', function (e) {
+        e.preventDefault();
+        var order = #orderdropdown.value;
+        $.ajax({
+            url: '/properties/search/?order=' + order,
+            type: 'GET',
+           success: function (resp) {
+                var newHTML = resp.data.map(d => {
+                    return `
+                    <div class="col-md-3 well castles">
+                        <a href="/properties/${d.id}">
+                        <div class="card mb-4 box-shadow">
+                            <div class="card-body">
+                                <h1 class="card-text" id="castle-name"> ${d.name}</h1>
+                                <p class="card-text"> ${d.info}</p>
+                            </div>
+                        </div>
+                        </a>
+                    </div>`
+                });
+                $('.castles').html(newHTML.join(''))
+                $('#search-box').val('')
+            },
+            error: function (xhr, status, error) {
+                //Todo: gæti þurft eitthvað annað error handling
+                console.error(error);
+            }
+        })
+    })
+
+})

@@ -31,6 +31,10 @@ def properties(request):
             'firstimage': x.castleimage_set.first().image
         } for x in Castle.objects.filter(name__icontains=search_filter)]
         return JsonResponse({'data': castles})
+    if 'order' in request.GET:
+        order_by = request.GET['order']
+        castles = [{Castle.objects.all().order_by(order_by)}]
+        return JsonResponse({'data': castles})
     context = {'castles': Castle.objects.all().order_by('name')}
     return render(request, 'properties/properties-index.html', context)
 
