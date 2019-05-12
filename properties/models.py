@@ -1,6 +1,6 @@
 from django.db import models
 from users.models import User
-from users.models import Postcode
+from users.models import Postcode, Profile
 
 # Create your models here.
 class Property(models.Model):

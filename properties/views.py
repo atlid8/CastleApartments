@@ -3,13 +3,31 @@ from django.shortcuts import render, get_object_or_404, redirect
 from properties.models import *
 from users.models import Profile
 from properties.forms.create import CastleCreationForm, CastleImageCreationForm
+from django.http import JsonResponse
 
 # Create your views here.
 def index(request):
     return render(request, 'base.html')
 
+
 def properties(request):
-    context = {'castles': Property.objects.all()}
+    if 'search-filter' in request.GET:
+        search_filter = request.GET['search-filter']
+        castles = [ {
+            'id': x.id,
+            'name': x.name,
+            'price': x.price,
+            'commission': x.commission,
+            'rooms': x.rooms,
+            'size': x.size,
+            'verified' : x.verified,
+            'info': x.info,
+            'street': x.street,
+            'house_number': x.house_number,
+            'seller': x.seller.id
+        } for x in Castle.objects.filter(name__icontains=search_filter)]
+        return JsonResponse({'data': castles})
+    context = {'castles': Castle.objects.all().order_by('name')}
     return render(request, 'properties/properties-index.html', context)
 
 def get_property_by_id(request, id):
