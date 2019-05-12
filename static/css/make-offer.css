@@ -1,7 +1,12 @@
-#btnContactUs {
+#btn-send-offer {
     float: right;
     background-color: #4CAF50;
     border-color: #4CAF50;
+}
+
+#title-success {
+    margin: auto; !important;
+    color: #4CAF50; !important;
 }
 
 

@@ -23,7 +23,21 @@
         <label for="massage">Additional info</label>
         <textarea name="message" id="message" class="form-control" rows="5" cols="15" required="required" placeholder="Something you would like to add..."></textarea>
 
-        <button type="submit" class="btn btn-primary pull-right" id="btnContactUs">Send offer</button>
+         <button   id="btn-send-offer" class="btn btn-primary pull-right" data-toggle="modal" data-target="#myModal">Send offer</button>
+    </div>
+    <div class="modal fade success-popup" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 id="title-success">Successful offer!</h4>
+          </div>
+          <div class="modal-body text-center">
+              <p class="lead">You offered 423498502 coins for CASTLE NAME</p>
+              <a href="/" class="rd_more btn btn-default">Go to Home</a>
+          </div>
+
+        </div>
+      </div>
     </div>
 </body>
 </html>
