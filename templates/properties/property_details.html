@@ -43,8 +43,9 @@
         <p>zip: {{ castle.postcode.postcode }}</p>
         <p>number of rooms: {{ castle.rooms }}</p>
         <p> {{ castle.info }}</p>
-        <p> {{ castle.userinfo_id.first_name }}, {{ castle.userinfo_id.last_name }}</p>
-        <p> {{ castle.userinfo_id.email}}</p>
+        <p> {{ castle.seller.first_name }} {{ castle.seller.last_name }}</p>
+        <p> {{ castle.seller.email}}</p>
+        <a id="left-front-button" type="button" class="btn btn-outline" href="/users/{{ castle.seller.profile.id }}">See Sellers Profile</a>
     </div>
 
     <div class="buy-now-and-offer">
