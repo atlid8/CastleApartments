@@ -28,6 +28,7 @@ $(document).ready(function () {
                     return `
                     <div class="well castles">
                         <a href="/properties/${d.id}">
+                            <img src='${d.firstimage}'>
                             <h4> ${d.name}</h4>
                             <p> ${d.info}</p>
                         </a>

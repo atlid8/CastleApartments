@@ -24,7 +24,8 @@ def properties(request):
             'info': x.info,
             'street': x.street,
             'house_number': x.house_number,
-            'seller': x.seller.id
+            'seller': x.seller.id,
+            'firstimage': x.castleimage_set.first().image
         } for x in Castle.objects.filter(name__icontains=search_filter)]
         return JsonResponse({'data': castles})
     context = {'castles': Castle.objects.all().order_by('name')}
