@@ -27,13 +27,14 @@
                      <div class="header-item">{{ user.username }}</div>
                     <div class="dropdown">
                               <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                               <img src=https://i0.wp.com/www.winhelponline.com/blog/wp-content/uploads/2017/12/user.png?resize=256%2C256&quality=100&ssl=1" class="profile-image" style="width:40px;height:40px;" class="profile-imagestyle="width:30px;height:30px;>
+                               <img src="{{ profile.profile_image }}" class="profile-image" style="width:40px;height:40px;border-radius:50%;" class="profile-image style="width:30px;height:30px; onError="this.onerror=null;this.src='https://png.pngtree.com/svg/20161027/631929649c.svg';">
 
                               </button>
 
 
                               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item" href = "/users/my-profile/">My profile</a>
+                                  <a class="dropdown-item" href = "/users/edit">Edit my info</a>
                                 <a class="dropdown-item" href = "/users/my-properties/1/">My properties</a>
                                 <a class="dropdown-item" href = "{% url 'logout' %}">Logout</a>
                               </div>

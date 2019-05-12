@@ -3,11 +3,25 @@
 
 {% block content %}
 
-    <h1>PLACEHOLDER</h1>
-    <form class="form form-horizontal" method="post"<>
-    {% csrf_token %}
-    {{ form }}
-    {{ form2 }}
-    <input type="submit" class="btn btn-primary" value="Update" />
-    </form>
+    {% load static %}
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/edit-user.css' %}"/>
+	<div class="d-flex justify-content-center h-100">
+    <div class="card">
+
+			<div class="card-body">
+                 <div class="profile-pic-div"><img class="profile-picture" src="{{ profile.profile_image }}"onError="this.onerror=null;this.src='https://png.pngtree.com/svg/20161027/631929649c.svg';"></div>
+                <h4>What would you like to change, {{ user.username }}? </h4>
+                <form class="form form-horizontal" method="post">
+                {% csrf_token %}
+                {{ form }}
+                {{ form2 }}
+                <input id="update_btn" type="submit" class="btn btn-primary" value="Update" />
+                </form>
+
+
+                                </div>
+    </div></div>
+
+
 {% endblock %}
