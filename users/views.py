@@ -64,8 +64,15 @@ def edit(request):
         'form2': ProfileCreationForm()
     })
 
+
 def my_property(request, id):
     return render(request, 'users/my_property.html',
                   {'castle': get_object_or_404(Property, pk=id)
                    })
 
+
+def seller_profile(request, id):
+    # TODO: Change from user to profile or similar
+    return render(request, 'users/seller_profile.html',
+                  {'user': get_object_or_404(User, pk=id)
+                   })
