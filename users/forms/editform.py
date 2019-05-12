@@ -1,12 +1,11 @@
 from django import forms
 from django.contrib.auth.models import User
-from users.models import Profile, Postcode
+from users.models import Profile, Postcode, Buyer, Seller
 
 
 class BuyerEditForm(forms.ModelForm):
     postcode = forms.CharField(label='postcode',
                     widget=forms.TextInput(attrs={'placeholder': 'postcode', 'class':'form-input-field'}))
-    profile_image = forms.CharField(label='profile_image', widget=forms.TextInput(attrs={'placeholder': 'profile image', 'class':'form-input-field'}))
     street = forms.CharField(label='street',
                     widget=forms.TextInput(attrs={'placeholder': 'street name', 'class':'form-input-field'}))
     house_number = forms.IntegerField(label='house_number',
@@ -16,7 +15,7 @@ class BuyerEditForm(forms.ModelForm):
 
 
     class Meta:
-        model = Profile
+        model = Seller
         fields = ('street', 'house_number', 'ssn')
 
 
@@ -27,3 +26,7 @@ class BuyerEditForm(forms.ModelForm):
         profile.postcode = postcode
         profile.save()
         return profile
+
+class SellerEditForm(forms.ModelForm):
+    profile_image = forms.CharField(label='profile_image',
+                    widget=forms.TextInput(attrs={'placeholder': 'profile_image', 'class':'form-input-field'}))

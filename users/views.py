@@ -2,6 +2,7 @@ from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from properties.models import Property
 from users.forms.creationform import UserCreationForm, ProfileCreationForm
+from users.forms.editform import BuyerEditForm, SellerEditForm
 from users.models import Profile
 from django.shortcuts import render, get_object_or_404
 
@@ -49,9 +50,9 @@ def profile(request):
     })
 
 def edit(request):
-    if request.method == 'POST':
-        form = UserCreationForm(data=request.POST)
-        form2 =ProfileCreationForm(data=request.POST)
+    if request.method == 'PUT':
+        form = BuyerEditForm(data=request.PUT)
+        form2 =SellerEditForm(data=request.PUT)
         if form.is_valid() and form2.is_valid():
             form.save()
             user_id = User.objects.last()
@@ -61,7 +62,7 @@ def edit(request):
     return render(request, 'users/edit.html', {
         'form': UserCreationForm(),
         'form2': ProfileCreationForm()
-    }),
+    })
 
 def my_property(request, id):
     return render(request, 'users/my_property.html',
