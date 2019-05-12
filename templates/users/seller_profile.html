@@ -1,10 +1,211 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <!doctype html>
+    <html lang="en">
+        <head>
+            <link rel="stylesheet" href="{% static 'css/seller-profile.css' %}">
+{#            <script type="text/javascript" src="{% static 'js/properties-app.js' %}"></script>#}
+            <title>Document</title>
+        </head>
+        <body>
+{#            <div class="container">#}
+{#               <div class="col-md-3">#}
+{#                   <div class="row">#}
+{#                       <h1>Efra</h1>#}
+{#                   </div>#}
+{#                   <div class="row">#}
+{#                       <div class="card mb-4 box-shadow">#}
+{#                       <img class="card-img-top"  alt="Thumbnail [100%x225]" src='{{castle.propertyimage_set.first.image}}' data-holder-rendered="true">#}
+{#                   </div>#}
+{#                   </div>#}
+{##}
+{#                   <h1>Nedra</h1>#}
+{##}
+{#               </div>#}
+{#            </div>#}
+            <div class="container">
+                <div class="tabcontent">
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-3 center">
+                            <span class="profile-picture">
+                                <img class="editable img-responsive" src="http://bootdey.com/img/Content/avatar/avatar6.png"/>
+                            </span>
+                        </div>
+                        <div class="col-xs-12 col-sm-9">
+                            <h3>Name</h3>
+                            <div class="profile-user-info">
+								<div class="profile-info-row">
+									<div class="profile-info-name"> Username </div>
 
-</body>
-</html>
+									<div class="profile-info-value">
+										<span>alexdoe</span>
+									</div>
+								</div>
+
+								<div class="profile-info-row">
+									<div class="profile-info-name"> Location </div>
+
+									<div class="profile-info-value">
+										<i class="fa fa-map-marker light-orange bigger-110"></i>
+										<span>Netherlands</span>
+										<span>Amsterdam</span>
+									</div>
+								</div>
+
+								<div class="profile-info-row">
+									<div class="profile-info-name"> Age </div>
+
+									<div class="profile-info-value">
+										<span>38</span>
+									</div>
+								</div>
+
+								<div class="profile-info-row">
+									<div class="profile-info-name"> Joined </div>
+
+									<div class="profile-info-value">
+										<span>2010/06/20</span>
+									</div>
+								</div>
+
+								<div class="profile-info-row">
+									<div class="profile-info-name"> Last Online </div>
+
+									<div class="profile-info-value">
+										<span>3 hours ago</span>
+									</div>
+								</div>
+							</div>
+{#                            <table>#}
+{#                                <thead>#}
+{##}
+{#                                </thead>#}
+{#                                <tbody>#}
+{#                                    <tr>Name:</tr>#}
+{#                                    <tr>Age:</tr>#}
+{#                                    <tr>Year:</tr>#}
+{#                                </tbody>#}
+{#                            </table>#}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+            <div id="user-profile-2" class="user-profile">
+		<div class="tabbable">
+			<div class="tab-content no-border padding-24">
+				<div id="home" class="tab-pane in active">
+					<div class="row">
+						<div class="col-xs-12 col-sm-3 center">
+							<span class="profile-picture">
+								<img class="editable img-responsive" alt=" Avatar" id="avatar2" src="http://bootdey.com/img/Content/avatar/avatar6.png">
+							</span>
+
+							<div class="space space-4"></div>
+
+							<a href="#" class="btn btn-sm btn-block btn-primary">
+								<i class="ace-icon fa fa-envelope-o bigger-110"></i>
+								<span class="bigger-110">Send a message</span>
+							</a>
+						</div><!-- /.col -->
+
+						<div class="col-xs-12 col-sm-9">
+							<h4 class="blue">
+								<span class="middle">John Doe</span>
+
+								<span class="label label-purple arrowed-in-right">
+									<i class="ace-icon fa fa-circle smaller-80 align-middle"></i>
+									online
+								</span>
+							</h4>
+
+							<div class="profile-user-info">
+								<div class="profile-info-row">
+									<div class="profile-info-name"> Username </div>
+
+									<div class="profile-info-value">
+										<span>alexdoe</span>
+									</div>
+								</div>
+
+								<div class="profile-info-row">
+									<div class="profile-info-name"> Location </div>
+
+									<div class="profile-info-value">
+										<i class="fa fa-map-marker light-orange bigger-110"></i>
+										<span>Netherlands</span>
+										<span>Amsterdam</span>
+									</div>
+								</div>
+
+								<div class="profile-info-row">
+									<div class="profile-info-name"> Age </div>
+
+									<div class="profile-info-value">
+										<span>38</span>
+									</div>
+								</div>
+
+								<div class="profile-info-row">
+									<div class="profile-info-name"> Joined </div>
+
+									<div class="profile-info-value">
+										<span>2010/06/20</span>
+									</div>
+								</div>
+
+								<div class="profile-info-row">
+									<div class="profile-info-name"> Last Online </div>
+
+									<div class="profile-info-value">
+										<span>3 hours ago</span>
+									</div>
+								</div>
+							</div>
+
+							<div class="hr hr-8 dotted"></div>
+
+							<div class="profile-user-info">
+								<div class="profile-info-row">
+									<div class="profile-info-name"> Website </div>
+
+									<div class="profile-info-value">
+										<a href="#" target="_blank">www.alexdoe.com</a>
+									</div>
+								</div>
+
+								<div class="profile-info-row">
+									<div class="profile-info-name">
+										<i class="middle ace-icon fa fa-facebook-square bigger-150 blue"></i>
+									</div>
+
+									<div class="profile-info-value">
+										<a href="#">Find me on Facebook</a>
+									</div>
+								</div>
+
+								<div class="profile-info-row">
+									<div class="profile-info-name">
+										<i class="middle ace-icon fa fa-twitter-square bigger-150 light-blue"></i>
+									</div>
+
+									<div class="profile-info-value">
+										<a href="#">Follow me on Twitter</a>
+									</div>
+								</div>
+							</div>
+						</div><!-- /.col -->
+					</div><!-- /.row -->
+
+
+
+
+			</div>
+		</div>
+	</div>
+        </body>
+    </html>
+{% endblock %}

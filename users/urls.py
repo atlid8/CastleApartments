@@ -15,6 +15,7 @@ urlpatterns = [
 
     path('logout', LogoutView.as_view(next_page='login/'), name='logout'), #TODO: breyta next page ef ekki virkar
     path('my-properties/<int:id>/', views.my_property, name="edit_property"),
-    path('edit', views.edit, name="edit")
+    path('edit', views.edit, name="edit"),
+    path('<int:id>/', views.seller_profile, name="seller_profile")
 
 ]
