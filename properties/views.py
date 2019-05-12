@@ -1,7 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect
 from properties.models import *
-from users.models import Profile
+from users.models import Profile, SearchHistory
 from properties.forms.create import CastleCreationForm, CastleImageCreationForm
 from django.http import JsonResponse
 
@@ -13,6 +13,9 @@ def index(request):
 def properties(request):
     if 'search-filter' in request.GET:
         search_filter = request.GET['search-filter']
+        user = request.user
+        searchhistory = SearchHistory(user=user, search_input=search_filter)
+        searchhistory.save()
         castles = [ {
             'id': x.id,
             'name': x.name,
@@ -70,6 +73,6 @@ def create(request):
 
 def edit_property(request, id):
     return render(request, 'properties/edit_property.html',
-                  {'castle': get_object_or_404(Property, pk=id)
+                  {'castle': get_object_or_404(Castle, pk=id)
                    })
 

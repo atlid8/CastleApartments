@@ -1,9 +1,9 @@
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
-from properties.models import Property, Castle
+from properties.models import Castle
 from users.forms.creationform import UserCreationForm
 from users.forms.ProfileForm import ProfileForm, UserEditForm
-from users.models import Profile
+from users.models import Profile, SearchHistory
 from django.shortcuts import render, get_object_or_404
 
 
@@ -21,7 +21,7 @@ def reset_password(request):
     return render(request, 'users/reset-password.html')
 
 def front_page_staff(request):
-    context = {'castles' : Property.objects.filter(verified=False)}
+    context = {'castles' : Castle.objects.filter(verified=False)}
     return render(request, 'front_page/front_page_staff.html', context)
 
 def front_page_admin(request):
@@ -71,7 +71,7 @@ def edit(request):
 
 def my_property(request, id):
     return render(request, 'users/my_property.html',
-                  {'castle': get_object_or_404(Property, pk=id)
+                  {'castle': get_object_or_404(Castle, pk=id)
                    })
 
 
@@ -82,3 +82,4 @@ def seller_profile(request, id):
                   {'profile': get_object_or_404(Profile, pk=id),
                    'castles': Castle.objects.filter(seller_id=userid),
                    })
+

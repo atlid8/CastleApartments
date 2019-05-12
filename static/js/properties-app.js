@@ -42,7 +42,7 @@ $(document).ready(function () {
                 $('#search-box').val('')
             },
             error: function (xhr, status, error) {
-                //Todo: gæti þurft eitthvað annað errorr handling
+                //Todo: gæti þurft eitthvað annað error handling
                 console.error(error);
             }
         })
