@@ -1,12 +1,28 @@
 {%  extends 'base.html' %}
-
+{% load static %}
 {% block content %}
-    <form method="post" class="form form-horizontal">
-        {% csrf_token %}
-        {{ form.username }}
-        {{ form.password }}
-    <input type="submit" class="btn btn-primary" value="Login">
-    </form>
+    <table class="table-dark">
+    <tbody>
+    <p>
+  <tr>
+    <th>Time of search</th>
+    <th>Search content</th>
+  </tr>
 
+        {% for history in histories %}
+            <tr>
+            <td>
+                {{ history.time_stamp }}
+            </td>
+            <td>
+                <a href="/properties/search/?search-filter={{ history.search_input }}">
+                {{ history.search_input }}
+                </a>
+            </td>
+            </tr>
+                    {% endfor %}
+    </p>
+    </tbody>
+    </table>
 
 {% endblock %}

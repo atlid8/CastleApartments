@@ -5,6 +5,7 @@ from users.forms.creationform import UserCreationForm
 from users.forms.ProfileForm import ProfileForm, UserEditForm
 from users.models import Profile, SearchHistory
 from django.shortcuts import render, get_object_or_404
+from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
@@ -82,4 +83,10 @@ def seller_profile(request, id):
                   {'profile': get_object_or_404(Profile, pk=id),
                    'castles': Castle.objects.filter(seller_id=userid),
                    })
+@login_required
+def search_history(request):
+    userid = request.user.id
 
+
+    return render(request, 'users/dennislog.html',
+                  {'histories': SearchHistory.objects.filter(user_id=userid)})
