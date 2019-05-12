@@ -15,6 +15,7 @@ html,body{
     margin: 0 auto;
     margin-top: 8em;
 }
+/*#TODO: Change buttons so they are more visible, maybe add logo near top-mid ?*/
 #right-front-button, #left-front-button {
     width: 12rem;
     height: 3rem;
@@ -23,7 +24,7 @@ html,body{
     border-color: white;
 }
 #right-front-button {
-    margin-left: 12em;
+    margin-left: 15em;
 }
 #right-front-button:hover{
     background-color: white;
@@ -57,33 +58,35 @@ html,body{
     margin-top: 1em;
     text-align: center;
     position: absolute;
-    top: 35%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
+    width: 100%;
+}
+.dropdown {
+    border: none;
+
+}
+.dropdown:active{
+    border: none;
+    background: none;
 }
 
-#dropdownMenuButton:active{
-    border-color: red;
-}
-.dropdown{
-    background-color: red;
-}
 .dropdown-menu{
-    background-color: transparent !important;
+    background-color: rgba(0,0,0,0.3) !important;
+    text-align: right;
+    margin-right: 0;
+    width:4em;
     border: transparent !important;
 }
-.dropdown-divider{
-    border-color: white !important;
-}
+
 .dropdown-item{
-    color: white !important;
+    color: whitesmoke;
+
 }
 .dropdown-item:hover{
     color: black !important;
-}
-
-.profile-image{
-    background-color: white;
+    background:rgba(255,255,255, 0.3);
 }
 .card-img-top {
     width: 100%;
@@ -94,13 +97,54 @@ html,body{
     bottom: 0.5em;
     width: 100%;
 }
-
 .header-item{
-    margin-right: 2em;
+    margin-right: 0em;
+    margin-top: 1em;
+    color: whitesmoke;
+}
+.header-item:hover{
+    color: lightcyan;
+}
+
+.dropdown show:active{
+    border: none;
+}
+
+.dropdown-toggle::after {
     color: whitesmoke;
 }
 
-.header-item:hover{
-    margin-right: 3em;
-    color: whitesmoke;
+.dropdown-toggle {
+
+   padding: 5px;
+    outline: none;
+    outline: 1px;
+
+   display: inline-block;
+   font-size: 14px;
+   margin-bottom: -1px;
+ }
+.dropdownMenuButton{
+    background-color: whitesmoke;
 }
+
+
+.dropdownMenuButton:active{
+    border: none;
+}
+
+
+
+/*When the website is above 390 and below 498px*/
+@media screen and (max-width: 498px) {
+    #right-front-button {
+        margin-left: unset;
+    }
+}
+/*When the website is below 390px*/
+@media screen and (max-width: 390px) {
+    #right-front-button {
+        margin-top: 1em;
+    }
+}
+

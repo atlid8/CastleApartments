@@ -39,11 +39,11 @@ p {
 
 .information-castle {
     width: 40%;
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 1.5em;
     background-color: rgba(0,0,0, 0.4);
     border-radius: 1em;
-    padding: 0.5em;
 }
 
 .buy-now-and-offer {
