@@ -2,7 +2,7 @@ from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from properties.models import Property
 from users.forms.creationform import UserCreationForm
-from users.forms.ProfileForm import ProfileForm
+from users.forms.ProfileForm import ProfileForm, UserEditForm
 from users.models import Profile
 from django.shortcuts import render, get_object_or_404
 
@@ -51,15 +51,19 @@ def profile(request):
 
 def edit(request):
     profile = Profile.objects.filter(user=request.user).first()
+    user = request.user
     if request.method == 'POST':
         form = ProfileForm(instance=profile, data=request.POST)
-        if form.is_valid():
+        form2 = UserEditForm(instance=user, data=request.POST)
+        if form.is_valid() and form2.is_valid:
             profile = form.save(commit=False)
             profile.user = request.user
             profile.save()
+            form2.save()
             return redirect('edit')
     return render(request, 'users/edit.html', {
         'form' : ProfileForm(instance=profile),
+        'form2' : UserEditForm(instance=user),
         'profile' : profile,
     })
 
