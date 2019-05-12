@@ -76,7 +76,8 @@ def my_property(request, id):
 
 def seller_profile(request, id):
     # TODO: Change from user to profile or similar
+    userid = Profile.objects.filter(id=id).first().user_id
     return render(request, 'users/seller_profile.html',
                   {'profile': get_object_or_404(Profile, pk=id),
-                   'castles': Castle.objects.filter(seller_id=request.user),
+                   'castles': Castle.objects.filter(seller_id=userid),
                    })
