@@ -1,4 +1,3 @@
-
 function get_date() {
     let date = new Date();
     let year = date.getFullYear();
@@ -17,13 +16,14 @@ function get_date() {
 }
 
 function get_tax() {
-    let price = parseInt(document.getElementById("subtotal").value);
+    let price = document.getElementById("subtotal").innerHTML;
+    console.log(price);
     return Math.round(Number(price) * 0.029).toString()
 }
 
 function get_total() {
-    let price = parseInt(document.getElementById("subtotal").value);
-    let tax = Math.round(Number(price) * 0.029).toString();
-    return Math.round(tax + price).toString()
+    let price = document.getElementById("subtotal").innerHTML;
+    let tax = Math.round(Number(price) * 0.029);
+    return Math.round(tax + Number(price)).toString()
 }
 

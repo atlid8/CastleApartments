@@ -82,15 +82,15 @@
                                 <p><strong>Tax:</strong></p>
                             </td>
                             <td class="text-center">
-                                <p id="subtotal"><strong>{{ castle.price }}</strong></p>
-                                <p id="tax"><strong><script>document.write(get_tax())</script></strong></p>
+                                <p id="subtotal">{{ castle.price }}</p>
+                                <p id="tax"><script>document.write(get_tax())</script></p>
                             </td>
                         </tr>
                         <tr>
                             <td>   </td>
                             <td>   </td>
                             <td class="text-right"><h4><strong>Total: </strong></h4></td>
-                            <td class="text-center"><h4><strong><script>document.write(get_total())</script></strong></h4></td>
+                            <td class="text-center"><h4><script>document.write(get_total())</script></h4></td>
                         </tr>
                     </tbody>
                 </table>
