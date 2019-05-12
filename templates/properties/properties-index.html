@@ -56,10 +56,12 @@
             <div class="col-three">
                 <h3>Rooms</h3>
                 <input type="text" class="js-range-slider" name="my_range" value="" />
-                <select class="form-control">
-                    <input type="text" value="Search here">
-                    <input type="submit" value="Submit">
-                </select>
+                <div class='input-group'>
+                    <input type="search" class="form-control" id="search-box" placeholder="Enter your search here...">
+                    <div class="input-group-btn">
+                        <button type="button" id="search-btn" class="btn btn-default" style="background-color: red">Search</button>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="header-text">
@@ -68,12 +70,16 @@
         <div class="album py-5 bg-transparent">
             <div class="container">
                 <div class="row">
+                <div class="castles">
                     {% for castle in castles %}
                     {% include "properties/singleproperty.html" with castle=castle %}
                     {% endfor %}
                 </div>
+                </div>
             </div>
         </div>
+
+
     </body>
     </html>
 
