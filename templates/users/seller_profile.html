@@ -12,36 +12,35 @@
             <div class="container">
                 <div class="tab-content">
                     <div class="row">
-                        <div class="col-xs-12 col-sm-3 center">
-                            <span class="profile-picture">
-                                <img class="editable img-responsive" src="http://bootdey.com/img/Content/avatar/avatar6.png"/>
-                            </span>
+                        <div class="col-xs-12 col-sm-3 center" id="img-container">
+{#                            <span class="profile-picture">#}
+                                    <img class="img-responsive" src="{{ profile.profile_image }}"/>
+{#                            </span>#}
                         </div>
                         <div class="col-xs-12 col-sm-9" id="about-table">
                             <div class="profile-user-info">
 								<div class="profile-info-row" id="username">
-									<div class="profile-info-name"> Username </div>
+									<div class="profile-info-name"> First name </div>
 
 									<div class="profile-info-value">
-										<span>alexdoe</span>
+										<span>{{ profile.user.first_name }}</span>
 									</div>
 								</div>
 
 								<div class="profile-info-row">
-									<div class="profile-info-name"> Location </div>
+									<div class="profile-info-name"> Last name </div>
 
 									<div class="profile-info-value">
 										<i class="fa fa-map-marker light-orange bigger-110"></i>
-										<span>Netherlands</span>
-										<span>Amsterdam</span>
+										<span>{{ profile.user.last_name }}</span>
 									</div>
 								</div>
 
 								<div class="profile-info-row">
-									<div class="profile-info-name"> Age </div>
+									<div class="profile-info-name"> Username </div>
 
 									<div class="profile-info-value">
-										<span>38</span>
+										<span>{{ profile.user.username }}</span>
 									</div>
 								</div>
 
@@ -49,15 +48,15 @@
 									<div class="profile-info-name"> Joined </div>
 
 									<div class="profile-info-value">
-										<span>2010/06/20</span>
+										<span>{{ profile.user.date_joined }}</span>
 									</div>
 								</div>
 
 								<div class="profile-info-row">
-									<div class="profile-info-name"> Last Online </div>
+									<div class="profile-info-name"> Last login </div>
 
 									<div class="profile-info-value">
-										<span>3 hours ago</span>
+										<span>{{ profile.user.last_login }}</span>
 									</div>
 								</div>
                             </div>

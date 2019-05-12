@@ -1,6 +1,9 @@
 #about-table {
     margin-top: 1em;
 }
+#img-container {
+    max-height: 14em;
+}
 .container{
     margin-top: 2em;
     height: 18em;
@@ -38,3 +41,8 @@
     color: white;
     padding: 6px 4px 6px 6px
 }
+.img-responsive {
+    max-width: 100%;
+    height: 14em;
+}
+
