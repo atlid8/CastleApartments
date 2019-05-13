@@ -3,10 +3,15 @@ from properties.models import Castle
 from properties.models import CastleImage
 from users.models import Postcode
 
+postcodes = []
+postcodes_objects = Postcode.objects.all()
+for zip in postcodes_objects:
+    postcodes.append((zip.postcode, zip.postcode))
+
 class CastleCreationForm(forms.ModelForm):
     name = forms.CharField(label='name',
                     widget=forms.TextInput(attrs={'placeholder': 'castle name'}))
-    postcode = forms.CharField(label='postcode', widget=forms.TextInput(attrs={'placeholder': 'zip code', 'disabled':'disabled'}))
+    postcode = forms.ChoiceField(choices=postcodes)
     street = forms.CharField(label='street name',
                     widget=forms.TextInput(attrs={'placeholder': 'street name'}))
     house_number = forms.IntegerField(label='house_number',

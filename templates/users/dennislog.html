@@ -1,28 +1,42 @@
 {%  extends 'base.html' %}
 {% load static %}
 {% block content %}
-    <table class="table-dark">
-    <tbody>
-    <p>
-  <tr>
-    <th>Time of search</th>
-    <th>Search content</th>
-  </tr>
+    <!doctype html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="{% static 'css/search-log.css' %}">
+        <title>Castle Apartments</title>
+    </head>
+    <body>
+        <div class="container">
+            <table id="search-log-table">
+                <tbody>
+                    <tr>
+                        <th>Time of search</th>
+                        <th>Search content</th>
+                    </tr>
 
-        {% for history in histories %}
-            <tr>
-            <td>
-                {{ history.time_stamp }}
-            </td>
-            <td>
-                <a href="/properties/search/?search-filter={{ history.search_input }}">
-                {{ history.search_input }}
-                </a>
-            </td>
-            </tr>
+                    {% for history in histories %}
+                      <tr>
+                          <td>
+                              {{ history.time_stamp }}
+                          </td>
+                          <td>
+                              <a href="/properties/search/?search-filter={{ history.search_input }}">
+                                  {{ history.search_input }}
+                              </a>
+                          </td>
+                      </tr>
                     {% endfor %}
-    </p>
-    </tbody>
-    </table>
+                </tbody>
+            </table>
+        </div>
+    </body>
+    </html>
+
 
 {% endblock %}
