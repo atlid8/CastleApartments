@@ -3,6 +3,27 @@
 //     document.title = 'blah';
 // });
 
+// jQuery(document).resize(function () {
+//     let screen = $(window);
+//     if (screen.width() < 768 && screen.width() > 600)  {
+//         $("#square-meters").html('M2');
+//         console.log('hello');
+//     }
+//     else {
+//         $("#square-meters").html('Square meterssssss');
+//         console.log('bye');
+//     }
+// });
+window.addEventListener("resize", function() {
+    const width = screen.width;
+    if ((width < 768) && (width > 601)) {
+        document.getElementById('square-meters').innerHTML = 'M<sup>2</sup>';
+    }
+    else {
+        document.getElementById('square-meters').innerHTML = 'Square meters';
+    }
+});
+
 // Creates the slider
 $(document).ready(function () {
     $(".js-range-slider").ionRangeSlider({
@@ -20,7 +41,7 @@ $(document).ready(function () {
     $('#search-btn').on('click', function (e) {
         e.preventDefault();
         var searchText = $('#search-box').val();
-        console.log("Þú ert hér líka!!")
+        console.log("Þú ert hér líka!!");
         $.ajax({
             url: '/properties/search/?search-filter=' + searchText,
             type: 'GET',
@@ -39,8 +60,8 @@ $(document).ready(function () {
                         </a>
                     </div>`
                 });
-                $('.castles').html(newHTML.join(''))
-                $('#search-box').val('')
+                $('.castles').html(newHTML.join(''));
+                $('#search-box').val('');
             },
             error: function (xhr, status, error) {
                 //Todo: gæti þurft eitthvað annað error handling

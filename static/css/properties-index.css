@@ -16,6 +16,12 @@ h3 {
 #slider-container-hidden {
     visibility: hidden;
 }
+#search-btn{
+    height: 2.41em;
+    margin-top: 2em;
+    border-radius: 0 0.3em 0.3em 0;
+    background-color: #4CAF50 !important;
+}
 .form-control {
     margin-top: 2em;
 }
