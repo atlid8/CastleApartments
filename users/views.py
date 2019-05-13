@@ -103,11 +103,14 @@ def search_history(request):
 @login_required
 def notification(request):
     userid =request.user
-    notifications = Notification.objects.filter(receiver=userid, resolved=False)
+    unseen = Notification.objects.filter(receiver=userid, resolved=False)
     seen = Notification.objects.filter(receiver=userid, resolved=True)
+    for notification in unseen:
+        notification.resolved = True
+        notification.save()
     return render(request, 'users/notification.html',
                   {'seen': seen,
-                   'unseen': notifications})
+                   'unseen': unseen})
 
 def my_inbox(request):
     return render(request, 'users/my-inbox.html')
