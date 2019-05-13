@@ -29,7 +29,7 @@ class NotificationForm(ModelForm):
 
 
     def save_for_watchlist(self, buyer, castle, offer, watcher, commit=True):
-        """notification = super(NotificationForm, self).save(commit=False)
+        notification = super(NotificationForm, self).save(commit=False)
         buyername = buyer.first_name + ' ' + buyer.last_name
         castlename = castle.name
         notification.info = buyername + ' just offered ' + str(
@@ -39,7 +39,7 @@ class NotificationForm(ModelForm):
         notification.resolved = False
         notification.receiver = watcher
         notification.save()
-        return notification"""
+        return notification
         # Þetta virkar en þetta over writar alltaf notificationið á undan
         pass #TODO: Gera watchlist notification
 

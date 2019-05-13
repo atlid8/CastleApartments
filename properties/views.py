@@ -82,10 +82,11 @@ def make_offer(request, id):
             castle = Castle.objects.filter(id=id).first()
             form.save(buyer, castle)
             form2.save_offer_made(buyer, offer, castle)
-            #the_watchlist = Watchlist.objects.filter(castle_watch_id = id)
-            #for watch in the_watchlist:
-            #    watcher = User.objects.filter(id=watch.user_id).first()
-            #    form2.save_for_watchlist(buyer, castle, offer, watcher)
+            the_watchlist = Watchlist.objects.filter(castle_watch_id = id)
+            for watch in the_watchlist:
+                form2 = NotificationForm(data.request.POST)
+                watcher = User.objects.filter(id=watch.user_id).first()
+                form2.save_for_watchlist(buyer, castle, offer, watcher)
             #Todo að fá þetta til að hætta að overwrita síðasta form2 save
             return redirect('/properties/'+str(id)+'/checkout/')
     return render(request, 'payments/make-offer.html',
