@@ -1,6 +1,5 @@
 from django import forms
 from properties.models import ContactInfo
-from django_countries.fields import CountryField
 
 
 marcas = (
