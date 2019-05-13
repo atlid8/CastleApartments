@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!doctype html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+    <link rel="stylesheet" href="{% static 'css/contact-info.css' %}">
+    <title>Contact-info offer</title>
+</head>
+<body>
+<form method="post">
+    <div class="card bg-light">
+        <article class="card-body mx-auto">
+            <h4 class="card-title">Contact info</h4>
+            <p class="sub-title">You need to fill in contact information before you can make an offer for {{ castle.name }}</p>
+            <form method="post">
+                {% csrf_token %}
+                <div class="input-row">
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fas fa-user"></i> </span>
+                        </div>
+                        <input disabled="disabled" value=" {{ user.first_name }} {{ user.last_name }}">
+                    </div>
+                    <div class="input-row">
+                        <div class="form-group input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"> <i class="fas fa-road"></i> </span>
+                            </div>
+                            {{ form.street_name }}
+                        </div>
+                        <div class="input-row">
+                            <div class="form-group input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"> <i class="fas fa-chess-rook"></i> </span>
+                                </div>
+                                {{ form.house_number }}
+                            </div>
+                            <div class="form-group input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"> <i class="fa fa-flag"></i> </span>
+                               </div>
+                                {{ form.country }}
+                            </div>
+                            <div class="form-group input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"> <i class="fa fa-users"></i> </span>
+                                </div>
+                                {{ form.city }}
+                            </div>
+                            <div class="form-group input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"> <i class="fas fa-map-pin"></i> </span>
+                                </div>
+                                {{ form.postal_code }}
+                            </div>
+                            <div class="form-group input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text"> <i class="fas fa-key"></i> </span>
+                                </div>
+                                {{ form.ssn }}
+                            </div>
+                            <div class="form-group" id="create-button-container">
+                                <input type="submit"  id="create-button" class="btn btn-primary" value="Confirm contact info">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </article>
+    </div>
+</form>
+</body>
+</html>
+
+{% endblock %}

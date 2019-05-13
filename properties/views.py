@@ -47,14 +47,24 @@ def get_property_by_id(request, id):
 
 @login_required
 
-def contact_info(request, id):
+def contact_info_buy(request, id):
     user = request.user
     if request.method == 'POST':
         form = ContactInfoCreationForm(data=request.POST)
         if form.is_valid():
             form.save(user)
             return redirect('/properties/' + str(id) + '/checkout/')
-    return render(request, 'payments/contact-info.html',
+    return render(request, 'payments/contact-info-buy.html',
+                  {'castle': get_object_or_404(Castle, pk=id), 'form': ContactInfoCreationForm(), 'user': user})
+
+def contact_info_offer(request, id):
+    user = request.user
+    if request.method == 'POST':
+        form = ContactInfoCreationForm(data=request.POST)
+        if form.is_valid():
+            form.save(user)
+            return redirect('/properties/' + str(id) + '/make-offer/')
+    return render(request, 'payments/contact-info-offer.html',
                   {'castle': get_object_or_404(Castle, pk=id), 'form': ContactInfoCreationForm(), 'user': user})
 
 def payments(request, id):
