@@ -10,21 +10,18 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="{% static 'css/main-style.css' %}">
         <link rel="stylesheet" href="{% static 'css/about_us.css' %}">
-        <title>Document</title>
+        <title>Castle Apartments</title>
     </head>
-    <body background="background.png" style="background-repeat: repeat">
-    <div id="about-text">
-        <h2>
-            A few guys from humble beginnings trying to make it in the castle business!
-        </h2>
-        <p>
-            Hi guys!
-            We are the newest hip and cool castle real estate site in the Seven Kingdoms. We are trying to change this 'divide and conquer' culture that has been ruining the Kingdoms for years. Try something different with us, buy and sell castles instead of waging wars and get your castles that way! Help us help you and make the Seven Kingdoms great again!
-        </p>
-    </div>
+    <body>
+        <div class="container1">
+            <div id="about-text">
+                <h2>A few guys from humble beginnings trying to make it in the castle business! </h2>
+                <br><p>Hi guys! We are the newest hip and cool castle real estate site in the Seven Kingdoms. We are trying to change this 'divide and conquer' culture that has been ruining the Kingdoms for years. Try something different with us, buy and sell castles instead of waging wars and get your castles that way! Help us help you and make the Seven Kingdoms great again!</p>
+            </div>
+        </div>
         <div class="album py-5 bg-transparent">
             <div class="container">
-                <div class="row">
+                <div class="row" id="upper-row">
                     <div class="col-md-1" id="images">
                         <div class="card mb-2 box-shadow">
                             <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="https://scontent-arn2-1.xx.fbcdn.net/v/t1.15752-9/58842271_426289888196515_8038877961367060480_n.jpg?_nc_cat=111&_nc_ht=scontent-arn2-1.xx&oh=19a17ecf240cc5720960e0b2d16854db&oe=5D641B76" data-holder-rendered="true">
@@ -40,6 +37,8 @@
                             <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="https://scontent-arn2-1.xx.fbcdn.net/v/t1.15752-9/59501681_1975408619232325_141053726797332480_n.jpg?_nc_cat=105&_nc_ht=scontent-arn2-1.xx&oh=f3fa721f2a85d4d27eea8c1f232ecc3a&oe=5D5BDAF6" data-holder-rendered="true">
                         </div>
                     </div>
+                </div>
+                <div class="row" id="lower-row">
                     <div class="col-md-1" id="images">
                         <div class="card mb-2 box-shadow">
                             <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="https://scontent-arn2-1.xx.fbcdn.net/v/t1.15752-9/59360389_350014789197528_9105109837481508864_n.jpg?_nc_cat=102&_nc_ht=scontent-arn2-1.xx&oh=a44414cfdcaffeaec986de734f6124a8&oe=5D302A61" data-holder-rendered="true">
@@ -53,62 +52,54 @@
                 </div>
             </div>
         </div>
-    <div class="container" id="contactus">
-    <div class="row">
-        <div class="col-md-8">
-            <div class="well well-sm">
-                <form>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="name">
-                                Name</label>
-                            <input type="text" class="form-control" id="name" placeholder="Enter name" required="required" />
+        <div class="container" id="contact-us">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="well well-sm">
+                        <form>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="name">Name</label>
+                                    <input type="text" class="form-control" id="name" placeholder="Enter name" required="required" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email Address</label>
+                                    <div class="input-group">
+                                        <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span></span>
+                                        <input type="email" class="form-control" id="email" placeholder="Enter email" required="required" /></div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="name">Message</label>
+                                    <textarea name="message" id="message" class="form-control" rows="5" cols="15" required="required" placeholder="Message"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <button type="submit" class="btn btn-primary pull-right" id="btnContactUs">Send Message</button>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="email">
-                                Email Address</label>
-                            <div class="input-group">
-                                <span class="input-group-addon"><span class="glyphicon glyphicon-envelope"></span>
-                                </span>
-                                <input type="email" class="form-control" id="email" placeholder="Enter email" required="required" /></div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <label for="name">
-                                Message</label>
-                            <textarea name="message" id="message" class="form-control" rows="5" cols="15" required="required"
-                                placeholder="Message"></textarea>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <button type="submit" class="btn btn-primary pull-right" id="btnContactUs">
-                            Send Message</button>
+                        </form>
                     </div>
                 </div>
-                </form>
+                <div class="col-md-4">
+                    <form>
+                    <legend><span class="glyphicon glyphicon-globe"></span> Our office</legend>
+                    <address>
+                        <strong>CastleApartments, Inc.</strong><br>
+                        795 Kings Landing Road, Suite 600<br>
+                        Kings Landing, KL 94107<br>
+                        <abbr title="Phone">P:</abbr>(354) 581-2345
+                    </address>
+                    <address>
+                        <strong>Send us an email!</strong><br>
+                        <a href="mailto:#">castle@castleapartments.com</a>
+                    </address>
+                    </form>
+                </div>
             </div>
         </div>
-        <div class="col-md-4">
-            <form>
-            <legend><span class="glyphicon glyphicon-globe"></span> Our office</legend>
-            <address>
-                <strong>CastleApartments, Inc.</strong><br>
-                795 Kings Landing Road, Suite 600<br>
-                Kings Landing, KL 94107<br>
-                <abbr title="Phone">
-                    P:</abbr>
-                (354) 581-2345
-            </address>
-            <address>
-                <strong>Send us an email!</strong><br>
-                <a href="mailto:#">castle@castleapartments.com</a>
-            </address>
-            </form>
-        </div>
-    </div>
-</div>
 
     </body>
     </html>

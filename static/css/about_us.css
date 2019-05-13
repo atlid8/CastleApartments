@@ -1,33 +1,57 @@
-
+address, legend, label, #about-text, #contact-us{
+    color:white;
+}
+#lower-row, #upper-row {
+    padding-left: 1.5em;
+}
+#upper-row {
+    padding-top: 2em;
+}
+#lower-row {
+    margin-top: 1.5em;
+    margin-left: 6em;
+    padding-bottom: 1.5em;
+}
 #images {
     min-width: 14em;
 }
-
-#contactus{
-    background:rgba(255,255,255, 0.1);
-    margin-left: 8em;
-    margin-right: 10em;
-    margin-bottom: 2em;
-    padding-bottom: 2em;
-    padding-right: 0px;
-
+#contact-us{
+    background: rgba(0,0,0,0.3) !important;
+    padding: 1em;
+}
+#btnContactUs {
+    float:right;
 }
 #about-text{
-    color: white;
-    background:rgba(255,255,255, 0.1);
-    margin-top: 2em;
-    margin-left: 8em;
-    margin-right: 10em;
-    padding-bottom: 1em;
+    display: inline-block;
+    background:rgba(0, 0, 0, 0.3);
+    width: 60%;
+    padding: 1em;
+    border-radius: 0.5em
 }
+.container {
+    background:rgba(0, 0, 0, 0.5);
+    max-width: 45em;
+    height: auto;
+    border-radius: 0.5em;
+}
+.container1 {
+    text-align: center;
+}
+@media screen and (max-width: 768px) {
+    .col-md-1 {
+        max-width: 8.33%;
+        margin-bottom: 1em;
+    }
+    #upper-row, #lower-row {
+        display: inline;
+    }
+    #lower-row {
+        margin-top: 1px;
+    }
+    .container {
+        max-width: 16em;
+    }
 
-address{
-    color:white;
-}
 
-legend{
-    color:white;
-}
-label{
-    color:white;
 }
