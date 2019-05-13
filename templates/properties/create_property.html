@@ -34,14 +34,14 @@
          <div class="row">
             <div class="form-group input-group">
                <div class="input-group-prepend">
-                  <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                  <span class="input-group-text"><i class="fas fa-road"></i> </span>
                </div>
                {{ form.street }}
             </div>
             <!-- form-group// -->
             <div class="form-group input-group">
                <div class="input-group-prepend">
-                  <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                  <span class="input-group-text"> <i class="fas fa-chess-rook"></i> </span>
                </div>
               {{ form.house_number }}
             </div>
@@ -51,14 +51,14 @@
                <div class="input-group-prepend">
                   <span class="input-group-text"> <i class="fa fa-flag"></i> </span>
                </div>
-               <select id="zip-select" class="form-control">
-                  <option value="" disabled selected> select zip</option>
-                  <option id="VSB YEAH" value="King's Landing">101</option>
-                  <option value="The Stormlands">201</option>
-                   <option value="Westerlands">210</option>
-                   <option value="The Riverlands">301</option>
-                   <option value="Dorne">401</option>
-                   <option value="The North">501</option>
+               <select id="kingdom-select" class="form-control">
+                  <option value="" disabled selected> select kingdom</option>
+                  <option value=101>King's Landing</option>
+                  <option value=201>The Stormlands</option>
+                   <option value=210>Westerlands</option>
+                   <option value=301>The Riverlands</option>
+                   <option value=401>Dorne</option>
+                   <option value=501>The North</option>
                </select>
             </div>
             <!-- form-group// -->
@@ -74,14 +74,14 @@
          <div class="row">
             <div class="form-group input-group">
                <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="fas fa-money-bill-wave-alt"></i> </span>
+                  <span class="input-group-text"><i class="far fa-money-bill-alt"></i></span>
                </div>
                {{ form.price }}
             </div>
             <!-- form-group// -->
             <div class="form-group input-group">
                <div class="input-group-prepend">
-                  <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                  <span class="input-group-text"> <i class="fas fa-expand-arrows-alt"></i> </span>
                </div>
                {{ form.size }}
             </div>
@@ -107,9 +107,6 @@
              {{ form.info }}
          </div>
          <div class="row" id="submit-buttons">
-            <div class="form-group">
-               <button type="submit" id="preview-button" class="btn btn-primary btn-block"> Preview Listing </button>
-            </div>
             <div class="form-group">
                <button type="submit" id="submit-button" class="btn btn-primary btn-block"> Publish Listing  </button>
             </div>
