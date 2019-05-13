@@ -11,4 +11,5 @@ urlpatterns = [
     path('<int:id>/make-offer/', views.make_offer, name="make_offer"),
     path('create/', views.create, name="create_property"),
     path('<int:id>/edit/', views.edit_property, name="edit_property"),
+    path('<int:id>/contact-info/', views.contact_info, name="contact_info"),
 ]

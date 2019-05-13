@@ -47,7 +47,9 @@
         <p> {{ castle.seller.email}}</p>
         <a id="left-front-button" type="button" class="btn btn-outline" href="/users/{{ castle.seller.profile.id }}">See Sellers Profile</a>
         <form method="post">
-            <a id="right-front-button" type="submit" class="btn btn-outline" href="/properties/search">Add to watchlist</a>
+            {% csrf_token %}
+{#              <a id="right-front-button" type="submit" class="btn btn-outline" href="/properties/search">Add to watchlist</a>#}
+            <button type="submit">Add to watchlist</button>
         </form>
     </div>
 

@@ -32,9 +32,11 @@ def front_page_admin(request):
 @login_required
 def my_profile(request):
     userid = request.user.id
-    return render(request, 'users/my-profile.html', {'castles': Castle.objects.filter(seller_id=userid),
-                                                     'watchlist': Watchlist.objects.filter(user_id=userid)
-                   })
+    watchlist = Watchlist.objects.filter(user_id=userid).castle_watch_id
+    dictionary = {'castles': Castle.objects.filter(seller_id=userid)}
+    for castle in watchlist:
+        dictionary['castle_watch'] = Castle.objects.filter(id=castle).first()
+    return render(request, 'users/my-profile.html', dictionary)
 
 def register(request):
     if request.method == 'POST':
