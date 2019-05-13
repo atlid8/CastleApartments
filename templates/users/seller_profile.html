@@ -5,7 +5,6 @@
     <html lang="en">
         <head>
             <link rel="stylesheet" href="{% static 'css/seller-profile.css' %}">
-{#            <script type="text/javascript" src="{% static 'js/properties-app.js' %}"></script>#}
             <title>Document</title>
         </head>
         <body>
@@ -13,9 +12,7 @@
                 <div class="tab-content">
                     <div class="row">
                         <div class="col-xs-12 col-sm-3 center" id="img-container">
-{#                            <span class="profile-picture">#}
-                                    <img class="img-responsive" src="{{ profile.profile_image }}"/>
-{#                            </span>#}
+                            <img class="img-responsive" src="{{ profile.profile_image }}"/>
                         </div>
                         <div class="col-xs-12 col-sm-9" id="about-table">
                             <div class="profile-user-info">
@@ -65,7 +62,7 @@
                 </div>
             </div>
             <div class="header-text">
-                <h3>Your sales properties</h3>
+                <h3>{{ profile.user.username }}'s properties</h3>
             </div>
             <div class="album py-5 bg-transparent">
                 <div class="container">
