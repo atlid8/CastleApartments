@@ -44,6 +44,11 @@ def get_property_by_id(request, id):
 
 @login_required
 
+def contact_info(request, id):
+    return render(request, 'payments/contact-info.html',
+                  {'castle': get_object_or_404(Castle, pk=id)
+                   })
+
 def payments(request, id):
     return render(request, 'payments/payments.html',
                   {'castle': get_object_or_404(Castle, pk=id)
