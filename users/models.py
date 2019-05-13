@@ -22,3 +22,6 @@ class Notification(models.Model):
     resolved = models.BooleanField(default=False)
     time_stamp = models.DateTimeField(default=timezone.now)
 
+class Countries(models.Model):
+    country = models.CharField(max_length=255)
+

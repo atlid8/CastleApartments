@@ -5,6 +5,10 @@ input {
     width: 79.5%;
 }
 
+#id_country {
+    width: 79.5%;
+}
+
 :disabled {
     background-color: lightgrey;
     color: lightslategrey;

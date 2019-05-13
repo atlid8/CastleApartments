@@ -1,11 +1,12 @@
 from django import forms
 from properties.models import ContactInfo
+from users.models import Countries
 
 
-marcas = (
-        ('westeror', 'Westeros'),
-        ('essos', 'Essos'),
-        ('always winter', 'The Lands of Always Winter'),)
+all_countries = [("", "country")]
+countries_objects = Countries.objects.all()
+for countries in countries_objects:
+    all_countries.append((countries.country, countries.country))
 
 class ContactInfoCreationForm(forms.ModelForm):
     postal_code = forms.IntegerField(label='postcode', widget=forms.TextInput(attrs={'placeholder': ' zip code'}))
@@ -13,7 +14,7 @@ class ContactInfoCreationForm(forms.ModelForm):
     house_number = forms.IntegerField(label='house_number', widget=forms.NumberInput(attrs={'placeholder': ' house number'}))
     city = forms.CharField(label='city', widget=forms.TextInput(attrs={'placeholder': ' city'}))
     ssn = forms.IntegerField(label='ssn', widget=forms.NumberInput(attrs={'placeholder': ' social security number'}))
-    country = forms.ChoiceField(choices=marcas)
+    country = forms.ChoiceField(label='country', choices=all_countries)
 
 
     class Meta:
