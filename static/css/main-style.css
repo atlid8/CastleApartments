@@ -27,11 +27,16 @@ html,body{
     border-color: white;
 }
 #right-front-button {
+    animation: fadeInRight 1s;
     margin-left: 10em;
 }
 #right-front-button:hover{
     background-color: white;
     color: black;
+}
+
+#left-front-button{
+    animation: fadeInLeft 1s;
 }
 #left-front-button:hover{
     background-color: white;
