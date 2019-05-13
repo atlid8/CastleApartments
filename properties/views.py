@@ -31,6 +31,18 @@ def properties(request):
         for x in castles:
             x['image'] = Castle.objects.filter(id=x['id']).first().castleimage_set.first().image
         return JsonResponse({'data': list(castles)})
+    if 'postcode' in request.GET:
+        zip = request.GET['postcode']
+        if zip:
+            castles = Castle.objects.filter(postcode_id=zip).values()
+            for x in castles:
+                x['image'] = Castle.objects.filter(id=x['id']).first().castleimage_set.first().image
+            return JsonResponse({'data': list(castles)})
+        else:
+            castles = Castle.objects.all().values()
+            for x in castles:
+                x['image'] = Castle.objects.filter(id=x['id']).first().castleimage_set.first().image
+            return JsonResponse({'data': list(castles)})
     context = {'castles': Castle.objects.all().order_by('name')}
     return render(request, 'properties/properties-index.html', context)
 
@@ -86,7 +98,7 @@ def make_offer(request, id):
             form2.save_offer_made(buyer, offer, castle)
             the_watchlist = Watchlist.objects.filter(castle_watch_id = id)
             for watch in the_watchlist:
-                form2 = NotificationForm(data.request.POST)
+                form2 = NotificationForm(data=request.POST)
                 watcher = User.objects.filter(id=watch.user_id).first()
                 form2.save_for_watchlist(buyer, castle, offer, watcher)
             #Todo að fá þetta til að hætta að overwrita síðasta form2 save
