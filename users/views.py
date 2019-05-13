@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
-from properties.models import Castle
+from properties.models import Castle, Watchlist
 from users.forms.creationform import UserCreationForm
 from users.forms.ProfileForm import ProfileForm, UserEditForm
 from users.models import Profile, SearchHistory
@@ -28,9 +28,12 @@ def front_page_staff(request):
 def front_page_admin(request):
     return render(request, 'front_page/front_page_admin.html')
 
+
+@login_required
 def my_profile(request):
     userid = request.user.id
     return render(request, 'users/my-profile.html', {'castles': Castle.objects.filter(seller_id=userid),
+                                                     'watchlist': Watchlist.objects.filter(user_id=userid)
                    })
 
 def register(request):
