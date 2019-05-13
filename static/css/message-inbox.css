@@ -1,0 +1,158 @@
+.card{
+    margin: 0 auto;
+height: 30em;
+margin-top: auto;
+margin-bottom: auto;
+width: 50em;
+background-color: rgba(0,0,0,0.2) !important;
+    padding: 0.2em;
+}
+
+h4 {
+    margin: 1em auto;
+    text-align: center;
+    color: whitesmoke;
+}
+
+.side-bar {
+    border: 1px whitesmoke solid;
+    height: 100%;
+    width: 15%;
+    float: left;
+}
+
+
+thead {
+    width: 18em;
+
+
+}
+span
+{
+    outline: 1px white solid;
+    padding-bottom: 3px;
+    font-size: 13px;
+    color: white;
+    display: inline-block;
+    text-align: center;
+vertical-align: middle;
+}
+.inbox-container{
+    background-color: rgba(0,0,0,0.3);
+    width: 100%;
+    height: 100%;
+}
+
+
+table, th, td {
+    border-bottom: 1px whitesmoke solid;
+    vertical-align: middle;
+    text-align: center;
+    vertical-align: middle;
+}
+
+thead td {
+    border: 2px whitesmoke solid;
+    border-left: 1px whitesmoke solid;
+}
+
+.inbox{
+    color: whitesmoke;
+    font-size: 13px;
+    display: table;
+    background-color: rgba(255,255,255, 0.2);
+    width: 85%;
+    height: auto;
+}
+
+.message-row{
+     line-height: 2em;
+}
+
+.title-row{
+    font-weight: bold;
+     line-height: 2em;
+    font-size: 13px;
+}
+
+.message-row:hover{
+     background-color: rgba(255,255,255, 0.5);
+    cursor: pointer;
+    color: black;
+}
+
+.read-bool{
+    width: 1em;
+}
+
+.sender-name{
+    width: 3em;
+}
+
+.message-title{
+    width: 2em;
+}
+
+.time-sent{
+    width: 2em;
+}
+
+
+ul.inbox-nav {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+
+ul.inbox-nav li {
+    display: inline-block;
+    line-height: 45px;
+    width: 100%;
+}
+
+.nav-item{
+    height: 3em;
+    background-color: rgba(255,255,255, 0.2);
+    text-align: center;
+}
+
+ul.inbox-nav li a{
+    text-decoration: none;
+    color: white;
+}
+
+.nav-item:hover{
+    background-color: rgba(255,255,255, 0.5);
+    text-align: center;
+    cursor: pointer;
+}
+
+#compose-message{
+    color: white;
+    width: 100%;
+
+    background-color: dodgerblue;
+
+
+
+}
+
+.compose-div{
+    display: inline-block;
+    height: 5em;
+
+}
+
+/*ul.inbox-nav li a {*/
+/*    color: #6a6a6a;*/
+/*    display: inline-block;*/
+/*    line-height: 45px;*/
+/*    padding: 0 20px;*/
+/*    width: 100%;*/
+/*}*/
+/*ul.inbox-nav li a:hover, ul.inbox-nav li.active a, ul.inbox-nav li a:focus {*/
+/*    background: none repeat scroll 0 0 #d5d7de;*/
+/*    color: #6a6a6a;*/
+/*}*/

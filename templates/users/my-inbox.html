@@ -1,0 +1,63 @@
+
+{%  extends 'base.html' %}
+
+{% block content %}
+
+    {% load static %}
+
+    <script type="text/javascript" src="{% static 'js/inbox-app.js' %}"></script>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/message-inbox.css' %}"/>
+
+
+<div class="card">
+<div class="card-header">
+<h4>{{ user.username }}'s messages </h4>
+    </div>
+    <div class="card-body">
+<div class="side-bar">
+
+    <ul class="inbox-nav divider">
+        <li class="nav-item">
+        <a href="#">All messages</a>
+        </li>
+        <li class="nav-item">
+        <a href="#">Unread</a>
+        </li>
+        <li class="nav-item">
+        <a href="#">Read</a>
+        </li>
+        <li class="nav-item">
+        <a href="#">Trash</a>
+        </li>
+    </ul>
+</div>
+
+        <div class="inbox-container">
+            <table class="inbox">
+                <thead>
+                    <tr class="title-row">
+                    <td class ="read-bool">Read</td>
+                    <td class ="sender-name">Sender name</td>
+                    <td class ="message-title">Message title</td>
+                    <td class ="time-sent">Message sent</td>
+                </tr></thead>
+                <tr class="message-row">
+                    <td class ="read-bool">Yes</td>
+                    <td class ="sender-name">Robert Baratheon</td>
+                    <td class ="message-title">Did you pork my boar?</td>
+                    <td class ="time-sent">May 20, 20:45</td>
+                </tr>
+                <tr class="message-row">
+                    <td class ="read-bool">No</td>
+                    <td class ="sender-name">Jaime Lannister</td>
+                    <td class ="message-title">Can you give me a hand?</td>
+                    <td class ="time-sent">May 21, 21:30</td>
+                </tr>
+            </table>
+        </div>
+</div>
+
+</div>
+
+
+{% endblock %}

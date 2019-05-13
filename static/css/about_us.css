@@ -1,11 +1,11 @@
-address, legend, label, #about-text, #contact-us{
+address, legend, label, #about-text, #contact-us, #our-employees{
     color:white;
 }
 #lower-row, #upper-row {
     padding-left: 1.5em;
 }
 #upper-row {
-    padding-top: 2em;
+    padding-top: 1em;
 }
 #lower-row {
     margin-top: 1.5em;
@@ -28,6 +28,10 @@ address, legend, label, #about-text, #contact-us{
     width: 60%;
     padding: 1em;
     border-radius: 0.5em
+}
+#our-employees {
+    text-align: center;
+    padding-top: .5em;
 }
 .container {
     background:rgba(0, 0, 0, 0.5);
