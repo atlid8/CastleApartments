@@ -1,27 +1,14 @@
-// Changes title to 'blah'
-// $(document).ready(function() {
-//     document.title = 'blah';
-// });
-
-// jQuery(document).resize(function () {
-//     let screen = $(window);
-//     if (screen.width() < 768 && screen.width() > 600)  {
-//         $("#square-meters").html('M2');
-//         console.log('hello');
-//     }
-//     else {
-//         $("#square-meters").html('Square meterssssss');
-//         console.log('bye');
-//     }
-// });
-window.addEventListener("resize", function() {
-    const width = screen.width;
-    if ((width < 768) && (width > 601)) {
-        document.getElementById('square-meters').innerHTML = 'M<sup>2</sup>';
-    }
-    else {
-        document.getElementById('square-meters').innerHTML = 'Square meters';
-    }
+$(function() {
+    // #TODO: Mögulega finna betri leið? brennur upp ram
+    $(window).on('resize', function() {
+        const x = $(this).width();
+        if (x < 769 && x > 600) {
+            $('#square-meters').html('M<sup>2</sup>');
+        }
+        else {
+            $('#square-meters').html('Square meters');
+        }
+    });
 });
 
 // Creates the slider
@@ -41,7 +28,6 @@ $(document).ready(function () {
     $('#search-btn').on('click', function (e) {
         e.preventDefault();
         var searchText = $('#search-box').val();
-        console.log("Þú ert hér líka!!");
         $.ajax({
             url: '/properties/search/?search-filter=' + searchText,
             type: 'GET',
