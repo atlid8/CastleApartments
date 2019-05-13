@@ -9,6 +9,7 @@
     <title>Contact-info</title>
 </head>
 <body>
+<form>
     <div class="card bg-light">
     <article class="card-body mx-auto">
         <h4 class="card-title">Contact info</h4>
@@ -30,6 +31,7 @@
             <div class="form-group input-group">
                <div class="input-group-prepend">
                    {{ form.country }}
+                   {{ form.city }}
                   <span class="input-group-text"> <i class="fa fa-flag"></i> </span>
                </div>
                <select id="kingdom-select" class="form-control">
@@ -47,7 +49,7 @@
                <div class="input-group-prepend">
                   <span class="input-group-text"> <i class="fas fa-map-pin"></i> </span>
                </div>
-               {{ form.postal_code }}
+               {{ form.postcode }}
             </div>
           <div class="form-group input-group">
                <div class="input-group-prepend">
@@ -64,6 +66,7 @@
         </form>
     </article>
     </div>
+</form>
 </body>
 </html>
 

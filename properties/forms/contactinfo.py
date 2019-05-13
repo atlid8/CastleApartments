@@ -3,7 +3,7 @@ from properties.models import ContactInfo
 
 
 
-class ContactInfoCreationFrom(forms.ModelForm):
+class ContactInfoCreationForm(forms.ModelForm):
     postcode = forms.IntegerField(label='postcode', widget=forms.TextInput(attrs={'placeholder': 'zip code'}))
     street = forms.CharField(label='street_name', widget=forms.TextInput(attrs={'placeholder': 'street name'}))
     house_number = forms.IntegerField(label='house_number', widget=forms.NumberInput(attrs={'placeholder': 'house number'}))
