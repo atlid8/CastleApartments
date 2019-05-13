@@ -27,7 +27,7 @@
                  <div class="header-text" id="after-first-text">
                     <h2>Your watch list</h2>
                 </div>
-                {% for castle in watchlist %}
+                {% for castle in castle_watch %}
                 {% include "properties/singleproperty.html" with castle=castle %}
                 {% endfor %}
             </div>
