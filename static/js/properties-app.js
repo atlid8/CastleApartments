@@ -30,7 +30,7 @@ $(document).ready(function () {
                     <div class="col-md-3 well castles">
                         <a href="/properties/${d.id}">
                         <div class="card mb-4 box-shadow">
-                            <img class="card-img-top"  alt="Thumbnail [100%x225]" src='${d.firstimage}'data-holder-rendered="true">
+                            <img class="card-img-top"  alt="Thumbnail [100%x225]" src='${d.image}'data-holder-rendered="true">
                             <div class="card-body">
                                 <h1 class="card-text" id="castle-name"> ${d.name}</h1>
                                 <p class="card-text"> ${d.info}</p>
@@ -66,6 +66,7 @@ $(document).ready(function () {
                     <div class="col-md-3 well castles">
                         <a href="/properties/${d.id}">
                         <div class="card mb-4 box-shadow">
+                        <img class="card-img-top"  alt="Thumbnail [100%x225]" src='${d.image}'data-holder-rendered="true">
                             <div class="card-body">
                                 <h1 class="card-text" id="castle-name"> ${d.name}</h1>
                                 <p class="card-text"> ${d.info}</p>

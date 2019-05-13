@@ -16,38 +16,16 @@ def properties(request):
         user = request.user
         searchhistory = SearchHistory(user=user, search_input=search_filter)
         searchhistory.save()
-        castles = [ {
-            'id': x.id,
-            'name': x.name,
-            'price': x.price,
-            'commission': x.commission,
-            'rooms': x.rooms,
-            'size': x.size,
-            'verified' : x.verified,
-            'info': x.info,
-            'street': x.street,
-            'house_number': x.house_number,
-            'seller': x.seller.id,
-            'firstimage': x.castleimage_set.first().image
-        } for x in Castle.objects.filter(name__icontains=search_filter)]
-        return JsonResponse({'data': castles})
+        castles = Castle.objects.filter(name__icontains=search_filter).values()
+        for x in castles:
+            x['image'] = Castle.objects.filter(id=x['id']).first().castleimage_set.first().image
+        return JsonResponse({'data': list(castles)})
     if 'order' in request.GET:
         order_by = request.GET['order']
-        castles = [{
-            'id': x.id,
-            'name': x.name,
-            'price': x.price,
-            'commission': x.commission,
-            'rooms': x.rooms,
-            'size': x.size,
-            'verified': x.verified,
-            'info': x.info,
-            'street': x.street,
-            'house_number': x.house_number,
-            'seller': x.seller.id,
-            'firstimage': x.castleimage_set.first().image
-        } for x in Castle.objects.all().order_by(order_by)]
-        return JsonResponse({'data': castles})
+        castles = Castle.objects.all().order_by(order_by).values()
+        for x in castles:
+            x['image'] = Castle.objects.filter(id=x['id']).first().castleimage_set.first().image
+        return JsonResponse({'data': list(castles)})
     context = {'castles': Castle.objects.all().order_by('name')}
     return render(request, 'properties/properties-index.html', context)
 
