@@ -38,7 +38,7 @@ span
 vertical-align: middle;
 }
 .inbox-container{
-    background-color: rgba(0,0,0,0.3);
+    background-color: rgba(0,0,0,0.7);
     width: 100%;
     height: 100%;
 }
@@ -52,7 +52,7 @@ table, th, td {
 }
 
 thead td {
-    border: 2px whitesmoke solid;
+    border: 1px whitesmoke solid;
     border-left: 1px whitesmoke solid;
 }
 
@@ -60,7 +60,7 @@ thead td {
     color: whitesmoke;
     font-size: 13px;
     display: table;
-    background-color: rgba(255,255,255, 0.2);
+    background-color: rgba(0,0,0,0.5);
     width: 85%;
     height: auto;
 }
@@ -70,6 +70,7 @@ thead td {
 }
 
 .title-row{
+    height: 3em;
     font-weight: bold;
      line-height: 2em;
     font-size: 13px;
@@ -86,15 +87,15 @@ thead td {
 }
 
 .sender-name{
-    width: 3em;
+    width: 30%;
 }
 
 .message-title{
-    width: 2em;
+    width: 45%;
 }
 
 .time-sent{
-    width: 2em;
+    width: 25%;
 }
 
 
@@ -114,7 +115,7 @@ ul.inbox-nav li {
 
 .nav-item{
     height: 3em;
-    background-color: rgba(255,255,255, 0.2);
+
     text-align: center;
 }
 
