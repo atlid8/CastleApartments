@@ -1,20 +1,25 @@
 from django import forms
 from properties.models import ContactInfo
+from django_countries.fields import CountryField
 
 
+marcas = (
+        ('westeror', 'Westeros'),
+        ('essos', 'Essos'),
+        ('always winter', 'The Lands of Always Winter'),)
 
 class ContactInfoCreationForm(forms.ModelForm):
-    postcode = forms.IntegerField(label='postcode', widget=forms.TextInput(attrs={'placeholder': 'zip code'}))
-    street = forms.CharField(label='street_name', widget=forms.TextInput(attrs={'placeholder': 'street name'}))
+    postal_code = forms.IntegerField(label='postcode', widget=forms.TextInput(attrs={'placeholder': 'zip code'}))
+    street_name = forms.CharField(label='street_name', widget=forms.TextInput(attrs={'placeholder': 'street name'}))
     house_number = forms.IntegerField(label='house_number', widget=forms.NumberInput(attrs={'placeholder': 'house number'}))
     city = forms.CharField(label='city', widget=forms.TextInput(attrs={'placeholder': 'city'}))
     ssn = forms.IntegerField(label='ssn', widget=forms.NumberInput(attrs={'placeholder': 'social security number'}))
-    country = forms.ChoiceField(label='country', widget=forms.Select(attrs={'placeholder': 'country'}))
+    country = forms.ChoiceField(choices=marcas)
 
 
     class Meta:
         model = ContactInfo
-        fields = ('postcode', 'street_name', 'house_number', 'city', 'ssn', 'country')
+        fields = ('postal_code', 'street_name', 'house_number', 'city', 'ssn', 'country')
 
 
     def save(self, user, commit=True):
