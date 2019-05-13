@@ -1,0 +1,15 @@
+th {
+    /*margin-bottom: 15em;*/
+}
+.table-dark {
+    display: inline-block;
+    background-color: transparent;
+}
+.container {
+    text-align: center;
+    /*border: 1px solid white;*/
+    width: 20em;
+    height: auto;
+    background: rgba(0,0,0,0.4);
+    border-radius: .5em;
+}
