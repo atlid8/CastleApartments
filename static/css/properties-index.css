@@ -6,21 +6,32 @@ h3 {
     color: white;
     text-align: center;
 }
-#slider-container {
-    height: 12em;
-    margin-top: 3em;
-}
 #castle-name {
     font-size: 1.5em;
-}
-#slider-container-hidden {
-    visibility: hidden;
 }
 #search-btn{
     height: 2.41em;
     margin-top: 2em;
     border-radius: 0 0.3em 0.3em 0;
     background-color: #4CAF50 !important;
+}
+#slider-container, #properties-container {
+    border-radius: 0.5em;
+    padding-left: 2em;
+    padding-right: 2em;
+}
+#slider-container {
+    height: 14em;
+    margin-top: 3em;
+    padding-top: 1.5em;
+    background-color: rgba(0,0,0,0.4);
+    margin-bottom: 3em;
+}
+#properties-container {
+    width: 100%;
+    height: auto;
+    background-color: rgba(0,0,0,0.5);
+    padding-bottom: 1em;
 }
 .form-control {
     margin-top: 2em;
@@ -38,9 +49,9 @@ h3 {
 .header-text {
     width: 51%;
     color:white;
-    height: 4em;;
+    height: 4em;
     text-align: center;
-    background-color: rgba(255,255,255, 0.2);
+    background-color: rgba(255,255,255, 0.4);
     padding-top: 0.65em;
     border-bottom-left-radius: 1em;
     border-top-right-radius: 1em;
@@ -50,24 +61,20 @@ h3 {
     margin-top: 2em;
     color: white;
 }
-
 .card {
     background-color: transparent;
 }
-
 .card-img-top {
     background-size: cover;
     max-width: 253px;
     max-height: 180px;
 }
-
 .card-body {
     height: 145px;
     background-color: rgba(255,255,255, 0.4);
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
 }
-
 .card-text {
     font-size: 0.75em;
     justify-content: space-between;
@@ -118,8 +125,6 @@ h3 {
         max-width: 25%;
         min-width: 25%;
     }
-
-
 }
 /*When the website is above 601px and below 768px*/
 @media screen and (max-width: 768px) and (min-width: 601px) {
