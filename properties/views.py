@@ -46,13 +46,12 @@ def make_offer(request, id):
     if request.method == 'POST':
         form = OfferCreationForm(data=request.POST)
         if form.is_valid():
-            price = form['price'].value()
-            seller = request.user
-            castle = Castle.objectss.filter(id=id).first()
-            form.save(seller, castle)
-
+            buyer = request.user
+            castle = Castle.objects.filter(id=id).first()
+            form.save(buyer, castle)
+            return redirect('/properties/'+str(id)+'/checkout/')
     return render(request, 'payments/make-offer.html',
-                  {'castle': get_object_or_404(Castle, pk=id)
+                  {'castle': get_object_or_404(Castle, pk=id), 'form': OfferCreationForm()
                    })
 
 def create(request):
