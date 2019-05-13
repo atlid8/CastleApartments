@@ -8,7 +8,7 @@
         <meta name="viewport"
               content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <link rel="stylesheet" href="{% static 'css/main-style.css' %}">
+{#        <link rel="stylesheet" href="{% static 'css/main-style.css' %}">#}
         <link rel="stylesheet" href="{% static 'css/property-details.css' %}">
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
         <script type="text/javascript" src="{% static 'js/profile-app.js' %}"></script>
@@ -37,27 +37,66 @@
     <span class="sr-only">Next</span>
   </a>
 </div>
-    <div class="information-castle">
-        <p>Price: {{ castle.price }}</p>
-        <p>Commission: {{ castle.commission }}</p>
-        <p>zip: {{ castle.postcode.postcode }}</p>
-        <p>number of rooms: {{ castle.rooms }}</p>
-        <p> {{ castle.info }}</p>
-        <p> {{ castle.seller.first_name }} {{ castle.seller.last_name }}</p>
-        <p> {{ castle.seller.email}}</p>
-        <a id="left-front-button" type="button" class="btn btn-outline" href="/users/{{ castle.seller.profile.id }}">See Sellers Profile</a>
+    <div class="container">
+        <table id="search-log-table">
+                <tbody>
+                    <tr>
+                        <th class="table-left">Time of search</th>
+                        <th>Search content</th>
+                    </tr>
+                    <tr>
+                        <th class="table-left">Price</th>
+                        <th>{{ castle.price }}</th>
+                    </tr>
+                    <tr>
+                        <th class="table-left">Commission</th>
+                        <th>{{ castle.commission }}</th>
+                    </tr>
+                    <tr>
+                        <th class="table-left">Number of rooms</th>
+                        <th>{{ castle.rooms }}</th>
+                    </tr>
+                    <tr>
+                        <th class="table-left">Zip</th>
+                        <th>{{ castle.postcode.postcode }}</th>
+                    </tr>
+                    <tr>
+                        <th class="table-left">Additional information</th>
+                        <th>{{ castle.info}}</th>
+                    </tr>
+                    <tr>
+                        <th class="table-left">Seller's name</th>
+                        <th>{{ castle.seller.first_name }} {{ castle.seller.last_name }}</th>
+                    </tr>
+                    <tr>
+                        <th class="table-left table-bottom">Seller's email address</th>
+                        <th class="table-bottom">{{ castle.seller.email }}</th>
+                    </tr>
+
+                    {% for history in histories %}
+                      <tr>
+                          <td>
+                              {{ history.time_stamp }}
+                          </td>
+                          <td>
+                              <a href="/properties/search/?search-filter={{ history.search_input }}">
+                                  {{ history.search_input }}
+                              </a>
+                          </td>
+                      </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+    </div>
+    <div class="btn-container">
         <form method="post">
             {% csrf_token %}
-{#              <a id="right-front-button" type="submit" class="btn btn-outline" href="/properties/search">Add to watchlist</a>#}
-            <button type="submit">Add to watchlist</button>
+            <a id="button-down" type="button" class="btn btn-outline" href="/users/{{ castle.seller.profile.id }}">See Sellers Profile</a>
+            <button id="button-down-mid-l" type="submit" class="btn btn-outline-primary">Add to watchlist</button>
+            <a id="button-down-mid-r" type="button" class="btn btn-outline" href="contact-info-offer">Make offer</a>
+            <a id="button-down" type="button" class="btn btn-outline-primary" href="contact-info-buy">Buy now</a>
         </form>
     </div>
-
-    <div class="buy-now-and-offer">
-            <a id="left-front-button" type="button" class="btn btn-outline" href="make-offer">Make offer</a>
-            <a id="right-front-button" type="button" class="btn btn-outline-primary" href="checkout">Buy now</a>
-    </div>
-
 
 
 {% endblock %}

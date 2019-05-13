@@ -57,8 +57,7 @@ html,body{
 #copyright {
     display: inline-block;
     float: right;
-    margin: 0 auto;
-    margin-right: 0.5em;
+    margin: 0 0.5em 0 auto;
 }
 .ml-auto .dropdown-menu {
     left: auto !important;
@@ -82,7 +81,6 @@ html,body{
     border: none;
     background: none;
 }
-
 .dropdown-menu{
     background-color: rgba(0,0,0,0.3) !important;
     text-align: right;
@@ -90,10 +88,8 @@ html,body{
     width:4em;
     border: transparent !important;
 }
-
 .dropdown-item{
     color: white !important;
-
 }
 .dropdown-item:hover{
     color: black !important;
@@ -109,7 +105,7 @@ html,body{
     width: 100%;
 }
 .header-item{
-    margin-right: 0em;
+    margin-right: 0;
     margin-top: 1em;
     color: whitesmoke;
 }
@@ -120,46 +116,34 @@ html,body{
 .dropdown show:active{
     border: none;
 }
-
 .dropdown-toggle::after {
     color: whitesmoke;
 }
-
 .dropdown-toggle:focus{
     outline: none!important;
 }
-
 .dropdown-toggle {
    padding: 5px;
  }
-
-
 .dropdownMenuButton{
     background-color: whitesmoke;
 }
-
-
 .dropdownMenuButton:active{
     border: none;
 }
 
-
-
-
 @media screen and (max-width: 950px) {
     .front-buttons{
-    height: auto;
-    width: 20em;
+        height: auto;
+        width: 20em;
         margin: 1em auto;
-
     }
      #right-front-button, #left-front-button {
-        width: 10em;
+         width: 10em;
          margin: 1em;
      }
-
 }
-
+/*#TODO: Is this supposed to close here above?*/
     #right-front-button, #left-front-button {
         transition: ease .5s;
         -webkit-appearance: none;
@@ -169,7 +153,6 @@ html,body{
         color: white;
         border-color: white;
     }
-
     #navbarSupportedContent{
         animation: fadeInRight 2s;
     }
@@ -188,19 +171,15 @@ html,body{
       transform: translateX(0);
    }
 }
-
 @keyframes fadeInLeft {
    0% {
       opacity: 0;
       transform: translateX(-20px);
    }
-
     50% {
       opacity: 0;
       transform: translateX(-20px);
    }
-
-
    100% {
       opacity: 1;
       transform: translateX(0);
@@ -219,10 +198,3 @@ html,body{
 /*        margin-top: 1em;*/
 /*    }*/
 /*}*/
-
-
-
-
-
-
-
