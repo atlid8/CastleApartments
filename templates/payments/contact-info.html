@@ -18,19 +18,18 @@
         <div class="input-row"><div class="form-group input-group">
             <div class="input-group-prepend">
                 <span class="input-group-text"> <i class="fas fa-road"></i> </span>
-{#                Street name#}
              </div>
-        {{ form.first_name }}
+        {{ form.street_name }}
         </div>
         <div class="input-row"><div class="form-group input-group">
             <div class="input-group-prepend">
                 <span class="input-group-text"> <i class="fas fa-chess-rook"></i> </span>
-{#                House number#}
              </div>
-        {{ form.last_name }}
+        {{ form.house_number }}
         </div>
             <div class="form-group input-group">
                <div class="input-group-prepend">
+                   {{ form.country }}
                   <span class="input-group-text"> <i class="fa fa-flag"></i> </span>
                </div>
                <select id="kingdom-select" class="form-control">
@@ -47,16 +46,14 @@
             <div class="form-group input-group">
                <div class="input-group-prepend">
                   <span class="input-group-text"> <i class="fas fa-map-pin"></i> </span>
-{#                   postal code#}
                </div>
-               {{ form.postcode }}
+               {{ form.postal_code }}
             </div>
           <div class="form-group input-group">
                <div class="input-group-prepend">
                   <span class="input-group-text"> <i class="fas fa-key"></i> </span>
-{#                   kennitala#}
                </div>
-               {{ form.postcode }}
+               {{ form.ssn }}
             </div>
         <div class="form-group" id="create-button-container">
             <input type="submit"  id="create-button" class="btn btn-primary" value="Confirm contact info">
