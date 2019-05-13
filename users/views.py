@@ -32,10 +32,14 @@ def front_page_admin(request):
 @login_required
 def my_profile(request):
     userid = request.user.id
-    watchlist = Watchlist.objects.filter(user_id=userid).castle_watch_id
+    list_of_watches = []
+    watchlist = Watchlist.objects.filter(user_id=userid)
     dictionary = {'castles': Castle.objects.filter(seller_id=userid)}
-    for castle in watchlist:
-        dictionary['castle_watch'] = Castle.objects.filter(id=castle).first()
+    dictionary['castle_watch'] =[]
+    for x in watchlist:
+        if Castle.objects.filter(id=x.castle_watch_id).first() not in list_of_watches:
+            list_of_watches.append(Castle.objects.filter(id=x.castle_watch_id).first())
+    dictionary['castle_watch'] = list_of_watches
     return render(request, 'users/my-profile.html', dictionary)
 
 def register(request):
