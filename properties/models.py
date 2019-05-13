@@ -21,3 +21,10 @@ class CastleImage(models.Model):
     image = models.CharField(max_length=9999)
     castle = models.ForeignKey(Castle, on_delete=models.CASCADE)
 
+class CastleOffer(models.Model):
+    buyer = models.ForeignKey(User, on_delete=models.CASCADE)
+    castle = models.ForeignKey(Castle, on_delete=models.CASCADE)
+    offer = models.IntegerField()
+    info = models.TextField()
+
+

@@ -13,18 +13,20 @@
     <div class="header-text">
         <h3>Make offer for {{ castle.name }}</h3>
     </div>
+    <form method="post">
     <div class="container">
-        <label for="name">Email Address</label>
-        <input type="text" class="form-control" id="Email" placeholder="Enter email" required="required" />
 
         <label for="offer">Offer</label>
         <input type="email" class="form-control" id="offer" placeholder="Enter offer" required="required" />
+        {{ form.price }}
 
         <label for="massage">Additional info</label>
         <textarea name="message" id="message" class="form-control" rows="5" cols="15" required="required" placeholder="Something you would like to add..."></textarea>
+        {{ form.info }}
 
          <button   id="btn-send-offer" class="btn btn-primary pull-right" data-toggle="modal" data-target="#myModal">Send offer</button>
     </div>
+    </form>
     <div class="modal fade success-popup" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog modal-sm" role="document">
         <div class="modal-content">

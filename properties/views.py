@@ -6,6 +6,9 @@ from properties.forms.create import CastleCreationForm, CastleImageCreationForm
 from django.http import JsonResponse
 
 # Create your views here.
+from CastleApartments.properties.forms.offer import OfferCreationForm
+
+
 def index(request):
     return render(request, 'base.html')
 
@@ -42,6 +45,13 @@ def payments(request, id):
                    })
 
 def make_offer(request, id):
+    if request.method == 'POST':
+        form = OfferCreationForm(data=request.POST)
+        if form.is_valid():
+            seller = request.user
+            castle = Castle.objectss.filter(id=id).first()
+            form.save(seller, castle)
+
     return render(request, 'payments/make-offer.html',
                   {'castle': get_object_or_404(Castle, pk=id)
                    })
@@ -70,4 +80,3 @@ def edit_property(request, id):
     return render(request, 'properties/edit_property.html',
                   {'castle': get_object_or_404(Castle, pk=id)
                    })
-
