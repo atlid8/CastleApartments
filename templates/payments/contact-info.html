@@ -17,42 +17,49 @@
                 {% csrf_token %}
         <div class="input-row"><div class="form-group input-group">
             <div class="input-group-prepend">
-                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                <span class="input-group-text"> <i class="fas fa-road"></i> </span>
+{#                Street name#}
              </div>
         {{ form.first_name }}
         </div>
         <div class="input-row"><div class="form-group input-group">
             <div class="input-group-prepend">
-                <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                <span class="input-group-text"> <i class="fas fa-chess-rook"></i> </span>
+{#                House number#}
              </div>
         {{ form.last_name }}
         </div>
-        <div class="input-row"><div class="form-group input-group">
-            <div class="input-group-prepend">
-                <span class="input-group-text"> <i class="fa fa-user-circle"></i> </span>
-             </div>
-        {{ form.username }}
+            <div class="form-group input-group">
+               <div class="input-group-prepend">
+                  <span class="input-group-text"> <i class="fa fa-flag"></i> </span>
+               </div>
+               <select id="kingdom-select" class="form-control">
+                  <option value="" disabled selected> select kingdom</option>
+                  <option value=101>King's Landing</option>
+                  <option value=201>The Stormlands</option>
+                   <option value=210>Westerlands</option>
+                   <option value=301>The Riverlands</option>
+                   <option value=401>Dorne</option>
+                   <option value=501>The North</option>
+               </select>
+            </div>
         </div>
-        <div class="form-group input-group">
-            <div class="input-group-prepend">
-                <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
-             </div>
-            {{ form.email }}
-        </div> <!-- form-group// -->
-        <div class="form-group input-group">
-            <div class="input-group-prepend">
-                <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+            <div class="form-group input-group">
+               <div class="input-group-prepend">
+                  <span class="input-group-text"> <i class="fas fa-map-pin"></i> </span>
+{#                   postal code#}
+               </div>
+               {{ form.postcode }}
             </div>
-            {{ form.password1 }}
-        </div> <!-- form-group// -->
-        <div class="form-group input-group">
-            <div class="input-group-prepend">
-                <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+          <div class="form-group input-group">
+               <div class="input-group-prepend">
+                  <span class="input-group-text"> <i class="fas fa-key"></i> </span>
+{#                   kennitala#}
+               </div>
+               {{ form.postcode }}
             </div>
-            {{ form.password2 }}
-        </div> <!-- form-group// -->
         <div class="form-group" id="create-button-container">
-            <input type="submit"  id="create-button" class="btn btn-primary" value="Create Account">
+            <input type="submit"  id="create-button" class="btn btn-primary" value="Confirm contact info">
         </div>
         </div>
         </div>

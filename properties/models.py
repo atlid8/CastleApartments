@@ -31,3 +31,13 @@ class CastleOffer(models.Model):
 class Watchlist(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     castle_watch = models.ForeignKey(Castle, on_delete=models.CASCADE)
+
+class ContactInfo(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    street_name = models.CharField(max_length=255)
+    house_number = models.IntegerField()
+    city = models.CharField(max_length=255)
+    country = models.CharField(max_length=255)
+    postal_code = models.IntegerField()
+    ssn = models.IntegerField()
+
