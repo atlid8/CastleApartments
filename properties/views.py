@@ -6,6 +6,7 @@ from properties.forms.create import CastleCreationForm, CastleImageCreationForm
 from properties.forms.watchlist import WatchlistCreationForm
 from django.http import JsonResponse
 from properties.forms.offer import OfferCreationForm
+from properties.forms.contactinfo import ContactInfoCreationForm
 
 
 def index(request):
@@ -46,8 +47,13 @@ def get_property_by_id(request, id):
 
 def contact_info(request, id):
     user = request.user
+    if request.method == 'POST':
+        form = ContactInfoCreationForm(data=request.POST)
+        if form.is_valid():
+            form.save(user)
+            return redirect('/properties/' + str(id) + '/checkout/')
     return render(request, 'payments/contact-info.html',
-                  {'castle': get_object_or_404(Castle, pk=id), 'form': ContactInfo(), 'user': user})
+                  {'castle': get_object_or_404(Castle, pk=id), 'form': ContactInfoCreationForm(), 'user': user})
 
 def payments(request, id):
     return render(request, 'payments/payments.html',

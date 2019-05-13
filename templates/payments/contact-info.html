@@ -9,6 +9,7 @@
     <title>Contact-info</title>
 </head>
 <body>
+<form method="post">
     <div class="card bg-light">
     <article class="card-body mx-auto">
         <h4 class="card-title">Contact info</h4>
@@ -32,16 +33,8 @@
                    {{ form.country }}
                   <span class="input-group-text"> <i class="fa fa-flag"></i> </span>
                </div>
-               <select id="kingdom-select" class="form-control">
-                  <option value="" disabled selected> select kingdom</option>
-                  <option value=101>King's Landing</option>
-                  <option value=201>The Stormlands</option>
-                   <option value=210>Westerlands</option>
-                   <option value=301>The Riverlands</option>
-                   <option value=401>Dorne</option>
-                   <option value=501>The North</option>
-               </select>
             </div>
+                               {{ form.city }}
         </div>
             <div class="form-group input-group">
                <div class="input-group-prepend">
@@ -64,6 +57,7 @@
         </form>
     </article>
     </div>
+</form>
 </body>
 </html>
 
