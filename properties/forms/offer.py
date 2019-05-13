@@ -1,5 +1,5 @@
 from django import forms
-from properties.models import Offer
+from properties.models import CastleOffer
 
 
 class OfferCreationForm(forms.ModelForm):
@@ -8,7 +8,7 @@ class OfferCreationForm(forms.ModelForm):
 
 
     class Meta:
-        model = Offer
+        model = CastleOffer
         fields = ('price', 'info')
 
 

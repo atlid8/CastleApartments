@@ -4,9 +4,7 @@ from properties.models import *
 from users.models import Profile, SearchHistory
 from properties.forms.create import CastleCreationForm, CastleImageCreationForm
 from django.http import JsonResponse
-
-# Create your views here.
-from CastleApartments.properties.forms.offer import OfferCreationForm
+from properties.forms.offer import OfferCreationForm
 
 
 def index(request):
@@ -48,6 +46,7 @@ def make_offer(request, id):
     if request.method == 'POST':
         form = OfferCreationForm(data=request.POST)
         if form.is_valid():
+            price = form['price'].value()
             seller = request.user
             castle = Castle.objectss.filter(id=id).first()
             form.save(seller, castle)
