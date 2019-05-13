@@ -3,7 +3,7 @@ from properties.models import Castle
 from properties.models import CastleImage
 from users.models import Postcode
 
-postcodes = []
+postcodes = [("", "postcode")]
 postcodes_objects = Postcode.objects.all()
 for zip in postcodes_objects:
     postcodes.append((zip.postcode, zip.postcode))

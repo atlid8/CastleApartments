@@ -77,11 +77,18 @@ width: 100px;
     border-top-left-radius: 0;
 }
 
+
+#id_postcode{
+    text-indent: 0.6em;
+    color: grey;
+    width: 82%;
+}
+
 #kingdom-select{
      border-bottom-left-radius: 0;
     border-top-left-radius: 0;
-
-    text-indent: 0em;
+    width: 81%;
+    text-indent: -1em;
     color: grey;
 }
 
