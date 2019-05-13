@@ -40,7 +40,8 @@ def get_property_by_id(request, id):
         if form.is_valid():
             castle = Castle.objects.filter(id=id).first()
             user = request.user
-            form.save(castle, user)
+            if not Watchlist.objects.filter(castle_watch_id = castle.id, user_id = user.id):
+                form.save(castle, user)
     return render(request, 'properties/property_details.html',
                    {'castle': get_object_or_404(Castle, pk=id)
                     })
