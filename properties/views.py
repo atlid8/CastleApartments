@@ -1,6 +1,7 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect
 from properties.models import *
+from properties.models import Watchlist
 from users.forms.notificationform import NotificationForm
 from users.models import Profile, SearchHistory, Notification
 from properties.forms.create import CastleCreationForm, CastleImageCreationForm
@@ -71,6 +72,10 @@ def make_offer(request, id):
             castle = Castle.objects.filter(id=id).first()
             form.save(buyer, castle)
             form2.save_offer_made(buyer, offer, castle)
+            the_watchlist = Watchlist.objects.filter(castle_watch_id = id)
+            for watch in the_watchlist:
+                watcher = User.objects.filter(id=watch.user_id).first()
+                form2.save_for_watchlist(buyer, castle, offer, watcher)
             return redirect('/properties/'+str(id)+'/checkout/')
     return render(request, 'payments/make-offer.html',
                   {'castle': get_object_or_404(Castle, pk=id), 'form': OfferCreationForm()
