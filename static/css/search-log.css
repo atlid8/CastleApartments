@@ -1,15 +1,23 @@
-th {
-    /*margin-bottom: 15em;*/
-}
-.table-dark {
-    display: inline-block;
-    background-color: transparent;
-}
-.container {
+.container{
     text-align: center;
-    /*border: 1px solid white;*/
-    width: 20em;
+    width: 45em;
     height: auto;
     background: rgba(0,0,0,0.4);
     border-radius: .5em;
+}
+#search-log-table {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    color: white;
+}
+#search-log-table td, #search-log-table th {
+    padding: 8px;
+    border-bottom: 1px solid white;
+}
+#search-log-table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    color: white;
+    text-align: center;
 }
