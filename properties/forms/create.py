@@ -6,7 +6,7 @@ from users.models import Postcode
 class CastleCreationForm(forms.ModelForm):
     name = forms.CharField(label='name',
                     widget=forms.TextInput(attrs={'placeholder': 'Castle Name'}))
-    postcode = forms.CharField(label='postcode', widget=forms.TextInput)
+    postcode = forms.CharField(label='postcode', widget=forms.TextInput(attrs={'placeholder': 'zip code', 'disabled':'disabled'}))
     street = forms.CharField(label='street name',
                     widget=forms.TextInput(attrs={'placeholder': 'street name'}))
     house_number = forms.IntegerField(label='house_number',
