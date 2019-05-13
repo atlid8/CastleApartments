@@ -46,7 +46,6 @@ def get_property_by_id(request, id):
                     })
 
 @login_required
-
 def contact_info_buy(request, id):
     user = request.user
     if request.method == 'POST':
@@ -57,6 +56,8 @@ def contact_info_buy(request, id):
     return render(request, 'payments/contact-info-buy.html',
                   {'castle': get_object_or_404(Castle, pk=id), 'form': ContactInfoCreationForm(), 'user': user})
 
+
+@login_required
 def contact_info_offer(request, id):
     user = request.user
     if request.method == 'POST':
