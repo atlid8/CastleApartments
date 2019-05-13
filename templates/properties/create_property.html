@@ -5,9 +5,11 @@
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{% static 'js/autofill-kingdom.js' %}"></script>
 <!------ Include the above in your HEAD tag ---------->
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
 <link rel="stylesheet" type="text/css" href="{% static 'css/create_property.css' %}"/>
+
 <div class="card bg-light">
    <article class="card-body mx-auto">
       <h3 class="card-title">Create property listing</h3>
@@ -49,21 +51,20 @@
                <div class="input-group-prepend">
                   <span class="input-group-text"> <i class="fa fa-flag"></i> </span>
                </div>
-               <select class="form-control">
-                  <option value="" disabled selected> select kingdom</option>
-                  <option>The North</option>
-                  <option>The Mountain and the Vale</option>
-                  <option>Isles and Rivers</option>
-                  <option>The Rock</option>
-                  <option>The Stormlands</option>
-                  <option>The Reach</option>
-                  <option>Dorne</option>
+               <select id="zip-select" class="form-control">
+                  <option value="" disabled selected> select zip</option>
+                  <option id="VSB YEAH" value="King's Landing">101</option>
+                  <option value="The Stormlands">201</option>
+                   <option value="Westerlands">210</option>
+                   <option value="The Riverlands">301</option>
+                   <option value="Dorne">401</option>
+                   <option value="The North">501</option>
                </select>
             </div>
             <!-- form-group// -->
             <div class="form-group input-group">
                <div class="input-group-prepend">
-                  <span class="input-group-text"> <i class="fas fa-map-pin""></i> </span>
+                  <span class="input-group-text"> <i class="fas fa-map-pin"></i> </span>
                </div>
                {{ form.postcode }}
             </div>
