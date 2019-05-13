@@ -9,8 +9,9 @@ class WatchlistCreationForm(forms.ModelForm):
         model = Watchlist
         fields = ()
 
-    def save(self, castle, commit=True):
-        profile = super(CastleImageCreationForm, self).save(commit=False)
-        profile.castle = castle
+    def save(self, castle, user, commit=True):
+        profile = super(WatchlistCreationForm, self).save(commit=False)
+        profile.castle_watch = castle
+        profile.user =user
         profile.save()
         return profile

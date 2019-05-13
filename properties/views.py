@@ -3,6 +3,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from properties.models import *
 from users.models import Profile, SearchHistory
 from properties.forms.create import CastleCreationForm, CastleImageCreationForm
+from properties.forms.watchlist import WatchlistCreationForm
 from django.http import JsonResponse
 from properties.forms.offer import OfferCreationForm
 
@@ -31,6 +32,12 @@ def properties(request):
     return render(request, 'properties/properties-index.html', context)
 
 def get_property_by_id(request, id):
+    if request.method == 'POST':
+        form = WatchlistCreationForm(data=request.POST)
+        if form.is_valid():
+            castle = Castle.objects.filter(id=id).first()
+            user = request.user
+            form.save(castle, user)
     return render(request, 'properties/property_details.html',
                    {'castle': get_object_or_404(Castle, pk=id)
                     })
