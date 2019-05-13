@@ -17,11 +17,8 @@ class ContactInfoCreationForm(forms.ModelForm):
         fields = ('postcode', 'street_name', 'house_number', 'city', 'ssn', 'country')
 
 
-    def save(self, seller, verified, postcode, commission, commit=True):
-        profile = super(CastleCreationForm, self).save(commit=False)
-        profile.seller = seller
-        profile.postcode = Postcode.objects.filter(postcode=postcode).first()
-        profile.verified = verified
-        profile.commission = commission
+    def save(self, user, commit=True):
+        profile = super(ContactInfoCreationForm, self).save(commit=False)
+        profile.user = user
         profile.save()
         return profile
