@@ -17,6 +17,7 @@ urlpatterns = [
     path('my-properties/<int:id>/', views.my_property, name="edit_property"),
     path('edit/', views.edit, name="edit"),
     path('<int:id>/', views.seller_profile, name="seller_profile"),
+    path('notifications/', views.notification, name="notifications"),
     path('my-inbox/', views.my_inbox, name="my_inbox")
 
 ]
