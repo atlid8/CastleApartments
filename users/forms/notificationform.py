@@ -12,29 +12,28 @@ class NotificationForm(ModelForm):
 
 
 
-    def save(self, commit=True):
-        user = super(UserCreationForm, self).save(commit=False)
-        user.set_password(self.cleaned_data["password1"])
-        if commit:
-            user.save()
-        return user
+
 
 
     def save_offer_made(self, buyer, offer, castle, commit=True):
         notification = super(NotificationForm, self).save(commit=False)
         buyername = buyer.first_name + ' ' + buyer.last_name
         castlename = castle.name
-        notification.info = buyername + ' just offered ' + str(offer) + ' for the property:' + castlename
-        #notification.link
+        notification.info = buyername + ' just offered ' + str(offer) + ' Golden Dragons for the property: ' + castlename
+        castleid = castle.id
+        notification.link = '/users/my-properties/' + str(castleid)
+        notification.resolved = False
+        notification.receiver = castle.seller
+        notification.save()
+        return notification
 
 
     def save_for_watchlist(self, castle, watchlistid, commit=True):
-        pass
+        pass #TODO: Gera watchlist notification
 
     def save_counteroffer(self, castle, ):
-        pass
-
+        pass #TODO: Gera counteroffer notification
 
 
     def save_message_notification(self, receiver, sender, info, commit=True):
-        pass
+        pass #TODO: Gera message notification

@@ -70,7 +70,7 @@ def make_offer(request, id):
             offer = form['offer'].value()
             castle = Castle.objects.filter(id=id).first()
             form.save(buyer, castle)
-            form2.save(buyer, offer, castle)
+            form2.save_offer_made(buyer, offer, castle)
             return redirect('/properties/'+str(id)+'/checkout/')
     return render(request, 'payments/make-offer.html',
                   {'castle': get_object_or_404(Castle, pk=id), 'form': OfferCreationForm()
