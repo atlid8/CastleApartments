@@ -28,3 +28,6 @@ class CastleOffer(models.Model):
     info = models.TextField()
 
 
+class Watchlist(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    castle_watch = models.ForeignKey(Castle, on_delete=models.CASCADE)
