@@ -7,6 +7,58 @@
     {{ form }}
     <input type="submit" class="btn btn-primary" value="Update">
 </form>
+ <div class="container">
+            <table id="search-log-table">
+                <tbody>
+                    <tr>
+                        <th>Info</th>
+                        <th>Search content</th>
+                        <th></th>
+                    </tr>
 
+                    {% for message in seen %}
+                      <tr>
+                          <td>
+                              {{ message.info }}
+                          </td>
+                          <td>
+                              <a href="{{ message.link }}">
+                              </a>
+                          </td>
+                      <td>
+                          {{ message.timestamp }}
+                      </td>
+                      </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+     <div class="container">
+            <table id="search-log-table">
+                <tbody>
+                    <tr>
+                        <th>Info</th>
+                        <th>Search content</th>
+                        <th>link</th>
+                    </tr>
+
+                    {% for message in unseen %}
+                      <tr>
+                          <td>
+                              {{ message.info }}
+                          </td>
+                          <td>
+                              <a href="{{ message.link }}">Link
+                              </a>
+                          </td>
+                      <td>
+                          {{ message.timestamp }}
+                      </td>
+                      </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
 
 {% endblock %}

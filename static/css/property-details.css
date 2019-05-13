@@ -1,26 +1,52 @@
+p {
+    color: white;
+    padding-top: 0.3em;
+}
 #carouselExampleControls {
-    height: 25rem;
+    height: 23rem;
     width: 25rem;
     margin: auto;
 }
-
-.carousel-inner {
-    height: 25rem;
-    width: 25rem;
+#search-log-table {
+    border-collapse: collapse;
+    width: 100%;
+    color: white;
 }
-
-.carousel-item {
-    height: 25rem;
-    width: 25rem;
+#search-log-table td, #search-log-table th {
+    padding: 8px;
+    border-bottom: 1px solid white;
 }
-
-.d-block {
-    height: 25rem;
-    width: 25rem;
-    margin-top: 2em;
+#search-log-table th {
+    padding-top: 6px;
+    padding-bottom: 6px;
+    color: white;
+    text-align: left;
 }
-
-h1.castle-name {
+#button-down, #button-down-mid-l, #button-down-mid-r{
+    animation-duration: 0.5s;
+    -webkit-appearance: none;
+    width: 12rem;
+    height: 3rem;
+    background:rgba(255,255,255, 0.4);
+    color: white;
+    border-color: white;
+    animation: fadeInRight 1s;
+    display: inline-block;
+    margin-bottom: 5em;
+}
+#button-down-mid-l{
+    margin-left: .5em;
+    margin-right: .5em;
+    padding-bottom: 0.8em;
+}
+#button-down-mid-r{
+    margin-right: .5em;
+}
+#button-down:hover, #button-down-mid-r:hover, #button-down-mid-l:hover{
+    background-color: white;
+    color: black;
+}
+h3.castle-name {
     color: white;
     width: 50%;
     text-align: center;
@@ -31,12 +57,6 @@ h1.castle-name {
     padding-top: 0.2em;
     padding-bottom: 0.2em;
 }
-
-p {
-    color: white;
-    padding-top: 0.3em;
-}
-
 .information-castle {
     width: 40%;
     margin-left: auto;
@@ -45,8 +65,35 @@ p {
     background-color: rgba(0,0,0, 0.4);
     border-radius: 1em;
 }
-
-.buy-now-and-offer {
-    margin-top: 2em;
+.carousel-inner {
+    height: 22.5rem;
+    width: 25rem;
+}
+.carousel-item {
+    height: 22.5rem;
+    width: 25rem;
+}
+.d-block {
+    height: 22.5rem;
+    width: 25rem;
+    margin-top: 1em;
+}
+.container{
+    margin-top: 1em;
     text-align: center;
+    width: 45em;
+    height: auto;
+    background: rgba(0,0,0,0.4);
+    border-radius: .5em;
+}
+.table-left {
+    border-right: 1px solid white;
+}
+.table-bottom {
+    border-bottom: unset !important;
+}
+.btn-container{
+    height: 3.4em;
+    text-align: center;
+    margin-top: 1em;
 }
