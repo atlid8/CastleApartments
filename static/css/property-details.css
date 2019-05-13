@@ -21,7 +21,6 @@ p {
     padding-bottom: 6px;
     color: white;
     text-align: left;
-    /*height:1em;*/
 }
 #button-down, #button-down-mid-l, #button-down-mid-r{
     animation-duration: 0.5s;
