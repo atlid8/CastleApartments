@@ -99,3 +99,6 @@ def search_history(request):
 
     return render(request, 'users/dennislog.html',
                   {'histories': SearchHistory.objects.filter(user_id=userid)})
+
+def my_inbox(request):
+    return render(request, 'users/my-inbox.html')
