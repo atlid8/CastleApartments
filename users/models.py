@@ -14,3 +14,4 @@ class SearchHistory(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     search_input = models.CharField(max_length=999)
     time_stamp = models.DateTimeField(default=timezone.now)
+

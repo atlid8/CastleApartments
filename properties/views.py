@@ -45,9 +45,9 @@ def get_property_by_id(request, id):
 @login_required
 
 def contact_info(request, id):
+    user = request.user
     return render(request, 'payments/contact-info.html',
-                  {'castle': get_object_or_404(Castle, pk=id)
-                   })
+                  {'castle': get_object_or_404(Castle, pk=id), 'form': ContactInfo(), 'user': user})
 
 def payments(request, id):
     return render(request, 'payments/payments.html',
