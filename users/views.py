@@ -98,7 +98,6 @@ def search_history(request):
 
 
     return render(request, 'users/dennislog.html',
-<<<<<<< HEAD
                   {'histories': SearchHistory.objects.filter(user_id=userid).order_by('-time_stamp')})
 
 @login_required
@@ -109,9 +108,6 @@ def notification(request):
     return render(request, 'users/notification.html',
                   {'seen': seen,
                    'unseen': notifications})
-=======
-                  {'histories': SearchHistory.objects.filter(user_id=userid)})
 
 def my_inbox(request):
     return render(request, 'users/my-inbox.html')
->>>>>>> 86b895d46669160d62a50cd87db0a9c09e191fd7

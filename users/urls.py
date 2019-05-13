@@ -17,10 +17,7 @@ urlpatterns = [
     path('my-properties/<int:id>/', views.my_property, name="edit_property"),
     path('edit/', views.edit, name="edit"),
     path('<int:id>/', views.seller_profile, name="seller_profile"),
-<<<<<<< HEAD
     path('notifications/', views.notification, name="notifications"),
-=======
     path('my-inbox/', views.my_inbox, name="my_inbox")
->>>>>>> 86b895d46669160d62a50cd87db0a9c09e191fd7
 
 ]

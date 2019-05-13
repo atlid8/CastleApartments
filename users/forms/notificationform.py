@@ -25,7 +25,7 @@ class NotificationForm(ModelForm):
         buyername = buyer.first_name + ' ' + buyer.last_name
         castlename = castle.name
         notification.info = buyername + ' just offered ' + str(offer) + ' for the property:' + castlename
-        notification.link =
+        #notification.link
 
 
     def save_for_watchlist(self, castle, watchlistid, commit=True):
