@@ -1,7 +1,8 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect
 from properties.models import *
-from users.models import Profile, SearchHistory
+from users.forms.notificationform import NotificationForm
+from users.models import Profile, SearchHistory, Notification
 from properties.forms.create import CastleCreationForm, CastleImageCreationForm
 from properties.forms.watchlist import WatchlistCreationForm
 from django.http import JsonResponse
@@ -63,10 +64,13 @@ def payments(request, id):
 def make_offer(request, id):
     if request.method == 'POST':
         form = OfferCreationForm(data=request.POST)
-        if form.is_valid():
+        form2 = NotificationForm(data=request.POST)
+        if form.is_valid() and form2.is_valid():
             buyer = request.user
+            offer = form['offer'].value()
             castle = Castle.objects.filter(id=id).first()
             form.save(buyer, castle)
+            form2.save(buyer, offer, castle)
             return redirect('/properties/'+str(id)+'/checkout/')
     return render(request, 'payments/make-offer.html',
                   {'castle': get_object_or_404(Castle, pk=id), 'form': OfferCreationForm()

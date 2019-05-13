@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from properties.models import Castle, Watchlist
 from users.forms.creationform import UserCreationForm
 from users.forms.ProfileForm import ProfileForm, UserEditForm
-from users.models import Profile, SearchHistory
+from users.models import Profile, SearchHistory, Notification
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import login_required
 
@@ -56,7 +56,7 @@ def profile(request):
     profile = Profile.objects.filter(user=request.user).first()
     if request.method == 'POST':
         print(1)
-    return render(request, 'users/profile.html', {
+    return render(request, 'users/notification.html', {
         'form': ''
     })
 
@@ -98,4 +98,13 @@ def search_history(request):
 
 
     return render(request, 'users/dennislog.html',
-                  {'histories': SearchHistory.objects.filter(user_id=userid)})
+                  {'histories': SearchHistory.objects.filter(user_id=userid).order_by('-time_stamp')})
+
+@login_required
+def notification(request):
+    userid =request.user
+    notifications = Notification.objects.filter(receiver=userid, resolved=False)
+    seen = Notification.objects.filter(receiver=userid, resolved=True)
+    return render(request, 'users/notification.html',
+                  {'seen': seen,
+                   'unseen': notifications})

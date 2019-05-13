@@ -15,3 +15,10 @@ class SearchHistory(models.Model):
     search_input = models.CharField(max_length=999)
     time_stamp = models.DateTimeField(default=timezone.now)
 
+class Notification(models.Model):
+    receiver = models.ForeignKey(User, on_delete=models.CASCADE)
+    info = models.CharField(max_length=999)
+    link = models.CharField(max_length=255)
+    resolved = models.BooleanField(default=False)
+    time_stamp = models.DateTimeField(default=timezone.now)
+
