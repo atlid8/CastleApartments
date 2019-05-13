@@ -20,17 +20,22 @@ $(document).ready(function () {
     $('#search-btn').on('click', function (e) {
         e.preventDefault();
         var searchText = $('#search-box').val();
+        console.log("Þú ert hér líka!!")
         $.ajax({
             url: '/properties/search/?search-filter=' + searchText,
             type: 'GET',
             success: function (resp) {
                 var newHTML = resp.data.map(d => {
                     return `
-                    <div class="well castles">
+                    <div class="col-md-3 well castles">
                         <a href="/properties/${d.id}">
-                            <img src='${d.firstimage}'>
-                            <h4> ${d.name}</h4>
-                            <p> ${d.info}</p>
+                        <div class="card mb-4 box-shadow">
+                            <img class="card-img-top"  alt="Thumbnail [100%x225]" src='${d.image}'data-holder-rendered="true">
+                            <div class="card-body">
+                                <h1 class="card-text" id="castle-name"> ${d.name}</h1>
+                                <p class="card-text"> ${d.info}</p>
+                            </div>
+                        </div>
                         </a>
                     </div>`
                 });
@@ -38,7 +43,42 @@ $(document).ready(function () {
                 $('#search-box').val('')
             },
             error: function (xhr, status, error) {
-                //Todo: gæti þurft eitthvað annað errorr handling
+                //Todo: gæti þurft eitthvað annað error handling
+                console.error(error);
+            }
+        })
+    })
+
+})
+
+//<img class="card-img-top"  alt="Thumbnail [100%x225]" src='${d.image_set.first()}'data-holder-rendered="true">
+
+$(document).ready(function () {
+    $('#orderdropdown').on('change', function (e) {
+        e.preventDefault();
+        var order = $('#orderdropdown').val();
+        $.ajax({
+            url: '/properties/search/?order=' + order,
+            type: 'GET',
+            success: function (resp) {
+                var newHTML = resp.data.map(d => {
+                    return `
+                    <div class="col-md-3 well castles">
+                        <a href="/properties/${d.id}">
+                        <div class="card mb-4 box-shadow">
+                        <img class="card-img-top"  alt="Thumbnail [100%x225]" src='${d.image}'data-holder-rendered="true">
+                            <div class="card-body">
+                                <h1 class="card-text" id="castle-name"> ${d.name}</h1>
+                                <p class="card-text"> ${d.info}</p>
+                            </div>
+                        </div>
+                        </a>
+                    </div>`
+                });
+                $('.castles').html(newHTML.join(''))
+            },
+            error: function (xhr, status, error) {
+                //Todo: gæti þurft eitthvað annað error handling
                 console.error(error);
             }
         })

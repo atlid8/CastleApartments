@@ -2,24 +2,7 @@ from django.db import models
 from users.models import User
 from users.models import Postcode, Profile
 
-# Create your models here.
-class Property(models.Model):
-    name = models.CharField(max_length=255)
-    zip = models.IntegerField()
-    price = models.IntegerField()
-    commission = models.IntegerField()
-    rooms = models.IntegerField()
-    verified = models.BooleanField()
-    info = models.TextField()
-    #Todo offers, address, viewcount
-    def __str__(self):
-        return self.name
 
-class PropertyImage(models.Model):
-    image = models.CharField(max_length=999)
-    Property = models.ForeignKey(Property, on_delete=models.CASCADE)
-    def __str__(self):
-        return self.image
 
 class Castle(models.Model):
     name = models.CharField(max_length=255)
@@ -35,5 +18,13 @@ class Castle(models.Model):
     seller = models.ForeignKey(User, on_delete=models.CASCADE)
 
 class CastleImage(models.Model):
-    image = models.CharField(max_length=999)
+    image = models.CharField(max_length=9999)
     castle = models.ForeignKey(Castle, on_delete=models.CASCADE)
+
+class CastleOffer(models.Model):
+    buyer = models.ForeignKey(User, on_delete=models.CASCADE)
+    castle = models.ForeignKey(Castle, on_delete=models.CASCADE)
+    offer = models.IntegerField()
+    info = models.TextField()
+
+

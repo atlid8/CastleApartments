@@ -1,11 +1,12 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect
 from properties.models import *
-from users.models import Profile
+from users.models import Profile, SearchHistory
 from properties.forms.create import CastleCreationForm, CastleImageCreationForm
 from django.http import JsonResponse
+from properties.forms.offer import OfferCreationForm
 
-# Create your views here.
+
 def index(request):
     return render(request, 'base.html')
 
@@ -13,21 +14,19 @@ def index(request):
 def properties(request):
     if 'search-filter' in request.GET:
         search_filter = request.GET['search-filter']
-        castles = [ {
-            'id': x.id,
-            'name': x.name,
-            'price': x.price,
-            'commission': x.commission,
-            'rooms': x.rooms,
-            'size': x.size,
-            'verified' : x.verified,
-            'info': x.info,
-            'street': x.street,
-            'house_number': x.house_number,
-            'seller': x.seller.id,
-            'firstimage': x.castleimage_set.first().image
-        } for x in Castle.objects.filter(name__icontains=search_filter)]
-        return JsonResponse({'data': castles})
+        user = request.user
+        searchhistory = SearchHistory(user=user, search_input=search_filter)
+        searchhistory.save()
+        castles = Castle.objects.filter(name__icontains=search_filter).values()
+        for x in castles:
+            x['image'] = Castle.objects.filter(id=x['id']).first().castleimage_set.first().image
+        return JsonResponse({'data': list(castles)})
+    if 'order' in request.GET:
+        order_by = request.GET['order']
+        castles = Castle.objects.all().order_by(order_by).values()
+        for x in castles:
+            x['image'] = Castle.objects.filter(id=x['id']).first().castleimage_set.first().image
+        return JsonResponse({'data': list(castles)})
     context = {'castles': Castle.objects.all().order_by('name')}
     return render(request, 'properties/properties-index.html', context)
 
@@ -44,6 +43,14 @@ def payments(request, id):
                    })
 
 def make_offer(request, id):
+    if request.method == 'POST':
+        form = OfferCreationForm(data=request.POST)
+        if form.is_valid():
+            price = form['price'].value()
+            seller = request.user
+            castle = Castle.objectss.filter(id=id).first()
+            form.save(seller, castle)
+
     return render(request, 'payments/make-offer.html',
                   {'castle': get_object_or_404(Castle, pk=id)
                    })
@@ -70,6 +77,5 @@ def create(request):
 
 def edit_property(request, id):
     return render(request, 'properties/edit_property.html',
-                  {'castle': get_object_or_404(Property, pk=id)
+                  {'castle': get_object_or_404(Castle, pk=id)
                    })
-

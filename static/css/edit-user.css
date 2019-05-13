@@ -27,6 +27,11 @@ background-color: rgba(0,0,0,0.5) !important;
     margin: 0 auto;
 }
 
+.profile-pic-div{
+    width: 50%;
+    margin: 0 auto;
+}
+
 .social_icon span:hover{
 color: white;
 cursor: pointer;
@@ -90,9 +95,15 @@ margin-right: 5px;
 }
 
 
+.form-horizontal{
+    margin: 1em auto;
+    text-align: center;
+}
 
-
-#login_btn{
+label {
+    color: white;
+}
+#update_btn{
 color: white;
 background-color: dodgerblue;
 width: 100px;
@@ -136,3 +147,18 @@ h4 {
     color: whitesmoke;
 }
 
+.form-control{
+    margin-bottom: 1.5em;
+}
+
+.profile-picture{
+    margin: 0 auto;
+  border: 1px solid whitesmoke;
+  border-radius: 4px;
+  padding: 5px;
+  width: 150px;
+}
+
+.profile-picture:hover {
+  box-shadow: 0 0 2px 1px rgba(255, 255, 255, 10.5);
+}
