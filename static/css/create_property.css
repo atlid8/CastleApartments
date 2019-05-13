@@ -11,16 +11,24 @@
     z-index: 2;
 }
 
+:disabled {
+    background-color: lightgrey;
+    color: lightslategrey;
+}
 .input-group-prepend{
-    width:2.5em;
+    width: 18%;
+    margin: 0 auto;
+
 }
 
 .input-group-text{
-    width: 3em;
+
+    width: 5em;
     height: auto;
 }
 
 #id_info{
+    border: none;
     margin: 0 auto;
     width: 80%;
     border-radius: 4px;
@@ -54,9 +62,27 @@ width: 100px;
 }
 .form-group {
     border-radius: 4px;
-    background-color: white;
+
     margin: 0.7em auto;
     width:40%;
+}
+
+
+#id_name, :disabled, #id_street, #id_house_number, #kingdom-select, #id_price, #id_size, #id_rooms, #id_image{
+    text-indent: 1em;
+    border-radius: 4px;
+    width: 82%;
+    border: none;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+}
+
+#kingdom-select{
+     border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+
+    text-indent: 0em;
+    color: grey;
 }
 
 .row {
@@ -119,6 +145,9 @@ background-color: rgba(0,0,0,0.5) !important;
   opacity: 0;
 }
 
+#submit-buttons{
+    margin: 1em auto;
+}
 
 #input-file{
 
