@@ -93,8 +93,17 @@ td{
     border-radius: 4px;
     text-indent: 1em;
     height: 2.3em;
-    width: 8em;
-    margin-right: 1em;
+    width: 7em;
+    margin-right: 1.3em;
+}
+
+#id_info{
+    border: none;
+    margin: 1em auto;
+    border-radius: 4px;
+    text-indent: 1em;
+    height: 5em;
+    width: 15em;
 }
 
 #send-offer{

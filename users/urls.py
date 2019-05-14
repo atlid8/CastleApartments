@@ -9,7 +9,7 @@ urlpatterns = [
     path('sign-up/', views.signup, name='sign-up'),
     path('password-reset/', views.reset_password, name='password-reset'),
     path('staff/', views.front_page_staff, name='front-page-staff'),
-    path('my-profile/', views.my_profile, name='password-reset'),
+    path('my-profile/', views.my_profile, name='my-profile'),
     path('admin/', views.front_page_admin, name='front-page-admin'),
     path('register/', views.register, name='register'),
     path('dennislog/', views.search_history, name='dennislog'), #TODO: breyta nafni
@@ -18,6 +18,6 @@ urlpatterns = [
     path('edit/', views.edit, name="edit"),
     path('<int:id>/', views.seller_profile, name="seller_profile"),
     path('notifications/', views.notification, name="notifications"),
-    path('my-inbox/', views.my_inbox, name="my_inbox")
+    path('my-inbox/', views.my_inbox, name="my-inbox")
 
 ]

@@ -4,7 +4,7 @@ from properties.models import CastleOffer
 
 class OfferCreationForm(forms.ModelForm):
     offer = forms.CharField(label='price', widget=forms.TextInput(attrs={'placeholder': 'price'}))
-    info = forms.CharField(label='info', widget=forms.TextInput(attrs={'placeholder': 'Describe it in vivid detail'}))
+    info = forms.CharField(label='info', widget=forms.Textarea(attrs={'placeholder': 'send a message'}))
 
 
     class Meta:

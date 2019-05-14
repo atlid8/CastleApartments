@@ -25,7 +25,6 @@
 
                 {% if user.is_authenticated %}
                     <!-- <div class="header-item">{{ user.username }} </div>-->
-
                     <div class="dropdown">
                               <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                <img src="{{ user.profile.profile_image }}" class="profile-image" style="width:40px;height:40px;border-radius:50%;"onError="this.onerror=null;this.src='https://png.pngtree.com/svg/20161027/631929649c.svg';">
@@ -34,10 +33,11 @@
 
 
                               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                  <a class="dropdown-item" href = "/users/my-inbox/">Messages</a>
-                                <a class="dropdown-item" href = "/users/my-profile/">My profile</a>
-                                  <a class="dropdown-item" href = "/users/my-properties/1/">My properties</a>
-                                  <a class="dropdown-item" href = "/users/edit">Edit my info</a>
+                                  <a class="dropdown-item" href = "{% url 'my-inbox' %}">Messages</a>
+                                  <a class="dropdown-item" href = "{% url 'notifications' %}">Notifications</a>
+                                <a class="dropdown-item" href = "{% url 'my-profile' %}">My profile</a>
+
+                                  <a class="dropdown-item" href = "{% url 'edit' %}">Edit my info</a>
 
                                 <a class="dropdown-item" href = "{% url 'logout' %}">Logout</a>
                               </div>

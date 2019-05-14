@@ -28,11 +28,13 @@
                         <td class="left-column">Suggested price:</td>
                         <td>{{ castle.price }}</td>
                     </tr>
+
                 </table>
                 <form class="form form-horizontal" method="post">
                 {% csrf_token %}
+                    {{ form.info }}
                 {{ form.offer }}
-                {{ form2.info }}
+
                 <input id="send-offer" type="submit" class="btn btn-primary" value="Send offer" />
                 </form>
 
