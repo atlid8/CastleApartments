@@ -39,9 +39,11 @@
                               <td class="message-info">
                                   {{ message.info }}
                               </td>
+
                               <td class="message-link">
+                                  {% if message.link %}
                                   <a href="{{ message.link }}"><i class="fas fa-link"></i>
-                                  </a>
+                                  </a>{% endif %}
                               </td>
                           <td class="message-time-stamp">
                               {{ message.time_stamp }}
