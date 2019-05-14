@@ -10,16 +10,15 @@
     </head>
     <body>
         <div class="px-4" id="px4-container">
-
-                <div class="payment-container">
-                    <div class="col-xs-12 col-md-4" id="payment-details">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Payment Details</h3>
-                                <div class="checkbox pull-right"></div>
-                            </div>
-                            <div class="panel-body">
-                                <form role="form">
+            <div class="payment-container">
+                <div class="col-xs-12 col-md-4" id="payment-details">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Payment Details</h3>
+                            <div class="checkbox pull-right"></div>
+                        </div>
+                        <div class="panel-body">
+                            <form role="form">
                                 <div class="form-group">
                                     <label for="cardNumber">CARD NUMBER</label>
                                     <div class="input-group">
@@ -44,68 +43,65 @@
                                         </div>
                                     </div>
                                 </div>
-                                </form>
-                            </div>
+                            </form>
                         </div>
-                            <button   id="pay-button" class="well well-md text-center btn btn-success btn-lg btn-block" data-toggle="modal" data-target="#myModal">
-                                Pay
-                            </button>
                     </div>
-                        <div class="container">
-                            <table id="search-log-table">
-                                <thead>
+                    <button   id="pay-button" class="well well-md text-center btn btn-success btn-lg btn-block" data-toggle="modal" data-target="#myModal">Pay</button>
+                    </div>
+                    <div class="container">
+                        <table id="search-log-table">
+                            <thead>
 
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th class="table-1">Product</th>
-                                        <th class="table-2">#</th>
-                                        <th class="table-3">Price</th>
-                                        <th class="table-4">Total</th>
-                                    </tr>
-                                    <tr>
-                                        <th class="table-1">{{ castle.name }}</th>
-                                        <th class="table-2">1</th>
-                                        <th class="table-3">{{ castle.price }}</th>
-                                        <th class="table-4">{{ castle.price }}</th>
-                                    </tr>
-                                    <tr>
-                                        <th class="table-1">  </th>
-                                        <th class="table-2">  </th>
-                                        <th class="table-3">
-                                            <p>Subtotal: </p>
-                                            <p>Tax: </p>
-                                        </th>
-                                        <th class="table-4">
-                                            <p id="subtotal">{{ castle.price }}</p>
-                                            <p id="tax"><script>document.write(get_tax())</script></p>
-                                        </th>
-                                    </tr>
-                                    <tr>
-                                        <th class="table-1">  </th>
-                                        <th class="table-2">  </th>
-                                        <th class="table-3">Total: </th>
-                                        <th class="table-4"><script>document.write(get_total())</script></th>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-{#        </div>#}
-        <div class="modal fade success-popup" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog modal-sm" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 id="title-success">Successful payment!</h4>
-                    </div>
-                    <div class="modal-body text-center">
-                        <p class="lead">Your payment for {{ castle.name }} was successfully submitted.</p>
-                        <a href="/" class="rd_more btn btn-default" id="home-button">Go to Home</a>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th class="table-1">Product</th>
+                                    <th class="table-2">#</th>
+                                    <th class="table-3">Price</th>
+                                    <th class="table-4">Total</th>
+                                </tr>
+                                <tr>
+                                    <th class="table-1">{{ castle.name }}</th>
+                                    <th class="table-2">1</th>
+                                    <th class="table-3">{{ castle.price }}</th>
+                                    <th class="table-4">{{ castle.price }}</th>
+                                </tr>
+                                <tr>
+                                    <th class="table-1">  </th>
+                                    <th class="table-2">  </th>
+                                    <th class="table-3">
+                                        <p>Subtotal: </p>
+                                        <p>Tax: </p>
+                                    </th>
+                                    <th class="table-4">
+                                        <p id="subtotal">{{ castle.price }}</p>
+                                        <p id="tax"><script>document.write(get_tax())</script></p>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th class="table-1">  </th>
+                                    <th class="table-2">  </th>
+                                    <th class="table-3">Total: </th>
+                                    <th class="table-4"><script>document.write(get_total())</script></th>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
-        </div>
+            <div class="modal fade success-popup" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog modal-sm" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 id="title-success">Successful payment!</h4>
+                        </div>
+                        <div class="modal-body text-center">
+                            <p class="lead">Your payment for {{ castle.name }} was successfully submitted.</p>
+                            <a href="/" class="rd_more btn btn-default" id="home-button">Go to Home</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
     </body>
 </html>
 
