@@ -131,3 +131,14 @@ def edit_property(request, id):
     return render(request, 'properties/edit_property.html',
                   {'castle': get_object_or_404(Castle, pk=id)
                    })
+
+
+def price_slider(request):
+    if 'price-filter' in request.GET:
+        price_filter = request.GET['price-filter'].split(',')
+        min_val = price_filter[0]
+        upper_val = price_filter[1]
+        castles = Castle.objects.filter(price__range=(int(min_val), int(upper_val)))
+        for x in castles:
+            x['image'] = Castle.objects.filter(id=x['id']).first().castleimage_set.first().image
+        return JsonResponse({'data': list(castles)})
