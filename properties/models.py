@@ -15,7 +15,7 @@ class SoldCastle(models.Model):
     street = models.CharField(max_length=255)
     house_number = models.IntegerField()
     seller = models.ForeignKey(User, on_delete=models.CASCADE)
-    buyer = models.ForeignKey(User, on_delete=models.CASCADE)
+    seller = models.ForeignKey(User,related_name='%(class)s_requests_created' ,on_delete=models.CASCADE)
     time_stamp=time_stamp = models.DateTimeField(default=timezone.now)
 
 

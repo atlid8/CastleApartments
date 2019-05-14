@@ -14,27 +14,18 @@ $(function() {
 
 
 
-
-
-// search by pressing enter
-$(document).ready(function(){
-    $('search-box').keypress(function(e){
-      if(e.keyCode===13)
-      $('search-btn').click();
-    });
-});
-
-
 // Creates the slider
 $(document).ready(function () {
     $(".price").ionRangeSlider({
         onFinish: function (e) {
-            var minValue = e.from;
-            var upperValue = e.to;
+            const minValue = e.from;
+            const upperValue = e.to;
+            let slider = $("#the-slider").val()
             console.log(minValue); //TODO: TENGJA RETT
             console.log(upperValue);
+            console.log(slider);
             $.ajax({
-                url: '/properties/search/?price-filter=' + minValue + ',' + upperValue,
+                url: '/properties/search/?price-filter=' + minValue + ',' + upperValue ,
                 type: 'GET',
                 success: function (resp) {
                     var newHTML = resp.data.map(d => {
@@ -156,9 +147,9 @@ $(document).ready(function () {
 
 
 $(document).ready(function () {
-    $('#search-btn').on('click', function (e) {
+    $('#search-box').on('change', function (e) {
         e.preventDefault();
-        var searchText = $('#search-box').val();
+        let searchText = $('#search-box').val();
         $.ajax({
             url: '/properties/search/?search-filter=' + searchText,
             type: 'GET',
@@ -177,8 +168,9 @@ $(document).ready(function () {
                         </a>
                     </div>`
                 });
+                console.log(searchText);
                 $('.castles').html(newHTML.join(''));
-                $('#search-box').val('');
+                $('#search-box').val(searchText);
             },
             error: function (xhr, status, error) {
                 //Todo: gæti þurft eitthvað annað error handling
@@ -229,6 +221,8 @@ $(document).ready(function () {
     $('#zip-dropdown').on('change', function (e) {
         e.preventDefault();
         var zip = $('#zip-dropdown').val();
+        console.log("slider: ", slider);
+
         $.ajax({
             url: '/properties/search/?postcode=' + zip,
             type: 'GET',
