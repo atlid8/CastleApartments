@@ -138,8 +138,8 @@ def search_history(request):
 @login_required
 def notification(request):
     userid =request.user
-    unseen = Notification.objects.filter(receiver=userid, resolved=False)
-    seen = Notification.objects.filter(receiver=userid, resolved=True)
+    unseen = Notification.objects.filter(receiver=userid, resolved=False).order_by('-time_stamp')
+    seen = Notification.objects.filter(receiver=userid, resolved=True).order_by('-time_stamp')
     for notification in unseen:
         notification.resolved = True
         notification.save()
