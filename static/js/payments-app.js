@@ -17,7 +17,6 @@ function get_date() {
 
 function get_tax() {
     let price = document.getElementById("subtotal").innerHTML;
-    console.log(price);
     return Math.round(Number(price) * 0.029).toString()
 }
 

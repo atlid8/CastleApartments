@@ -15,8 +15,8 @@ $(function() {
 $(document).ready(function () {
     $(".js-range-slider").ionRangeSlider({
         onChange: function (data) {
-            // console.log(data.from); #TODO: TENGJA RETT
-            // console.log(data.to);
+            console.log(data.from);
+            console.log(data.to);
             },
         type: "double",
         skin: "flat",
