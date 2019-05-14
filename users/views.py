@@ -112,5 +112,8 @@ def notification(request):
                   {'seen': seen,
                    'unseen': unseen})
 
+
+
+
 def my_inbox(request):
     return render(request, 'users/my-inbox.html')
