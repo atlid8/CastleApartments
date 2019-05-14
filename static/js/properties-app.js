@@ -12,6 +12,11 @@ $(function() {
 });
 
 
+
+
+
+
+// search by pressing enter
 $(document).ready(function(){
     $('search-box').keypress(function(e){
       if(e.keyCode===13)

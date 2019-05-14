@@ -2,6 +2,7 @@
     <div class="col-md-3 well castles">
         <a href="/properties/{{ castle.id }}">
         <div class="card mb-4 box-shadow">
+            <p>{{ castle.verified }}</p>
             <img class="card-img-top"  alt="Thumbnail [100%x225]" src='{{castle.castleimage_set.first.image}}' data-holder-rendered="true">
             <div class="card-body">
                 <h1 class="card-text" id="castle-name">{{ castle.name }}</h1>
@@ -10,7 +11,7 @@
                 <p class="card-text">Size: {{ castle.size }}</p>
             </div>
         </div>
-                </a>
+        </a>
     </div>
 
 

@@ -53,6 +53,8 @@ p {
 #search-box {
     display: inline-block;
     width: 16em;
+    border-bottom-right-radius: 0px;
+    border-top-right-radius: 0px;
 }
 
 .form-control {
@@ -140,6 +142,10 @@ a:hover {
         max-width: 35em;
         min-width: 35em;
     }
+
+    #search-box {
+        width: 12.5em;
+    }
 }
 /*When the website is above 769px and below 991px*/
 @media screen and (max-width: 991px) and (min-width: 769px) {
@@ -154,6 +160,10 @@ a:hover {
     .col-md-3 {
         max-width: 25%;
         min-width: 25%;
+    }
+
+    #search-box {
+        width: 8em;
     }
 }
 /*When the website is above 601px and below 768px*/
@@ -188,6 +198,9 @@ a:hover {
         max-width: 27em;
         min-width: 27em;
     }
+    #search-box {
+        width: 4.5em;
+    }
 }
 /*When the website is below 600px*/
 @media screen and (max-width: 600px) {
@@ -218,6 +231,9 @@ a:hover {
         margin: 0 auto;
     }
     .col-md-3 {
-    margin-top: unset;
+        margin-top: unset;
+    }
+    #search-box {
+        width: 15.5em;
     }
 }
