@@ -59,65 +59,21 @@ def properties(request):
     if 'search-filter' in request.GET:
         did_filter = True
         castles = __search_filter(request, request.GET['search-filter'], castles)
-        # search_filter = request.GET['search-filter']
-        # user = request.user
-        # searchhistory = SearchHistory(user=user, search_input=search_filter)
-        # searchhistory.save()
-        # castles = Castle.objects.filter(name__icontains=search_filter).values()
-        # for x in castles:
-        #     x['image'] = Castle.objects.filter(id=x['id']).first().castleimage_set.first().image
-        # return JsonResponse({'data': list(castles)})
     if 'order' in request.GET:
         did_filter = True
         castles = __search_order(request, request.GET["order"], castles)
-        # order_by = request.GET['order']
-        # castles = Castle.objects.all().order_by(order_by).values()
-        # for x in castles:
-        #     x['image'] = Castle.objects.filter(id=x['id']).first().castleimage_set.first().image
-        # return JsonResponse({'data': list(castles)})
     if 'postcode' in request.GET:
         did_filter = True
         castles = __postcode(request, request.GET['postcode'], castles)
-        # zip_code = request.GET['postcode']
-        # if zip_code:
-        #     castles = Castle.objects.filter(postcode_id=zip_code).values()
-        #     for x in castles:
-        #         x['image'] = Castle.objects.filter(id=x['id']).first().castleimage_set.first().image
-        #     return JsonResponse({'data': list(castles)})
-        # else:
-        #     castles = Castle.objects.all().values()
-        #     for x in castles:
-        #         x['image'] = Castle.objects.filter(id=x['id']).first().castleimage_set.first().image
-        #     return JsonResponse({'data': list(castles)})
     if 'price-filter' in request.GET:
         did_filter = True
         castles = __price_filter(request, request.GET['price-filter'], castles)
-        # price_filter = request.GET['price-filter'].split(',')
-        # min_val = price_filter[0]
-        # upper_val = price_filter[1]
-        # castles = Castle.objects.filter(price__range=(int(min_val), int(upper_val))).values()
-        # if castles:
-        #     for x in castles:
-        #         x['image'] = Castle.objects.filter(id=x['id']).first().castleimage_set.first().image
-        # return JsonResponse({'data': list(castles)})
     if 'square-filter' in request.GET:
         did_filter = True
         castles = __square_filter(request, request.GET['square-filter'], castles)
-        # square_filter = request.GET['square-filter'].split(',')
-        # min_val = square_filter[0]
-        # upper_val = square_filter[1]
-        # castles = Castle.objects.filter(size__range=(int(min_val), int(upper_val))).values()
-        # if castles:
-        #     for x in castles:
-        #         x['image'] = Castle.objects.filter(id=x['id']).first().castleimage_set.first().image
-        # return JsonResponse({'data': list(castles)})
     if 'room-filter' in request.GET:
         did_filter = True
         castles = __room_filter(request, request.GET['room-filter'], castles)
-        # room_filter = request.GET['room-filter'].split(',')
-        # min_val = room_filter[0]
-        # upper_val = room_filter[1]
-        # castles = Castle.objects.filter(rooms__range=(int(min_val), int(upper_val))).values()
     castles = castles.values()
     if did_filter:
         if castles:
