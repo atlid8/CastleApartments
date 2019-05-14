@@ -24,19 +24,8 @@ h4 {
 
 thead {
     width: 18em;
-
-
 }
-span
-{
-    outline: 1px white solid;
-    padding-bottom: 3px;
-    font-size: 13px;
-    color: white;
-    display: inline-block;
-    text-align: center;
-vertical-align: middle;
-}
+
 .inbox-container{
     background-color: rgba(0,0,0,0.7);
     width: 100%;

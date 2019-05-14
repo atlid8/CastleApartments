@@ -58,7 +58,7 @@
             </tr>
         {% endfor %}
         </tbody>
-    </table
+    </table>
 
                 {% for offer in offers %}
             <a href={% url 'accept'  offer.id %} class="block btn btn-primary"> Accept offer for {{ offer.offer }} from {{ offer.buyer.first_name }} </a>

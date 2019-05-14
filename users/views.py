@@ -4,6 +4,7 @@ from properties.models import Castle, Watchlist, CastleOffer, SoldCastle
 from users.forms.creationform import UserCreationForm
 from users.forms.ProfileForm import ProfileForm, UserEditForm
 from users.models import Profile, SearchHistory, Notification
+from users.forms.notificationform import NotificationForm
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import login_required
 
@@ -87,17 +88,36 @@ def my_property(request, id):
 
 def accept_offer(request, id):
     offer = get_object_or_404(CastleOffer, pk=id)
+    castle = offer.castle
     soldcastle = SoldCastle()
-    soldcastle.name = offer.castle.name
-    soldcastle.postcode = offer.castle.postcode
+    soldcastle.name = castle.name
+    soldcastle.postcode = castle.postcode
     soldcastle.price = offer.offer
     soldcastle.commission = offer.offer * 0.1
-    soldcastle.rooms = offer.castle.rooms
-    soldcastle.size = offer.castle.size
-    soldcastle.info = offer.castle.info
-    soldcastle.street =offer.castle.street
-    soldcastle.house_number = offer.castle.house_number
-    soldcastle.seller = offer.castle.seller
+    soldcastle.rooms = castle.rooms
+    soldcastle.size = castle.size
+    soldcastle.info = castle.info
+    soldcastle.street = castle.street
+    soldcastle.house_number = castle.house_number
+    soldcastle.seller = castle.seller
+    soldcastle.buyer = offer.buyer
+    soldcastle.save()
+    castle.delete()
+    form = NotificationForm()
+    form.save_offer_accept(castle, offer.offer, offer.buyer)
+    the_watchlist = Watchlist.objects.filter(castle_watch_id=castle.id)
+    for watch in the_watchlist: #TODO checka hvort þetta fari ekki inn í forlúppuna þegar
+        form = NotificationForm()
+        watcher = User.objects.filter(id=watch.user_id).first()
+        form.save_for_watchlist(castle, offer.offer, watcher)
+    the_offer_list = CastleOffer.objects.filter(castle_id = castle.id)
+    for watch in the_offer_list: #Todo checka hvort þetta fari ekki í forlúppuna
+        form = NotificationForm()
+        watcher = User.objects.filter(id=watch.buyer_id).first()
+        form.save_for_watchlist(castle, offer.offer, watcher)
+    return redirect('/')
+
+
 
 
 def seller_profile(request, id):
@@ -118,8 +138,8 @@ def search_history(request):
 @login_required
 def notification(request):
     userid =request.user
-    unseen = Notification.objects.filter(receiver=userid, resolved=False)
-    seen = Notification.objects.filter(receiver=userid, resolved=True)
+    unseen = Notification.objects.filter(receiver=userid, resolved=False).order_by('-time_stamp')
+    seen = Notification.objects.filter(receiver=userid, resolved=True).order_by('-time_stamp')
     for notification in unseen:
         notification.resolved = True
         notification.save()
