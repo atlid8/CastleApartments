@@ -38,7 +38,6 @@
             <div class="form-group">
                         <a href="/properties/{{ castle.id }}/edit" id="edit-button" class="btn btn-primary btn-block"> Edit this property... </a>
                     </div>
-            <form>
                 <h5>Active offers for {{ castle.name }}:</h5>
     <table class="TableListJS" id="entries">
                 <thead>
@@ -59,24 +58,23 @@
             </tr>
         {% endfor %}
         </tbody>
-    </table>
-                <input name="" id="counter-offer"  class="form-control" placeholder="your counter-offer"> ">
+    </table
 
 
-                <div class="row" id="submit-buttons">
-                    <div class="form-group">
-                        <button type="submit" id="counter-offer-button" class="btn btn-primary btn-block"> Make counter-offer</button>
-                    </div>
-                    <div class="form-group">
-                        <button type="submit" id="accept-offer-button" class="btn btn-primary btn-block"> Accept offer </button>
-                    </div>
-                </div>
-                <!-- form-group// -->
-                <p class="sub-title">Need some help? <a href="">Contact us for assistance</a> </p>
+
+  <select name="offer_dropdown">
+    <option selected="selected" disabled>Offers:</option>
+      {% for offer in offers %}
+    <option value={{ offer }}>{{ offer.buyer.first_name }} {{ offer.buyer.last_name }} has offered {{ offer.offer }} </option>
+      {% endfor %}
+  </select>
+  <input type="submit" value="Accept this offer">
+
+
+                <p class="sub-title">Need some help? <a href="/users/about-us">Contact us for assistance</a> </p>
     </div>
 </div>
 </div>
-</form>
 </article>
 </div>
 <!-- card.// -->
