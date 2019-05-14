@@ -119,10 +119,13 @@ def properties(request):
         # upper_val = room_filter[1]
         # castles = Castle.objects.filter(rooms__range=(int(min_val), int(upper_val))).values()
     castles = castles.values()
-    if castles and did_filter:
-        for x in castles:
-            x['image'] = Castle.objects.filter(id=x['id']).first().castleimage_set.first().image
-        return JsonResponse({'data': list(castles)})
+    if did_filter:
+        if castles:
+            for x in castles:
+                x['image'] = Castle.objects.filter(id=x['id']).first().castleimage_set.first().image
+            return JsonResponse({'data': list(castles)})
+        else:
+            return JsonResponse({'data': list(castles)})
     context = {'castles': Castle.objects.all().order_by('name')}
     return render(request, 'properties/properties-index.html', context)
 
