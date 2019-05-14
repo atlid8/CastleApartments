@@ -4,7 +4,7 @@
 <div class="card">
     <div class="image_box">
 
-      <img src='{{castle.propertyimage_set.first.image}}'>
+      <img src='{{castle.castleimage_set.first.image}}'>
     </div>
     <div class="information">
 
@@ -20,7 +20,7 @@
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-user"></i></span>
 						</div>
-						<input disabled type="text" class="form-control" placeholder="{{castle.userinfo_id.first_name}} {{castle.userinfo_id.last_name}}">
+						<input disabled type="text" class="form-control" placeholder="{{castle.seller.first_name}} {{castle.seller.last_name}}">
 					</div>
 
 
@@ -31,9 +31,9 @@
 						<input disabled type="text" class="form-control" placeholder="{{castle.price}}">
 
          </div></div><div class="decision">
-                        <a class="btn btn-success" href="#"><i class="fa fa-check" aria-hidden="true"></i></a>
-                        <a class="btn btn-danger" href="#"><i class="fa fa-ban" aria-hidden="true"></i></a>
-                        <a class="btn btn-info" href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+                        <button class="btn btn-success" href="#"><i class="fa fa-check" aria-hidden="true"></i></button>
+                        <button class="btn btn-danger" href="#"><i class="fa fa-ban" aria-hidden="true"></i></button>
+                        <a class="btn btn-info" href="/properties/{{ castle.id }}"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
                     </div>
 					</div>
 				</form>
