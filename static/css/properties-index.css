@@ -148,7 +148,7 @@ div.click-to-top:hover span {
     right: 0;
     width:60%;
     height: 2em;
-    border-radius: 5px;
+    border-bottom-right-radius: 10px;
 }
 
 /*Settings below are regarding responsive website*/
