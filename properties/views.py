@@ -52,6 +52,24 @@ def properties(request):
             for x in castles:
                 x['image'] = Castle.objects.filter(id=x['id']).first().castleimage_set.first().image
         return JsonResponse({'data': list(castles)})
+    if 'square-filter' in request.GET:
+        square_filter = request.GET['square-filter'].split(',')
+        min_val = square_filter[0]
+        upper_val = square_filter[1]
+        castles = Castle.objects.filter(size__range=(int(min_val), int(upper_val))).values()
+        if castles:
+            for x in castles:
+                x['image'] = Castle.objects.filter(id=x['id']).first().castleimage_set.first().image
+        return JsonResponse({'data': list(castles)})
+    if 'room-filter' in request.GET:
+        room_filter = request.GET['room-filter'].split(',')
+        min_val = room_filter[0]
+        upper_val = room_filter[1]
+        castles = Castle.objects.filter(rooms__range=(int(min_val), int(upper_val))).values()
+        if castles:
+            for x in castles:
+                x['image'] = Castle.objects.filter(id=x['id']).first().castleimage_set.first().image
+        return JsonResponse({'data': list(castles)})
     context = {'castles': Castle.objects.all().order_by('name')}
     return render(request, 'properties/properties-index.html', context)
 
