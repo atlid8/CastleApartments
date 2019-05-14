@@ -42,6 +42,13 @@ def my_profile(request):
         if Castle.objects.filter(id=x.castle_watch_id).first() not in list_of_watches:
             list_of_watches.append(Castle.objects.filter(id=x.castle_watch_id).first())
     dictionary['castle_watch'] = list_of_watches
+    offer_list = CastleOffer.objects.filter(buyer_id=userid)
+    list_of_offers = []
+    for x in offer_list:
+        if Castle.objects.filter(id=x.castle_id).first() not in list_of_offers:
+            list_of_offers.append(Castle.objects.filter(id=x.castle_id).first())
+    dictionary['castle_offer'] = list_of_offers
+
     return render(request, 'users/my-profile.html', dictionary)
 
 def register(request):
