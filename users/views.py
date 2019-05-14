@@ -1,11 +1,12 @@
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
-from properties.models import Castle, Watchlist, CastleOffer
+from properties.models import Castle, Watchlist, CastleOffer, SoldCastle
 from users.forms.creationform import UserCreationForm
 from users.forms.ProfileForm import ProfileForm, UserEditForm
 from users.models import Profile, SearchHistory, Notification
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import login_required
+
 
 
 # Create your views here.
@@ -83,10 +84,36 @@ def my_property(request, id):
     return render(request, 'users/my_property.html',
                   {'castle': get_object_or_404(Castle, pk=id), 'offers': CastleOffer.objects.filter(castle_id=id).order_by('-offer')
                    })
-def accept_offer(request):
-    offer = request.GET('offerdrop')
-    offer = offer.offer
-    castle = offer.castle.name
+
+def accept_offer(request, id):
+    offer = get_object_or_404(CastleOffer, pk=id)
+    soldcastle = SoldCastle()
+    soldcastle.name = offer.castle.name
+    soldcastle.postcode = offer.castle.postcode
+    soldcastle.price = offer.offer
+    soldcastle.commission = offer.offer * 0.1
+    soldcastle.rooms = offer.castle.rooms
+    soldcastle.size = offer.castle.size
+    soldcastle.info = offer.castle.info
+    soldcastle.street =offer.castle.street
+    soldcastle.house_number = offer.castle.house_number
+    soldcastle.seller = offer.castle.seller
+
+
+    class SoldCastle(models.Model):
+        name = models.CharField(max_length=255)
+        postcode = models.ForeignKey(Postcode, on_delete=models.CASCADE)
+        price = models.IntegerField()
+        commission = models.IntegerField()
+        rooms = models.IntegerField()
+        size = models.IntegerField()
+        info = models.TextField()
+        street = models.CharField(max_length=255)
+        house_number = models.IntegerField()
+        seller = models.ForeignKey(User, on_delete=models.CASCADE)
+        buyer = models.ForeignKey(User, related_name='%buyer', on_delete=models.CASCADE)
+        time_stamp = time_stamp = models.DateTimeField(default=timezone.now)
+
 
 def seller_profile(request, id):
     # TODO: Change from user to profile or similar

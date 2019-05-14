@@ -60,18 +60,9 @@
         </tbody>
     </table
 
-
-  <select name="offerdrop">
-    <option selected="selected" disabled>Offers:</option>
-      {% for offer in offers %}
-    <option value={{ offer }}>{{ offer.buyer.first_name }} {{ offer.buyer.last_name }} has offered {{ offer.offer }} </option>
-      {% endfor %}
-  </select>
-  <input href="{% url 'accept_offer' %}" type="submit" value="Accept this offer">
-    </form>
-
-                <p class="sub-title">Need some help? <a href="/users/about-us">Contact us for assistance</a> </p>
-    </div>
+                {% for offer in offers %}
+            <a href={% url 'accept'  offer.id %} class="block btn btn-primary"> Accept offer for {{ offer.offer }} from {{ offer.buyer.first_name }} </a>
+                {% endfor %}
 </div>
 </div>
 </article>

@@ -12,7 +12,9 @@ from properties.forms.contactinfo import ContactInfoCreationForm
 
 
 def index(request):
-    return render(request, 'base.html')
+    user = request.user
+    return render(request, 'base.html', {'notifications':Notification.objects.filter(receiver_id=user.id, resolved=False)})
+
 
 
 def properties(request):

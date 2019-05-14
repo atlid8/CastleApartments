@@ -19,6 +19,6 @@ urlpatterns = [
     path('<int:id>/', views.seller_profile, name="seller_profile"),
     path('notifications/', views.notification, name="notifications"),
     path('my-inbox/', views.my_inbox, name="my-inbox"),
-    path('accept_offer/<int:id>', views.accept_offer, name="accept_offer"),
+    path('accept_offer/<int:id>', views.accept_offer, name="accept"),
 
 ]

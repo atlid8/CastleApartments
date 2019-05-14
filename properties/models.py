@@ -3,6 +3,7 @@ from users.models import User
 from users.models import Postcode, Profile
 from django.utils import timezone
 
+
 class SoldCastle(models.Model):
     name = models.CharField(max_length=255)
     postcode = models.ForeignKey(Postcode, on_delete=models.CASCADE)
@@ -14,6 +15,7 @@ class SoldCastle(models.Model):
     street = models.CharField(max_length=255)
     house_number = models.IntegerField()
     seller = models.ForeignKey(User, on_delete=models.CASCADE)
+    buyer = models.ForeignKey(User, on_delete=models.CASCADE)
     time_stamp=time_stamp = models.DateTimeField(default=timezone.now)
 
 
