@@ -41,6 +41,20 @@ p {
     background-color: rgba(0,0,0,0.5);
     padding-bottom: 1em;
 }
+
+#form-for-search {
+    display: inherit;
+}
+
+#search-btn {
+    display: inline-block;
+}
+
+#search-box {
+    display: inline-block;
+    width: 16em;
+}
+
 .form-control {
     margin-top: 2em;
 }
