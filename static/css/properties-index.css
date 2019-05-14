@@ -6,9 +6,16 @@ h3 {
     color: white;
     text-align: center;
 }
+
+p {
+    margin-bottom: 0px;
+}
+
 #castle-name {
-    font-size: 1.5em;
-    color: white;
+    font-size: 1.3em;
+    overflow-y: visible;
+    max-height: 0.3em;
+    min-height: 0.85em;
 }
 #search-btn{
     height: 2.41em;
@@ -78,9 +85,11 @@ h3 {
 }
 .card-text {
     font-size: 0.75em;
-    justify-content: space-between;
     align-items: center;
     color: white;
+    overflow-y: hidden;
+    max-height: 3em;
+    min-height: 3em;
 }
 
 a:hover {
