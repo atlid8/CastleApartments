@@ -11,19 +11,145 @@ $(function() {
     });
 });
 
+
+$(document).ready(function(){
+    $('search-box').keypress(function(e){
+      if(e.keyCode===13)
+      $('search-btn').click();
+    });
+});
+
+
 // Creates the slider
 $(document).ready(function () {
-    $(".js-range-slider").ionRangeSlider({
-        onChange: function (data) {
-            console.log(data.from);
-            console.log(data.to);
-            },
+    $(".price").ionRangeSlider({
+        onFinish: function (e) {
+            var minValue = e.from;
+            var upperValue = e.to;
+            console.log(minValue); //TODO: TENGJA RETT
+            console.log(upperValue);
+            $.ajax({
+                url: '/properties/search/?price-filter=' + minValue + ',' + upperValue,
+                type: 'GET',
+                success: function (resp) {
+                    var newHTML = resp.data.map(d => {
+                        return `
+                        <div class="col-md-3 well castles">
+                            <a href="/properties/${d.id}">
+                            <div class="card mb-4 box-shadow">
+                                <img class="card-img-top"  alt="Thumbnail [100%x225]" src='${d.image}'data-holder-rendered="true">
+                                <div class="card-body">
+                                    <h1 class="card-text" id="castle-name"> ${d.name}</h1>
+                                    <p class="card-text"> ${d.info}</p>
+                                </div>
+                            </div>
+                            </a>
+                        </div>`;
+                    });
+                    $('.castles').html(newHTML.join(''));
+                },
+                error: function (xhr, status, error) {
+                    //Todo: gæti þurft eitthvað annað error handling
+                    console.error(error);
+                },
+            })
+        },
+
         type: "double",
         skin: "flat",
         min: 0,
-        max: 1000,
-    });
+        max: 100000,
+})
+
 });
+
+$(document).ready(function () {
+    $(".square-meters").ionRangeSlider({
+        onFinish: function (e) {
+            var minValue = e.from;
+            var upperValue = e.to;
+            console.log(minValue); //TODO: TENGJA RETT
+            console.log(upperValue);
+            $.ajax({
+                url: '/properties/search/?square-filter=' + minValue + ',' + upperValue,
+                type: 'GET',
+                success: function (resp) {
+                    var newHTML = resp.data.map(d => {
+                        return `
+                        <div class="col-md-3 well castles">
+                            <a href="/properties/${d.id}">
+                            <div class="card mb-4 box-shadow">
+                                <img class="card-img-top"  alt="Thumbnail [100%x225]" src='${d.image}'data-holder-rendered="true">
+                                <div class="card-body">
+                                    <h1 class="card-text" id="castle-name"> ${d.name}</h1>
+                                    <p class="card-text"> ${d.info}</p>
+                                </div>
+                            </div>
+                            </a>
+                        </div>`;
+                    });
+                    $('.castles').html(newHTML.join(''));
+                },
+                error: function (xhr, status, error) {
+                    //Todo: gæti þurft eitthvað annað error handling
+                    console.error(error);
+                },
+            })
+        },
+
+        type: "double",
+        skin: "flat",
+        min: 0,
+        max: 15000,
+})
+
+});
+
+$(document).ready(function () {
+    $(".rooms").ionRangeSlider({
+        onFinish: function (e) {
+            var minValue = e.from;
+            var upperValue = e.to;
+            console.log(minValue); //TODO: TENGJA RETT
+            console.log(upperValue);
+            $.ajax({
+                url: '/properties/search/?room-filter=' + minValue + ',' + upperValue,
+                type: 'GET',
+                success: function (resp) {
+                    var newHTML = resp.data.map(d => {
+                        return `
+                        <div class="col-md-3 well castles">
+                            <a href="/properties/${d.id}">
+                            <div class="card mb-4 box-shadow">
+                                <img class="card-img-top"  alt="Thumbnail [100%x225]" src='${d.image}'data-holder-rendered="true">
+                                <div class="card-body">
+                                    <h1 class="card-text" id="castle-name"> ${d.name}</h1>
+                                    <p class="card-text"> ${d.info}</p>
+                                </div>
+                            </div>
+                            </a>
+                        </div>`;
+                    });
+                    $('.castles').html(newHTML.join(''));
+                },
+                error: function (xhr, status, error) {
+                    //Todo: gæti þurft eitthvað annað error handling
+                    console.error(error);
+                },
+            })
+        },
+
+        type: "double",
+        skin: "flat",
+        min: 0,
+        max: 50,
+})
+
+});
+
+
+
+
 $(document).ready(function () {
     $('#search-btn').on('click', function (e) {
         e.preventDefault();
@@ -56,7 +182,7 @@ $(document).ready(function () {
         })
     })
 
-})
+});
 
 //<img class="card-img-top"  alt="Thumbnail [100%x225]" src='${d.image_set.first()}'data-holder-rendered="true">
 
@@ -91,7 +217,7 @@ $(document).ready(function () {
         })
     })
 
-})
+});
 
 
 $(document).ready(function () {
@@ -125,4 +251,4 @@ $(document).ready(function () {
         })
     })
 
-})
+});

@@ -1,66 +1,89 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<h1> Notification AWESOMENESS!!!</h1>
-<form class="form form-horizontal" method="post">
+
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/notifications.css' %}"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+
+
+
+        <div class="container">
+
+
+        {% csrf_token %}
+        <button onClick="location.href=location.href" id="refresh-btn" class="btn"><i class="fas fa-redo"></i></button>
+
+
+        <form class="form form-horizontal" method="post">
     {% csrf_token %}
     {{ form }}
-    <input type="submit" class="btn btn-primary" value="Update">
-</form>
- <div class="container">
-            <h1>UNREAD</h1>
+
+    </form>
+     <div class="container2">
+
+
+     {% if unseen %}
+
+     <h3>Unseen notifications</h3>
+                <table id="search-log-table">
+                    <tbody>
+                        <tr class="head-row">
+                            <th>Information</th>
+                            <th>Link</th>
+                            <th>Time</th>
+                        </tr>
+
+                        {% for message in unseen %}
+                          <tr>
+                              <td class="message-info">
+                                  {{ message.info }}
+                              </td>
+                              <td class="message-link">
+                                  <a href="{{ message.link }}"><i class="fas fa-link"></i>
+                                  </a>
+                              </td>
+                          <td class="message-time-stamp">
+                              {{ message.time_stamp }}
+                          </td>
+                          </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+    {% else %}
+     <div class="container2">
+     {% if seen %}
+     <h3>All notifications</h3>
             <table id="search-log-table">
                 <tbody>
-                    <tr>
-                        <th>Info</th>
-                        <th>Link</th>
-                        <th>Time</th>
-                    </tr>
-
-                    {% for message in unseen %}
-                      <tr>
-                          <td>
-                              {{ message.info }}
-                          </td>
-                          <td>
-                              <a href="{{ message.link }}">Link
-                              </a>
-                          </td>
-                      <td>
-                          {{ message.time_stamp }}
-                      </td>
-                      </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
-
-     <div class="container">
-     <h1>ALL MESSAGES</h1>
-            <table id="search-log-table">
-                <tbody>
-                    <tr>
-                        <th>Info</th>
-                        <th>Links</th>
-                        <th>Time</th>
+                    <tr class="head-row">
+                            <th>Information</th>
+                            <th>Link</th>
+                            <th>Time</th>
                     </tr>
 
                     {% for message in seen %}
                       <tr>
-                          <td>
+                          <td class="message-info">
                               {{ message.info }}
                           </td>
-                          <td>
-                              <a href="{{ message.link }}">Link
+                          <td class="message-link">
+                              <a href="{{ message.link }}"><i class="fas fa-link"></i>
                               </a>
-                          </td>
-                      <td>
+                              </td>
+                          <td class="message-time-stamp">
+
                           {{ message.time_stamp }}
                       </td>
                       </tr>
                     {% endfor %}
                 </tbody>
             </table>
-        </div>
-
+        </div></div>
+     {% else %}
+         <h3>You have no notifications</h3>
+     {% endif %}
+    {% endif %}
 {% endblock %}

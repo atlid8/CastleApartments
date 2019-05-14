@@ -43,6 +43,33 @@ def properties(request):
             for x in castles:
                 x['image'] = Castle.objects.filter(id=x['id']).first().castleimage_set.first().image
             return JsonResponse({'data': list(castles)})
+    if 'price-filter' in request.GET:
+        price_filter = request.GET['price-filter'].split(',')
+        min_val = price_filter[0]
+        upper_val = price_filter[1]
+        castles = Castle.objects.filter(price__range=(int(min_val), int(upper_val))).values()
+        if castles:
+            for x in castles:
+                x['image'] = Castle.objects.filter(id=x['id']).first().castleimage_set.first().image
+        return JsonResponse({'data': list(castles)})
+    if 'square-filter' in request.GET:
+        square_filter = request.GET['square-filter'].split(',')
+        min_val = square_filter[0]
+        upper_val = square_filter[1]
+        castles = Castle.objects.filter(size__range=(int(min_val), int(upper_val))).values()
+        if castles:
+            for x in castles:
+                x['image'] = Castle.objects.filter(id=x['id']).first().castleimage_set.first().image
+        return JsonResponse({'data': list(castles)})
+    if 'room-filter' in request.GET:
+        room_filter = request.GET['room-filter'].split(',')
+        min_val = room_filter[0]
+        upper_val = room_filter[1]
+        castles = Castle.objects.filter(rooms__range=(int(min_val), int(upper_val))).values()
+        if castles:
+            for x in castles:
+                x['image'] = Castle.objects.filter(id=x['id']).first().castleimage_set.first().image
+        return JsonResponse({'data': list(castles)})
     context = {'castles': Castle.objects.all().order_by('name')}
     return render(request, 'properties/properties-index.html', context)
 
@@ -131,3 +158,4 @@ def edit_property(request, id):
     return render(request, 'properties/edit_property.html',
                   {'castle': get_object_or_404(Castle, pk=id)
                    })
+

@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
-from properties.models import Castle, Watchlist
+from properties.models import Castle, Watchlist, CastleOffer
 from users.forms.creationform import UserCreationForm
 from users.forms.ProfileForm import ProfileForm, UserEditForm
 from users.models import Profile, SearchHistory, Notification
@@ -81,9 +81,12 @@ def edit(request):
 
 def my_property(request, id):
     return render(request, 'users/my_property.html',
-                  {'castle': get_object_or_404(Castle, pk=id)
+                  {'castle': get_object_or_404(Castle, pk=id), 'offers': CastleOffer.objects.filter(castle_id=id).order_by('-offer')
                    })
-
+def accept_offer(request):
+    offer = request.GET('offerdrop')
+    offer = offer.offer
+    castle = offer.castle.name
 
 def seller_profile(request, id):
     # TODO: Change from user to profile or similar
@@ -111,6 +114,7 @@ def notification(request):
     return render(request, 'users/notification.html',
                   {'seen': seen,
                    'unseen': unseen})
+
 
 def my_inbox(request):
     return render(request, 'users/my-inbox.html')
