@@ -130,13 +130,13 @@ def delete_castle(request, id):
     castle.delete()
     form = NotificationForm()
     form.save_not_verified(castle)
-    redirect('/users/staff')
+    return redirect('/users/staff')
 
 def verify_castle(request, id):
     castle = Castle.objects.filter(id=id).first()
     castle.verified = True
     castle.save()
-    redirect('/users/staff')
+    return redirect('/users/staff')
 
 
 def seller_profile(request, id):
