@@ -103,18 +103,6 @@ def get_property_by_id(request, id):
                    (castle_watch_id = castle.id, user_id = user.id)
                     })
 
-def delete_castle(request, id):
-    castle = Castle.objects.filter(id=id).first()
-    castle.delete()
-    form = NotificationForm()
-    form.save_not_verified(castle)
-    redirect('/users/staff')
-
-def verify_castle(request, id):
-    castle = Castle.objects.filter(id=id).first()
-    castle.verified = True
-    castle.save()
-    redirect('/users/staff')
 
 
 @login_required
