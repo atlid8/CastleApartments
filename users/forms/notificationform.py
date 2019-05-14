@@ -40,11 +40,24 @@ class NotificationForm(ModelForm):
         notification.receiver = watcher
         notification.save()
         return notification
-        # Þetta virkar en þetta over writar alltaf notificationið á undan
-        pass #TODO: Gera watchlist notification
 
-    def save_counteroffer(self, castle, ):
-        pass #TODO: Gera counteroffer notification
+    def save_offer_accept(self, castle, price, buyer):
+        notification = super(NotificationForm, self).save(commit=False)
+        notification.info = 'Your offer of '+ str(price) + ' for ' + str(castle.name) + ' has been accepted'
+        notification.link = ''
+        notification.resolved = False
+        notification.receiver = buyer
+        notification.save()
+        return notification
+
+    def save_offer_accept_watcher(self, castle, price, watcher):
+        notification = super(NotificationForm, self).save(commit=False)
+        notification.info = 'The castle ' + str(castle.name) + ' has been bought for ' + str(price)
+        notification.link = ''
+        notification.resolved = False
+        notification.receiver = watcher
+        notification.save()
+        return notification
 
 
     def save_message_notification(self, receiver, sender, info, commit=True):
