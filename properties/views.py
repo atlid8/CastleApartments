@@ -98,8 +98,24 @@ def get_property_by_id(request, id):
             else:
                 form.save(castle, user)
     return render(request, 'properties/property_details.html',
-                   {'castle': get_object_or_404(Castle, pk=id), 'watchlist':Watchlist.objects.filter(castle_watch_id = castle.id, user_id = user.id)
+                   {'castle': get_object_or_404(Castle, pk=id), 'watchlist':Watchlist.objects.filter
+
+                   (castle_watch_id = castle.id, user_id = user.id)
                     })
+
+def delete_castle(request, id):
+    castle = Castle.objects.filter(id=id).first()
+    castle.delete()
+    form = NotificationForm()
+    form.save_not_verified(castle)
+    redirect('/users/staff')
+
+def verify_castle(request, id):
+    castle = Castle.objects.filter(id=id).first()
+    castle.verified = True
+    castle.save()
+    redirect('/users/staff')
+
 
 @login_required
 def contact_info_buy(request, id):
