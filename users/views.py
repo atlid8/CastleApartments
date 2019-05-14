@@ -83,7 +83,10 @@ def my_property(request, id):
     return render(request, 'users/my_property.html',
                   {'castle': get_object_or_404(Castle, pk=id), 'offers': CastleOffer.objects.filter(castle_id=id).order_by('-offer')
                    })
-
+def accept_offer(request):
+    offer = request.GET('offerdrop')
+    offer = offer.offer
+    castle = offer.castle.name
 
 def seller_profile(request, id):
     # TODO: Change from user to profile or similar
@@ -111,8 +114,6 @@ def notification(request):
     return render(request, 'users/notification.html',
                   {'seen': seen,
                    'unseen': unseen})
-
-
 
 
 def my_inbox(request):
