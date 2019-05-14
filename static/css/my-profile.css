@@ -1,62 +1,6 @@
-
-h3 {
-    color: white;
-    text-align: center;
-}
-
-.header-text {
-    width: 80%;
-    color:white;
-    height: 4em;;
-    text-align: center;
-    background-color: rgba(255,255,255, 0.2);
-    padding-top: 0.65em;
-    border-bottom-left-radius: 1em;
-    border-top-right-radius: 1em;
-    margin: auto;
-}
-
-#castle-name {
-    font-size: 1.5em;
-    color: white;
-}
-
 #after-first-text {
     margin-top: 5em;
 }
 
-.col-md-3 {
-    margin-top: 2em;
-    color: white;
-}
-
-.card {
-    background-color: transparent;
-}
-
-.card-img-top {
-    background-size: cover;
-    max-width: 253px;
-    max-height: 180px;
-}
-
-.card-body {
-    height: 145px;
-    background-color: rgba(255,255,255, 0.5);
-    border-bottom-right-radius: 5px;
-    border-bottom-left-radius: 5px;
-}
-
-.card-text {
-    font-size: 0.75em;
-    justify-content: space-between;
-    align-items: center;
-    color: white;
-}
-
-
-a:hover {
-    color: white;
-}
 
 
