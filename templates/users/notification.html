@@ -8,39 +8,13 @@
     <input type="submit" class="btn btn-primary" value="Update">
 </form>
  <div class="container">
+            <h1>UNREAD</h1>
             <table id="search-log-table">
                 <tbody>
                     <tr>
                         <th>Info</th>
-                        <th>Search content</th>
-                        <th></th>
-                    </tr>
-
-                    {% for message in seen %}
-                      <tr>
-                          <td>
-                              {{ message.info }}
-                          </td>
-                          <td>
-                              <a href="{{ message.link }}">
-                              </a>
-                          </td>
-                      <td>
-                          {{ message.timestamp }}
-                      </td>
-                      </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
-
-     <div class="container">
-            <table id="search-log-table">
-                <tbody>
-                    <tr>
-                        <th>Info</th>
-                        <th>Search content</th>
-                        <th>link</th>
+                        <th>Link</th>
+                        <th>Time</th>
                     </tr>
 
                     {% for message in unseen %}
@@ -53,7 +27,35 @@
                               </a>
                           </td>
                       <td>
-                          {{ message.timestamp }}
+                          {{ message.time_stamp }}
+                      </td>
+                      </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+     <div class="container">
+     <h1>ALL MESSAGES</h1>
+            <table id="search-log-table">
+                <tbody>
+                    <tr>
+                        <th>Info</th>
+                        <th>Links</th>
+                        <th>Time</th>
+                    </tr>
+
+                    {% for message in seen %}
+                      <tr>
+                          <td>
+                              {{ message.info }}
+                          </td>
+                          <td>
+                              <a href="{{ message.link }}">Link
+                              </a>
+                          </td>
+                      <td>
+                          {{ message.time_stamp }}
                       </td>
                       </tr>
                     {% endfor %}
