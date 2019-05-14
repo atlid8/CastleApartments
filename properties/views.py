@@ -43,6 +43,15 @@ def properties(request):
             for x in castles:
                 x['image'] = Castle.objects.filter(id=x['id']).first().castleimage_set.first().image
             return JsonResponse({'data': list(castles)})
+    if 'price-filter' in request.GET:
+        price_filter = request.GET['price-filter'].split(',')
+        min_val = price_filter[0]
+        upper_val = price_filter[1]
+        castles = Castle.objects.filter(price__range=(int(min_val), int(upper_val))).values()
+        if castles:
+            for x in castles:
+                x['image'] = Castle.objects.filter(id=x['id']).first().castleimage_set.first().image
+        return JsonResponse({'data': list(castles)})
     context = {'castles': Castle.objects.all().order_by('name')}
     return render(request, 'properties/properties-index.html', context)
 
@@ -132,13 +141,3 @@ def edit_property(request, id):
                   {'castle': get_object_or_404(Castle, pk=id)
                    })
 
-
-def price_slider(request):
-    if 'price-filter' in request.GET:
-        price_filter = request.GET['price-filter'].split(',')
-        min_val = price_filter[0]
-        upper_val = price_filter[1]
-        castles = Castle.objects.filter(price__range=(int(min_val), int(upper_val)))
-        for x in castles:
-            x['image'] = Castle.objects.filter(id=x['id']).first().castleimage_set.first().image
-        return JsonResponse({'data': list(castles)})
