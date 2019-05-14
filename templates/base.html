@@ -8,6 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Castle Apartments</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
     <link rel="stylesheet" href="{% static 'css/main-style.css' %}">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 
@@ -24,17 +25,23 @@
             <ul class="navbar-nav ml-auto">
 
                 {% if user.is_authenticated %}
+
+
                     <div class="header-greeting">{{ user.username }}</div>
+
                     <div class="dropdown">
+
+                        <span class="badge">{{ notifications|length }}</span>
+
                               <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                <img src="{{ user.profile.profile_image }}" class="profile-image" style="width:40px;height:40px;border-radius:50%;"onError="this.onerror=null;this.src='https://png.pngtree.com/svg/20161027/631929649c.svg';">
-
                               </button>
-
-
                               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                   <a class="dropdown-item" href = "{% url 'my-inbox' %}">Messages</a>
-                                  <a class="dropdown-item" href = "{% url 'notifications' %}">Notifications</a>
+
+                                  <a {% if notifications|length %}id="notifications-dropdown"{% endif %}class="dropdown-item" href = "{% url 'notifications' %}">Notifications</a>
+
+
                                 <a class="dropdown-item" href = "{% url 'my-profile' %}">My profile</a>
 
                                   <a class="dropdown-item" href = "{% url 'edit' %}">Edit my info</a>
