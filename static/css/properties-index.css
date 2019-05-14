@@ -8,6 +8,7 @@ h3 {
 }
 #castle-name {
     font-size: 1.5em;
+    color: white;
 }
 #search-btn{
     height: 2.41em;
@@ -79,7 +80,13 @@ h3 {
     font-size: 0.75em;
     justify-content: space-between;
     align-items: center;
+    color: white;
 }
+
+a:hover {
+    color: white;
+}
+
 .irs--flat .irs-bar {
     background-color: #656b74 !important;
 }
