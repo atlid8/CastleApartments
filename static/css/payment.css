@@ -3,16 +3,14 @@
     color: white;
     position: relative;
     margin: 0 auto;
-
 }
-#payment-receipt{
-    /*margin-top: 5em;*/
-    right: 15em;
-    max-width: 25%;
+#title-success {
+    margin: auto; !important;
+    color: #4CAF50; !important;
 }
-#payment-details{
-    max-width: 20%;
-    left: 15em;
+#home-button {
+    background-color: rgba(0, 0, 0, 0.2);
+    color: white;
 }
 #expiry-month, #expiry-year{
     display: inline-block;
@@ -25,13 +23,73 @@
     margin-top: 10em;
     background-color: rgba(255, 255, 255, 0.2);
     padding-top: 2em;
+    width: 100%;
 }
-
 #getdate{
     display: inline-block;
 }
 #pay-button{
     margin-top: 0.1em;
+}
+#payment-receipt, #payment-details{
+    display: inline-block;
+}
+/*#payment-receipt{*/
+/*    margin-top: 5em;*/
+/*    right: 15em;*/
+/*    max-width: 25%;*/
+/*    width: 20em;*/
+/*}*/
+/*#payment-details{*/
+/*    max-width: 20%;*/
+/*    left: 15em;*/
+/*}*/
+#search-log-table {
+    border-collapse: collapse;
+    width: 100%;
+    color: white;
+}
+#search-log-table td, #search-log-table th {
+    padding: 8px;
+    border-bottom: 1px solid white;
+}
+#search-log-table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    color: white;
+    text-align: left;
+}
+#getdate{
+    margin-left:1em;
+}
+.container{
+    width: 40em;
+    border: 1px solid white;
+}
+.table-head {
+    font-weight: bold;
+    color: white;
+    border-bottom: unset !important;
+    font-size: 1.5em;
+}
+.table-1{
+    width: 14em;
+}
+.table-2{
+    max-width: 1em;
+    text-align: center !important;
+}
+.table-3{
+    max-width: 3em;
+    text-align: right !important;
+}
+.table-4{
+    max-width: 1.5em;
+    text-align: right !important;
+}
+.payment-container{
+    width: 100%;
+    text-align: center;
 }
 .tr-font{
     font-size: 1.5em;
@@ -51,12 +109,17 @@
     margin-bottom: 0.5rem !important;
 }
 
-#title-success {
-    margin: auto; !important;
-    color: #4CAF50; !important;
-}
+/*@media screen and (max-width: 1900px) and (min-width: 1751px) {*/
+/*    #payment-details{*/
+/*        margin-right: 15em;*/
+/*    }*/
+/*}*/
+/*@media screen and (max-width: 1750px) and (min-width: 11px) {*/
+/*    #payment-details{*/
+/*        margin-right: 25em;*/
+/*    }*/
+/*    #expiry-month, #expiry-year{*/
+/*        width: 3.5em;*/
+/*    }*/
 
-#home-button {
-    background-color: rgba(0, 0, 0, 0.2);
-    color: white;
-}
+/*}*/

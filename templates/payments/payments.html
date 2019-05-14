@@ -10,90 +10,135 @@
 </head>
 
 <body>
+<div class="container">
+        <table id="search-log-table">
+            <thead>
+                <tr>
+                    <th class="table-head ">Reciept</th>
 
+                    <th id="get-date" class="table-head"><script>document.write(get_date())</script></th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th class="table-1">Product</th>
+                    <th class="table-2">#</th>
+                    <th class="table-3">Price</th>
+                    <th class="table-4">Total</th>
+                </tr>
+                <tr>
+                    <th class="table-1">{{ castle.name }}</th>
+                    <th class="table-2">1</th>
+                    <th class="table-3">{{ castle.price }}</th>
+                    <th class="table-4">{{ castle.price }}</th>
+                </tr>
+                <tr>
+                    <th class="table-1">  </th>
+                    <th class="table-2">  </th>
+                    <th class="table-3">
+                        <p>Subtotal: </p>
+                        <p>Tax: </p>
+                    </th>
+                    <th class="table-4">
+                        <p id="subtotal">{{ castle.price }}</p>
+                        <p id="tax"><script>document.write(get_tax())</script></p>
+                    </th>
+                </tr>
+                <tr>
+                    <th class="table-1">  </th>
+                    <th class="table-2">  </th>
+                    <th class="table-3">Total: </th>
+                    <th class="table-4"><script>document.write(get_total())</script></th>
+                </tr>
+            </tbody>
+        </table>
+</div>
 <div class="px-4" id="px4-container">
     <div class="row" >
-        <div class="col-xs-12 col-md-4 ml-auto" id="payment-details">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h2 class="panel-title">Payment Details</h2>
-                    <div class="checkbox pull-right"></div>
-                </div>
-                <div class="panel-body">
-                    <form role="form">
-                    <div class="form-group">
-                        <label for="cardNumber">CARD NUMBER</label>
-                        <div class="input-group">
-                            <input type="text" class="form-control" id="cardNumber" placeholder="Valid Card Number" required autofocus />
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                        </div>
+        <div class="payment-container">
+            <div class="col-xs-12 col-md-4 ml-auto" id="payment-details">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">Payment Details</h2>
+                        <div class="checkbox pull-right"></div>
                     </div>
-                    <div class="row">
-                        <div class="col-xs-7 col-md-7">
-                            <div class="form-group">
-                                <label>EXPIRY DATE</label>
-                                <div class="col-lg-6 pl-ziro">
-                                    <input type="text" class="form-control" id="expiry-month" placeholder="MM" required />
-                                    <input type="text" class="form-control" id="expiry-year" placeholder="YY" required />
+                    <div class="panel-body">
+                        <form role="form">
+                        <div class="form-group">
+                            <label for="cardNumber">CARD NUMBER</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="cardNumber" placeholder="Valid Card Number" required autofocus />
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-7 col-md-7">
+                                <div class="form-group">
+                                    <label>EXPIRY DATE</label>
+                                    <div class="col-lg-6 pl-ziro">
+                                        <input type="text" class="form-control" id="expiry-month" placeholder="MM" required />
+                                        <input type="text" class="form-control" id="expiry-year" placeholder="YY" required />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xs-5 col-md-5 pull-right">
+                                <div class="form-group">
+                                    <label for="cvcCode">CVC</label>
+                                    <input type="text" class="form-control" placeholder="CVC" required />
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xs-5 col-md-5 pull-right">
-                            <div class="form-group">
-                                <label for="cvcCode">CVC</label>
-                                <input type="text" class="form-control" placeholder="CVC" required />
-                            </div>
-                        </div>
+                        </form>
                     </div>
-                    </form>
                 </div>
+                    <button   id="pay-button" class="well well-md text-center btn btn-success btn-lg btn-block" data-toggle="modal" data-target="#myModal">
+                        Pay
+                    </button>
             </div>
-                <button   id="pay-button" class="well well-md text-center btn btn-success btn-lg btn-block" data-toggle="modal" data-target="#myModal">
-                    Pay
-                </button>
-        </div>
-        <div class="well col-xs-10 col-sm-10 col-md-6 col-xs-offset-1 col-sm-offset-1 col-md-offset-3" id="payment-receipt">
-            <div class="row">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th class="tr-font border-top-0 border-bottom-0">Receipt</th>
-                            <th class="tr-font border-top-0 border-bottom-0" id="getdate"><script>document.write(get_date())</script></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th class="border-top-0">Product</th>
-                            <th class="border-top-0">#</th>
-                            <th class="text-center border-top-0">Price</th>
-                            <th class="text-center border-top-0">Total</th>
-                        </tr>
-                        <tr>
-                            <td class="col-md-9"><em>{{ castle.name }}</em></td>
-                            <td class="col-md-1"> 1 </td>
-                            <td class="col-md-1 text-center">{{ castle.price }}</td>
-                            <td class="col-md-1 text-center">{{ castle.price }}</td>
-                        </tr>
-                        <tr>
-                            <td>   </td>
-                            <td>   </td>
-                            <td class="text-right">
-                                <p><strong>Subtotal:</strong></p>
-                                <p><strong>Tax:</strong></p>
-                            </td>
-                            <td class="text-center">
-                                <p id="subtotal">{{ castle.price }}</p>
-                                <p id="tax"><script>document.write(get_tax())</script></p>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>   </td>
-                            <td>   </td>
-                            <td class="text-right"><h4><strong>Total: </strong></h4></td>
-                            <td class="text-center"><h4><script>document.write(get_total())</script></h4></td>
-                        </tr>
-                    </tbody>
-                </table>
+            <div class="well col-xs-10 col-sm-10 col-md-6 col-xs-offset-1 col-sm-offset-1 col-md-offset-3" id="payment-receipt">
+                <div class="row">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th class="tr-font border-top-0 border-bottom-0">Receipt</th>
+                                <th class="tr-font border-top-0 border-bottom-0" id="getdate"><script>document.write(get_date())</script></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th class="border-top-0">Product</th>
+                                <th class="border-top-0">#</th>
+                                <th class="text-center border-top-0">Price</th>
+                                <th class="text-center border-top-0">Total</th>
+                            </tr>
+                            <tr>
+                                <td class="col-md-9"><em>{{ castle.name }}</em></td>
+                                <td class="col-md-1"> 1 </td>
+                                <td class="col-md-1 text-center">{{ castle.price }}</td>
+                                <td class="col-md-1 text-center">{{ castle.price }}</td>
+                            </tr>
+                            <tr>
+                                <td>   </td>
+                                <td>   </td>
+                                <td class="text-right">
+                                    <p><strong>Subtotal:</strong></p>
+                                    <p><strong>Tax:</strong></p>
+                                </td>
+                                <td class="text-center">
+                                    <p id="subtotal">{{ castle.price }}</p>
+                                    <p id="tax"><script>document.write(get_tax())</script></p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>   </td>
+                                <td>   </td>
+                                <td class="text-right"><h4><strong>Total: </strong></h4></td>
+                                <td class="text-center"><h4><script>document.write(get_total())</script></h4></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
