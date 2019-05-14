@@ -61,15 +61,14 @@
     </table
 
 
-
-  <select name="offer_dropdown">
+  <select name="offerdrop">
     <option selected="selected" disabled>Offers:</option>
       {% for offer in offers %}
     <option value={{ offer }}>{{ offer.buyer.first_name }} {{ offer.buyer.last_name }} has offered {{ offer.offer }} </option>
       {% endfor %}
   </select>
-  <input type="submit" value="Accept this offer">
-
+  <input href="{% url 'accept_offer' %}" type="submit" value="Accept this offer">
+    </form>
 
                 <p class="sub-title">Need some help? <a href="/users/about-us">Contact us for assistance</a> </p>
     </div>
