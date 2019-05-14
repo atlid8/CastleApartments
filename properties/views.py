@@ -87,16 +87,23 @@ def properties(request):
 
 
 def get_property_by_id(request, id):
+    user = request.user
+    castle = Castle.objects.filter(id=id).first()
     if request.method == 'POST':
         form = WatchlistCreationForm(data=request.POST)
         if form.is_valid():
-            castle = Castle.objects.filter(id=id).first()
-            user = request.user
-            if not Watchlist.objects.filter(castle_watch_id = castle.id, user_id = user.id):
+            if Watchlist.objects.filter(castle_watch_id = castle.id, user_id = user.id):
+                watchlist_item = Watchlist.objects.filter(castle_watch_id = castle.id, user_id = user.id).first()
+                watchlist_item.delete()
+            else:
                 form.save(castle, user)
     return render(request, 'properties/property_details.html',
-                   {'castle': get_object_or_404(Castle, pk=id), 'watchlist':Watchlist.objects.all()
+                   {'castle': get_object_or_404(Castle, pk=id), 'watchlist':Watchlist.objects.filter
+
+                   (castle_watch_id = castle.id, user_id = user.id)
                     })
+
+
 
 @login_required
 def contact_info_buy(request, id):

@@ -59,6 +59,15 @@ class NotificationForm(ModelForm):
         notification.save()
         return notification
 
+    def save_not_verified(self, castle):
+        notification = super(NotificationForm, self).save(commit=False)
+        notification.receiver = castle.seller
+        notification.link = ''
+        notification.resolved = False
+        notification.info = 'The castle ' + str(castle.name) + 'has been declined'
+        notification.save()
+        return notification
+
 
     def save_message_notification(self, receiver, sender, info, commit=True):
         pass #TODO: Gera message notification

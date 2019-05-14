@@ -143,17 +143,18 @@ html,body{
     content: " ";
     height: 10px;
     width: 10px;
-    background: red;
+    background: dodgerblue;
     border-radius: 5px;
     display: inline-block;
 }
 
 #notifications-icon {
+    font-weight: normal;
   position: absolute;
   bottom: 0px;
   left: -0px;
   border-radius: 50%;
-  background-color:rgba(255,0,0, 0.8);
+  background-color: dodgerblue;
   color: white;
 }
 

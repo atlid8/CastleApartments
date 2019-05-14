@@ -91,8 +91,11 @@
         <form method="post">
             {% csrf_token %}
             <a id="button-down" type="button" class="btn btn-outline" href="/users/{{ castle.seller.profile.id }}">See Sellers Profile</a>
+                       {% if watchlist %}
+            <button id="button-down-mid-l" type="submit" class="btn btn-outline-primary">Remove from watchlist</button>
+                           {% else %}
             <button id="button-down-mid-l" type="submit" class="btn btn-outline-primary">Add to watchlist</button>
-
+                        {% endif %}
             <a id="button-down-mid-r" type="button" class="btn btn-outline" href="contact-info-offer">Make offer</a>
             <a id="button-down" type="button" class="btn btn-outline-primary" href="contact-info-buy">Buy now</a>
         </form>

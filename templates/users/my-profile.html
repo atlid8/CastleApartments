@@ -28,7 +28,19 @@
                  <div class="header-text" id="after-first-text" >
                     <h2>Your sales properties</h2>
                 </div>
-                {% for castle in castles%}
+                {% for castle in castles %}
+                {% include "properties/singleproperty.html" with castle=castle %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="user-offers">
+        <div class="container">
+            <div class="row">
+                 <div class="header-text" id="after-first-text" >
+                    <h2>Castles you have made offers on</h2>
+                </div>
+                {% for castle in castle_offer %}
                 {% include "properties/singleproperty.html" with castle=castle %}
                 {% endfor %}
             </div>

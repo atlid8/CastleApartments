@@ -3,12 +3,13 @@ from properties.models import ContactInfo
 from users.models import Countries
 
 
-all_countries = [("", "country")]
-countries_objects = Countries.objects.all()
-for countries in countries_objects:
-    all_countries.append((countries.country, countries.country))
-
 class ContactInfoCreationForm(forms.ModelForm):
+    all_countries = [("", "country")]
+    countries_objects = Countries.objects.all()
+    for countries in countries_objects:
+        all_countries.append((countries.country, countries.country))
+
+
     postal_code = forms.IntegerField(label='postcode', widget=forms.NumberInput(attrs={'placeholder': ' zip code'}))
     street_name = forms.CharField(label='street_name', widget=forms.TextInput(attrs={'placeholder': ' street name'}))
     house_number = forms.IntegerField(label='house_number', widget=forms.NumberInput(attrs={'placeholder': ' house number'}))

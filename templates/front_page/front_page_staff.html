@@ -16,7 +16,7 @@
 
 <div class="container">
 
-<h3>2 properties pending validation</h3>
+<h3>{{ castles|length }} properties pending validation</h3>
 
 			{% for castle in castles %}
             {% include "front_page/single_property.html" with castle=castle %}
