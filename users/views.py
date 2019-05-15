@@ -67,13 +67,6 @@ def register(request):
         'form': UserCreationForm(),
     })
 
-def profile(request):
-    profile = Profile.objects.filter(user=request.user).first()
-    if request.method == 'POST':
-        print(1)
-    return render(request, 'users/notification.html', {
-        'form': ''
-    })
 
 def edit(request):
     profile = Profile.objects.filter(user=request.user).first()

@@ -211,28 +211,6 @@ html,body{
 }
 
 
-div.click-to-top:hover span {
-    display: block;
-    position: relative;
-    bottom: 270%;
-    left: 10%;
-    width:8.2em;
-    height: 3.1em;
-    border-radius: 10px;
-
-}
-
-.click-to-top span::after {
-    content: " ";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: dodgerblue transparent transparent transparent;
-}
-
 /*!*When the website is above 390 and below 498px*!*/
 /*@media screen and (max-width: 498px) {*/
 /*    #right-front-button {*/

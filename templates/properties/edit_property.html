@@ -36,7 +36,8 @@
             <p class="sub-title">Please make changes to the following fields</p>
             <form method="post">
                 {% csrf_token %}
-               {{ form }}
+                {{ form.name }}{{ form.postcode }}{{ form.price }}{{ form.rooms }}{{ form.size }}{{ form.info }}{{ form.house_number }}{{ form.street }}
+
                     <!-- form-group// -->
                     <div class="form-group">
                         <button type="submit" id="submit-button" class="btn btn-primary btn-block"> Publish Changes </button>
