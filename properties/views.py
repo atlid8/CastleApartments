@@ -90,6 +90,11 @@ def properties(request):
 def get_property_by_id(request, id):
     user = request.user
     castle = Castle.objects.filter(id=id).first()
+    if castle.seller == user:
+        return render(request, 'users/my_property.html',
+                      {'castle': get_object_or_404(Castle, pk=id),
+                       'offers': CastleOffer.objects.filter(castle_id=id).order_by('-offer')
+                       })
     if request.method == 'POST':
         form = WatchlistCreationForm(data=request.POST)
         if form.is_valid():
