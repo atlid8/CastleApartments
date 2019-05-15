@@ -22,7 +22,7 @@ p {
     color: white;
     text-align: left;
 }
-#button-down, #button-down-mid-l, #button-down-mid-r{
+#button-down, #button-down-mid-l, #button-down-mid-r, #button-down-disabled, #button-down-mid-r-disabled{
     animation-duration: 0.5s;
     -webkit-appearance: none;
     width: 12rem;
@@ -38,8 +38,14 @@ p {
     margin-right: .5em;
     padding-bottom: 0.8em;
 }
-#button-down-mid-r{
+#button-down-mid-r, #button-down-mid-r-disabled{
     margin-right: .5em;
+}
+
+#button-down-mid-r-disabled, #button-down-disabled{
+    background:rgba(255,255,255, 0.2);
+    color: darkgray;
+
 }
 #button-down:hover, #button-down-mid-r:hover, #button-down-mid-l:hover{
     background-color: white;
@@ -95,4 +101,38 @@ h3.castle-name {
     height: 3.4em;
     text-align: center;
     margin-top: 1em;
+}
+
+div.click-to-top span {
+    display: none;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: dodgerblue;
+    color: white;
+    text-align: center;
+}
+
+div.click-to-top:hover span {
+    display: block;
+    position: relative;
+    bottom: 270%;
+    left: 10%;
+    width:8.2em;
+    height: 3.1em;
+    border-radius: 10px;
+
+}
+
+.click-to-top span::after {
+content: " ";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: dodgerblue transparent transparent transparent;
+}
 }
