@@ -131,12 +131,7 @@ html,body{
 .dropdown-toggle {
    padding: 5px;
  }
-.dropdownMenuButton{
-    background-color: whitesmoke;
-}
-.dropdownMenuButton:active{
-    border: none;
-}
+
 
 #notifications-dropdown:before {
     margin-right: 0.5em;
@@ -146,6 +141,7 @@ html,body{
     background: dodgerblue;
     border-radius: 5px;
     display: inline-block;
+    cursor: pointer;
 }
 
 #notifications-icon {
@@ -156,6 +152,7 @@ html,body{
   border-radius: 50%;
   background-color: dodgerblue;
   color: white;
+    cursor: hover;
 }
 
 
@@ -212,6 +209,7 @@ html,body{
       transform: translateX(0);
    }
 }
+
 
 /*!*When the website is above 390 and below 498px*!*/
 /*@media screen and (max-width: 498px) {*/

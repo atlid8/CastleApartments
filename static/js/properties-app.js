@@ -13,6 +13,14 @@ $(function() {
     });
 });
 
+$(function() {
+    $(search-box).keyup(function(event) {
+        if (event.keyCode === 13) {
+            $(search-btn).click();
+        }
+    });
+});
+
 
 // Creates the slider
 //$(document).ready(function () {
@@ -242,6 +250,7 @@ $(document).ready(function () {
             order_by = $('#orderdropdown').val();
         } else {
             order_filter = ""
+            order_by= ""
         }
         if (zip_code !== "") {
             zip_code = $('#zip-dropdown').val();

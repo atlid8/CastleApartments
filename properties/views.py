@@ -10,6 +10,7 @@ from django.http import JsonResponse
 from properties.forms.offer import OfferCreationForm
 from properties.forms.contactinfo import ContactInfoCreationForm
 from properties.forms.propertyedit import CastleEditForm
+from users import views
 
 
 def index(request):
@@ -55,6 +56,7 @@ def __room_filter(request, room_filter, castles):
 
 
 def properties(request):
+    user = request.user
     did_filter = False
     castles = Castle.objects.all()
     if 'search-filter' in request.GET:
@@ -83,13 +85,18 @@ def properties(request):
             return JsonResponse({'data': list(castles)})
         else:
             return JsonResponse({'data': list(castles)})
-    context = {'castles': Castle.objects.all().order_by('name')}
+    context = {'castles': Castle.objects.all().order_by('name'), 'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False)}
     return render(request, 'properties/properties-index.html', context)
 
 
 def get_property_by_id(request, id):
     user = request.user
     castle = Castle.objects.filter(id=id).first()
+    if castle.seller == user:
+        return render(request, 'users/my_property.html',
+                      {'castle': get_object_or_404(Castle, pk=id),
+                       'offers': CastleOffer.objects.filter(castle_id=id).order_by('-offer'),  'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False)
+                       })
     if request.method == 'POST':
         form = WatchlistCreationForm(data=request.POST)
         if form.is_valid():
@@ -101,7 +108,7 @@ def get_property_by_id(request, id):
     return render(request, 'properties/property_details.html',
                    {'castle': get_object_or_404(Castle, pk=id), 'watchlist':Watchlist.objects.filter
 
-                   (castle_watch_id = castle.id, user_id = user.id)
+                   (castle_watch_id = castle.id, user_id = user.id),  'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False)
                     })
 
 
@@ -115,7 +122,7 @@ def contact_info_buy(request, id):
             form.save(user)
             return redirect('/properties/' + str(id) + '/checkout/')
     return render(request, 'payments/contact-info-buy.html',
-                  {'castle': get_object_or_404(Castle, pk=id), 'form': ContactInfoCreationForm(), 'user': user})
+                  {'castle': get_object_or_404(Castle, pk=id), 'form': ContactInfoCreationForm(), 'user': user,  'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False)})
 
 
 @login_required
@@ -127,14 +134,16 @@ def contact_info_offer(request, id):
             form.save(user)
             return redirect('/properties/' + str(id) + '/make-offer/')
     return render(request, 'payments/contact-info-offer.html',
-                  {'castle': get_object_or_404(Castle, pk=id), 'form': ContactInfoCreationForm(), 'user': user})
+                  {'castle': get_object_or_404(Castle, pk=id), 'form': ContactInfoCreationForm(), 'user': user,  'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False)})
 
 def payments(request, id):
+    user = request.user
     return render(request, 'payments/payments.html',
-                  {'castle': get_object_or_404(Castle, pk=id)
+                  {'castle': get_object_or_404(Castle, pk=id),  'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False)
                    })
 
 def make_offer(request, id):
+    user = request.user
     if request.method == 'POST':
         form = OfferCreationForm(data=request.POST)
         form2 = NotificationForm(data=request.POST)
@@ -152,10 +161,15 @@ def make_offer(request, id):
             #Todo að fá þetta til að hætta að overwrita síðasta form2 save
             return redirect('/properties/'+str(id)+'/checkout/')
     return render(request, 'payments/make-offer.html',
-                  {'castle': get_object_or_404(Castle, pk=id), 'form': OfferCreationForm()
+                  {'castle': get_object_or_404(Castle, pk=id), 'form': OfferCreationForm(),  'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False)
                    })
 
 def create(request):
+    user=request.user
+    if not Profile.objects.filter(user=request.user).first():
+        return redirect('/users/edit')
+    if not Profile.objects.filter(user=request.user).first().profile_image:
+        return redirect('/users/edit')
     if request.method == 'POST':
         form = CastleCreationForm(data=request.POST)
         form2 =CastleImageCreationForm(data=request.POST)
@@ -172,7 +186,7 @@ def create(request):
     return render(request, 'properties/create_property.html', {
         'form': CastleCreationForm(),
         'form2': CastleImageCreationForm(),
-        'profile': Profile.objects.filter(user=request.user).first()
+        'profile': Profile.objects.filter(user=request.user).first(),  'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False)
     })
 
 def delete_photo(request, id):
@@ -182,6 +196,7 @@ def delete_photo(request, id):
     return redirect('/properties/' + str(castle_id) + '/photos')
 
 def edit_property(request, id):
+    user = request.user
     castle = Castle.objects.filter(id=id).first()
     if request.method == 'POST':
         form = CastleEditForm(instance=castle, data=request.POST)
@@ -190,12 +205,13 @@ def edit_property(request, id):
             return redirect('/properties/'+ str(castle.id))
     return render(request, 'properties/edit_property.html',
                   {'castle': get_object_or_404(Castle, pk=id),
-                   'form': CastleEditForm(instance=castle)
+                   'form': CastleEditForm(instance=castle),  'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False)
                    })
 
 
 
 def edit_photo(request, id):
+    user = request.user
     if request.method == 'POST':
         form = CastleImageCreationForm(data=request.POST)
         if form.is_valid():
@@ -203,5 +219,5 @@ def edit_photo(request, id):
             form.save(castle)
             return redirect('/properties/' + str(castle.id) + '/photos')
     return render(request, 'properties/edit_photo.html',{'castle_images': CastleImage.objects.filter(castle_id=id),
-                   'form': CastleImageCreationForm()
+                   'form': CastleImageCreationForm(),  'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False)
                    })

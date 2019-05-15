@@ -1,4 +1,4 @@
-
+git
 {% extends 'base.html' %}
 
 {% block content %}
@@ -33,23 +33,19 @@
   <tr>
     <th>Name</th>
     <th>email</th>
-    <th>Phone</th>
+    <th>Last Login</th>
       <th></th>
   </tr>
+    {% for user in staff %}
   <tr>
-    <td>Drowned God</td>
-    <td>dg@dg.com</td>
-    <td>693-4229</td>
+    <td>{{ user.first_name }} {{ user.last_name }}</td>
+    <td>{{ user.email }}</td>
+    <td>{{ user.last_login }}</td>
+      <td><a href=""</td>
       <td><a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
       <a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a></td>
   </tr>
-  <tr>
-    <td>Robert Baratheon</td>
-    <td>titsandwine@kingslanding.de</td>
-    <td>695-2323</td>
-      <td><a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
-      <a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a></td>
-  </tr>
+  {% endfor %}
 </table>
   <span aria-hidden="true" onclick="this.parentElement.style.display='none'"><h3>&times;</h3></span></span>
 </div>
@@ -61,23 +57,19 @@
   <tr>
     <th>Name</th>
     <th>email</th>
-    <th>Phone</th>
+    <th>Last Login</th>
       <th></th>
   </tr>
+
+      {% for user in customers %}
   <tr>
-    <td>Drowned God</td>
-    <td>dg@dg.com</td>
-    <td>693-4229</td>
+    <td>{{ user.first_name }} {{ user.last_name }}</td>
+    <td>{{ user.email }}</td>
+    <td>{{ user.last_login }}</td>
       <td><a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
       <a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a></td>
   </tr>
-  <tr>
-    <td>Robert Baratheon</td>
-    <td>titsandwine@kingslanding.de</td>
-    <td>695-2323</td>
-      <td><a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
-      <a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a></td>
-  </tr>
+  {% endfor %}
 </table>
   <span aria-hidden="true" onclick="this.parentElement.style.display='none'"><h3>&times;</h3></span></span>
 </div>
@@ -91,20 +83,15 @@
     <th>Price</th>
       <th></th>
   </tr>
+      {% for castle in castles %}
   <tr>
-    <td>Highgarden</td>
-    <td>Joffrey</td>
-    <td>70000</td>
+    <td>{{ castle.name }}</td>
+    <td>{{ castle.seller.first_name }} {{ castle.seller.last_name }}</td>
+    <td>{{ castle.price }}</td>
       <td><a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
       <a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a></td>
   </tr>
-  <tr>
-    <td>King's Landing</td>
-    <td>The King</td>
-    <td>10000000</td>
-      <td><a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
-      <a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a></td>
-  </tr>
+  {% endfor %}
 </table>
     <span aria-hidden="true" onclick="this.parentElement.style.display='none'"><h3>&times;</h3></span></span>
 
