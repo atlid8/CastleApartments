@@ -5,6 +5,7 @@ from users.forms.creationform import UserCreationForm
 from users.forms.ProfileForm import ProfileForm, UserEditForm
 from users.models import Profile, SearchHistory, Notification
 from users.forms.notificationform import NotificationForm
+from users.forms.message import MessageForm
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import login_required
 
@@ -15,7 +16,12 @@ def login(request):
     return render(request, 'users/login.html')
 
 def about_us(request):
-    return render(request, 'about_us/about_us.html')
+    if request.method == 'POST':
+        form = MessageForm(data=request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('/users/about-us')
+    return render(request, 'about_us/about_us.html', {'form': MessageForm() })
 
 def signup(request):
     return render(request, 'users/signup.html')
