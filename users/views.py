@@ -66,7 +66,7 @@ def my_profile(request):
     return render(request, 'users/my-profile.html', dictionary)
 
 def register(request):
-    if request.user:
+    if request.user.id:
         return redirect('/')
     if request.method == 'POST':
         form = UserCreationForm(data=request.POST)
