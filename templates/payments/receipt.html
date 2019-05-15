@@ -30,14 +30,7 @@
                     <th class="table-5" id="subtotal">{{ castle.price }}</th>
                     <th class="table-6">{{ castle.price }}</th>
                 </tr>
-                <tr>
-                    <th class="table-1"></th>
-                    <th class="table-2"></th>
-                    <th class="table-3"></th>
-                    <th class="table-4">Thereof commission</th>
-                    <th class="table-5" id="commission-of-castle">{{ castle.commission }}</th>
-                    <th class="table-6"></th>
-                </tr>
+
                 <tr>
                     <th class="table-1"></th>
                     <th class="table-2"></th>
@@ -50,9 +43,17 @@
                     <th class="table-1"></th>
                     <th class="table-2"></th>
                     <th class="table-3"></th>
-                    <th class="table-4 total">Total: </th>
-                    <th class="table-5 total"><p><script>document.write(get_total())</script></p></th>
+                    <th class="table-4">Thereof commission</th>
+                    <th class="table-5" id="commission-of-castle">{{ castle.commission }}</th>
                     <th class="table-6"></th>
+                </tr>
+                <tr>
+                    <th class="table-1"></th>
+                    <th class="table-2"></th>
+                    <th class="table-3"></th>
+                    <th class="table-4"></th>
+                    <th class="table-5 total">Total: </th>
+                    <th class="table-6 total"><p><script>document.write(get_total())</script></p></th>
                 </tr>
             </tbody>
         </table>
