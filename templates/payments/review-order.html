@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="{% static 'css/main-style.css' %}">
         <link rel="stylesheet" href="{% static 'css/payment-steps.css' %}">
         <link rel="stylesheet" href="{% static 'css/contact-info.css' %}">
+        <script type="text/javascript" src="{% static 'js/payments-app.js' %}"></script>
         <title>Contact-info buy</title>
     </head>
 
@@ -43,7 +44,56 @@
         <div class="card bg-light">
             <article class="card-body mx-auto">
                 <h4 class="card-title">3. Review order</h4>
-            </article>
-        </div></form>
+
+
+
+                <div class="container">
+                        <table id="search-log-table">
+                            <thead>
+
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th class="table-1">Product</th>
+                                    <th class="table-2">#</th>
+                                    <th class="table-3">Price</th>
+                                    <th class="table-4">Total</th>
+                                </tr>
+                                <tr>
+                                    <th class="table-1">{{ castle.name }}</th>
+                                    <th class="table-2">1</th>
+                                    <th class="table-3">{{ castle.price }}</th>
+                                    <th class="table-4">{{ castle.price }}</th>
+                                </tr>
+                                <tr>
+                                    <th class="table-1">  </th>
+                                    <th class="table-2">  </th>
+                                    <th class="table-3">
+                                        <p>Subtotal: </p>
+                                        <p>Tax: </p>
+                                    </th>
+                                    <th class="table-4">
+                                        <p id="subtotal">{{ castle.price }}</p>
+                                        <p id="tax"><script>document.write(get_tax())</script></p>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th class="table-1">  </th>
+                                    <th class="table-2">  </th>
+                                    <th class="table-3">Total: </th>
+                                    <th class="table-4"><script>document.write(get_total())</script></th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    <a class="well well-md text-center btn btn-success btn-lg btn-block" href="/receipt/{{ castle.id }}" class="rd_more btn btn-default" id="pay-button">Confirm Order</a>
+
+                </div></article></div></form>
+
+
+
+
+
+
+
 
 {% endblock %}
