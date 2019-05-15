@@ -1,0 +1,88 @@
+.line{
+    border-bottom: 1px solid rgba(255,255,255,0.5);
+    padding-bottom: 10px;
+    width: 70%;
+    position: static;
+    margin: 0 auto;
+     z-index: 0;
+}
+
+.col-xs-4{
+    float: left;
+    margin: 0 auto;
+    width: 5%;
+}
+
+.container{
+    animation: fadeInTop 1s;
+    border-radius: 4px;
+    margin-bottom: 2em;
+}
+
+.container span {
+  display:inline-block;
+    font-size: 10px;
+}
+
+#contact{
+      margin-left: 12.7em;
+}
+
+#payment{
+    margin-left: 31.5em;
+}
+
+#review{
+    margin-left: 33em;
+}
+
+.step-label1{
+  text-align: left;
+
+}
+.step-label2{
+    text-align: center;
+}
+
+.step-label3{
+  text-align: right;
+
+}
+
+.step{
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(0,0,0,0.3);
+  background: whitesmoke;
+  border-radius: 100px;
+  margin-top: 30px;
+}
+.step1{
+  margin-top: -10px;
+  float: left;
+}
+.step2{
+  margin: 0 auto;
+  margin-top: -10px;
+}
+.step3{
+  float: right;
+  margin-top: -10px;
+}
+.active{
+  background: dodgerblue;
+    font-weight: bold;
+    border: 2px solid #dadada;
+    outline: none;
+    border-color: #9ecaed;
+    box-shadow: 0 0 10px #9ecaed;
+}
+
+
+#circle1{
+    padding-left:0.5em;
+}
+
+#circle3{
+    padding-right:0.2em;
+}

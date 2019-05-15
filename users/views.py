@@ -129,7 +129,7 @@ def buy_now(request, id):
         form = NotificationForm()
         watcher = User.objects.filter(id=watch.buyer_id).first()
         form.save_for_watchlist(castle, offer.offer, watcher)
-    return redirect('/')
+    return redirect('/properties/receipt/'+ str(soldcastle.id))
 
 def accept_offer(request, id):
     offer = get_object_or_404(CastleOffer, pk=id)
@@ -194,10 +194,9 @@ def read_message(request, id):
 def seller_profile(request, id):
     user = request.user
     # TODO: Change from user to profile or similar
-    userid = Profile.objects.filter(id=id).first().user_id
     return render(request, 'users/seller_profile.html',
                   {'profile': get_object_or_404(Profile, pk=id),
-                   'castles': Castle.objects.filter(seller_id=userid), 'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False)
+                   'castles': Castle.objects.filter(seller_id=Profile.objects.filter(id=id).first().user_id), 'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False)
                    })
 @login_required
 def search_history(request):

@@ -5,6 +5,11 @@
     float: left;
     padding-top: 1.7em;
 }
+
+
+#cardName{
+    background-color: red;
+}
 #title-success {
     margin: auto; !important;
     color: #4CAF50; !important;
@@ -99,9 +104,13 @@
     max-width: 40em;
 }
 
+#payment-header{
+    margin: 1em auto;
+}
+
 @media screen and (max-width: 1167px) and (min-width: 990px) {
     #expiry-month, #expiry-year{
-        width: 4em;
+        width: 3em;
     }
     #payment-details{
         width: 25em;
