@@ -1,123 +1,99 @@
 
 {% extends 'base.html' %}
 {% block content %}
-{% load static %}
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    {% load static %}
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="{% static 'js/autofill-kingdom.js' %}"></script>
-<!------ Include the above in your HEAD tag ---------->
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
-<link rel="stylesheet" type="text/css" href="{% static 'css/create_property.css' %}"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/create_property.css' %}"/>
 
-<div class="card bg-light">
-   <article class="card-body mx-auto">
-      <h3 class="card-title">Create property listing</h3>
-      <p class="sub-title">Please fill out the following information:</p>
-      <form method="post">
-          {% csrf_token %}
-         <div class="row">
-            <div class="form-group input-group">
-               <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="fab fa-fort-awesome"></i></span>
-               </div>
-               {{ form.name }}
-            </div>
-            <!-- form-group// -->
-            <div class="form-group input-group">
-               <div class="input-group-prepend">
-                  <span class="input-group-text"> <i class="fa fa-user"></i> </span>
-               </div>
-                    <input disabled="disabled" value="{{ user.first_name }} {{ user.last_name }}">
-            </div>
-         </div>
-         <div class="row">
-            <div class="form-group input-group">
-               <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="fas fa-road"></i> </span>
-               </div>
-               {{ form.street }}
-            </div>
-            <!-- form-group// -->
-            <div class="form-group input-group">
-               <div class="input-group-prepend">
-                  <span class="input-group-text"> <i class="fas fa-chess-rook"></i> </span>
-               </div>
-              {{ form.house_number }}
-            </div>
-         </div>
-         <div class="row">
-
-            <div class="form-group input-group">
-               <div class="input-group-prepend">
-                  <span class="input-group-text"> <i class="fas fa-map-pin"></i> </span>
-               </div>
-               {{ form.postcode }}
-            </div>
-            <!-- form-group// -->
-             <div class="form-group input-group">
-               <div class="input-group-prepend">
-                  <span class="input-group-text"> <i class="fa fa-flag"></i> </span>
-               </div>
-
-               <input disabled id="kingdom-div" placeholder="kingdom" class="form-control" />
-
-
-
-            </div>
-            <!-- form-group// -->
-         </div>
-         <!-- form-group end.// -->
-         <div class="row">
-            <div class="form-group input-group">
-               <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="far fa-money-bill-alt"></i></span>
-               </div>
-               {{ form.price }}
-            </div>
-            <!-- form-group// -->
-            <div class="form-group input-group">
-               <div class="input-group-prepend">
-                  <span class="input-group-text"> <i class="fas fa-expand-arrows-alt"></i> </span>
-               </div>
-               {{ form.size }}
-            </div>
-         </div>
-         <!-- form-group// -->
-         <div class="row">
-            <div class="form-group input-group">
-               <div class="input-group-prepend">
-                  <span class="input-group-text"> <i class="fas fa-beer"></i></span>
-               </div>
-               {{ form.rooms }}
-            </div>
-            <!-- form-group// -->
-            <div class="form-group input-group">
-               <div class="input-group-prepend">
-                  <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-               </div>
-               {{ form2.image }}
-            </div>
-         </div>
-         <div class="row" id="add-info">
-            <!-- form-group// -->
-             {{ form.info }}
-         </div>
-         <div class="row" id="submit-buttons">
-            <div class="form-group">
-               <button type="submit" id="submit-button" class="btn btn-primary btn-block"> Publish Listing  </button>
-            </div>
-         </div>
-         <!-- form-group// -->
-         <p class="sub-title">Need some help? <a href="">Contact us for assistance</a> </p>
-</div>
-</div></div>
-</form>
-</article>
-</div> <!-- card.// -->
-</div>
-<!--container end.//-->
-</div>
-<br><br>
-</article>
+    <div class="card bg-light">
+        <article class="card-body mx-auto">
+            <h3 class="card-title">Create property listing</h3>
+            <p class="sub-title">Please fill out the following information:</p>
+            <form method="post">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fab fa-fort-awesome"></i></span>
+                        </div>
+                        {{ form.name }}
+                    </div>
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+                        </div>
+                        <input disabled="disabled" value="{{ user.first_name }} {{ user.last_name }}">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-road"></i> </span>
+                        </div>
+                        {{ form.street }}
+                    </div>
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fas fa-chess-rook"></i> </span>
+                        </div>
+                        {{ form.house_number }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fas fa-map-pin"></i> </span>
+                        </div>
+                        {{ form.postcode }}
+                    </div>
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-flag"></i> </span>
+                        </div>
+                        <input disabled id="kingdom-div" placeholder="kingdom" class="form-control" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="far fa-money-bill-alt"></i></span>
+                        </div>
+                        {{ form.price }}
+                    </div>
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fas fa-expand-arrows-alt"></i> </span>
+                        </div>
+                        {{ form.size }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fas fa-beer"></i></span>
+                        </div>
+                        {{ form.rooms }}
+                    </div>
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                        </div>
+                        {{ form2.image }}
+                    </div>
+                </div>
+                <div class="row" id="add-info">
+                    {{ form.info }}
+                </div>
+                <div class="row" id="submit-buttons">
+                    <div class="form-group">
+                        <button type="submit" id="submit-button" class="btn btn-primary btn-block"> Publish Listing  </button>
+                    </div>
+                </div>
+                <p class="sub-title">Need some help? <a href="">Contact us for assistance</a> </p>
+            </form>
+        </article>
+    </div>
 {% endblock %}
