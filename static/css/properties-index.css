@@ -125,7 +125,9 @@ a:hover {
     border-top-color: #656b74 !important;
 }
 .verified{
-    max-width: 3em;
+    object-fit: contain;
+    max-height: 2em;
+    max-width: 2em;
     position: absolute;
     right: 0.5em;
     top: 0.5em;
