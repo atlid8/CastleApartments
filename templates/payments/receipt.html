@@ -1,63 +1,66 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-            <link rel="stylesheet" href="{% static 'css/payment.css' %}">
-        <script type="text/javascript" src="{% static 'js/payments-app.js' %}"></script>
+ <html lang="en">
+<head>
+    <link rel="stylesheet" href="{% static 'css/payment.css' %}">
+    <script type="text/javascript" src="{% static 'js/payments-app.js' %}"></script>
+</head>
 
-<div class="container">
-<table id="search-log-table">
-    <thead>
+<body>
+    <div class="all-tables">
+        <table id="search-log-table">
+            <thead>
 
-    </thead>
-    <tbody>
-        <tr>
-            <th class="table-1">Time</th>
-            <th class="table-2">Seller</th>
-            <th class="table-3">Buyer</th>
-            <th class="table-4">Product</th>
-            <th class="table-5">#</th>
-            <th class="table-6">Price</th>
-            <th class="table-7">Total</th>
-        </tr>
-        <tr>
-            <th class="table-1">{{ castle.time_stamp }}</th>
-            <th class="table-2">{{ castle.seller.first_name }} {{ castle.seller.first_name }}</th>
-            <th class="table-3">{{ castle.buyer.first_name }} {{ castle.buyer.last_name }}</th>
-            <th class="table-4">{{ castle.name }}</th>
-            <th class="table-5">1</th>
-            <th class="table-6">{{ castle.price }}</th>
-            <th class="table-7">{{ castle.price }}</th>
-        </tr>
-        <tr>
-            <th class="table-1"></th>
-            <th class="table-2"></th>
-            <th class="table-3"></th>
-            <th class="table-4">Commission</th>
-            <th class="table-5">1</th>
-            <th class="table-6">{{ castle.commission }}</th>
-            <th class="table-7">{{ castle.price}} hér þarf að gera plús</th>
-        </tr>
-        <tr>
-            <th class="table-2">  </th>
-            <th class="table-3">  </th>
-            <th class="table-4">
-                <p>Subtotal: </p>
-                <p>Tax: </p>
-            </th>
-            <th class="table-4">
-                <p id="subtotal">{{ castle.price }}</p>
-                <p id="tax"><script>document.write(get_tax())</script></p>
-            </th>
-        </tr>
-        <tr>
-            <th class="table-1">  </th>
-            <th class="table-2">  </th>
-            <th class="table-3">Total: </th>
-            <th class="table-4"><script>document.write(get_total())</script></th>
-        </tr>
-    </tbody>
-</table>
+            </thead>
+            <tbody>
+                <tr>
+                    <th class="table-1">Time</th>
+                    <th class="table-2">Seller</th>
+                    <th class="table-3">Buyer</th>
+                    <th class="table-4">Product</th>
+                    <th class="table-5">Price</th>
+                    <th class="table-6">Subtotal</th>
+                </tr>
+                <tr>
+                    <th class="table-1">{{ castle.time_stamp }}</th>
+                    <th class="table-2">{{ castle.seller.first_name }} {{ castle.seller.first_name }}</th>
+                    <th class="table-3">{{ castle.buyer.first_name }} {{ castle.buyer.last_name }}</th>
+                    <th class="table-4">{{ castle.name }}</th>
+                    <th class="table-5" id="subtotal">{{ castle.price }}</th>
+                    <th class="table-6">{{ castle.price }}</th>
+                </tr>
+                <tr>
+                    <th class="table-1"></th>
+                    <th class="table-2"></th>
+                    <th class="table-3"></th>
+                    <th class="table-4">Thereof commission</th>
+                    <th class="table-5" id="commission-of-castle">{{ castle.commission }}</th>
+                    <th class="table-6"></th>
+                </tr>
+                <tr>
+                    <th class="table-1"></th>
+                    <th class="table-2"></th>
+                    <th class="table-3"></th>
+                    <th class="table-4">Tax</th>
+                    <th class="table-5"><p><script>document.write(get_tax())</script></p></th>
+                     <th class="table-6"><p><script>document.write(get_total())</script></p></th>
+                </tr>
+                <tr>
+                    <th class="table-1"></th>
+                    <th class="table-2"></th>
+                    <th class="table-3"></th>
+                    <th class="table-4 total">Total: </th>
+                    <th class="table-5 total"><p><script>document.write(get_total())</script></p></th>
+                    <th class="table-6"></th>
+                </tr>
+            </tbody>
+        </table>
 
- <a href="/"  id="create-button" class="btn btn-primary" value="Go Home">Go Home<a/>
+         <a href="/"  id="create-button" class="btn btn-primary" value="Go Home">Go Home<a/>
+         </a>
+    </div>
+</body>
+</html>
 
 {% endblock %}
