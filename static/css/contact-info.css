@@ -1,3 +1,7 @@
+body{
+    color: whitesmoke;
+}
+
 input {
     width: 79.5%;
     border-top-right-radius: 4px;
