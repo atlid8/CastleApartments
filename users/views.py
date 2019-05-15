@@ -180,6 +180,8 @@ def verify_castle(request, id):
     castle = Castle.objects.filter(id=id).first()
     castle.verified = True
     castle.save()
+    form = NotificationForm()
+    form.save_verified(castle)
     return redirect('/')
 
 def read_message(request, id):
