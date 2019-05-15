@@ -21,7 +21,7 @@ class NotificationForm(ModelForm):
         castlename = castle.name
         notification.info = buyername + ' just offered ' + str(offer) + ' Golden Dragons for the property: ' + castlename
         castleid = castle.id
-        notification.link = '/users/my-properties/' + str(castleid)
+        notification.link = '/properties/' + str(castleid)
         notification.resolved = False
         notification.receiver = castle.seller
         notification.save()
