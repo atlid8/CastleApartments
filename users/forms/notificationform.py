@@ -64,13 +64,22 @@ class NotificationForm(ModelForm):
         notification.save()
         return notification
 
-    def save_bought_now(self, castle, price, buyer, seller):
+    def save_bought_now_seller(self, castle, price, buyer, seller):
         notification = super(NotificationForm, self).save(commit=False)
         buyername = buyer.first_name + ' ' + buyer.last_name
         notification.info = buyername + ' just bought your castle ' + str(castle.name) + ' for ' + str(price)
-        notification.link = ''
+        notification.link = 'properties/receipt/' + str(castle.id)
         notification.resolved = False
         notification.receiver = seller
+        notification.save()
+        return notification
+
+    def save_bought_now_buyer(self, buyer, castle):
+        notification = super(NotificationForm, self).save(commit=False)
+        notification.info = 'You just bought ' + str(castle.name) + '. Here is your receipt'
+        notification.link = 'properties/receipt/' + str(castle.id)
+        notification.resolved = False
+        notification.receiver = buyer
         notification.save()
         return notification
 

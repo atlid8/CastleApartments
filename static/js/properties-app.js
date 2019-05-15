@@ -13,13 +13,13 @@ $(function() {
     });
 });
 
-$(function() {
-    $(search-box).keyup(function(event) {
-        if (event.keyCode === 13) {
-            $(search-btn).click();
-        }
-    });
-});
+// $(function() {
+//     $(#search-box).keyup(function(event) {
+//         if (event.keyCode === 13) {
+//             $(search-btn).click();
+//         }
+//     });
+// });
 
 
 // Creates the slider
