@@ -9,6 +9,7 @@ from properties.forms.watchlist import WatchlistCreationForm
 from django.http import JsonResponse
 from properties.forms.offer import OfferCreationForm
 from properties.forms.contactinfo import ContactInfoCreationForm
+from properties.forms.propertyedit import CastleEditForm
 
 
 def index(request):
@@ -174,7 +175,33 @@ def create(request):
         'profile': Profile.objects.filter(user=request.user).first()
     })
 
+def delete_photo(request, id):
+    image = CastleImage.objects.filter(id=id).first()
+    castle_id = image.castle.id
+    image.delete()
+    return redirect('/properties/' + str(castle_id) + '/photos')
+
 def edit_property(request, id):
+    castle = Castle.objects.filter(id=id).first()
+    if request.method == 'POST':
+        form = CastleEditForm(instance=castle, data=request.POST)
+        if form.is_valid:
+            form.save()
+            return redirect('/properties/'+ str(castle.id))
     return render(request, 'properties/edit_property.html',
-                  {'castle': get_object_or_404(Castle, pk=id)
+                  {'castle': get_object_or_404(Castle, pk=id),
+                   'form': CastleEditForm(instance=castle)
+                   })
+
+
+
+def edit_photo(request, id):
+    if request.method == 'POST':
+        form = CastleImageCreationForm(data=request.POST)
+        if form.is_valid():
+            castle = Castle.objects.filter(id=id).first()
+            form.save(castle)
+            return redirect('/properties/' + str(castle.id) + '/photos')
+    return render(request, 'properties/edit_photo.html',{'castle_images': CastleImage.objects.filter(castle_id=id),
+                   'form': CastleImageCreationForm()
                    })
