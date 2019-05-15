@@ -118,7 +118,9 @@ def buy_now(request, id):
     soldcastle.save()
     castle.delete()
     form = NotificationForm()
-    form.save_bought_now(castle, castle.price, user, castle.seller)
+    form.save_bought_now_buyer(user, castle)
+    form = NotificationForm()
+    form.save_bought_now_seller(castle, castle.price, user, castle.seller)
     the_watchlist = Watchlist.objects.filter(castle_watch_id=castle.id)
     for watch in the_watchlist: #TODO checka hvort þetta fari ekki inn í forlúppuna þegar
         form = NotificationForm()
@@ -129,7 +131,7 @@ def buy_now(request, id):
         form = NotificationForm()
         watcher = User.objects.filter(id=watch.buyer_id).first()
         form.save_for_watchlist(castle, offer.offer, watcher)
-    return redirect('/')
+    return redirect('/properties/receipt/'+ str(soldcastle.id))
 
 def accept_offer(request, id):
     offer = get_object_or_404(CastleOffer, pk=id)
@@ -151,6 +153,8 @@ def accept_offer(request, id):
     castle.delete()
     form = NotificationForm()
     form.save_offer_accept(soldcastle, offer.offer, offer.buyer)
+    form = NotificationForm()
+    form.save_bought_now_buyer(user, castle)
     the_watchlist = Watchlist.objects.filter(castle_watch_id=castle.id)
     for watch in the_watchlist: #TODO checka hvort þetta fari ekki inn í forlúppuna þegar
         form = NotificationForm()

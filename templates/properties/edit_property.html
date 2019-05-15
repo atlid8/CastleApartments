@@ -6,9 +6,9 @@
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img class="d-block w-100" src='{{ castle.propertyimage_set.first.image }}' alt="First slide">
+                    <img class="d-block w-100" src='{{ castle.castleimage_set.first.image }}' alt="First slide">
                 </div>
-                {% for image in castle.propertyimage_set.all %}
+                {% for image in castle.castleimage_set.all %}
                     <div class="carousel-item">
                         <img class="d-block w-100" src='{{ image.image }}' alt="Second slide">
                     </div>
@@ -26,14 +26,72 @@
                 <h3 class="card-title">Editing property: {{ castle.name }}</h3>
                 <p class="sub-title">Please make changes to the following fields</p>
                 <form method="post">
-                    {% csrf_token %}
-                    {{ form.name }}{{ form.postcode }}{{ form.price }}{{ form.rooms }}{{ form.size }}{{ form.info }}{{ form.house_number }}{{ form.street }}
-                    <div class="form-group">
-                        <button type="submit" id="submit-button" class="btn btn-primary btn-block"> Publish Changes </button>
+                {% csrf_token %}
+                <div class="row">
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fab fa-fort-awesome"></i></span>
+                        </div>
+                        {{ form.name }}
                     </div>
+                                        <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fas fa-beer"></i></span>
+                        </div>
+                        {{ form.rooms }}
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fas fa-road"></i> </span>
+                        </div>
+                        {{ form.street }}
+                    </div>
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fas fa-chess-rook"></i> </span>
+                        </div>
+                        {{ form.house_number }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fas fa-map-pin"></i> </span>
+                        </div>
+                        {{ form.postcode }}
+                    </div>
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fa fa-flag"></i> </span>
+                        </div>
+                        <input disabled id="kingdom-div" placeholder="kingdom" class="form-control" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="far fa-money-bill-alt"></i></span>
+                        </div>
+                        {{ form.price }}
+                    </div>
+                    <div class="form-group input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"> <i class="fas fa-expand-arrows-alt"></i> </span>
+                        </div>
+                        {{ form.size }}
+                    </div>
+                </div>
+                <div class="row" id="add-info">
+                    {{ form.info }}
+                </div>
+                 <div><button type="submit" id="submit-button" class="btn btn-primary btn-block"> Publish Changes </button>
                     <a href="/properties/{{ castle.id }}/photos">Edit images</a>
                     <a onclick="return confirm('Are you sure you want to remove the listing {{ castle.name }}');" href="{% url 'delete_castle' castle.id %}" class="btn btn-danger"><i class="fa fa-ban" aria-hidden="true"></i></a>
-                    <p class="sub-title">Need some help? <a href="">Contact us for assistance</a></p>
+                    <p class="sub-title">Need some help? <a href="">Contact us for assistance</a></p> </div>
+
                 </form>
             </article>
         </div>

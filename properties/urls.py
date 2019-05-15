@@ -13,4 +13,5 @@ urlpatterns = [
     path('<int:id>/photos', views.edit_photo, name="edit_photo"),
     path('delete_photo/<int:id>', views.delete_photo, name="delete_photo"),
     path('delete_offer/<int:id>', views.delete_offer, name="delete_offer"),
+    path('receipt/<int:id>', views.receipt, name="receipt"),
 ]
