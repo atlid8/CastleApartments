@@ -134,12 +134,12 @@ def get_property_by_id(request, id):
 
 @login_required
 def contact_info_buy(request, id):
+    user = request.user
     if not Castle.objects.filter(id=id):
-        context = {'castle': Soldcastle.objects.filter(id=id).first(), 'form': ContactInfoCreationForm(), 'user': user,  'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False)}
+        context = {'castle': SoldCastle.objects.filter(id=id).first(), 'form': ContactInfoCreationForm(), 'user': user,  'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False)}
     else:
         context = {'castle': get_object_or_404(Castle, pk=id), 'form': ContactInfoCreationForm(), 'user': user,
          'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False)}
-    user = request.user
     if request.method == 'POST':
         form = ContactInfoCreationForm(data=request.POST)
         if form.is_valid():
