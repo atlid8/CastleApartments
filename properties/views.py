@@ -148,7 +148,12 @@ def contact_info_buy(request, id):
     return render(request, 'payments/contact-info-buy.html',
                   context)
 
-
+def receipt(request, id):
+    user = request.user
+    context = {'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False),
+               'castle': SoldCastle.objects.filter(id=id).first()}
+    return render(request, 'payments/receipt.html',
+                  context)
 
 def payments(request, id):
     user = request.user

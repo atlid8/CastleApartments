@@ -129,7 +129,7 @@ def buy_now(request, id):
         form = NotificationForm()
         watcher = User.objects.filter(id=watch.buyer_id).first()
         form.save_for_watchlist(castle, offer.offer, watcher)
-    return redirect('/')
+    return redirect('/properties/receipt/'+ str(soldcastle.id))
 
 def accept_offer(request, id):
     offer = get_object_or_404(CastleOffer, pk=id)
