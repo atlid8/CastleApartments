@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <!doctype html>
+    <html lang="en">
+    <head>
+
+        <link rel="stylesheet" href="{% static 'css/review-order.css' %}">
+        <link rel="stylesheet" href="{% static 'css/main-style.css' %}">
+        <link rel="stylesheet" href="{% static 'css/payment-steps.css' %}">
+        <link rel="stylesheet" href="{% static 'css/contact-info.css' %}">
+        <title>Contact-info buy</title>
+    </head>
+
+
+    <body>
+
+
+<div class="container">
+
+      <div class="row ">
+      <div id="icon1" class="col-xs-4 step-label1"><i class="fa fa-address-card fa-2x" aria-hidden="true"></i></div>
+      <div class="col-xs-4 step-label2"><i class="fas fa-coins fa-2x"></i></div>
+      <div id="icon3" class="col-xs-4 step-label3"><i class="fas fa-receipt fa-2x"></i></div>
+      </div><span id="contact">1. Contact info</span>
+    <span id="payment">2. Payment info</span>
+    <span id="review">3. Review</span>
+
+  <div class="row line">
+      <div class="col-xs-4 step-label1"></div>
+      <div class="col-xs-4 step-label2"></div>
+      <div class="col-xs-4 step-label3"></div>
+  </div>
+  <div class="row">
+      <div id="circle1" class="col-xs-4" label="1.contact"><div class="step step1"></div></div>
+      <div class="col-xs-4"><div class="step step2"></div></div>
+      <div id="circle3" class="col-xs-4"><div class="step step3 active"></div></div>
+  </div>
+</div>
+
+    <form method="post">
+        {% csrf_token %}
+        <div class="card bg-light">
+            <article class="card-body mx-auto">
+                <h4 class="card-title">3. Review order</h4>
+            </article>
+        </div></form>
+
+{% endblock %}

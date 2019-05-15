@@ -39,11 +39,11 @@
 </div>
 
     <form method="post">
+        {% csrf_token %}
         <div class="card bg-light">
             <article class="card-body mx-auto">
                 <h4 class="card-title">2. Payment info</h4>
                 <p class="sub-title">You need to fill in contact information before you can buy {{ castle.name }}</p>
-
 
                 <div class="payment-container">
 
@@ -87,7 +87,7 @@
                             </form>
                         </div>
                     </div>
-                    <button   id="pay-button" class="well well-md text-center btn btn-success btn-lg btn-block" data-toggle="modal" data-target="#myModal">Confirm Payment Info</button>
+                    <a href="/properties/{{ castle.id }}/review-order"  id="pay-button" class="well well-md text-center btn btn-success btn-lg btn-block">Confirm Payment Info</a>
                     </div>
 
 
