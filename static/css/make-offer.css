@@ -101,7 +101,7 @@ td{
     border: none;
     margin: 1em auto;
     border-radius: 4px;
-    text-indent: 1em;
+    padding: 1em;
     height: 5em;
     width: 15em;
 }

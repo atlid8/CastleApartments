@@ -12,7 +12,9 @@
     <script type="text/javascript" src="{% static 'js/app.js' %}"></script>
     <title>Document</title>
     </head>
-    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+
+        <article class="card-body mx-auto">
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
       <img class="d-block w-100" src='{{ castle.castleimage_set.first.image }}' alt="First slide">
@@ -32,8 +34,7 @@
         <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
-        </a>
-        <article class="card-body mx-auto">
+        </a></div>
             <h3 class="card-title">Your property: {{ castle.name }}</h3>
             <div class="form-group">
                         <a href="/properties/{{ castle.id }}/edit" id="edit-button" class="btn btn-primary btn-block"> Edit this property... </a>
@@ -42,27 +43,28 @@
     <table class="TableListJS" id="entries">
                 <thead>
             <tr>
-               <td>Offer</td>
-               <td>Name</td>
-               <td>Info</td>
+               <td class="offer-col">Offer</td>
+               <td class="name-col">Name</td>
+               <td class="message-col">Message</td>
+                <td class="response-col">Response</td>
             </tr>
         </thead>
                 <tbody>
         {% for offer in offers %}
-
-
             <tr>
-                <td>{{ offer.offer }}</td>
-                <td>{{ offer.buyer.first_name }} {{ offer.buyer.last_name }}</td>
-                <td>{{ offer.info }}</td>
+                <td class="offer-col">{{ offer.offer }}</td>
+                <td class="name-col">{{ offer.buyer.first_name }} {{ offer.buyer.last_name }}</td>
+                <td class="message-col">{{ offer.info }}</td>
+            <td class="response-col"><a id="accept-button" onclick="return confirm('Are you sure you would like to accept this offer of {{ offer.offer }} from {{ offer.buyer.first_name }}?');"href={% url 'accept'  offer.id %} class="block btn btn-primary"> Accept offer </a></td>
+
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-                {% for offer in offers %}
-            <a href={% url 'accept'  offer.id %} class="block btn btn-primary"> Accept offer for {{ offer.offer }} from {{ offer.buyer.first_name }} </a>
-                {% endfor %}
+{#                {% for offer in offers %}#}
+{#            <a href={% url 'accept'  offer.id %} class="block btn btn-primary"> Accept offer for {{ offer.offer }} from {{ offer.buyer.first_name }} </a>#}
+{#                {% endfor %}#}
 </div>
 </div>
 </article>

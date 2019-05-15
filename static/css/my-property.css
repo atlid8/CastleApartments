@@ -20,6 +20,7 @@
     z-index: 1;
 }
 
+
 textarea {
   resize: none;
 }
@@ -57,7 +58,16 @@ width: 100px;
     width:40%;
 }
 
+#accept-button{
+    background-color: whitesmoke;
+    border: none;
+    color: black;
+}
 
+#accept-button:hover{
+    background-color: dodgerblue;
+    color: white;
+}
 .form-control{
     border-radius: 4px;
     font-size: 10px;
@@ -74,7 +84,7 @@ background-color: white;
 }
 
 .card{
-height: 850px;
+height: auto;
     margin: 0 auto;
 width: 700px;
 background-color: rgba(0,0,0,0.5) !important;
@@ -136,13 +146,14 @@ background-color: rgba(0,0,0,0.5) !important;
 }
 table, th, td {
     background-color: rgba(255,255,255, 0.2); !important;
+    text-align: center;
     color: whitesmoke;
-  border: 1px solid whitesmoke;
+  border-bottom: 1px solid whitesmoke;
     width: 100%;
     height: 50px;
     margin: 0 auto;
     margin-bottom: 5em;
-    padding: 1em;
+    padding: 0.5em;
 }
 
 
@@ -155,19 +166,37 @@ table, th, td {
     height: 2.5em;
     text-align: center;
 }
-
-td:hover {
-    cursor: pointer;
+.offer-col{
+    width: 10%;
+}
+.name-col{
+    width: 20%;
+}
+.message-col{
+    text-align: left;
+    width: 50%;
+}
+.response-col{
+    width: 25%;
 }
 
-
-tr:hover { background-color :rgba(255,255,255, 0.4); !important; }
+tr:hover{
+    background:rgba(255,255,255, 0.4);
+}
 
 h5 {
+    text-align: center;
     color: whitesmoke;
     margin-top: 2em;
 }
 
+thead{
+    text-align: center;
+    font-weight: bold;
+}
 
+table{
+    border-radius: 4px;
+}
 
 
