@@ -55,7 +55,7 @@
                 <td class="offer-col">{{ offer.offer }}</td>
                 <td class="name-col">{{ offer.buyer.first_name }} {{ offer.buyer.last_name }}</td>
                 <td class="message-col">{{ offer.info }}</td>
-            <td class="response-col"><a id="accept-button" onclick="return confirm('Are you sure you would like to accept this offer of {{ offer.offer }} from {{ offer.buyer.first_name }}?');"href={% url 'accept'  offer.id %} class="block btn btn-primary"> Accept offer </a></td>
+            <td class="response-col"><a id="accept-button" onclick="return confirm('Are you sure you would like to accept this offer of {{ offer.offer }} from {{ offer.buyer.first_name }} {{ offer.buyer.last_name }}?');"href={% url 'accept'  offer.id %} class="block btn btn-primary"> Accept offer </a></td>
 
             </tr>
         {% endfor %}
