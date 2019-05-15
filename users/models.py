@@ -29,7 +29,8 @@ class Countries(models.Model):
     country = models.CharField(max_length=255)
 
 class Message(models.Model):
-    sender = models.ForeignKey(User, on_delete=models.CASCADE)
+    name = models.CharField(max_length=255)
+    email = models.CharField(max_length=255)
     subject = models.CharField(max_length=255)
     content = models.TextField()
     time_stamp = models.DateTimeField(default=timezone.now)
