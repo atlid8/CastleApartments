@@ -3,43 +3,49 @@
 
 <div class="card">
     <div class="image_box">
-
-      <img src='{{castle.castleimage_set.first.image}}'>
+        <img src='{{castle.castleimage_set.first.image}}' alt="Castle Image">
     </div>
     <div class="information">
-
-				<form>
-					<div class="input-group form-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fab fa-fort-awesome"></i></span>
-						</div>
-						<input disabled type="text" class="form-control" placeholder="{{castle.name}}">
-
-                    </div>
-                    <div class="input-group form-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fas fa-user"></i></span>
-						</div>
-						<input disabled type="text" class="form-control" placeholder="{{castle.seller.first_name}} {{castle.seller.last_name}}">
-					</div>
-
-
-                    <div class="input-group form-group">
-						<div class="input-group-prepend">
-							<span class="input-group-text"><i class="fas fa-coins"></i></span>
-						</div>
-						<input disabled type="text" class="form-control" placeholder="{{castle.price}}">
-
-         </div></div><div class="decision">
-                        <a href="{% url 'verify_castle' castle.id %}" class="btn btn-success" href="#"><i class="fa fa-check" aria-hidden="true"></i></a>
-                        <a href="{% url 'delete_castle' castle.id %}" class="btn btn-danger" href="#"><i class="fa fa-ban" aria-hidden="true"></i></a>
-                        <a class="btn btn-info" href="/properties/{{ castle.id }}"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
-                    </div>
-					</div>
-				</form>
-
-
-
-
+        <form>
+            <div class="input-group form-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fab fa-fort-awesome"></i></span>
+                </div>
+                <input disabled type="text" class="form-control" placeholder="{{castle.name}}">
+            </div>
+            <div class="input-group form-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                </div>
+                <input disabled type="text" class="form-control" placeholder="{{castle.seller.first_name}} {{castle.seller.last_name}}">
+            </div>
+            <div class="input-group form-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-coins"></i></span>
+                </div>
+                <input disabled type="text" class="form-control" placeholder="{{castle.price}}">
+            </div>
+        </form>
+    </div>
+    <div class="decision">
+        <a href="{% url 'verify_castle' castle.id %}" class="btn btn-success"><i class="fa fa-check" aria-hidden="true"></i></a>
+        <a class="btn btn-danger" data-toggle="modal" data-target="#myModal"><i class="fa fa-ban" aria-hidden="true"></i></a>
+        <a class="btn btn-info" href="/properties/{{ castle.id }}"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+    </div>
+    <div class="modal fade success-popup" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 id="title-success" style="margin: auto;">Confirmation</h4>
+                </div>
+                <div class="modal-body text-center">
+                    <p class="lead">Are you sure you want to remove the listing {{ castle.name }} ?</p>
+                    <a href="/users/staff" class="rd_more btn btn-default" id="home-button">Go back</a>
+                    <a href="{% url 'delete_castle' castle.id %}" class="rd_more btn btn-default" id="confirm-button">Confirm</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 
