@@ -81,7 +81,9 @@ def properties(request):
     if did_filter:
         if castles:
             for x in castles:
-                if Castle.objects.filter(id=x['id']).first().castleimage_set.first():
+                if not Castle.objects.filter(id=x['id']).first().castleimage_set:
+                    x['image'] = 'https://user-images.githubusercontent.com/24848110/33519396-7e56363c-d79d-11e7-969b-09782f5ccbab.png'
+                elif Castle.objects.filter(id=x['id']).first().castleimage_set.first():
                     x['image'] = Castle.objects.filter(id=x['id']).first().castleimage_set.first().image
                 else:
                     x['image'] = 'https://user-images.githubusercontent.com/24848110/33519396-7e56363c-d79d-11e7-969b-09782f5ccbab.png'
