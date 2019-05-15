@@ -3,7 +3,7 @@
         <div class="col-md-3 well castles">
             <a href="/properties/{{ castle.id }}">
                 <div class="card mb-4 box-shadow">
-                    <img class="card-img-top" src='{{castle.castleimage_set.first.image}}' onerror="this.src='https://user-images.githubusercontent.com/24848110/33519396-7e56363c-d79d-11e7-969b-09782f5ccbab.png'" data-holder-rendered="true" onerror="this.src'https://user-images.githubusercontent.com/24848110/33519396-7e56363c-d79d-11e7-969b-09782f5ccbab.png';"/>
+                    <img class="card-img-top" src='{{castle.castleimage_set.first.image}}' onerror="this.src='http://chittagongit.com/download/192543'" data-holder-rendered="true" />
                     {% if castle.verified %}
                         <div class="click-to-top"><img class="verified" alt="verified" src="{% static 'images/correct.png' %}" /><span>  Verified property!</span></div>
                     {% endif %}
