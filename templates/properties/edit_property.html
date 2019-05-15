@@ -34,7 +34,8 @@
         <article class="card-body mx-auto">
             <h3 class="card-title">Editing property: {{ castle.name }}</h3>
             <p class="sub-title">Please make changes to the following fields</p>
-            <form>
+            <form method="post">
+                {% csrf_token %}
                {{ form }}
                     <!-- form-group// -->
                     <div class="form-group">
