@@ -10,6 +10,7 @@ from django.http import JsonResponse
 from properties.forms.offer import OfferCreationForm
 from properties.forms.contactinfo import ContactInfoCreationForm
 from properties.forms.propertyedit import CastleEditForm
+from users import views
 
 
 def index(request):
@@ -161,6 +162,11 @@ def make_offer(request, id):
                    })
 
 def create(request):
+    user=request.user
+    if not Profile.objects.filter(user=request.user).first():
+        return redirect('/users/edit')
+    if not Profile.objects.filter(user=request.user).first().profile_image:
+        return redirect('/users/edit')
     if request.method == 'POST':
         form = CastleCreationForm(data=request.POST)
         form2 =CastleImageCreationForm(data=request.POST)
