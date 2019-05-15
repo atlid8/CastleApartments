@@ -163,6 +163,13 @@ def payments(request, id):
                   {'castle': get_object_or_404(Castle, pk=id),  'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False)
                    })
 
+def payments_offer(request, id):
+    user = request.user
+    return render(request, 'payments/payments.html',
+                  {'castle': get_object_or_404(SoldCastle, pk=id),
+                   'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False)
+                   })
+
 def make_offer(request, id):
     user = request.user
     if request.method == 'POST':
@@ -180,7 +187,7 @@ def make_offer(request, id):
                 watcher = User.objects.filter(id=watch.user_id).first()
                 form2.save_for_watchlist(buyer, castle, offer, watcher)
             #Todo að fá þetta til að hætta að overwrita síðasta form2 save
-            return redirect('/properties/'+str(id)+'/checkout/')
+            return redirect('/')
     return render(request, 'payments/make-offer.html',
                   {'castle': get_object_or_404(Castle, pk=id), 'form': OfferCreationForm(),  'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False)
                    })
