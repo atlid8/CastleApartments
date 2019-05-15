@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+<table id="search-log-table">
+    <thead>
+
+    </thead>
+    <tbody>
+        <tr>
+            <th class="table-1">Product</th>
+            <th class="table-2">#</th>
+            <th class="table-3">Price</th>
+            <th class="table-4">Total</th>
+        </tr>
+        <tr>
+            <th class="table-1">{{ castle.name }}</th>
+            <th class="table-2">1</th>
+            <th class="table-3">{{ castle.price }}</th>
+            <th class="table-4">{{ castle.price }}</th>
+        </tr>
+        <tr>
+            <th class="table-1">  </th>
+            <th class="table-2">  </th>
+            <th class="table-3">
+                <p>Subtotal: </p>
+                <p>Tax: </p>
+            </th>
+            <th class="table-4">
+                <p id="subtotal">{{ castle.price }}</p>
+                <p id="tax"><script>document.write(get_tax())</script></p>
+            </th>
+        </tr>
+        <tr>
+            <th class="table-1">  </th>
+            <th class="table-2">  </th>
+            <th class="table-3">Total: </th>
+            <th class="table-4"><script>document.write(get_total())</script></th>
+        </tr>
+    </tbody>
+</table>
+
+{% endblock %}

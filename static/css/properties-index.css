@@ -1,33 +1,35 @@
-section {
-    margin-top: 1000px;
-    margin-bottom: 1000px;
-}
 h3 {
     color: white;
     text-align: center;
 }
-
 p {
-    margin-bottom: 0px;
+    margin-bottom: 0;
 }
-
+a:hover {
+    color: white;
+    text-decoration: none;
+}
+h3, a:hover, .header-text, .col-md-3, .card-text {
+    color:white;
+}
 #castle-name {
     font-size: 1.3em;
     overflow-y: hidden;
     max-height: 1.3em;
     min-height: 1.3em;
 }
-
 #castle-name:hover {
     text-decoration: underline;
 }
-
 #castle-price {
     margin-top: 1.5em;
-    padding-right: 0.5em;
+    padding-right: 1em;
 }
-
-#search-btn{
+#castle-size, #castle-price {
+    font-size: 1.1em;
+    font-weight: bold;
+}
+#search-btn {
     height: 2.41em;
     margin-top: 2em;
     border-radius: 0 0.3em 0.3em 0;
@@ -51,22 +53,17 @@ p {
     background-color: rgba(0,0,0,0.5);
     padding-bottom: 1em;
 }
-
 #form-for-search {
     display: inherit;
 }
-
-#search-btn {
+#search-btn, #search-box {
     display: inline-block;
 }
-
 #search-box {
-    display: inline-block;
     width: 16em;
-    border-bottom-right-radius: 0px;
-    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
 }
-
 .form-control {
     margin-top: 2em;
 }
@@ -82,7 +79,6 @@ p {
 }
 .header-text {
     width: 51%;
-    color:white;
     height: 4em;
     text-align: center;
     background-color: rgba(255,255,255, 0.4);
@@ -93,7 +89,6 @@ p {
 }
 .col-md-3 {
     margin-top: 2em;
-    color: white;
 }
 .card {
     background-color: transparent;
@@ -113,18 +108,10 @@ p {
 .card-text {
     font-size: 0.75em;
     align-items: center;
-    color: white;
     overflow-y: hidden;
     max-height: 3em;
     min-height: 3em;
 }
-
-
-a:hover {
-    color: white;
-    text-decoration: none;
-}
-
 .irs--flat .irs-bar {
     background-color: #656b74 !important;
 }
@@ -137,7 +124,7 @@ a:hover {
 .irs--flat .irs-from:before, .irs--flat .irs-to:before, .irs--flat .irs-single:before {
     border-top-color: #656b74 !important;
 }
-.verified{
+.verified {
     object-fit: contain;
     max-height: 2em;
     max-width: 2em;
@@ -145,7 +132,6 @@ a:hover {
     right: 0.5em;
     top: 0.5em;
 }
-
 div.click-to-top span {
     display: none;
     position: absolute;
@@ -156,7 +142,6 @@ div.click-to-top span {
     color: white;
     text-align: center;
 }
-
 div.click-to-top:hover span {
     display: block;
     top:0;
@@ -176,6 +161,9 @@ div.click-to-top:hover span {
 }
 /*When the website is above 992px and below 1201px*/
 @media screen and (max-width: 1201px) and (min-width: 992px) {
+    #search-box {
+        width: 12.5em;
+    }
     .col-one,.col-two, .col-three {
         width: 30%;
     }
@@ -184,13 +172,20 @@ div.click-to-top:hover span {
         min-width: 35em;
     }
 
-    #search-box {
-        width: 12.5em;
-    }
 }
 /*When the website is above 769px and below 991px*/
 @media screen and (max-width: 991px) and (min-width: 769px) {
     /*#TODO: Try to put two or three properties per line instead of four*/
+    #search-box {
+        width: 8em;
+    }
+    #castle-price {
+        margin-top: 1.5em;
+        padding-right: unset;
+    }
+    #castle-size, #castle-price {
+        font-size: .8em;
+    }
     .col-one,.col-two, .col-three {
         width: 30%;
     }
@@ -203,9 +198,6 @@ div.click-to-top:hover span {
         min-width: 25%;
     }
 
-    #search-box {
-        width: 8em;
-    }
 }
 /*When the website is above 601px and below 768px*/
 @media screen and (max-width: 768px) and (min-width: 601px) {
@@ -216,7 +208,6 @@ div.click-to-top:hover span {
     }
     #slider-container {
         width: 100%;
-        margin-top: unset;
         color: white;
         height: auto;
         margin-bottom: 2em;
@@ -224,25 +215,24 @@ div.click-to-top:hover span {
     #search-box {
         width: 4.5em;
     }
+    #slider-container, .col-md-3 {
+        margin-top: unset;
+    }
     .col-one,.col-two, .col-three {
         width: 30%;
     }
-    .card-img-top{
+    .card-img-top, .card-body {
         margin: 0 auto;
     }
-    .card-body{
+    .card-body {
         max-width: 15.8em;
         min-width: 15.8em;
-        margin: 0 auto;
-    }
-    .col-md-3 {
-    margin-top: unset;
     }
     .header-text {
         max-width: 27em;
         min-width: 27em;
     }
-    .verified{
+    .verified {
         right: 7.2em;
     }
 }
@@ -254,10 +244,15 @@ div.click-to-top:hover span {
     }
     #slider-container {
         width: 100%;
-        margin-top: unset;
         color: white;
         height: auto;
         margin-bottom: 2em;
+    }
+    #search-box {
+        width: 15.5em;
+    }
+    #slider-container, .col-md-3 {
+        margin-top: unset;
     }
     .col-one,.col-two, .col-three {
         float: unset;
@@ -266,21 +261,14 @@ div.click-to-top:hover span {
         min-width: 20em;
         max-width: 20em;
     }
-    .card-img-top{
+    .card-img-top, .card-body {
         margin: 0 auto;
     }
-    .card-body{
+    .card-body {
         max-width: 15.8em;
         min-width: 15.8em;
-        margin: 0 auto;
     }
-    .col-md-3 {
-        margin-top: unset;
-    }
-    #search-box {
-        width: 15.5em;
-    }
-    .verified{
+    .verified {
         display:none;
     }
 }
