@@ -64,7 +64,7 @@ class NotificationForm(ModelForm):
         notification.receiver = castle.seller
         notification.link = ''
         notification.resolved = False
-        notification.info = 'The castle ' + str(castle.name) + 'has been declined'
+        notification.info = 'The castle ' + str(castle.name) + ' has been declined'
         notification.save()
         return notification
 
