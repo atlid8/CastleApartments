@@ -15,10 +15,6 @@ address, legend, label, #about-text, #contact-us, #our-employees{
 #images {
     min-width: 14em;
 }
-#contact-us{
-    background: rgba(0,0,0,0.3) !important;
-    padding: 1em;
-}
 #btnContactUs {
     float:right;
 }
@@ -30,8 +26,14 @@ address, legend, label, #about-text, #contact-us, #our-employees{
     border-radius: 0.5em
 }
 #our-employees {
-    text-align: center;
     padding-top: .5em;
+}
+#our-employees, .container1 {
+    text-align: center;
+}
+#contact-us{
+    background: rgba(0,0,0,0.3) !important;
+    padding: 1em;
 }
 .container {
     background:rgba(0, 0, 0, 0.5);
@@ -39,23 +41,18 @@ address, legend, label, #about-text, #contact-us, #our-employees{
     height: auto;
     border-radius: 0.5em;
 }
-.container1 {
-    text-align: center;
-}
 @media screen and (max-width: 768px) {
-    .col-md-1 {
-        max-width: 8.33%;
-        margin-bottom: 1em;
-    }
     #upper-row, #lower-row {
         display: inline;
     }
     #lower-row {
         margin-top: 1px;
     }
+    .col-md-1 {
+        max-width: 8.33%;
+        margin-bottom: 1em;
+    }
     .container {
         max-width: 16em;
     }
-
-
 }
