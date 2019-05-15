@@ -75,9 +75,11 @@
             <span id="close-table" aria-hidden="true" onclick="this.parentElement.style.display='none'">&times;</span>
         </div>
         <div>
-            <form method="post">{% csrf_token %}
+            <form method="post">
+                {% csrf_token %}
                 {{ form }}
-                <button type="submit">Make staff member</button></form>
+                <button type="submit">Make staff member</button>
+            </form>
         </div>
     </div>
 {% endblock %}

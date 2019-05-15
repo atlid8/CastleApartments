@@ -6,7 +6,7 @@
 {% load static %}
 
 
-    <link rel="stylesheet" type="text/css" href="{% static 'css/edit-user.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/single-message.css' %}"/>
 	<div class="d-flex justify-content-center h-100">
     <div class="card">
 
@@ -19,35 +19,9 @@
                  <h5>Subject:</h5>
                 <input disabled type="text" class="form-control" placeholder="{{ message.subject }}">
                 <h5>Content:</h5>
-                <textarea disabled type="text" class="form-control" placeholder="{{ message.content }}"></textarea>
+                <textarea disabled id="message-content" type="text" class="form-control" >{{ message.content }}</textarea>
                 <div class="back-btn"><a class="btn btn-primary" href="/users/my-inbox/">Back to inbox</a></div>
+            </div></div></div>
 
-
-                                </div>
-    </div></div>
-
-    <div class="card-body">
-
-        <div class="inbox-container">
-            <table class="inbox">
-                <thead>
-                    <tr class="title-row">
-                    <td class ="sender-name">Sender</td>
-                    <td class ="message-title">Message subject</td>
-                    <td class ="time-sent">Time sent</td>
-                        <td class="read">Email</td>
-                </tr></thead>
-                <tr class="message-row">
-                    <td class ="sender-name">{{ message.name }}</td>
-                    <td class ="message-title">{{ message.subject }}</td>
-                    <td class ="time-sent">{{ message.time_stamp }}</td>
-                    <td class ="email">{{ message.email }}</td>
-                </tr>
-                <td>
-                    {{ message.content }}
-                </td>
-            </table>
-        </div>
-</div>
 
 {% endblock %}

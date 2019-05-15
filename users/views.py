@@ -111,6 +111,7 @@ def accept_offer(request, id):
     soldcastle.house_number = castle.house_number
     soldcastle.seller = castle.seller
     soldcastle.buyer = offer.buyer
+    soldcastle.id = castle.id
     soldcastle.save()
     castle.delete()
     form = NotificationForm()
