@@ -96,6 +96,41 @@ def edit(request):
         'profile' : profile, 'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False)
     })
 
+
+def buy_now(request, id):
+    if not Castle.objects.filter(id=id):
+        return redirect('/')
+    castle = get_object_or_404(Castle, pk=id)
+    user = request.user
+    soldcastle = SoldCastle()
+    soldcastle.name = castle.name
+    soldcastle.postcode = castle.postcode
+    soldcastle.price = castle.price
+    soldcastle.commission = castle.commission
+    soldcastle.rooms = castle.rooms
+    soldcastle.size = castle.size
+    soldcastle.info = castle.info
+    soldcastle.street = castle.street
+    soldcastle.house_number = castle.house_number
+    soldcastle.seller = castle.seller
+    soldcastle.buyer = user
+    soldcastle.id = castle.id
+    soldcastle.save()
+    castle.delete()
+    form = NotificationForm()
+    form.save_bought_now(castle, castle.price, user, castle.seller)
+    the_watchlist = Watchlist.objects.filter(castle_watch_id=castle.id)
+    for watch in the_watchlist: #TODO checka hvort þetta fari ekki inn í forlúppuna þegar
+        form = NotificationForm()
+        watcher = User.objects.filter(id=watch.user_id).first()
+        form.save_for_watchlist(castle, offer.offer, watcher)
+    the_offer_list = CastleOffer.objects.filter(castle_id = castle.id)
+    for watch in the_offer_list: #Todo checka hvort þetta fari ekki í forlúppuna
+        form = NotificationForm()
+        watcher = User.objects.filter(id=watch.buyer_id).first()
+        form.save_for_watchlist(castle, offer.offer, watcher)
+    return redirect('/')
+
 def accept_offer(request, id):
     offer = get_object_or_404(CastleOffer, pk=id)
     castle = offer.castle
@@ -115,7 +150,7 @@ def accept_offer(request, id):
     soldcastle.save()
     castle.delete()
     form = NotificationForm()
-    form.save_offer_accept(castle, offer.offer, offer.buyer)
+    form.save_offer_accept(soldcastle, offer.offer, offer.buyer)
     the_watchlist = Watchlist.objects.filter(castle_watch_id=castle.id)
     for watch in the_watchlist: #TODO checka hvort þetta fari ekki inn í forlúppuna þegar
         form = NotificationForm()

@@ -97,7 +97,7 @@
                         </div>
                         <div class="modal-body text-center">
                             <p class="lead">Your payment for {{ castle.name }} was successfully submitted.</p>
-                            <a href="/" class="rd_more btn btn-default" id="home-button">Go to Home</a>
+                            <a href="{% url 'buy_now' castle.id %}" class="rd_more btn btn-default" id="home-button">Go to Home</a>
                         </div>
                     </div>
                 </div>

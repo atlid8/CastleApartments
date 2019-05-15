@@ -11,8 +11,6 @@ from properties.forms.offer import OfferCreationForm
 from properties.forms.contactinfo import ContactInfoCreationForm
 from properties.forms.propertyedit import CastleEditForm
 from users.forms.creationform import UserCreationForm
-from users import views
-
 
 def index(request):
     user = request.user
@@ -136,6 +134,11 @@ def get_property_by_id(request, id):
 
 @login_required
 def contact_info_buy(request, id):
+    if not Castle.objects.filter(id=id):
+        context = {{'castle': Soldcastle.objects.filter(id=id).first(), 'form': ContactInfoCreationForm(), 'user': user,  'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False)}}
+    else:
+        context = {'castle': get_object_or_404(Castle, pk=id), 'form': ContactInfoCreationForm(), 'user': user,
+         'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False)}
     user = request.user
     if request.method == 'POST':
         form = ContactInfoCreationForm(data=request.POST)
@@ -143,7 +146,7 @@ def contact_info_buy(request, id):
             form.save(user)
             return redirect('/properties/' + str(id) + '/checkout/')
     return render(request, 'payments/contact-info-buy.html',
-                  {'castle': get_object_or_404(Castle, pk=id), 'form': ContactInfoCreationForm(), 'user': user,  'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False)})
+                  context)
 
 
 @login_required
@@ -186,7 +189,6 @@ def make_offer(request, id):
                 form2 = NotificationForm(data=request.POST)
                 watcher = User.objects.filter(id=watch.user_id).first()
                 form2.save_for_watchlist(buyer, castle, offer, watcher)
-            #Todo að fá þetta til að hætta að overwrita síðasta form2 save
             return redirect('/')
     return render(request, 'payments/make-offer.html',
                   {'castle': get_object_or_404(Castle, pk=id), 'form': OfferCreationForm(),  'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False)
@@ -210,7 +212,7 @@ def create(request):
             the_castle = Castle.objects.last()
             form2.save(the_castle)
             castleid = str(Castle.objects.last().id)
-            return redirect('/') #TODO:Check if this is the right path
+            return redirect('/properties/'+castleid)
     return render(request, 'properties/create_property.html', {
         'form': CastleCreationForm(),
         'form2': CastleImageCreationForm(),

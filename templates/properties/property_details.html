@@ -97,7 +97,7 @@
             <button id="button-down-mid-l" type="submit" class="btn btn-outline-primary">Add to watchlist</button>
                         {% endif %}
                         {% if castle.verified %}
-                        <a id="button-down-mid-r" type="button" class="btn btn-outline" href="contact-info-offer">Make offer</a>
+                        <a id="button-down-mid-r" type="button" class="btn btn-outline" href="/properties/{{ castle.id }}/make-offer">Make offer</a>
                         <a id="button-down" type="button" class="btn btn-outline-primary" href="contact-info-buy">Buy now</a>
                         {% else %}
                             <div id="button-down-mid-r-disabled" type="button" class="btn btn-outline click-to-top">Make offer<span> Property not yet verified!</span></div>

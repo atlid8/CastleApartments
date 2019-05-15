@@ -1,17 +1,18 @@
 {% block content %}
     {% load static %}
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
         <div class="col-md-3 well castles">
             <a href="/properties/{{ castle.id }}">
                 <div class="card mb-4 box-shadow">
-                    <img class="card-img-top" src='{{castle.castleimage_set.first.image}}' onerror="this.src='http://chittagongit.com/download/192543'" data-holder-rendered="true" />
+                    <img class="card-img-top" src='{{castle.castleimage_set.first.image}}' onerror="this.src='/static/images/no_image_available.jpg'" data-holder-rendered="true" />
                     {% if castle.verified %}
                         <div class="click-to-top"><img class="verified" alt="verified" src="{% static 'images/correct.png' %}" /><span>  Verified property!</span></div>
                     {% endif %}
                     <div class="card-body">
                         <h1 class="card-text" id="castle-name">{{ castle.name }}</h1>
                         <p class="card-text" id="castle-info ">{{ castle.info }}</p>
-                        <p class="card-text">Price: {{ castle.price }}</p>
-                        <p class="card-text">Size: {{ castle.size }}</p>
+                        <p class="card-text far fa-money-bill-alt" id="castle-price">       {{ castle.price }}</p>
+                        <p class="card-text fas fa-expand-arrows-alt" id="castle-size">       {{ castle.size }}</p>
                     </div>
                 </div>
             </a>

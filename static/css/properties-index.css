@@ -17,6 +17,16 @@ p {
     max-height: 1.3em;
     min-height: 1.3em;
 }
+
+#castle-name:hover {
+    text-decoration: underline;
+}
+
+#castle-price {
+    margin-top: 1.5em;
+    padding-right: 0.5em;
+}
+
 #search-btn{
     height: 2.41em;
     margin-top: 2em;
@@ -109,8 +119,10 @@ p {
     min-height: 3em;
 }
 
+
 a:hover {
     color: white;
+    text-decoration: none;
 }
 
 .irs--flat .irs-bar {
