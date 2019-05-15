@@ -13,9 +13,9 @@ p {
 
 #castle-name {
     font-size: 1.3em;
-    overflow-y: visible;
-    max-height: 0.3em;
-    min-height: 0.85em;
+    overflow-y: hidden;
+    max-height: 1.3em;
+    min-height: 1.3em;
 }
 #search-btn{
     height: 2.41em;
@@ -94,6 +94,7 @@ p {
     max-height: 180px;
 }
 .card-body {
+    padding-top: 0.5em;
     height: 145px;
     background-color: rgba(255,255,255, 0.4);
     border-bottom-right-radius: 5px;
