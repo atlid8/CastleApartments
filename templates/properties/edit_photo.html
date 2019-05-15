@@ -5,6 +5,7 @@
             {% include "properties/single_photo.html" with image=image %}
             {% endfor %}
     <form method="post">
+    {% csrf_token %}
  {{ form }}
     <button type="submit">add new photo</button>
     </form>
