@@ -23,5 +23,6 @@ urlpatterns = [
     path('verify_castle/<int:id>', views.verify_castle, name="verify_castle"),
     path('message/<int:id>', views.read_message, name="read_message"),
     path('delete_user/<int:id>', views.delete_user, name="delete_user"),
+    path('buy_now/<int:id>', views.buy_now, name="buy_now"),
 
 ]
