@@ -19,8 +19,8 @@
         <div class="container" id="slider-container">
             <div class="col-one">
                 <h3>Price</h3>
-                <input type="text" class="js-range-slider price" name="my_range" id="price-slider" data-type="double" data-min="0" data-max="100000"/>
-                <select class="form-control" id="zip-dropdown">
+                <input type="text" class="js-range-slider search-filter" name="my_range" id="price-slider" data-type="double" data-min="0" data-max="100000"/>
+                <select class="form-control dropdown_search" id="zip-dropdown">
                     <option value="">Zip</option>
                     <option value="101">101</option>
                     <option value="201">201</option>
@@ -32,8 +32,8 @@
             </div>
             <div class="col-two">
                 <h3 id="square-meters">Square meters</h3>
-                <input type="text" class="js-range-slider square-meters" name="my_range" id="square-slider" data-type="double" data-min="0" data-max="15000"/>
-                <select class="form-control" id="orderdropdown">
+                <input type="text" class="js-range-slider search-filter" name="my_range" id="square-slider" data-type="double" data-min="0" data-max="15000"/>
+                <select class="form-control dropdown_search" id="orderdropdown">
                     <option value="" disabled selected>Order by</option>
                     <option value="price">price</option>
                     <option value="size">size</option>
@@ -42,7 +42,7 @@
             </div>
             <div class="col-three">
                 <h3>Rooms</h3>
-                <input type="text" class="js-range-slider rooms" name="my_range" id="room-slider" data-type="double" data-min="0" data-max="50"/>
+                <input type="text" class="js-range-slider search-filter" name="my_range" id="room-slider" data-type="double" data-min="0" data-max="50"/>
                 <div class='input-group'>
                     <form id="form-for-search">
                     <input type="search" class="form-control" id="search-box" placeholder="Enter your search here...">
