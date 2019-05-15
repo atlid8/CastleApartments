@@ -45,6 +45,8 @@
                 </div>
                 <!-- form-group// -->
 <a href="/properties/{{ castle.id }}/photos">Edit images</a>
+<a onclick="return confirm('Are you sure you want to remove the listing {{ castle.name }}');" href="{% url 'delete_castle' castle.id %}" class="btn btn-danger"><i class="fa fa-ban" aria-hidden="true"></i></a>
+
                 <p class="sub-title">Need some help? <a href="">Contact us for assistance</a> </p>
     </div>
 </div>
