@@ -7,41 +7,39 @@
 
     <script type="text/javascript" src="{% static 'js/inbox-app.js' %}"></script>
         <link rel="stylesheet" type="text/css" href="{% static 'css/message-inbox.css' %}"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
 
 
 <div class="card">
 <div class="card-header">
-<h4>{{ user.username }}'s messages </h4>
+<h4>Messages from users</h4>
     </div>
     <div class="card-body">
-
         <div class="inbox-container">
             <table class="inbox">
                 <thead>
                     <tr class="title-row">
-                    <td class ="sender-name">Sender</td>
-                    <td class ="message-title">Message subject</td>
-                    <td class ="time-sent">Time sent</td>
+                    <td id="sender-header" class ="sender-name">Sender</td>
+                    <td id="title-header" class ="message-title">Message subject</td>
+                    <td id="time-stamp-header" class ="time-sent">Time sent</td>
                         <td class="read">Read</td>
                 </tr></thead>
                 {% for message in messages %}
-                <tr class="message-row">
-                     <a href="/">
-                         <td class ="sender-name"><a href="/users/message/{{message.id }}">"{{ message.name }}</a></td>
+                     {% if message.read %}
+                     <tr class="message-row clickable-message" data-href="/users/message/{{message.id }}">
+                     {% else %}
+                     <tr class="message-row clickable-message unread-row" data-href="/users/message/{{message.id }}">
+                     {% endif %}
+                         <td class ="sender-name">{{ message.name }}</td>
                     <td class ="message-title">{{ message.subject }}</td>
                     <td class ="time-sent">{{ message.time_stamp }}</td>
                     {% if message.read %}
-                    <td class ="read">Read</td>
+                    <td class ="read"><i class="fas fa-eye"></i></td>
                     {% else %}
-                    <td class="read">Unread</td>
+                    <td class="read"><i class="fas fa-eye-slash"></i></td>
                     {% endif %}
-                </tr>
+                     </tr>
                 {% endfor %}
-                <tr class="message-row">
-                    <td class ="sender-name">Jaime Lannister</td>
-                    <td class ="message-title">Can you give me a hand?</td>
-                    <td class ="time-sent">May 21, 21:30</td>
-                </tr>
             </table>
         </div>
 </div>

@@ -1,204 +1,65 @@
-
-@import url('https://fonts.googleapis.com/css?family=Numans');
-
-html,body{
-
-background-size: cover;
-background-repeat: no-repeat;
-height: 100%;
-
-}
-
 body {
-  color: white;
+    color: white;
 }
-
+a {
+    color: dodgerblue;
+}
 table, th, td {
-  border: 1px solid whitesmoke;
+    border: 1px solid whitesmoke;
 }
-.container{
-background-color: rgba(0,0,0,0.2) !important;
-    width: auto;
-height: auto;
-margin-top: auto;
-width: 45em;
-    align-content: center;
-    margin: 1em auto;
-
-    padding: 2em;
-
+table {
+    width: 100%;
 }
-
-.close{
-    color: rgba(0,0,0,0.1) !important;
-}
-
-.clearfix{
-    clear:both
-}
-
-.card{
-height: auto;
-
-width: 40em;
-background-color: rgba(255,255,255, 0.2); !important;
-    margin: 0.3em auto;
-    align-content: center;
-
-    display:inline-block;
-
-
-
-}
-.form-group{
-    text-align: center;
-}
-
-.clearfix{
-    clear:both
-}
-img{
+img {
     border-radius: 5px;
     width: 100%;
     height: auto;
 }
-
-.wrap_card{
-    width:55%;
-    margin-right:2%;
-    float: left;
-}
-
-.social_icon span:hover{
-color: white;
-cursor: pointer;
-}
-
-.card-header h3{
-color: white;
-}
-
-input:focus{
-outline: 0 0 0 0  !important;
-box-shadow: 0 0 0 0 !important;
-
-}
-
-.remember{
-color: white;
-}
-
-.remember input
-{
-width: 20px;
-height: 20px;
-margin-left: 15px;
-margin-right: 5px;
-}
-
-.login_btn{
-color: white;
-background-color: dodgerblue;
-width: 100px;
-}
-
-.login_btn:hover{
-color: grey;
-background-color: white;
-}
-
-.links{
-color: white;
-}
-
-a {
-    color: dodgerblue;
-}
-
-.links a{
-margin-left: 4px;
-}
-
-h3 {
+#close-table {
+    display: block;
     text-align: center;
-    margin-bottom: 1em;
-    color: whitesmoke;
+    font-size: 2em;
 }
-
-
-
-.information {
-    margin-left: 1em;
-    margin-top: 1em;
-    width:62%;
+.tab button {
+    background-color: inherit;
     float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
 }
-
-.decision {
-    margin: 1em;
-    width:5%;
-    float: left;
+.tab button:hover {
+    background-color: #ddd;
 }
-
-.image_box {
-    width:21%;
-    height:auto;
-    margin-top: 1em;
-    margin-left: 1em;
-    float: left;
+.tab button.active {
+    background-color: #ccc;
 }
-
+.container {
+    background-color: rgba(0,0,0,0.2) !important;
+    height: auto;
+    margin-top: auto;
+    width: 45em;
+    align-content: center;
+    padding: 2em;
+}
 .btn {
     margin-top: 0.5em;
 }
-
-/* Style the tab */
 .tab {
-  overflow: hidden;
-  border: 1px solid #ccc;
-  background-color: #f1f1f1;
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
 }
-
-/* Style the buttons that are used to open the tab content */
-.tab button {
-  background-color: inherit;
-  float: left;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 14px 16px;
-  transition: 0.3s;
-}
-
-/* Change background color of buttons on hover */
-.tab button:hover {
-  background-color: #ddd;
-}
-
-/* Create an active/current tablink class */
-.tab button.active {
-  background-color: #ccc;
-}
-
-/* Style the tab content */
 .tabcontent {
-  display: none;
-  padding: 6px 12px;
-  border: 1px solid #ccc;
-  border-top: none;
-background-color: rgba(255,255,255, 0.2); !important;
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+    background-color: rgba(255,255,255, 0.2);
+    animation: fadeEffect 1s; /* Fading effect takes 1 second */
 }
-
-.tabcontent {
-  animation: fadeEffect 1s; /* Fading effect takes 1 second */
-}
-
-/* Go from zero to full opacity */
 @keyframes fadeEffect {
   from {opacity: 0;}
   to {opacity: 1;}
-}
-
-.customers {
-    background-color: red;
 }

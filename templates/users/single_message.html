@@ -5,6 +5,27 @@
 
 {% load static %}
 
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/edit-user.css' %}"/>
+	<div class="d-flex justify-content-center h-100">
+    <div class="card">
+
+			<div class="card-body">
+                <h4 id="card-title">Viewing message from user</h4>
+                <h5>Sender:</h5>
+                <input disabled type="text" class="form-control" placeholder="{{ message.name }}">
+                <h5>Time sent:</h5>
+                <input disabled type="text" class="form-control" placeholder="{{ message.time_stamp }}">
+                 <h5>Subject:</h5>
+                <input disabled type="text" class="form-control" placeholder="{{ message.subject }}">
+                <h5>Content:</h5>
+                <textarea disabled type="text" class="form-control" placeholder="{{ message.content }}"></textarea>
+                <div class="back-btn"><a class="btn btn-primary" href="/users/my-inbox/">Back to inbox</a></div>
+
+
+                                </div>
+    </div></div>
+
     <div class="card-body">
 
         <div class="inbox-container">
@@ -28,5 +49,5 @@
             </table>
         </div>
 </div>
-<a href="/users/my-inbox/">GO BACK TO INBOX</a>
+
 {% endblock %}

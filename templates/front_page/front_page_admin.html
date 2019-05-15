@@ -1,103 +1,83 @@
-git
 {% extends 'base.html' %}
-
 {% block content %}
-
 {% load static %}
-
+    <link rel="stylesheet" type="text/css" href="{% static 'css/front-page-admin.css' %}"/>
     <script src="{% static 'js/admin-app.js' %}"></script>
-
-<!--Bootsrap 4 CDN-->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
-<!--Fontawesome CDN-->
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-
-<!--Custom styles-->
-<link rel="stylesheet" type="text/css" href="{% static 'css/front-page-admin.css' %}"/>
-
-
-
     <div class="container">
-    <h3>Administrative table</h3>
+        <h3>Administrative table</h3>
+        <div class="tab">
+            <button class="tablinks" disabled>View by:</button>
+            <button class="tablinks" onclick="openCity(event, 'employees')">Employees</button>
+            <button class="tablinks" onclick="openCity(event, 'customers')">Customers</button>
+            <button class="tablinks" onclick="openCity(event, 'properties')">Properties</button>
+        </div>
+        <div id="employees" class="tabcontent">
+            <h3>Here we'll display the employees</h3>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>email</th>
+                    <th>Last Login</th>
+                    <th></th>
+                </tr>
+                {% for user in staff %}
+                    <tr>
+                        <td>{{ user.first_name }} {{ user.last_name }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.last_login }}</td>
+                        <td><a href="{% url 'delete_user' user.id %}"><i  class="btn btn-danger" aria-hidden="true"></i></a>
+                  </tr>
+                {% endfor %}
+            </table>
+            <span id="close-table" aria-hidden="true" onclick="this.parentElement.style.display='none'">&times;</span>
+        </div>
+        <div id="customers" class="tabcontent">
+            <h3>Here we'll display the customers</h3>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>email</th>
+                    <th>Last Login</th>
+                    <th></th>
+                </tr>
+                {% for user in customers %}
+                    <tr>
+                        <td>{{ user.first_name }} {{ user.last_name }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.last_login }}</td>
+                        <td><a href="{% url 'delete_user' user.id %}"><i  class="btn btn-danger" aria-hidden="true"></i></a>
+                    </tr>
+                {% endfor %}
+            </table>
+            <span id="close-table" aria-hidden="true" onclick="this.parentElement.style.display='none'">&times;</span>
+        </div>
 
-<div class="tab">
-    <button class="tablinks" disabled>View by:</button>
-  <button class="tablinks" onclick="openCity(event, 'employees')">Employees</button>
-  <button class="tablinks" onclick="openCity(event, 'customers')">Customers</button>
-  <button class="tablinks" onclick="openCity(event, 'properties')">Properties</button>
-</div>
-<div id="employees" class="tabcontent">
-  <h3>Here we'll display the employees</h3>
-    <table style="width:100%">
-  <tr>
-    <th>Name</th>
-    <th>email</th>
-    <th>Last Login</th>
-      <th></th>
-  </tr>
-    {% for user in staff %}
-  <tr>
-    <td>{{ user.first_name }} {{ user.last_name }}</td>
-    <td>{{ user.email }}</td>
-    <td>{{ user.last_login }}</td>
-      <td><a href=""</td>
-      <td><a href="{% url 'delete_user' user.id %}"><i  class="btn btn-danger" aria-hidden="true"></i></a>
-  </tr>
-  {% endfor %}
-</table>
-  <span aria-hidden="true" onclick="this.parentElement.style.display='none'"><h3>&times;</h3></span></span>
-</div>
-
-
-<div id="customers" class="tabcontent">
-  <h3>Here we'll display the customers</h3>
-    <table style="width:100%">
-  <tr>
-    <th>Name</th>
-    <th>email</th>
-    <th>Last Login</th>
-      <th></th>
-  </tr>
-
-      {% for user in customers %}
-  <tr>
-    <td>{{ user.first_name }} {{ user.last_name }}</td>
-    <td>{{ user.email }}</td>
-    <td>{{ user.last_login }}</td>
-      <td><a href="{% url 'delete_user' user.id %}"><i  class="btn btn-danger" aria-hidden="true"></i></a>
-  </tr>
-  {% endfor %}
-</table>
-  <span aria-hidden="true" onclick="this.parentElement.style.display='none'"><h3>&times;</h3></span></span>
-</div>
-
-<div id="properties" class="tabcontent">
-  <h3>Here we'll display the properties</h3>
-    <table style="width:100%">
-  <tr>
-    <th>Name</th>
-    <th>Seller</th>
-    <th>Price</th>
-      <th></th>
-  </tr>
-      {% for castle in castles %}
-  <tr>
-    <td>{{ castle.name }}</td>
-    <td>{{ castle.seller.first_name }} {{ castle.seller.last_name }}</td>
-    <td>{{ castle.price }}</td>
-      <td><a href="/properties/{{ castle.id }}"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
-      <td><a href="{% url 'delete_castle' castle.id %}"><i  class="btn btn-danger" aria-hidden="true"></i></a>
-  </tr>
-  {% endfor %}
-</table>
-    <span aria-hidden="true" onclick="this.parentElement.style.display='none'"><h3>&times;</h3></span></span>
-
-</div>
-</div>
-    <form method="post">{% csrf_token %}
-        {{ form }}
-    <button type="submit">Make staff member</button></form>
-
-</div>
+        <div id="properties" class="tabcontent">
+            <h3>Here we'll display the properties</h3>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Seller</th>
+                    <th>Price</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                {% for castle in castles %}
+                    <tr>
+                        <td>{{ castle.name }}</td>
+                        <td>{{ castle.seller.first_name }} {{ castle.seller.last_name }}</td>
+                        <td>{{ castle.price }}</td>
+                        <td><a href="/properties/{{ castle.id }}"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+                        <td><a href="{% url 'delete_castle' castle.id %}"><i  class="btn btn-danger" aria-hidden="true"></i></a>
+                    </tr>
+                {% endfor %}
+            </table>
+            <span id="close-table" aria-hidden="true" onclick="this.parentElement.style.display='none'">&times;</span>
+        </div>
+        <div>
+            <form method="post">{% csrf_token %}
+                {{ form }}
+                <button type="submit">Make staff member</button></form>
+        </div>
+    </div>
 {% endblock %}
