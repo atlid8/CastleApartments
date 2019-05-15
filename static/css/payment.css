@@ -1,3 +1,9 @@
+p {
+    margin-top: unset;
+    margin-bottom: unset;
+}
+
+
 #payment-details{
     display: inline-block;
     color: white;
@@ -57,11 +63,21 @@
 #getdate{
     margin-left:1em;
 }
+
+.all-tables {
+    width: 70%;
+}
+
 .container{
     width: 40em;
     margin-top: 1em;
     float: right;
 }
+
+.total{
+    font-size: 1.5em;
+}
+
 .table-head {
     font-weight: bold;
     color: white;
@@ -72,17 +88,18 @@
     width: 14em;
 }
 .table-2{
-    max-width: 1em;
-    text-align: center !important;
+    max-width: 15em;
+    text-align: left !important;
 }
 .table-3{
-    max-width: 3em;
+    max-width: 15em;
     text-align: left !important;
 }
 .table-4{
     max-width: 6em;
     text-align: right !important;
 }
+
 .payment-container{
     display: inline-block;
     width: 70em;

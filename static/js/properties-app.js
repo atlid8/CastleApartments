@@ -145,24 +145,25 @@ $(document).ready(function () {
                     var newHTML = resp.data.map(d => {
                         return `
                         <div class="col-md-3 well castles">
-                            <a href="/properties/${d.id}">
-                            <div class="card mb-4 box-shadow">
-                                <img class="card-img-top"  alt="Thumbnail [100%x225]" src='${d.image}'data-holder-rendered="true">
-                                <div class="card-body">
-                                    <h1 class="card-text" id="castle-name"> ${d.name}</h1>
-                                    <p class="card-text" id="castle-info ">${d.info}</p>
-                                    <p class="card-text">Price: ${d.price}</p>
-                                    <p class="card-text">Size: ${ d.size }</p>
+                                <a href="/properties/${d.id}">
+                                <div class="card mb-4 box-shadow">
+                                    <img class="card-img-top" src='${d.image}'onerror="this.src='/static/images/no_image_available.jpg'" data-holder-rendered="true">
+                                    <div class="click-to-top"><img class="verified" alt="verified" src='/static/images/correct.png'/><span>  Verified property!</span></div>
+                                    <div class="card-body">
+                                        <h1 class="card-text" id="castle-name"> ${d.name}</h1>
+                                        <p class="card-text" id="castle-info "> ${d.info}</p>
+                                        <p class="card-text far fa-money-bill-alt" id="castle-price"> ${d.price}</p>
+                                        <p class="card-text fas fa-expand-arrows-alt" id="castle-size"> ${ d.size }</p>
+                                    </div>
                                 </div>
-                            </div>
-                            </a>
-                        </div>`;
+                                </a>
+                        </div>`
                     });
                     $('.castles').html(newHTML.join(''));
                 },
                 error: function (xhr, status, error) {
                     //Todo: gæti þurft eitthvað annað error handling
-                    console.error(error);
+                    console.error(error); //Todo: FINNA ÚT HVERNIG ÉG LÆT VERIFICATION VIRKA Í ÞESSUM HTML KÓÐA HÉR AÐ OFAN
                 },
             })
         },
@@ -207,15 +208,15 @@ $(document).ready(function () {
                     <div class="col-md-3 well castles">
                             <a href="/properties/${d.id}">
                             <div class="card mb-4 box-shadow">
-                                <img class="card-img-top"  alt="Thumbnail [100%x225]" src='${d.image}'data-holder-rendered="true">
+                                <img class="card-img-top"  alt="Thumbnail [100%x225]" src='${d.image}'onerror="this.src='/static/images/no_image_available.jpg'" data-holder-rendered="true">
                                 <div class="card-body">
                                     <h1 class="card-text" id="castle-name"> ${d.name}</h1>
                                     <p class="card-text" id="castle-info ">${d.info}</p>
-                                    <p class="card-text">Price: ${d.price}</p>
-                                    <p class="card-text">Size: ${ d.size }</p>
+                                    <p class="card-text far fa-money-bill-alt" id="castle-price"> ${d.price}</p>
+                                    <p class="card-text fas fa-expand-arrows-alt" id="castle-size"> ${ d.size }</p>
+                                </div>
                             </div>
-                        </div>
-                        </a>
+                            </a>
                     </div>`
                 });
                 window.searchInput = searchText
@@ -271,15 +272,15 @@ $(document).ready(function () {
                     <div class="col-md-3 well castles">
                             <a href="/properties/${d.id}">
                             <div class="card mb-4 box-shadow">
-                                <img class="card-img-top"  alt="Thumbnail [100%x225]" src='${d.image}'data-holder-rendered="true">
+                                <img class="card-img-top"  alt="Thumbnail [100%x225]" src='${d.image}'onerror="this.src='/static/images/no_image_available.jpg'" data-holder-rendered="true">
                                 <div class="card-body">
                                     <h1 class="card-text" id="castle-name"> ${d.name}</h1>
                                     <p class="card-text" id="castle-info ">${d.info}</p>
-                                    <p class="card-text">Price: ${d.price}</p>
-                                    <p class="card-text">Size: ${ d.size }</p>
+                                    <p class="card-text far fa-money-bill-alt" id="castle-price"> ${d.price}</p>
+                                    <p class="card-text fas fa-expand-arrows-alt" id="castle-size"> ${ d.size }</p>
+                                </div>
                             </div>
-                        </div>
-                        </a>
+                            </a>
                     </div>`
                 });
                 $('.castles').html(newHTML.join(''))
