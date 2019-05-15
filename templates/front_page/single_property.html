@@ -31,6 +31,7 @@
         <a href="{% url 'verify_castle' castle.id %}" class="btn btn-success"><i class="fa fa-check" aria-hidden="true"></i></a>
         <a class="btn btn-danger" data-toggle="modal" data-target="#myModal"><i class="fa fa-ban" aria-hidden="true"></i></a>
         <a class="btn btn-info" href="/properties/{{ castle.id }}"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+    <h1 style="color:red;">{{ castle.id }}</h1>
     </div>
     <div class="modal fade success-popup" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog modal-sm" role="document">
@@ -39,6 +40,7 @@
                     <h4 id="title-success" style="margin: auto;">Confirmation</h4>
                 </div>
                 <div class="modal-body text-center">
+                    <h1 style="color:red;">{{ castle.id }}</h1>
                     <p class="lead">Are you sure you want to remove the listing {{ castle.name }} ?</p>
                     <a href="/users/staff" class="rd_more btn btn-default" id="home-button">Go back</a>
                     <a href="{% url 'delete_castle' castle.id %}" class="rd_more btn btn-default" id="confirm-button">Confirm</a>
