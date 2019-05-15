@@ -41,7 +41,7 @@
                               </td>
 
                               <td class="message-link">
-                                  {% if message.link %}
+                                  {% if message.link != "" %}
                                   <a href="{{ message.link }}"><i class="fas fa-link"></i>
                                   </a>{% endif %}
                               </td>
@@ -72,7 +72,9 @@
                               {{ message.info }}
                           </td>
                           <td class="message-link">
-                              <a href="{{ message.link }}"><i class="fas fa-link"></i>
+                              {% if message.link != "" %}
+                                  <a href="{{ message.link }}"><i class="fas fa-link"></i>
+                                  </a>{% endif %}
                               </a>
                               </td>
                           <td class="message-time-stamp">

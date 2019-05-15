@@ -35,113 +35,18 @@
             <h3 class="card-title">Editing property: {{ castle.name }}</h3>
             <p class="sub-title">Please make changes to the following fields</p>
             <form>
-                <div class="row">
-                    <div class="form-group input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fab fa-fort-awesome"></i></span>
-                        </div>
-                        <input name="" class="form-control" placeholder="castle name" value="{{castle.name}}" type="text">
-                    </div>
+               {{ form }}
                     <!-- form-group// -->
-                    <div class="form-group input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
-                        </div>
-                        <input name="" disabled class="form-control" placeholder="seller" value="Jaime Lannister">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="form-group input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
-                        </div>
-                        <input name="" class="form-control" placeholder="street name" type="text">
-                    </div>
-                    <!-- form-group// -->
-                    <div class="form-group input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
-                        </div>
-                        <input name="" class="form-control" placeholder="street number" value="{{castle.rooms}}" type="number">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="form-group input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"> <i class="fa fa-flag"></i> </span>
-                        </div>
-                        <select class="form-control">
-                            <option value="" disabled selected> select kingdom</option>
-                            <option>The North</option>
-                            <option>The Mountain and the Vale</option>
-                            <option>Isles and Rivers</option>
-                            <option>The Rock</option>
-                            <option>The Stormlands</option>
-                            <option>The Reach</option>
-                            <option>Dorne</option>
-                        </select>
-                    </div>
-                    <!-- form-group// -->
-                    <div class="form-group input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"> <i class="fas fa-map-pin""></i> </span>
-                        </div>
-                        <input name="" disabled class="form-control" placeholder="zip code" value="{{ castle.zip }}" type="number">
-                    </div>
-                    <!-- form-group// -->
-                </div>
-                <!-- form-group end.// -->
-                <div class="row">
-                    <div class="form-group input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="fas fa-money-bill-wave-alt"></i> </span>
-                        </div>
-                        <input name="" class="form-control" placeholder="price" value="{{ castle.price }}" type="number">
-                    </div>
-                    <!-- form-group// -->
-                    <div class="form-group input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-                        </div>
-                        <input class="form-control" disabled placeholder="commission" value="{{ castle.commission }}" type="number">
-                    </div>
-                </div>
-                <!-- form-group// -->
-                <div class="row">
-                    <div class="form-group input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-                        </div>
-                        <input class="form-control" placeholder="condition" type="text">
-                    </div>
-                    <!-- form-group// -->
-                    <div class="form-group input-group">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-                        </div>
-                        <div class="upload-btn-wrapper">
-                            <input type="file" name="myfile" />
-                            <button class="btn1">upload an image</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="row" id="add-info">
-                    <!-- form-group// -->
-
-                    <textarea name="" id="add-info" type="text" class="form-control"> {{ castle.info }}</textarea>
-                </div>
-                <div class="row" id="submit-buttons">
-                    <div class="form-group">
-                        <button type="submit" id="preview-button" class="btn btn-primary btn-block"> Preview Changes </button>
-                    </div>
                     <div class="form-group">
                         <button type="submit" id="submit-button" class="btn btn-primary btn-block"> Publish Changes </button>
                     </div>
                 </div>
                 <!-- form-group// -->
+<a href="/properties/{{ castle.id }}/photos">Edit images</a>
                 <p class="sub-title">Need some help? <a href="">Contact us for assistance</a> </p>
     </div>
 </div>
+{% endblock %}
 </div>
 </form>
 </article>
@@ -153,4 +58,3 @@
 <br>
 <br>
 </article>
-{% endblock %}
