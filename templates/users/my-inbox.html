@@ -14,23 +14,6 @@
 <h4>{{ user.username }}'s messages </h4>
     </div>
     <div class="card-body">
-<div class="side-bar">
-
-    <ul class="inbox-nav divider">
-        <li class="nav-item">
-        <a href="#">All messages</a>
-        </li>
-        <li class="nav-item">
-        <a href="#">Unread</a>
-        </li>
-        <li class="nav-item">
-        <a href="#">Read</a>
-        </li>
-        <li class="nav-item">
-        <a href="#">Trash</a>
-        </li>
-    </ul>
-</div>
 
         <div class="inbox-container">
             <table class="inbox">
@@ -39,12 +22,21 @@
                     <td class ="sender-name">Sender</td>
                     <td class ="message-title">Message subject</td>
                     <td class ="time-sent">Time sent</td>
+                        <td class="read">Read</td>
                 </tr></thead>
+                {% for message in messages %}
                 <tr class="message-row">
-                    <td class ="sender-name">Robert Baratheon</td>
-                    <td class ="message-title">Did you pork my boar?</td>
-                    <td class ="time-sent">May 20, 20:45</td>
+                     <a href="/">
+                         <td class ="sender-name"><a href="/users/message/{{message.id }}">"{{ message.name }}</a></td>
+                    <td class ="message-title">{{ message.subject }}</td>
+                    <td class ="time-sent">{{ message.time_stamp }}</td>
+                    {% if message.read %}
+                    <td class ="read">Read</td>
+                    {% else %}
+                    <td class="read">Unread</td>
+                    {% endif %}
                 </tr>
+                {% endfor %}
                 <tr class="message-row">
                     <td class ="sender-name">Jaime Lannister</td>
                     <td class ="message-title">Can you give me a hand?</td>

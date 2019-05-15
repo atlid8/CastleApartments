@@ -1,0 +1,32 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load static %}
+
+    <div class="card-body">
+
+        <div class="inbox-container">
+            <table class="inbox">
+                <thead>
+                    <tr class="title-row">
+                    <td class ="sender-name">Sender</td>
+                    <td class ="message-title">Message subject</td>
+                    <td class ="time-sent">Time sent</td>
+                        <td class="read">Email</td>
+                </tr></thead>
+                <tr class="message-row">
+                    <td class ="sender-name">{{ message.name }}</td>
+                    <td class ="message-title">{{ message.subject }}</td>
+                    <td class ="time-sent">{{ message.time_stamp }}</td>
+                    <td class ="email">{{ message.email }}</td>
+                </tr>
+                <td>
+                    {{ message.content }}
+                </td>
+            </table>
+        </div>
+</div>
+<a href="/users/my-inbox/">GO BACK TO INBOX</a>
+{% endblock %}

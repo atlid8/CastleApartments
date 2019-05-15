@@ -22,5 +22,6 @@ urlpatterns = [
     path('accept_offer/<int:id>', views.accept_offer, name="accept"),
     path('delete_castle/<int:id>', views.delete_castle, name="delete_castle"),
     path('verify_castle/<int:id>', views.verify_castle, name="verify_castle"),
+    path('message/<int:id>', views.read_message, name="read_message"),
 
 ]

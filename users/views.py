@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from properties.models import Castle, Watchlist, CastleOffer, SoldCastle
 from users.forms.creationform import UserCreationForm
 from users.forms.ProfileForm import ProfileForm, UserEditForm
-from users.models import Profile, SearchHistory, Notification
+from users.models import Profile, SearchHistory, Notification, Message
 from users.forms.notificationform import NotificationForm
 from users.forms.message import MessageForm
 from django.shortcuts import render, get_object_or_404
@@ -144,6 +144,12 @@ def verify_castle(request, id):
     castle.save()
     return redirect('/users/staff')
 
+def read_message(request, id):
+    message = Message.objects.filter(id=id).first()
+    message.read = True
+    message.save()
+    return render(request, 'users/single_message.html', {'message': message})
+
 
 def seller_profile(request, id):
     # TODO: Change from user to profile or similar
@@ -174,4 +180,4 @@ def notification(request):
 
 
 def my_inbox(request):
-    return render(request, 'users/my-inbox.html')
+    return render(request, 'users/my-inbox.html', {'messages': Message.objects.all().order_by('-time_stamp')})

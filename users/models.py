@@ -34,5 +34,6 @@ class Message(models.Model):
     subject = models.CharField(max_length=255)
     content = models.TextField()
     time_stamp = models.DateTimeField(default=timezone.now)
+    read = models.BooleanField(default=False)
 
 
