@@ -130,7 +130,7 @@ def accept_offer(request, id):
 def delete_user(request, id):
     user = User.objects.filter(id=id).first()
     user.delete()
-    return redirect('/users/admin')
+    return redirect('/')
 
 
 def delete_castle(request, id):
@@ -138,16 +138,13 @@ def delete_castle(request, id):
     castle.delete()
     form = NotificationForm()
     form.save_not_verified(castle)
-    user = request.user
-    if user.superuser:
-        return redirect('/users/admin')
-    return redirect('/users/staff')
+    return redirect('/')
 
 def verify_castle(request, id):
     castle = Castle.objects.filter(id=id).first()
     castle.verified = True
     castle.save()
-    return redirect('/users/staff')
+    return redirect('/')
 
 def read_message(request, id):
     message = Message.objects.filter(id=id).first()

@@ -15,6 +15,21 @@ from users import views
 
 def index(request):
     user = request.user
+    if user.is_superuser:
+        if request.method == 'POST':
+            form = UserCreationForm(data=request.POST)
+            if form.is_valid():
+                form.save_staff()
+                return redirect('/')  # TODO:Check if this is the right path
+        context = {'staff': User.objects.filter(is_staff=True), 'customers': User.objects.filter(is_staff=False),
+                   'castles': Castle.objects.all(),
+                   'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False),
+                   'form': UserCreationForm}
+        return render(request, 'front_page/front_page_admin.html', context)
+    if user.is_staff:
+        context = {'castles': Castle.objects.filter(verified=False),
+                   'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False)}
+        return render(request, 'front_page/front_page_staff.html', context)
     return render(request, 'base.html', {'notifications':Notification.objects.filter(receiver_id=user.id, resolved=False)})
 
 
