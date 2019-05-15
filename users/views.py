@@ -33,8 +33,13 @@ def front_page_staff(request):
 
 def front_page_admin(request):
     user = request.user
+    if request.method == 'POST':
+        form = UserCreationForm(data=request.POST)
+        if form.is_valid():
+            form.save_staff()
+            return redirect('/') #TODO:Check if this is the right path
     context = {'staff': User.objects.filter(is_staff=True), 'customers':User.objects.filter(is_staff=False),
-               'castles': Castle.objects.all(), 'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False)}
+               'castles': Castle.objects.all(), 'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False), 'form': UserCreationForm}
     return render(request, 'front_page/front_page_admin.html', context)
 
 
@@ -122,12 +127,20 @@ def accept_offer(request, id):
         form.save_for_watchlist(castle, offer.offer, watcher)
     return redirect('/')
 
+def delete_user(request, id):
+    user = User.objects.filter(id=id).first()
+    user.delete()
+    return redirect('/users/admin')
+
 
 def delete_castle(request, id):
     castle = Castle.objects.filter(id=id).first()
     castle.delete()
     form = NotificationForm()
     form.save_not_verified(castle)
+    user = request.user
+    if user.superuser:
+        return redirect('/users/admin')
     return redirect('/users/staff')
 
 def verify_castle(request, id):
