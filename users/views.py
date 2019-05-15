@@ -12,37 +12,38 @@ from django.contrib.auth.decorators import login_required
 
 
 # Create your views here.
-def login(request):
-    return render(request, 'users/login.html')
 
 def about_us(request):
+    user = request.user
     if request.method == 'POST':
         form = MessageForm(data=request.POST)
         if form.is_valid():
             form.save()
             return redirect('/users/about-us')
-    return render(request, 'about_us/about_us.html', {'form': MessageForm() })
+    return render(request, 'about_us/about_us.html', {'form': MessageForm(), 'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False) })
 
-def signup(request):
-    return render(request, 'users/signup.html')
 
-def reset_password(request):
+def reset_password(request): #TODO IF SIGNED IN
     return render(request, 'users/reset-password.html')
 
 def front_page_staff(request):
-    context = {'castles' : Castle.objects.filter(verified=False)}
+    user = request.user
+    context = {'castles' : Castle.objects.filter(verified=False),  'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False)}
     return render(request, 'front_page/front_page_staff.html', context)
 
 def front_page_admin(request):
-    return render(request, 'front_page/front_page_admin.html')
+    user = request.user
+    context = {'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False)}
+    return render(request, 'front_page/front_page_admin.html', context)
 
 
 @login_required
 def my_profile(request):
+    user = request.user
     userid = request.user.id
     list_of_watches = []
     watchlist = Watchlist.objects.filter(user_id=userid)
-    dictionary = {'castles': Castle.objects.filter(seller_id=userid)}
+    dictionary = {'castles': Castle.objects.filter(seller_id=userid) }
     dictionary['castle_watch'] =[]
     for x in watchlist:
         if Castle.objects.filter(id=x.castle_watch_id).first() not in list_of_watches:
@@ -54,10 +55,13 @@ def my_profile(request):
         if Castle.objects.filter(id=x.castle_id).first() not in list_of_offers:
             list_of_offers.append(Castle.objects.filter(id=x.castle_id).first())
     dictionary['castle_offer'] = list_of_offers
+    dictionary['notifications'] = Notification.objects.filter(receiver_id=user.id, resolved=False)
 
     return render(request, 'users/my-profile.html', dictionary)
 
 def register(request):
+    if request.user:
+        return redirect('/')
     if request.method == 'POST':
         form = UserCreationForm(data=request.POST)
         if form.is_valid():
@@ -83,14 +87,8 @@ def edit(request):
     return render(request, 'users/edit.html', {
         'form' : ProfileForm(instance=profile),
         'form2' : UserEditForm(instance=user),
-        'profile' : profile,
+        'profile' : profile, 'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False)
     })
-
-
-def my_property(request, id):
-    return render(request, 'users/my_property.html',
-                  {'castle': get_object_or_404(Castle, pk=id), 'offers': CastleOffer.objects.filter(castle_id=id).order_by('-offer')
-                   })
 
 def accept_offer(request, id):
     offer = get_object_or_404(CastleOffer, pk=id)
@@ -145,19 +143,21 @@ def read_message(request, id):
 
 
 def seller_profile(request, id):
+    user = request.user
     # TODO: Change from user to profile or similar
     userid = Profile.objects.filter(id=id).first().user_id
     return render(request, 'users/seller_profile.html',
                   {'profile': get_object_or_404(Profile, pk=id),
-                   'castles': Castle.objects.filter(seller_id=userid),
+                   'castles': Castle.objects.filter(seller_id=userid), 'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False)
                    })
 @login_required
 def search_history(request):
+    user = request.user
     userid = request.user.id
 
 
     return render(request, 'users/dennislog.html',
-                  {'histories': SearchHistory.objects.filter(user_id=userid).order_by('-time_stamp')})
+                  {'histories': SearchHistory.objects.filter(user_id=userid).order_by('-time_stamp'), 'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False)})
 
 @login_required
 def notification(request):
@@ -173,4 +173,5 @@ def notification(request):
 
 
 def my_inbox(request):
-    return render(request, 'users/my-inbox.html', {'messages': Message.objects.all().order_by('-time_stamp')})
+    user = request.user
+    return render(request, 'users/my-inbox.html', {'messages': Message.objects.all().order_by('-time_stamp'), 'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False)})
