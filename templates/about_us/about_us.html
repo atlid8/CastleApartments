@@ -49,17 +49,24 @@
             </div>
         </div>
         <div class="container" id="contact-us">
-            <div class="row">
-                <div class="col-md-8">
-                    <div class="well well-sm">
-                        <form method="post">
-                            {% csrf_token %}
-                            {{ form }}
-                            <div class="col-md-12">
-                                <button type="submit" class="btn btn-primary pull-right" id="btnContactUs">Send Message</button>
-                            </div>
-                        </form>
-                    </div>
+            <div class="col-md-8">
+                <div class="well well-sm">
+                    <form method="post">
+                        {% csrf_token %}
+                        <div class="information-user">
+                            <div>Name: </div>
+                            <div class="input-field">{{ form.name }}</div>
+                            <div>Email: </div>
+                            <div class="input-field">{{ form.email }}</div>
+                            <div>Subject: </div>
+                            <div class="input-field">{{ form.subject }}</div>
+                            <div>Content: </div>
+                            <div class="input-field">{{ form.content }}</div>
+                        </div>
+                        <div class="col-md-12">
+                            <button type="submit" class="btn btn-primary pull-right" id="btnContactUs">Send Message</button>
+                        </div>
+                    </form>
                 </div>
             </div>
             <div class="col-md-4">

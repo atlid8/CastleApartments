@@ -6,4 +6,4 @@ from users.models import Message
 class MessageForm(ModelForm):
     class Meta:
             model = Message
-            exclude = ['id', 'time_stamp']
+            exclude = ['id', 'time_stamp', 'read']
