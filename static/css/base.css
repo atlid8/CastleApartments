@@ -1,0 +1,135 @@
+body {
+    background: url(https://media.cntraveler.com/photos/5804e849fefb7fe774d641ff/master/pass/airbnb-courtesy-Night-at-Dracula-6.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+html, body {
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+}
+#logo, #about-us, #copyright {
+    color: white;
+}
+#logo {
+    animation: fadeInLeft 2s;
+}
+#about-us {
+    margin-left: 0.5em;
+    text-decoration: underline;
+}
+#copyright {
+    display: inline-block;
+    float: right;
+    margin: 0 0.5em 0 auto;
+}
+.profile-image {
+    width:40px;
+    height:40px;
+    border-radius:50%;
+}
+.ml-auto .dropdown-menu {
+    left: auto !important;
+    right: 0;
+}
+.dropdown {
+    border: none;
+}
+.dropdown:active{
+    border: none;
+    background: none;
+}
+.dropdown-menu{
+    background-color: rgba(0,0,0,0.3) !important;
+    text-align: right;
+    margin-right: 0;
+    width:4em;
+    border: transparent !important;
+}
+.dropdown-item{
+    color: white !important;
+}
+.dropdown-item:hover{
+    color: black !important;
+    background:rgba(255,255,255, 0.3);
+}
+.footer {
+    position: fixed;
+    bottom: 0.5em;
+    width: 100%;
+}
+.header-item, .header-greeting {
+    margin-right: 0;
+    color: whitesmoke;
+}
+.header-item{
+    margin-top: 1em;
+}
+.header-greeting{
+    font-size: 11px;
+    margin-top: 1.5em;
+}
+.dropdown show:active{
+    border: none;
+}
+.dropdown-toggle::after {
+    color: whitesmoke;
+}
+.dropdown-toggle:focus{
+    outline: none!important;
+}
+.dropdown-toggle {
+   padding: 5px;
+ }
+#notifications-dropdown:before {
+    margin-right: 0.5em;
+    content: " ";
+    height: 10px;
+    width: 10px;
+    background: dodgerblue;
+    border-radius: 5px;
+    display: inline-block;
+    cursor: pointer;
+}
+#notifications-icon {
+    font-weight: normal;
+    position: absolute;
+    bottom: 0;
+    left: -0px;
+    border-radius: 50%;
+    background-color: dodgerblue;
+    color: white;
+}
+#navbarSupportedContent{
+    animation: fadeInRight 2s;
+}
+ @keyframes fadeInRight {
+   0% {
+      opacity: 0;
+      transform: translateX(20px);
+   }
+     50% {
+      opacity: 0;
+      transform: translateX(20px);
+   }
+   100% {
+      opacity: 1;
+      transform: translateX(0);
+   }
+}
+@keyframes fadeInLeft {
+   0% {
+      opacity: 0;
+      transform: translateX(-20px);
+   }
+    50% {
+      opacity: 0;
+      transform: translateX(-20px);
+   }
+   100% {
+      opacity: 1;
+      transform: translateX(0);
+   }
+}
