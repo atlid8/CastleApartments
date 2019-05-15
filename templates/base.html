@@ -38,12 +38,9 @@
                                <img src="{{ user.profile.profile_image }}" class="profile-image" style="width:40px;height:40px;border-radius:50%;"onError="this.onerror=null;this.src='https://png.pngtree.com/svg/20161027/631929649c.svg';">
                               </button>
                               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                  <a class="dropdown-item" href = "{% url 'my-inbox' %}">Messages</a>
-
                                   <a {% if notifications|length %}id="notifications-dropdown"{% endif %}class="dropdown-item" href = "{% url 'notifications' %}">Notifications</a>
-
-
                                 <a class="dropdown-item" href = "{% url 'my-profile' %}">My profile</a>
+                              <a class="dropdown-item" href = "{% url 'search-history' %}">Search history</a>
 
                                   <a class="dropdown-item" href = "{% url 'edit' %}">Edit my info</a>
 

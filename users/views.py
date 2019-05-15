@@ -33,7 +33,8 @@ def front_page_staff(request):
 
 def front_page_admin(request):
     user = request.user
-    context = {'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False)}
+    context = {'staff': User.objects.filter(is_staff=True), 'customers':User.objects.filter(is_staff=False),
+               'castles': Castle.objects.all(), 'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False)}
     return render(request, 'front_page/front_page_admin.html', context)
 
 
@@ -154,9 +155,7 @@ def seller_profile(request, id):
 def search_history(request):
     user = request.user
     userid = request.user.id
-
-
-    return render(request, 'users/dennislog.html',
+    return render(request, 'users/search_history.html',
                   {'histories': SearchHistory.objects.filter(user_id=userid).order_by('-time_stamp'), 'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False)})
 
 @login_required
