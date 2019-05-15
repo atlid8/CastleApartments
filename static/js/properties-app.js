@@ -242,6 +242,7 @@ $(document).ready(function () {
             order_by = $('#orderdropdown').val();
         } else {
             order_filter = ""
+            order_by= ""
         }
         if (zip_code !== "") {
             zip_code = $('#zip-dropdown').val();
