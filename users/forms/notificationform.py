@@ -27,6 +27,20 @@ class NotificationForm(ModelForm):
         notification.save()
         return notification
 
+    def save_reject_offer(self, seller, buyer, castle, price):
+        notification = super(NotificationForm, self).save(commit=False)
+        sellername = seller.first_name + ' ' + seller.last_name
+        castlename = castle.name
+        notification.info = sellername + ' just rejected your off of ' + str(
+            price) + ' Golden Dragons for the property: ' + castlename
+        castleid = castle.id
+        notification.link = '/properties/' + str(castleid)
+        notification.resolved = False
+        notification.receiver = buyer
+        notification.save()
+        return notification
+        notification = super(NotificationForm, self).save(commit=False)
+
 
     def save_for_watchlist(self, buyer, castle, offer, watcher, commit=True):
         notification = super(NotificationForm, self).save(commit=False)

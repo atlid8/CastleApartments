@@ -10,6 +10,7 @@ from django.http import JsonResponse
 from properties.forms.offer import OfferCreationForm
 from properties.forms.contactinfo import ContactInfoCreationForm
 from properties.forms.propertyedit import CastleEditForm
+from users.forms.creationform import UserCreationForm
 from users import views
 
 
@@ -214,6 +215,17 @@ def delete_photo(request, id):
     castle_id = image.castle.id
     image.delete()
     return redirect('/properties/' + str(castle_id) + '/photos')
+
+def delete_offer(request, id):
+    offer = CastleOffer.objects.filter(id=id).first()
+    buyer = offer.buyer
+    castle = offer.castle
+    price = offer.offer
+    seller = castle.seller
+    notification = NotificationForm()
+    notification.save_reject_offer(seller, buyer, castle, price)
+    offer.delete()
+    return redirect('/properties/' + str(castle.id))
 
 def edit_property(request, id):
     user = request.user
