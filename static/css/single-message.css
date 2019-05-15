@@ -54,6 +54,15 @@ box-shadow: 0 0 0 0 !important;
 color: white;
 }
 
+h5{
+    color: white;
+}
+
+#message-content{
+    height: auto;
+    color: grey;
+    min-height: 10em;
+}
 
 .remember input
 {
