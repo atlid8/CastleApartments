@@ -149,22 +149,6 @@ def contact_info_buy(request, id):
                   context)
 
 
-@login_required
-def contact_info_offer(request, id):
-    user = request.user
-    if not Castle.objects.filter(id=id):
-        context = {'castle': SoldCastle.objects.filter(id=id).first(), 'form': ContactInfoCreationForm(), 'user': user,  'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False)}
-    else:
-        context = {'castle': get_object_or_404(Castle, pk=id), 'form': ContactInfoCreationForm(), 'user': user,
-         'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False)}
-
-    if request.method == 'POST':
-        form = ContactInfoCreationForm(data=request.POST)
-        if form.is_valid():
-            form.save(user)
-            return redirect('/properties/' + str(id) + '/checkout/')
-    return render(request, 'payments/contact-info-offer.html',
-                  context)
 
 def payments(request, id):
     user = request.user

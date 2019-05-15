@@ -58,7 +58,7 @@ class NotificationForm(ModelForm):
     def save_offer_accept(self, castle, price, buyer):
         notification = super(NotificationForm, self).save(commit=False)
         notification.info = 'Your offer of '+ str(price) + ' for ' + str(castle.name) + ' has been accepted'
-        notification.link = '/properties/' +str(castle.id)+ '/contact-info-offer/'
+        notification.link = '/properties/' +str(castle.id)+ '/contact-info-buy/'
         notification.resolved = False
         notification.receiver = buyer
         notification.save()
