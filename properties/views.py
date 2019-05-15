@@ -11,8 +11,6 @@ from properties.forms.offer import OfferCreationForm
 from properties.forms.contactinfo import ContactInfoCreationForm
 from properties.forms.propertyedit import CastleEditForm
 from users.forms.creationform import UserCreationForm
-from users import views
-
 
 def index(request):
     user = request.user
@@ -186,7 +184,6 @@ def make_offer(request, id):
                 form2 = NotificationForm(data=request.POST)
                 watcher = User.objects.filter(id=watch.user_id).first()
                 form2.save_for_watchlist(buyer, castle, offer, watcher)
-            #Todo að fá þetta til að hætta að overwrita síðasta form2 save
             return redirect('/')
     return render(request, 'payments/make-offer.html',
                   {'castle': get_object_or_404(Castle, pk=id), 'form': OfferCreationForm(),  'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False)
@@ -210,7 +207,7 @@ def create(request):
             the_castle = Castle.objects.last()
             form2.save(the_castle)
             castleid = str(Castle.objects.last().id)
-            return redirect('/properties/'+castleid) #TODO:Check if this is the right path
+            return redirect('/properties/'+castleid)
     return render(request, 'properties/create_property.html', {
         'form': CastleCreationForm(),
         'form2': CastleImageCreationForm(),
