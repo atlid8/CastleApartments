@@ -1,13 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
     {% load static %}
-            {% for image in castle_images %}
-            {% include "properties/single_photo.html" with image=image %}
-            {% endfor %}
+    {% for image in castle_images %}
+        {% include "properties/single_photo.html" with image=image %}
+    {% endfor %}
     <form method="post">
-    {% csrf_token %}
- {{ form }}
-    <button type="submit">add new photo</button>
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">add new photo</button>
     </form>
-
 {% endblock %}
