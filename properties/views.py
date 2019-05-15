@@ -210,7 +210,7 @@ def create(request):
             the_castle = Castle.objects.last()
             form2.save(the_castle)
             castleid = str(Castle.objects.last().id)
-            return redirect('/') #TODO:Check if this is the right path
+            return redirect('/properties/'+castleid) #TODO:Check if this is the right path
     return render(request, 'properties/create_property.html', {
         'form': CastleCreationForm(),
         'form2': CastleImageCreationForm(),
