@@ -19,9 +19,7 @@
     left: 0;
     z-index: 1;
 }
-
-
-.form-input-field{
+.form-input-field {
     border-radius: 4px;
     border-bottom-left-radius: 0;
     border-top-left-radius: 0;
@@ -31,66 +29,49 @@
     text-indent: 15px;
 
 }
-
-form{
+form {
     width: 100%;
     margin: 2em auto;
-
 }
-
-
-
-#create-button-container{
-
+#create-button-container {
     width: 90%;
     margin: 2em auto;
 }
-
-#create-button{
+#create-button {
     width: 100%;
     margin: 0 auto;
 }
-
-.input-group-prepend{
+.input-group-prepend {
     height: 100%;
 }
-
-.input-group{
+.input-group {
     height:2.4em !important;
     margin: 1em auto;
     width: 92%;
 }
-.login_btn{
-color: black;
-background-color: whitesmoke;
-width: 100px;
+.login_btn {
+    color: black;
+    background-color: whitesmoke;
+    width: 100px;
 }
-
-
-.login_btn:hover{
-color: grey;
-background-color: white;
+.login_btn:hover {
+    color: grey;
+    background-color: white;
 }
-
-
 .card{
-
-height: auto;
+    height: auto;
     margin: 0 auto;
-width: 400px;
-background-color: rgba(0,0,0,0.5) !important;
+    width: 400px;
+    background-color: rgba(0,0,0,0.5) !important;
 }
-
 .card-body{
     width: 85%;
     margin: 0 auto;
 }
-
 .card-title {
     text-align: center;
     color: white;
 }
-
 .sub-title {
     text-align: center;
     color: white;
