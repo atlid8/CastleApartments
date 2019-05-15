@@ -58,7 +58,7 @@ class NotificationForm(ModelForm):
     def save_offer_accept(self, castle, price, buyer):
         notification = super(NotificationForm, self).save(commit=False)
         notification.info = 'Your offer of '+ str(price) + ' for ' + str(castle.name) + ' has been accepted'
-        notification.link = '/properties/' +str(castle.id)+ '/contact-info-offer/'
+        notification.link = '/properties/' +str(castle.id)+ '/contact-info-buy/'
         notification.resolved = False
         notification.receiver = buyer
         notification.save()
@@ -91,6 +91,16 @@ class NotificationForm(ModelForm):
         notification.info = 'The castle ' + str(castle.name) + ' has been declined'
         notification.save()
         return notification
+
+    def save_verified(self, castle):
+        notification = super(NotificationForm, self).save(commit=False)
+        notification.receiver = castle.seller
+        notification.link = '/properties/' + str(castle.id)
+        notification.resolved = False
+        notification.info = 'The castle ' + str(castle.name) + ' has been verified'
+        notification.save()
+        return notification
+
 
 
     def save_message_notification(self, receiver, sender, info, commit=True):
