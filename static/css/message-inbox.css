@@ -1,159 +1,71 @@
-.card{
-    margin: 0 auto;
-    min-height: 25em;
-height: auto;
-margin-top: auto;
-margin-bottom: auto;
-width: 50em;
-background-color: rgba(0,0,0,0.5) !important;
-    padding: 0.2em;
-}
-
-
 h4 {
     margin: 1em auto;
     text-align: center;
     color: whitesmoke;
 }
-
-.side-bar {
-    border: 1px whitesmoke solid;
-    height: 100%;
-    width: 15%;
-    float: left;
-}
-
-
 thead {
     width: 18em;
 }
-
-
-
-
 table, th, td {
     border-bottom: 1px whitesmoke solid;
     padding: 1em;
-
 }
-
-.message-row td{
+thead td, #sender-header, #title-header, #time-stamp-header {
+    text-align: center;
+}
+.message-row td {
     padding-left: 1em;
 }
-
-thead td {
-
-        text-align: center;
+.card, .inbox {
+    height: auto;
 }
-
-
-.inbox{
+.card {
+    min-height: 25em;
+    margin: auto;
+    width: 50em;
+    background-color: rgba(0,0,0,0.5) !important;
+    padding: 0.2em;
+}
+.inbox {
     border-radius: 4px;
     background:rgba(255,255,255, 0.3);
     color: whitesmoke;
     font-size: 13px;
     display: table;
     width: 100%;
-    height: auto;
 }
-
-.message-row{
+.message-row, .title-row {
      line-height: 2em;
 }
-
-.title-row{
-
+.title-row {
     height: 3em;
     font-weight: bold;
-     line-height: 2em;
     font-size: 13px;
 }
-
-.message-row:hover{
-     background-color: rgba(255,255,255, 0.6);
+.message-row:hover {
+    background-color: rgba(255,255,255, 0.6);
     cursor: pointer;
     color: black;
 }
-
-.read-bool{
-    width: 1em;
-    align-content: center;
-}
-
 .read {
     align-content: center;
 }
-
-.unread-row{
+.unread-row {
     font-weight: bold;
     background-color: rgba(255,255,255, 0.4);
-    border: 2px solid #dadada;
     outline: none;
     border-color: #9ecaed;
     box-shadow: 0 0 10px #9ecaed;
 }
-
-.sender-name{
+.sender-name, .message-title, .time-sent {
     text-align: left;
+}
+.sender-name {
     width: 30%;
 }
-
-.message-title{
+.message-title {
     width: 43%;
-    text-align: left;
 }
-
-.time-sent{
-    text-align: left;
+.time-sent {
     width: 27%;
 }
-
-
-ul.inbox-nav {
-    display: inline-block;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-}
-
-
-ul.inbox-nav li {
-    display: inline-block;
-    line-height: 45px;
-    width: 100%;
-}
-
-.nav-item{
-    height: 3em;
-
-    text-align: center;
-}
-
-ul.inbox-nav li a{
-    text-decoration: none;
-    color: white;
-}
-
-.nav-item:hover{
-    background-color: rgba(255,255,255, 0.5);
-    text-align: center;
-    cursor: pointer;
-}
-
-#compose-message{
-    color: white;
-    width: 100%;
-
-    background-color: dodgerblue;
-
-}
-
-.compose-div{
-    display: inline-block;
-    height: 5em;
-}
-
-#sender-header, #title-header, #time-stamp-header{
-    text-align: center;
-}
-

@@ -1,50 +1,41 @@
-
 {%  extends 'base.html' %}
-
 {% block content %}
-
     {% load static %}
-
     <script type="text/javascript" src="{% static 'js/inbox-app.js' %}"></script>
-        <link rel="stylesheet" type="text/css" href="{% static 'css/message-inbox.css' %}"/>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
-
-
-<div class="card">
-<div class="card-header">
-<h4>Messages from users</h4>
-    </div>
-    <div class="card-body">
-        <div class="inbox-container">
-            <table class="inbox">
-                <thead>
-                    <tr class="title-row">
-                    <td id="sender-header" class ="sender-name">Sender</td>
-                    <td id="title-header" class ="message-title">Message subject</td>
-                    <td id="time-stamp-header" class ="time-sent">Time sent</td>
-                        <td class="read">Read</td>
-                </tr></thead>
-                {% for message in messages %}
-                     {% if message.read %}
-                     <tr class="message-row clickable-message" data-href="/users/message/{{message.id }}">
-                     {% else %}
-                     <tr class="message-row clickable-message unread-row" data-href="/users/message/{{message.id }}">
-                     {% endif %}
-                         <td class ="sender-name">{{ message.name }}</td>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/message-inbox.css' %}"/>
+    <div class="card">
+        <div class="card-header">
+            <h4>Messages from users</h4>
+        </div>
+        <div class="card-body">
+            <div class="inbox-container">
+                <table class="inbox">
+                    <thead>
+                        <tr class="title-row">
+                            <td id="sender-header" class ="sender-name">Sender</td>
+                            <td id="title-header" class ="message-title">Message subject</td>
+                            <td id="time-stamp-header" class ="time-sent">Time sent</td>
+                            <td class="read">Read</td>
+                        </tr>
+                    </thead>
+                    {% for message in messages %}
+                        {% if message.read %}
+                            <tr class="message-row clickable-message" data-href="/users/message/{{message.id }}">
+                        {% else %}
+                            <tr class="message-row clickable-message unread-row" data-href="/users/message/{{message.id }}">
+                        {% endif %}
+                    <td class ="sender-name">{{ message.name }}</td>
                     <td class ="message-title">{{ message.subject }}</td>
                     <td class ="time-sent">{{ message.time_stamp }}</td>
                     {% if message.read %}
-                    <td class ="read"><i class="fas fa-eye"></i></td>
+                        <td class ="read"><i class="fas fa-eye"></i></td>
                     {% else %}
-                    <td class="read"><i class="fas fa-eye-slash"></i></td>
+                        <td class="read"><i class="fas fa-eye-slash"></i></td>
                     {% endif %}
-                     </tr>
-                {% endfor %}
-            </table>
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
         </div>
-</div>
-
-</div>
-
-
+    </div>
 {% endblock %}
