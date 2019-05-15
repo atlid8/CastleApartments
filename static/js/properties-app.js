@@ -130,8 +130,6 @@ $(document).ready(function () {
             } else {
                 search_check = ""
             }
-            console.log(searchText)
-            console.log(price_range)
             $.ajax({
                 url: '/properties/search/?price-filter=' + price_range[0] + ',' + price_range[1] + search_check +  searchInput + '&room-filter=' + room_range[0] + ',' + room_range[1] + '&square-filter=' + square_range[0] + ',' + square_range[1] + '&order=' + order_by + zip_filter + zip_code,
                 type: 'GET',
@@ -228,11 +226,35 @@ $(document).ready(function () {
 //<img class="card-img-top"  alt="Thumbnail [100%x225]" src='${d.image_set.first()}'data-holder-rendered="true">
 
 $(document).ready(function () {
-    $('#orderdropdown').on('change', function (e) {
+    $('.dropdown_search').on('change', function (e) {
         e.preventDefault();
-        var order = $('#orderdropdown').val();
+        let room_range = $('#room-slider').val().split(';');
+        let searchText = searchInput;
+        let price_range = $('#price-slider').val().split(';');
+        let square_range = $('#square-slider').val().split(';');
+        let order_by = $('#orderdropdown').val();
+        let order_filter = '&order='
+        let zip_code = $('#zip-dropdown').val();
+        let zip_filter = '&postcode='
+        let search_check = '&search-filter='
+        console.log()
+        if (order_by !== null) {
+            order_by = $('#orderdropdown').val();
+        } else {
+            order_filter = ""
+        }
+        if (zip_code !== "") {
+            zip_code = $('#zip-dropdown').val();
+        } else {
+            zip_filter = ""
+        }
+        if (searchInput !== "") {
+            searchInput = searchInput
+        } else {
+            search_check = ""
+        }
         $.ajax({
-            url: '/properties/search/?order=' + order,
+            url: '/properties/search/?price-filter=' + price_range[0] + ',' + price_range[1] + search_check +  searchInput + '&room-filter=' + room_range[0] + ',' + room_range[1] + '&square-filter=' + square_range[0] + ',' + square_range[1] + order_filter + order_by + zip_filter + zip_code,
             type: 'GET',
             success: function (resp) {
                 var newHTML = resp.data.map(d => {
@@ -261,39 +283,40 @@ $(document).ready(function () {
     })
 
 });
-
-
-$(document).ready(function () {
-    $('#zip-dropdown').on('change', function (e) {
-        e.preventDefault();
-        var zip = $('#zip-dropdown').val();
-        $.ajax({
-            url: '/properties/search/?postcode=' + zip,
-            type: 'GET',
-            success: function (resp) {
-                var newHTML = resp.data.map(d => {
-                    return `
-                    <div class="col-md-3 well castles">
-                            <a href="/properties/${d.id}">
-                            <div class="card mb-4 box-shadow">
-                                <img class="card-img-top"  alt="Thumbnail [100%x225]" src='${d.image}'data-holder-rendered="true">
-                                <div class="card-body">
-                                    <h1 class="card-text" id="castle-name"> ${d.name}</h1>
-                                    <p class="card-text" id="castle-info ">${d.info}</p>
-                                    <p class="card-text">Price: ${d.price}</p>
-                                    <p class="card-text">Size: ${ d.size }</p>
-                            </div>
-                        </div>
-                        </a>
-                    </div>`
-                });
-                $('.castles').html(newHTML.join(''))
-            },
-            error: function (xhr, status, error) {
-                //Todo: gæti þurft eitthvað annað error handling
-                console.error(error);
-            }
-        })
-    })
-
-});
+//
+//
+// $(document).ready(function () {
+//     $('#zip-dropdown').on('change', function (e) {
+//         e.preventDefault();
+//         var zip = $('#zip-dropdown').val();
+//         $.ajax({
+//             url: '/properties/search/?postcode=' + zip,
+//             type: 'GET',
+//             success: function (resp) {
+//                 var newHTML = resp.data.map(d => {
+//                     return `
+//                     <div class="col-md-3 well castles">
+//                             <a href="/properties/${d.id}">
+//                             <div class="card mb-4 box-shadow">
+//                                 <img class="card-img-top"  alt="Thumbnail [100%x225]" src='${d.image}'data-holder-rendered="true">
+//                                 <div class="card-body">
+//                                     <h1 class="card-text" id="castle-name"> ${d.name}</h1>
+//                                     <p class="card-text" id="castle-info ">${d.info}</p>
+//                                     <p class="card-text">Price: ${d.price}</p>
+//                                     <p class="card-text">Size: ${ d.size }</p>
+//                             </div>
+//                         </div>
+//                         </a>
+//                     </div>`
+//                 });
+//                 $('.castles').html(newHTML.join(''))
+//             },
+//             error: function (xhr, status, error) {
+//                 //Todo: gæti þurft eitthvað annað error handling
+//                 console.error(error);
+//             }
+//         })
+//     })
+//
+// });
+//
