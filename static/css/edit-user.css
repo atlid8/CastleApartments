@@ -1,164 +1,55 @@
-
-@import url('https://fonts.googleapis.com/css?family=Numans');
-
-html,body{
-
-background-size: cover;
-background-repeat: no-repeat;
-height: 100%;
-
-}
-
-.container{
-height: 100%;
-align-content: center;
-}
-
-.card{
-height: auto;
-margin-top: auto;
-margin-bottom: auto;
-width: 400px;
-background-color: rgba(0,0,0,0.5) !important;
-}
-
-.card-body{
-    width: 90%;
-    margin: 0 auto;
-}
-
-.profile-pic-div{
-    width: 50%;
-    margin: 0 auto;
-}
-
-.social_icon span:hover{
-color: white;
-cursor: pointer;
-}
-
-.card-header h3{
-color: white;
-    margin: 1em auto;
-}
-
-input:focus{
-outline: 0 0 0 0  !important;
-box-shadow: 0 0 0 0 !important;
-
-}
-
-.remember{
-color: white;
-}
-
-
-.remember input
-{
-margin-left: 15px;
-margin-right: 5px;
-}
-
-.form-input-field{
-    border: none;
-    margin: 0 auto;
-    width: 97%;
-    text-indent: 15px;
-
-}
-
-.form-group{
-    border-radius: 4px;
-    margin: 0em auto;
-    width: 100%
-}
-#id_username, #id_password{
-    border-radius: 4px;
-    border-bottom-left-radius: 0;
-    border-top-left-radius: 0;
-    border: none;
-    margin: 0 auto;
-    height: 2.6em;
-    width: 100%;
-    text-indent: 15px;
-
-}
-
-.input-group-prepend{
-    width: 100%;
-    padding: 0.5em;
-    margin: 0 auto;
-}
-
-.card-footer{
-    margin: 0 auto;
-}
-
-
-.form-horizontal{
-    margin: 1em auto;
-    text-align: center;
-}
-
-label {
-    color: white;
-}
-#update_btn{
-color: white;
-background-color: dodgerblue;
-width: 100px;
-
-    margin: 1em auto !important;
-
-}
-
-#remember-me{
-   margin-left: 1.5em;
-}
-.login_btn:hover{
-color: grey;
-background-color: white;
-}
-
-
-.links{
-color: white;
-}
-
 a {
     color: dodgerblue;
 }
-
-.links a{
-margin-left: 4px;
-}
-
 h4 {
     margin: 1em auto;
+    color: whitesmoke;
+}
+h4, .form-horizontal {
     text-align: center;
-    color: whitesmoke;
 }
-
-.footer-links {
-    color: dodgerblue;
+label, #update_btn {
+    color: white;
 }
-
-.footer-links:hover {
-    color: whitesmoke;
+#update_btn {
+    background-color: dodgerblue;
+    width: 100px;
+    margin: 1em auto !important;
 }
-
-.form-control{
+.card {
+    height: auto;
+    margin: auto;
+    width: 400px;
+    background-color: rgba(0,0,0,0.5) !important;
+}
+.btn {
+    font-style: unset;
+}
+.card-body, .profile-pic-div, .profile-picture {
+    margin: 0 auto;
+}
+.card-body {
+    width: 90%;
+}
+.profile-pic-div {
+    width: 50%;
+}
+.form-horizontal {
+    margin: 1em auto;
+}
+.login_btn:hover {
+    color: grey;
+    background-color: white;
+}
+.form-control {
     margin-bottom: 1.5em;
 }
-
-.profile-picture{
-    margin: 0 auto;
-  border: 1px solid whitesmoke;
-  border-radius: 4px;
-  padding: 5px;
-  width: 150px;
+.profile-picture {
+    border: 1px solid whitesmoke;
+    border-radius: 4px;
+    padding: 5px;
+    width: 150px;
 }
-
 .profile-picture:hover {
-  box-shadow: 0 0 2px 1px rgba(255, 255, 255, 10.5);
+    box-shadow: 0 0 2px 1px rgba(255, 255, 255, 10.5);
 }
