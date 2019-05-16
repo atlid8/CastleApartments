@@ -111,11 +111,10 @@ def buy_now(request, id):
     soldcastle.buyer = user
     soldcastle.id = castle.id
     soldcastle.save()
-    castle.delete()
     form = NotificationForm()
     form.save_bought_now_buyer(user, soldcastle)
     form = NotificationForm()
-    form.save_bought_now_seller(castle, castle.price, user, castle.seller)
+    form.save_bought_now_seller(soldcastle, soldcastle.price, user,soldcastle.seller)
     the_watchlist = Watchlist.objects.filter(castle_watch_id=castle.id)
     for watch in the_watchlist: #TODO checka hvort þetta fari ekki inn í forlúppuna þegar
         form = NotificationForm()
@@ -126,6 +125,7 @@ def buy_now(request, id):
         form = NotificationForm()
         watcher = User.objects.filter(id=watch.buyer_id).first()
         form.save_for_watchlist(castle, offer.offer, watcher)
+    castle.delete()
     return redirect('/properties/receipt/'+ str(soldcastle.id))
 
 def accept_offer(request, id):
@@ -169,9 +169,18 @@ def delete_user(request, id):
 def delete_castle(request, id):
     castle = Castle.objects.filter(id=id).first()
     castle.delete()
-    form = NotificationForm()
-    form.save_not_verified(castle)
+    user = request.user
+    if user.is_superuser or user.is_staff:
+        form = NotificationForm()
+        form.save_not_verified(castle)
     return redirect('/')
+
+def delete_search_history(request):
+    user = request.user
+    search_history = SearchHistory.objects.filter(user_id = user.id)
+    for search in search_history:
+        search.delete()
+    return redirect('/users/search-history')
 
 def verify_castle(request, id):
     castle = Castle.objects.filter(id=id).first()

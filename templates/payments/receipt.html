@@ -41,7 +41,7 @@
     {% csrf_token %}
     <div class="receipt-container">
         <div class="receipt-header">
-            <h1>Thank you for your order!</h1>
+            <h1>Thank you for using Castle Apartments!</h1>
         </div>
 
         <div class="product-info">
@@ -156,8 +156,17 @@
                             <th class="table-1">Buyer</th>
                             <th class="table-2"></th>
                             <th class="table-3"></th>
-                            <th class="table-4 total">Total:</th>
-                            <th class="table-5"></th>
+                            <th class="table-4"></th>
+                            <th class="table-5" ></th>
+                            <th class="table-6"></th>
+
+                        </tr>
+                        <tr class="receipt-info">
+                            <th class="table-1">{{ castle.buyer.first_name }} {{ castle.buyer.last_name }}</th>
+                            <th class="table-2"></th>
+                            <th class="table-3"></th>
+                            <th class="table-4"></th>
+                            <th class="table-5 total">Total:</th>
                             <th class="table-6 total">
                                 <p>
                                     <script>
@@ -165,14 +174,6 @@
                                     </script>
                                 </p>
                             </th>
-                        </tr>
-                        <tr class="receipt-info">
-                            <th class="table-1">{{ castle.buyer.first_name }} {{ castle.buyer.last_name }}</th>
-                            <th class="table-2"></th>
-                            <th class="table-3"></th>
-                            <th class="table-4"></th>
-                            <th class="table-5"></th>
-                            <th class="table-6"></th>
                         </tr>
                     </tbody>
                 </table>
