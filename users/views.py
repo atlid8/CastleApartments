@@ -169,8 +169,10 @@ def delete_user(request, id):
 def delete_castle(request, id):
     castle = Castle.objects.filter(id=id).first()
     castle.delete()
-    form = NotificationForm()
-    form.save_not_verified(castle)
+    user = request.user
+    if user.is_superuser or user.is_staff:
+        form = NotificationForm()
+        form.save_not_verified(castle)
     return redirect('/')
 
 def verify_castle(request, id):
