@@ -28,9 +28,13 @@ tbody{
     margin: 0 auto;
 }
 .receipt-div {
+    font-size: 12px;
     color: whitesmoke;
     float:right;
     border-left: 1px solid whitesmoke;
+    padding-left: 1em;
+    padding-right: 1em;
+
 }
 .product-info, .receipt-div {
     height: 85%;
@@ -96,4 +100,10 @@ tbody{
 }
 .container {
     color: whitesmoke;
+}
+#search-log-table tr{
+    border-bottom: 1px rgba(255,255,255,0.5) solid;
+}
+#search-log-table td{
+    margin: 0 auto;
 }

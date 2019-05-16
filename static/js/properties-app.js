@@ -159,7 +159,7 @@ $(document).ready(function () {
                                     </a>
                             </div>`}
                 });
-                window.searchInput = searchText
+                window.searchInput = searchText;
                 $('.castles').html(newHTML.join(''));
                 $('#search-box').val('');
             },

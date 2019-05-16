@@ -57,6 +57,7 @@ p, #search-log-table, th, .castle-name, h3 {
     margin-bottom: 3em;
     background: rgba(0,0,0,0.4);
     border-radius: .5em;
+    display: table;
 }
 .table-left {
     border-right: 1px solid white;
