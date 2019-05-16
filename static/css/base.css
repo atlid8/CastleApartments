@@ -108,6 +108,9 @@ body {
 #navbarSupportedContent{
     animation: fadeInRight 1.5s;
 }
+.navbar-brand{
+    font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman";
+}
  @keyframes fadeInRight {
    0% {
       opacity: 0;
