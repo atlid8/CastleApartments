@@ -1,5 +1,18 @@
 textarea {
+    margin: 0 auto;
+    height: 7em;
+    border-radius: 4px;
     resize: none;
+}
+input {
+    text-indent: 0.5em;
+}
+#id_name, #id_street, #id_street, #id_rooms, #id_house_number, #id_postcode, #kingdom-div, #id_price, #id_size{
+    height: 2.5em;
+    border: none;
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+    width: 13em;
 }
 #carouselExampleControls {
     width:80%;
@@ -11,55 +24,8 @@ textarea {
 #add-info {
     margin-top: 1em;
 }
-.carousel-inner {
-    margin: 2rem auto;
-    width: 50%;
-    height: 10em;
-    border-radius: 4px;
-}
-.form-group {
-    margin: 0.7em auto;
-    width:40%;
-}
-.input-group-prepend{
-    width: 2.3em;
-}
-.card {
-    height: 900px;
-    width: 700px;
-    background-color: rgba(0,0,0,0.5) !important;
-}
-.card-body {
-    width: 100%;
-}
-.card-title, .sub-title {
-    color: white;
-    text-align: center;
-}
-#id_name, #id_street, #id_street, #id_rooms, #id_house_number, #id_postcode, #kingdom-div, #id_price, #id_size{
-    height: 2.5em;
-    border: none;
-    border-bottom-right-radius: 4px;
-    border-top-right-radius: 4px;
-}
-#id_name, #id_street, #id_street, #id_rooms, #id_house_number, #id_postcode, #kingdom-div, #id_price, #id_size {
-    width: 13em;
-}
-#kingdom-div{
+#kingdom-div {
     max-width: 13.1em;
-}
-.form-group{
-    border-bottom-right-radius: 4px;
-    border-top-right-radius: 4px;
-}
-textarea{
-    margin: 0 auto;
-    height: 7em;
-    border-radius: 4px;
-}
-.bottom-buttons-wrapper {
-    margin: 1.5em auto;
-    width: 55%;
 }
 #confirm-button, #delete-button {
     border: none;
@@ -77,4 +43,43 @@ textarea{
 }
 #delete-button:hover {
     background-color: darkred;
+}
+#pin {
+    padding-left: 2px;
+}
+.carousel-inner {
+    margin: 2rem auto;
+    width: 50%;
+    height: 10em;
+    border-radius: 4px;
+}
+.form-group {
+    margin: 0.7em auto;
+    width:40%;
+}
+.input-group-prepend {
+    width: 2.3em;
+}
+.card {
+    height: 900px;
+    width: 700px;
+    background-color: rgba(0,0,0,0.5) !important;
+}
+.card-body {
+    width: 100%;
+}
+.card-title, .sub-title {
+    color: white;
+    text-align: center;
+}
+.sub-title {
+    margin-bottom: 1em;
+}
+.form-group {
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+}
+.bottom-buttons-wrapper {
+    margin: 1.5em auto;
+    width: 55%;
 }
