@@ -143,6 +143,7 @@ $(document).ready(function () {
                 type: 'GET',
                 success: function (resp) {
                     var newHTML = resp.data.map(d => {
+                        let is_varified = d.verified;
                         return `
                         <div class="col-md-3 well castles">
                                 <a href="/properties/${d.id}">

@@ -12,6 +12,7 @@ from properties.forms.contactinfo import ContactInfoCreationForm
 from properties.forms.propertyedit import CastleEditForm
 from users.forms.creationform import UserCreationForm
 
+
 def index(request):
     user = request.user
     if user.is_superuser:
@@ -131,7 +132,6 @@ def get_property_by_id(request, id):
                     })
 
 
-
 @login_required
 def contact_info_buy(request, id):
     user = request.user
@@ -148,12 +148,14 @@ def contact_info_buy(request, id):
     return render(request, 'payments/contact-info-buy.html',
                   context)
 
+
 def receipt(request, id):
     user = request.user
     context = {'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False),
                'castle': SoldCastle.objects.filter(id=id).first()}
     return render(request, 'payments/receipt.html',
                   context)
+
 
 def payments(request, id):
     user = request.user
@@ -165,6 +167,7 @@ def payments(request, id):
 
     return render(request, 'payments/payment-info.html',
                   context)
+
 
 def review_order(request, id):
     user = request.user
@@ -182,6 +185,7 @@ def payments_offer(request, id):
                   {'castle': get_object_or_404(SoldCastle, pk=id),
                    'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False)
                    })
+
 
 def make_offer(request, id):
     user = request.user
@@ -203,6 +207,7 @@ def make_offer(request, id):
     return render(request, 'payments/make-offer.html',
                   {'castle': get_object_or_404(Castle, pk=id), 'form': OfferCreationForm(),  'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False)
                    })
+
 
 def create(request):
     user=request.user
@@ -229,11 +234,13 @@ def create(request):
         'profile': Profile.objects.filter(user=request.user).first(),  'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False)
     })
 
+
 def delete_photo(request, id):
     image = CastleImage.objects.filter(id=id).first()
     castle_id = image.castle.id
     image.delete()
     return redirect('/properties/' + str(castle_id) + '/photos')
+
 
 def delete_offer(request, id):
     offer = CastleOffer.objects.filter(id=id).first()
@@ -245,6 +252,7 @@ def delete_offer(request, id):
     notification.save_reject_offer(seller, buyer, castle, price)
     offer.delete()
     return redirect('/properties/' + str(castle.id))
+
 
 def edit_property(request, id):
     user = request.user
@@ -258,7 +266,6 @@ def edit_property(request, id):
                   {'castle': get_object_or_404(Castle, pk=id),
                    'form': CastleEditForm(instance=castle),  'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False)
                    })
-
 
 
 def edit_photo(request, id):
