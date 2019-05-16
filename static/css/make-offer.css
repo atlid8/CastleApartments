@@ -1,116 +1,69 @@
-#btn-send-offer {
-    float: right;
-    background-color: #4CAF50;
-    border-color: #4CAF50;
-}
-
-#title-success {
-    margin: auto; !important;
-    color: #4CAF50; !important;
-}
-
-
-.header-text {
-    width: 50%;
-    margin: auto;
-}
-
-.container {
-    color: white;
-    margin-top: 3em;
-    width: 35em;
-}
-
-.row {
-    margin-left: 5em;
-}
-
-.form-control {
-    margin-bottom: 1em;
-}
-
-.castle-pic{
-        margin: 0 auto;
-  border: 1px solid whitesmoke;
-  border-radius: 4px;
-  padding: 5px;
-  width: 150px;
-}
-
-.castle-pic-div{
-    width: 50%;
-    margin: 0 auto;
-}
-
-.card{
-    align-content: center;
-    margin: 0 auto;
-    height: auto;
-    color: white;
-    width: 400px;
-    background-color: rgba(0,0,0,0.5) !important;
-    }
-
-.card-body{
-    width: 90%;
-    margin: 0 auto;
-    height: auto;
-}
-
 h4 {
     margin: 1em auto;
     text-align: center;
     color: whitesmoke;
 }
-
-table {
-    background-color: rgba(255,255,255, 0.1);
-    border-top: 1px whitesmoke solid;
-    border-bottom: 1px whitesmoke solid;
-    margin: 2em auto;
-        width: 20em;
-    text-align: center
-}
-
-table:hover{
-    background-color: rgba(255,255,255, 0.15);
-}
-
-td{
+td {
     padding-left: 1em;
     padding-right: 1em;
     border-left: 1px whitesmoke solid;
     border-right: 1px whitesmoke solid;
 }
-
-.left-column{
-    text-align: left;
+table {
+    background-color: rgba(255,255,255, 0.1);
+    border-top: 1px whitesmoke solid;
+    border-bottom: 1px whitesmoke solid;
+    margin: 2em auto;
+    width: 20em;
+    text-align: center
 }
-
-#id_offer{
+table:hover {
+    background-color: rgba(255,255,255, 0.15);
+}
+#id_offer, #id_info {
     border: none;
-    padding-bottom: 5px;
     border-radius: 4px;
+}
+#id_offer {
+    padding-bottom: 5px;
     text-indent: 1em;
     height: 2.3em;
     width: 7em;
     margin-right: 1.3em;
 }
-
-#id_info{
-    border: none;
+#id_info {
     margin: 1em auto;
-    border-radius: 4px;
     padding: 1em;
     height: 5em;
     width: 15em;
 }
-
-#send-offer{
+#send-offer, .castle-pic, .castle-pic-div, .card, .card-body {
     margin: 0 auto;
 }
-
-.form-horizontal{
+.castle-pic {
+    border: 1px solid whitesmoke;
+    border-radius: 4px;
+    padding: 5px;
+    width: 150px;
+}
+.castle-pic-div {
+    width: 50%;
+}
+.card, .card-body {
+    height: auto;
+}
+.card {
+    align-content: center;
+    color: white;
+    width: 400px;
+    background-color: rgba(0,0,0,0.5) !important;
+}
+.card-body {
+    width: 90%;
+}
+.left-column {
+    text-align: left;
+}
+.form-horizontal {
     padding-left: 1.8em;
-
 }
