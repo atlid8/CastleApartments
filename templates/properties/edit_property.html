@@ -100,9 +100,6 @@
                     <a id="delete-button" onclick="return confirm('Are you sure you want to remove the listing {{ castle.name }}?');" href="{% url 'delete_castle' castle.id %}" class="btn btn-danger">Delete Property<i class="fa fa-ban" aria-hidden="true"></i></a>
                         <button type="submit" id="confirm-button" class="btn btn-success bottom-button">Confirm Changes</button>
                     </div>
-
-{#                 <div class="bottom-wrapper"><button type="submit" id="publish-button" class="btn btn-primary btn-block"> Publish Changes </button>#}
-{#                    <a onclick="return confirm('Are you sure you want to remove the listing {{ castle.name }}');" href="{% url 'delete_castle' castle.id %}" class="btn btn-danger">Delete Property<i class="fa fa-ban" aria-hidden="true"></i></a>#}
                     <p class="sub-title">Need some help? <a href="">Contact us for assistance</a></p> </div>
 
                 </form>
