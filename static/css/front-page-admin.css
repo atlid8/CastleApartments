@@ -15,10 +15,25 @@ img {
     width: 100%;
     height: auto;
 }
+input {
+    width: 50%;
+}
+.tab {
+    width: 84.5%;
+}
 #close-table {
     display: block;
     text-align: center;
     font-size: 2em;
+}
+#submit-staff-button {
+    margin-top: 0.5em;
+    background-color: dodgerblue;
+    color: white;
+    float: right;
+    border-radius: 0.3em;
+    border-color: dodgerblue;
+    min-height: 0.4em;
 }
 .tab button {
     background-color: inherit;
@@ -42,6 +57,9 @@ img {
     width: 45em;
     align-content: center;
     padding: 2em;
+}
+.delete-logo {
+    color: red;
 }
 .btn {
     margin-top: 0.5em;

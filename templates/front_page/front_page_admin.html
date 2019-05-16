@@ -1,8 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/front-page-admin.css' %}"/>
-    <script src="{% static 'js/admin-app.js' %}"></script>
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/front-page-admin.css' %}"/>
+<script src="{% static 'js/admin-app.js' %}"></script>
+
+
+<body>
     <div class="container">
         <h3>Administrative table</h3>
         <div class="tab">
@@ -10,9 +14,10 @@
             <button class="tablinks" onclick="openCity(event, 'employees')">Employees</button>
             <button class="tablinks" onclick="openCity(event, 'customers')">Customers</button>
             <button class="tablinks" onclick="openCity(event, 'properties')">Properties</button>
+            <button class="tablinks" onclick="openCity(event, 'make-employee')">Add employees</button>
         </div>
         <div id="employees" class="tabcontent">
-            <h3>Here we'll display the employees</h3>
+            <h3>Employees</h3>
             <table>
                 <tr>
                     <th>Name</th>
@@ -25,14 +30,14 @@
                         <td>{{ user.first_name }} {{ user.last_name }}</td>
                         <td>{{ user.email }}</td>
                         <td>{{ user.last_login }}</td>
-                        <td><a href="{% url 'delete_user' user.id %}"><i  class="btn btn-danger" aria-hidden="true"></i></a>
+                        <td><a href="{% url 'delete_user' user.id %}"><i  class="fa fa-ban delete-logo" aria-hidden="true"></i></a>
                   </tr>
                 {% endfor %}
             </table>
             <span id="close-table" aria-hidden="true" onclick="this.parentElement.style.display='none'">&times;</span>
         </div>
         <div id="customers" class="tabcontent">
-            <h3>Here we'll display the customers</h3>
+            <h3>Customers</h3>
             <table>
                 <tr>
                     <th>Name</th>
@@ -45,7 +50,7 @@
                         <td>{{ user.first_name }} {{ user.last_name }}</td>
                         <td>{{ user.email }}</td>
                         <td>{{ user.last_login }}</td>
-                        <td><a href="{% url 'delete_user' user.id %}"><i  class="btn btn-danger" aria-hidden="true"></i></a>
+                        <td><a href="{% url 'delete_user' user.id %}"><i  class="fa fa-ban delete-logo" aria-hidden="true"></i></a>
                     </tr>
                 {% endfor %}
             </table>
@@ -53,7 +58,7 @@
         </div>
 
         <div id="properties" class="tabcontent">
-            <h3>Here we'll display the properties</h3>
+            <h3>Properties</h3>
             <table>
                 <tr>
                     <th>Name</th>
@@ -68,18 +73,38 @@
                         <td>{{ castle.seller.first_name }} {{ castle.seller.last_name }}</td>
                         <td>{{ castle.price }}</td>
                         <td><a href="/properties/{{ castle.id }}"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
-                        <td><a href="{% url 'delete_castle' castle.id %}"><i  class="btn btn-danger" aria-hidden="true"></i></a>
+                        <td><a href="{% url 'delete_castle' castle.id %}"><i  class="fa fa-ban delete-logo" aria-hidden="true"></i></a>
                     </tr>
                 {% endfor %}
             </table>
             <span id="close-table" aria-hidden="true" onclick="this.parentElement.style.display='none'">&times;</span>
         </div>
-        <div>
-            <form method="post">
-                {% csrf_token %}
-                {{ form }}
-                <button type="submit">Make staff member</button>
-            </form>
+
+        <div id="make-employee" class="tabcontent">
+            <h3>New employee information</h3>
+            <table>
+                    <div>
+                        <form method="post">
+                            {% csrf_token %}
+                            <div>Username:</div>
+                            {{ form.username }}
+                            <div>Email:</div>
+                            {{ form.email }}
+                            <div>First name:</div>
+                            {{ form.first_name }}
+                            <div>Last name:</div>
+                            {{ form.last_name }}
+                            <div>Password:</div>
+                            {{ form.password1 }}
+                            <div>Password verification:</div>
+                            {{ form.password2 }}
+                            <button type="submit" id="submit-staff-button">Make staff member</button>
+                        </form>
+                    </div>
+            </table>
+            <span id="close-table" aria-hidden="true" onclick="this.parentElement.style.display='none'">&times;</span>
         </div>
     </div>
+</body>
+
 {% endblock %}

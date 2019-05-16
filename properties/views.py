@@ -179,15 +179,6 @@ def review_order(request, id):
          'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False)}
     return render(request, 'payments/review-order.html', context)
 
-
-def payments_offer(request, id):
-    user = request.user
-    return render(request, 'payments/payments.html',
-                  {'castle': get_object_or_404(SoldCastle, pk=id),
-                   'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False)
-                   })
-
-
 def make_offer(request, id):
     user = request.user
     if request.method == 'POST':
