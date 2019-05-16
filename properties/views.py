@@ -76,6 +76,11 @@ def properties(request):
     user = request.user
     did_filter = False
     castles = Castle.objects.all()
+    if "search_history_link" in request.GET:
+        castles = __search_filter(request, request.GET['search-filter'], castles)
+        context = {'castles': castles,
+                   'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False)}
+        return render(request, 'properties/properties-index.html', context)
     if 'search-filter' in request.GET:
         did_filter = True
         castles = __search_filter(request, request.GET['search-filter'], castles)
@@ -108,6 +113,12 @@ def properties(request):
         else:
             return JsonResponse({'data': list(castles)})
     context = {'castles': Castle.objects.all().order_by('name'), 'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False)}
+    return render(request, 'properties/properties-index.html', context)
+
+
+def properties_no_search(request):
+    context = {'castles': Castle.objects.filter(name__icontains=request.GET['search-filter']).order_by('name'),
+               'notifications': Notification.objects.filter(receiver_id=request.user.id, resolved=False)}
     return render(request, 'properties/properties-index.html', context)
 
 
