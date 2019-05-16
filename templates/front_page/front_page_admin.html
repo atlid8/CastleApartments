@@ -1,8 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/front-page-admin.css' %}"/>
-    <script src="{% static 'js/admin-app.js' %}"></script>
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/front-page-admin.css' %}"/>
+<script src="{% static 'js/admin-app.js' %}"></script>
+
+
+<body>
     <div class="container">
         <h3>Administrative table</h3>
         <div class="tab">
@@ -101,4 +105,6 @@
             <span id="close-table" aria-hidden="true" onclick="this.parentElement.style.display='none'">&times;</span>
         </div>
     </div>
+</body>
+
 {% endblock %}

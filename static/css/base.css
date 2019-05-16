@@ -14,7 +14,7 @@ html, body {
     color: white;
 }
 #logo {
-    animation: fadeInLeft 2s;
+    animation: fadeInLeft 1.5s;
 }
 #about-us {
     margin-left: 0.5em;
@@ -103,7 +103,7 @@ html, body {
     color: white;
 }
 #navbarSupportedContent{
-    animation: fadeInRight 2s;
+    animation: fadeInRight 1.5s;
 }
  @keyframes fadeInRight {
    0% {
