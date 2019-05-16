@@ -11,23 +11,66 @@ textarea {
 .carousel-inner {
     margin: 2rem auto;
     width: 50%;
-    height: 9rem;
+    height: 10em;
     border-radius: 4px;
 }
 .form-group {
     margin: 0.7em auto;
     width:40%;
 }
+.input-group-prepend{
+    width: 2.3em;
+}
 .card {
-    height: 850px;
+    height: 900px;
     width: 700px;
     background-color: rgba(0,0,0,0.5) !important;
 }
 .card-body {
     width: 100%;
-    align-content: center;
+
 }
 .card-title, .sub-title {
     color: white;
     text-align: center;
+}
+#id_name, #id_street, #id_street, #id_rooms, #id_house_number, #id_postcode, #kingdom-div, #id_price, #id_size{
+    height: 2.5em;
+    border: none;
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+}
+#id_name, #id_street, #id_street, #id_rooms, #id_house_number, #id_postcode, #kingdom-div, #id_price, #id_size {
+    width: 13em;
+}
+#kingdom-div{
+    width: 1em;
+}
+.form-group{
+    border-bottom-right-radius: 4px;
+    border-top-right-radius: 4px;
+    background-color: white;
+}
+textarea{
+    margin: 0 auto;
+    height: 7em;
+    border-radius: 4px;
+}
+.bottom-buttons-wrapper {
+    margin: 1.5em auto;
+    width: 100%;
+}
+#confirm-button, #delete-button {
+    border: none;
+}
+#confirm-button {
+    background-color: dodgerblue;
+    float:right;
+}
+#delete-button {
+    color: #656b74;
+    background-color: whitesmoke;
+}
+#delete-button:hover {
+    background-color: lightgrey;
 }
