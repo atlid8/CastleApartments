@@ -1,54 +1,71 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-    <link rel="stylesheet" href="{% static 'css/my-profile.css' %}">
+
     <link rel="stylesheet" href="{% static 'css/properties-index.css' %}">
-    <div class="user-watch-list">
-        <div class="container">
-            <div class="row">
-                 <div class="header-text">
-                     {% if castle_watch %}
-                    <h2>Your watch list</h2>
-                     {% else %}
-                         <h2>You have no castles on your watchlist</h2>
-                     {% endif %}
-                </div>
-                {% for castle in castle_watch %}
-                    {% include "properties/singleproperty.html" with castle=castle %}
-                {% endfor %}
-            </div>
+
+    <div class="container">
+        <div class="header-text">
+            {% if castle_watch %}
+                <h2>Your watch list</h2>
+            {% else %}
+                <h2>You have no castles on your watchlist</h2>
+            {% endif %}
         </div>
-    </div>
-    <div class="user-properties">
-        <div class="container">
-            <div class="row">
-                 <div class="header-text" id="after-first-text" >
-                     {% if castles %}
-                    <h2>Castles you have for sale</h2>
-                     {% else %}
-                     <h2>You have no castles for sale</h2>
-                     {% endif %}
+        {% if castle_watch %}
+            <div class="album py-5 bg-transparent">
+                <div class="container" id="properties-container">
+                    <div class="row castles">
+                        {% for castle in castle_watch %}
+                            {% include "properties/singleproperty.html" with castle=castle %}
+                        {% endfor %}
+                    </div>
                 </div>
-                {% for castle in castles %}
-                    {% include "properties/singleproperty.html" with castle=castle %}
-                {% endfor %}
             </div>
+        {% else %}
+            <br/>
+        {% endif %}
+
+        <div class="header-text">
+            {% if castles %}
+                <h2>Castles you have for sale</h2>
+            {% else %}
+                <h2>You have no castles for sale</h2>
+            {% endif %}
         </div>
-    </div>
-    <div class="user-offers">
-        <div class="container">
-            <div class="row">
-                 <div class="header-text" id="after-first-text" >
-                     {% if castle_offer %}
-                    <h2>Castles you have made offers on</h2>
-                     {% else %}
-                     <h2>You have no outstanding offers on castles</h2>
-                     {% endif %}
+        {% if castles %}
+            <div class="album py-5 bg-transparent">
+                <div class="container" id="properties-container">
+                    <div class="row castles">
+                        {% for castle in castles %}
+                            {% include "properties/singleproperty.html" with castle=castle %}
+                        {% endfor %}
+                    </div>
                 </div>
-                {% for castle in castle_offer %}
-                    {% include "properties/singleproperty.html" with castle=castle %}
-                {% endfor %}
             </div>
+        {% else %}
+            <br/>
+        {% endif %}
+
+        <div class="header-text">
+            {% if castle_offer %}
+                <h2>Castles you have made offers on</h2>
+            {% else %}
+                <h2>You have no outstanding offers on castles</h2>
+            {% endif %}
         </div>
+        {% if castle_offer %}
+            <div class="album py-5 bg-transparent">
+                <div class="container" id="properties-container">
+                    <div class="row castles">
+                        {% for castle in castle_offer %}
+                            {% include "properties/singleproperty.html" with castle=castle %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <br/>
+        {% endif %}
     </div>
 {% endblock %}
