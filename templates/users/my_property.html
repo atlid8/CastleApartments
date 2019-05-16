@@ -1,81 +1,63 @@
-{% extends 'base.html' %} {% block content %} {% load static %}
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
-<link rel="stylesheet" type="text/css" href="{% static 'css/my-property.css' %}" />
-
-<div class="card bg-light">
-
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
-    <script type="text/javascript" src="{% static 'js/app.js' %}"></script>
-    <title>Document</title>
-    </head>
-
+{% extends 'base.html' %}
+{% block content %}
+    {% load static %}
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/my-property.css' %}" />
+    <div class="card bg-light">
         <article class="card-body mx-auto">
-        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <img class="d-block w-100" src='{{ castle.castleimage_set.first.image }}' alt="First slide">
-    </div>
-      {%  for image in castle.castleimage_set.all %}
-          {% if image.image != castle.castleimage_set.first.image %}
-                <div class="carousel-item">
-                  <img class="d-block w-100" src='{{ image.image }}' alt="first slide">
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img class="d-block w-100" src='{{ castle.castleimage_set.first.image }}' alt="First slide">
+                    </div>
+                    {%  for image in castle.castleimage_set.all %}
+                        {% if image.image != castle.castleimage_set.first.image %}
+                            <div class="carousel-item">
+                                <img class="d-block w-100" src='{{ image.image }}' alt="first slide">
+                            </div>
+                        {% endif %}
+                    {%  endfor %}
                 </div>
-          {% endif %}
-      {%  endfor %}
-  </div>
-        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a></div>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
             <h3 class="card-title">Your property: {{ castle.name }}</h3>
             <div class="form-group">
-                        <a href="/properties/{{ castle.id }}/edit" id="edit-button" class="btn btn-primary btn-block"> Edit this property... </a>
-                    </div>
-                <h5>Active offers for {{ castle.name }}:</h5>
-    <table class="TableListJS" id="entries">
+                <a href="/properties/{{ castle.id }}/edit" id="edit-button" class="btn btn-primary btn-block"> Edit this property... </a>
+            </div>
+            <h5>Active offers for {{ castle.name }}:</h5>
+            <table class="TableListJS" id="entries">
                 <thead>
-            <tr>
-               <td class="offer-col">Offer</td>
-               <td class="name-col">Name</td>
-               <td class="message-col">Message</td>
-                <td class="response-col">Response</td>
-                <td></td>
-            </tr>
-        </thead>
+                <tr>
+                    <td class="offer-col">Bid</td>
+                    <td class="name-col">Name</td>
+                    <td class="message-col">Message</td>
+                    <td class="response-col">Response</td>
+                    <td></td>
+                </tr>
+                </thead>
                 <tbody>
-        {% for offer in offers %}
-            <tr>
-                <td class="offer-col">{{ offer.offer }}</td>
-                <td class="name-col">{{ offer.buyer.first_name }} {{ offer.buyer.last_name }}</td>
-                <td class="message-col">{{ offer.info }}</td>
-            <td class="response-col"><a id="accept-button" onclick="return confirm('Are you sure you would like to accept this offer of {{ offer.offer }} from {{ offer.buyer.first_name }} {{ offer.buyer.last_name }}?');"href={% url 'accept'  offer.id %} class="block btn btn-primary"> Accept offer </a></td>
-            <td class="response-col"> <a id="accept-button" onclick="return confirm('Are you sure you would like to reject this offer of {{ offer.offer }} from {{ offer.buyer.first_name }} {{ offer.buyer.last_name }}?');"href={% url 'delete_offer'  offer.id %} class="block btn btn-primary"> Reject offer </a></td>
-</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-{#                {% for offer in offers %}#}
-{#            <a href={% url 'accept'  offer.id %} class="block btn btn-primary"> Accept offer for {{ offer.offer }} from {{ offer.buyer.first_name }} </a>#}
-{#                {% endfor %}#}
-</div>
-</div>
-</article>
-</div>
-<!-- card.// -->
-</div>
-<!--container end.//-->
-</div>
-<br>
-<br>
-</article>
+                {% for offer in offers %}
+                    <tr>
+                        <td class="offer-col">{{ offer.offer }}</td>
+                        <td class="name-col">{{ offer.buyer.first_name }} {{ offer.buyer.last_name }}</td>
+                        <td class="message-col">{{ offer.info }}</td>
+                        <td class="response-col">
+                            <a id="accept-button" onclick="return confirm('Are you sure you would like to accept this offer of {{ offer.offer }} from {{ offer.buyer.first_name }} {{ offer.buyer.last_name }}?');" href='{% url 'accept'  offer.id %}' class="block btn btn-primary"> Accept offer </a>
+                        </td>
+                        <td class="response-col">
+                            <a id="reject-button" onclick="return confirm('Are you sure you would like to reject this offer of {{ offer.offer }} from {{ offer.buyer.first_name }} {{ offer.buyer.last_name }}?');" href='{% url 'delete_offer'  offer.id %}' class="block btn btn-primary"> Reject offer </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </article>
+    </div>
 {% endblock %}

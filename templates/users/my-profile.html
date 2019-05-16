@@ -1,15 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<!doctype html>
-<html lang="en">
-<head>
     <link rel="stylesheet" href="{% static 'css/my-profile.css' %}">
     <link rel="stylesheet" href="{% static 'css/properties-index.css' %}">
-    <title>My-profile</title>
-</head>
-
-<body>
     <div class="user-watch-list">
         <div class="container">
             <div class="row">
@@ -17,7 +10,7 @@
                     <h2>Your watch list</h2>
                 </div>
                 {% for castle in castle_watch %}
-                {% include "properties/singleproperty.html" with castle=castle %}
+                    {% include "properties/singleproperty.html" with castle=castle %}
                 {% endfor %}
             </div>
         </div>
@@ -29,7 +22,7 @@
                     <h2>Your sales properties</h2>
                 </div>
                 {% for castle in castles %}
-                {% include "properties/singleproperty.html" with castle=castle %}
+                    {% include "properties/singleproperty.html" with castle=castle %}
                 {% endfor %}
             </div>
         </div>
@@ -41,12 +34,9 @@
                     <h2>Castles you have made offers on</h2>
                 </div>
                 {% for castle in castle_offer %}
-                {% include "properties/singleproperty.html" with castle=castle %}
+                    {% include "properties/singleproperty.html" with castle=castle %}
                 {% endfor %}
             </div>
         </div>
     </div>
-</body>
-</html>
-
 {% endblock %}

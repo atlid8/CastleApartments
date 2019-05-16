@@ -1,45 +1,20 @@
-.divider-text {
-    position: relative;
-    text-align: center;
-    margin-top: 15px;
-    margin-bottom: 15px;
-}
-.divider-text span {
-    padding: 7px;
-    font-size: 12px;
-    position: relative;
-    z-index: 2;
-}
-.divider-text:after {
-    content: "";
-    position: absolute;
+form, #create-button {
     width: 100%;
-    border-bottom: 1px solid #ddd;
-    top: 55%;
-    left: 0;
-    z-index: 1;
 }
-.form-input-field {
-    border-radius: 4px;
-    border-bottom-left-radius: 0;
-    border-top-left-radius: 0;
-    border: none;
-    margin: 0 auto;
-    width: 85%;
-    text-indent: 15px;
-
-}
-form {
-    width: 100%;
+form, #create-button-container {
     margin: 2em auto;
 }
 #create-button-container {
     width: 90%;
-    margin: 2em auto;
 }
-#create-button {
-    width: 100%;
+#create-button, .form-input-field, .card, .card-body, .sub-title {
     margin: 0 auto;
+}
+.form-input-field {
+    border-radius: 0 4px 4px 0;
+    border: none;
+    width: 85%;
+    text-indent: 15px;
 }
 .input-group-prepend {
     height: 100%;
@@ -49,31 +24,15 @@ form {
     margin: 1em auto;
     width: 92%;
 }
-.login_btn {
-    color: black;
-    background-color: whitesmoke;
-    width: 100px;
-}
-.login_btn:hover {
-    color: grey;
-    background-color: white;
-}
-.card{
+.card {
     height: auto;
-    margin: 0 auto;
     width: 400px;
     background-color: rgba(0,0,0,0.5) !important;
 }
-.card-body{
+.card-body {
     width: 85%;
-    margin: 0 auto;
 }
-.card-title {
+.card-title, .sub-title {
     text-align: center;
     color: white;
-}
-.sub-title {
-    text-align: center;
-    color: white;
-    margin: 0 auto;
 }
