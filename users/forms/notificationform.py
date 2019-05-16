@@ -68,7 +68,7 @@ class NotificationForm(ModelForm):
         notification = super(NotificationForm, self).save(commit=False)
         buyername = buyer.first_name + ' ' + buyer.last_name
         notification.info = buyername + ' just bought your castle ' + str(castle.name) + ' for ' + str(price)
-        notification.link = 'properties/receipt/' + str(castle.id)
+        notification.link = '/properties/receipt/' + str(castle.id)
         notification.resolved = False
         notification.receiver = seller
         notification.save()
