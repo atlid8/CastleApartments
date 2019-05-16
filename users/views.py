@@ -19,7 +19,9 @@ def about_us(request):
         if form.is_valid():
             form.save()
             return redirect('/users/about-us')
-    return render(request, 'about_us/about_us.html', {'form': MessageForm(), 'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False) })
+    context = {'form': MessageForm(),
+               'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False) }
+    return render(request, 'about_us/about_us.html', context)
 
 
 def reset_password(request):
@@ -28,39 +30,20 @@ def reset_password(request):
         return render(request, 'users/reset-password.html')
     return redirect("/")
 
-def front_page_admin(request): #TODO eyða ef hitt virkar jafn vel
-    user = request.user
-    if request.method == 'POST':
-        form = UserCreationForm(data=request.POST)
-        if form.is_valid():
-            form.save_staff()
-            return redirect('/') #TODO:Check if this is the right path
-    context = {'staff': User.objects.filter(is_staff=True), 'customers':User.objects.filter(is_staff=False),
-               'castles': Castle.objects.all(), 'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False), 'form': UserCreationForm}
-    return render(request, 'front_page/front_page_admin.html', context)
-
-
 @login_required
 def my_profile(request):
     user = request.user
-    userid = request.user.id
-    list_of_watches = []
-    watchlist = Watchlist.objects.filter(user_id=userid)
-    dictionary = {'castles': Castle.objects.filter(seller_id=userid) }
-    dictionary['castle_watch'] =[]
-    for x in watchlist:
-        if Castle.objects.filter(id=x.castle_watch_id).first() not in list_of_watches:
-            list_of_watches.append(Castle.objects.filter(id=x.castle_watch_id).first())
-    dictionary['castle_watch'] = list_of_watches
-    offer_list = CastleOffer.objects.filter(buyer_id=userid)
+    offer_list = CastleOffer.objects.filter(buyer_id=user.id)
     list_of_offers = []
     for x in offer_list:
         if Castle.objects.filter(id=x.castle_id).first() not in list_of_offers:
             list_of_offers.append(Castle.objects.filter(id=x.castle_id).first())
-    dictionary['castle_offer'] = list_of_offers
-    dictionary['notifications'] = Notification.objects.filter(receiver_id=user.id, resolved=False)
+    context = {'castle_offer': list_of_offers,
+               'castles': Castle.objects.filter(seller_id=user.id),
+               'castle_watch': Watchlist.objects.filter(user_id=user.id),
+               'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False)}
+    return render(request, 'users/my-profile.html', context)
 
-    return render(request, 'users/my-profile.html', dictionary)
 
 def register(request):
     if request.user.id:
