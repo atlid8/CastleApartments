@@ -3,7 +3,7 @@
 {% block content %}
 
     <link rel="stylesheet" href="{% static 'css/search-log.css' %}">
-
+            {% if histories %}
     <div class="container">
         <table id="search-log-table">
             <tbody>
@@ -24,7 +24,27 @@
                       </td>
                   </tr>
                 {% endfor %}
+
             </tbody>
         </table>
+    <a onclick="return confirm('Are you sure you want to delete your search history \n Hint: use incognito mode next time ;)');" href="{% url 'delete_search' %}" class="btn btn-danger buttn">Delete search history</a>
     </div>
+    {% else %}
+      <div class="container">
+        <table id="search-log-table">
+            <tbody>
+                <tr>
+                    <th>Search content</th>
+                </tr>
+
+                  <tr>
+                      <td>
+                          <p>No searches in your history</p>
+                      </td>
+                  </tr>
+
+            </tbody>
+        </table>
+       </div>
+{% endif %}
 {% endblock %}

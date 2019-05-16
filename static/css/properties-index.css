@@ -157,7 +157,6 @@ div.click-to-top:hover span {
     height: 2em;
     border-bottom-right-radius: 10px;
 }
-
 /*Settings below are regarding responsive website*/
 /*When the website is above 1202px*/
 @media screen and (min-width: 1202px) {
@@ -168,6 +167,9 @@ div.click-to-top:hover span {
 }
 /*When the website is above 992px and below 1201px*/
 @media screen and (max-width: 1201px) and (min-width: 992px) {
+    div.click-to-top:hover span {
+        display: none;
+    }
     #search-box {
         width: 12.5em;
     }
@@ -182,7 +184,9 @@ div.click-to-top:hover span {
 }
 /*When the website is above 769px and below 991px*/
 @media screen and (max-width: 991px) and (min-width: 769px) {
-    /*#TODO: Try to put two or three properties per line instead of four*/
+    div.click-to-top:hover span {
+        display: none;
+    }
     #search-box {
         width: 8em;
     }
@@ -204,11 +208,12 @@ div.click-to-top:hover span {
         max-width: 25%;
         min-width: 25%;
     }
-
 }
 /*When the website is above 601px and below 768px*/
 @media screen and (max-width: 768px) and (min-width: 601px) {
-    /*#TODO: Try to put two properties per line instead of four and maybe change 'square meters to m2'*/
+    div.click-to-top:hover span {
+        display: none;
+    }
     h3 {
         text-align: center;
         padding-bottom: 1em;
@@ -245,7 +250,9 @@ div.click-to-top:hover span {
 }
 /*When the website is below 600px*/
 @media screen and (max-width: 600px) {
-    /*#TODO: Change color of the hamburger*/
+    div.click-to-top:hover span {
+        display: none;
+    }
     h1, p {
         text-align: center;
     }
@@ -279,6 +286,7 @@ div.click-to-top:hover span {
         display:none;
     }
 }
+
 .castles{
     animation: fadeInTop 1s;
 }

@@ -22,6 +22,7 @@ urlpatterns = [
     path('verify_castle/<int:id>', views.verify_castle, name="verify_castle"),
     path('messages/<int:id>', views.read_message, name="read_message"),
     path('delete_user/<int:id>', views.delete_user, name="delete_user"),
+    path('delete_search_history', views.delete_search_history, name="delete_search"),
     path('buy_now/<int:id>', views.buy_now, name="buy_now"),
 
 ]

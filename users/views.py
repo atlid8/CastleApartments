@@ -175,6 +175,13 @@ def delete_castle(request, id):
         form.save_not_verified(castle)
     return redirect('/')
 
+def delete_search_history(request):
+    user = request.user
+    search_history = SearchHistory.objects.filter(user_id = user.id)
+    for search in search_history:
+        search.delete()
+    return redirect('/users/search-history')
+
 def verify_castle(request, id):
     castle = Castle.objects.filter(id=id).first()
     castle.verified = True
