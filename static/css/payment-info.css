@@ -2,9 +2,22 @@ form {
     width: 100%;
     margin: 2em auto;
 }
+label {
+    margin-bottom: 0;
+}
 #cvc-field {
     width: 5em;
     margin-left: 1em;
+}
+#expiry-month, #expiry-year, #cvc-field, #payment-header {
+    text-indent: 0;
+    text-align: center;
+}
+#cardName, #cardNumber {
+    border-radius: 4px;
+}
+#payment-header {
+    margin-bottom: 1em;
 }
 #expiry-month, #expiry-year {
     width: 4em;
@@ -35,9 +48,12 @@ form {
     transform: scale(1.2);
     cursor: pointer;
 }
+.label-text {
+    margin-left: 1em;
+}
 .input-group {
     height:2.4em !important;
-    margin: 1em auto;
+    margin: 0 1em 1em;
     width: 92%;
 }
 .card, .bottom-buttons-wrapper {
@@ -61,7 +77,4 @@ form {
 }
 .bottom-buttons-wrapper {
     width: 100%;
-}
-.bottom-button {
-    width: 45%;
 }
