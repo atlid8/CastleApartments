@@ -108,25 +108,24 @@
             <div class="all-tables">
                 <table id="search-log-table">
                     <tbody>
-                        <tr>
+                        <tr class="receipt-info">
                             <th class="table-1">Time</th>
-                            <th class="table-2">Seller</th>
-                            <th class="table-3">Buyer</th>
+                            <th class="table-2"></th>
+                            <th class="table-3"></th>
                             <th class="table-4">Product</th>
                             <th class="table-5">Price</th>
                             <th class="table-6">Subtotal</th>
                         </tr>
-                        <tr>
+                        <tr class="receipt-info">
                             <th class="table-1">{{ castle.time_stamp }}</th>
-                            <th class="table-2">{{ castle.seller.first_name }} {{ castle.seller.first_name }}</th>
-                            <th class="table-3">{{ castle.buyer.first_name }} {{ castle.buyer.last_name }}</th>
+                            <th class="table-2"></th>
+                            <th class="table-3"></th>
                             <th class="table-4">{{ castle.name }}</th>
                             <th class="table-5" id="subtotal">{{ castle.price }}</th>
                             <th class="table-6">{{ castle.price }}</th>
                         </tr>
-
-                        <tr>
-                            <th class="table-1"></th>
+                        <tr class="receipt-info">
+                            <th class="table-1">Seller</th>
                             <th class="table-2"></th>
                             <th class="table-3"></th>
                             <th class="table-4">Tax</th>
@@ -145,20 +144,20 @@
                                 </p>
                             </th>
                         </tr>
-                        <tr>
-                            <th class="table-1"></th>
+                        <tr class="receipt-info">
+                            <th class="table-1">{{ castle.seller.first_name }} {{ castle.seller.first_name }}</th>
                             <th class="table-2"></th>
                             <th class="table-3"></th>
                             <th class="table-4">Thereof commission</th>
                             <th class="table-5" id="commission-of-castle">{{ castle.commission }}</th>
                             <th class="table-6"></th>
                         </tr>
-                        <tr>
-                            <th class="table-1"></th>
+                        <tr class="receipt-info">
+                            <th class="table-1">Buyer</th>
                             <th class="table-2"></th>
                             <th class="table-3"></th>
-                            <th class="table-4"></th>
-                            <th class="table-5 total">Total: </th>
+                            <th class="table-4 total">Total:</th>
+                            <th class="table-5"></th>
                             <th class="table-6 total">
                                 <p>
                                     <script>
@@ -166,6 +165,14 @@
                                     </script>
                                 </p>
                             </th>
+                        </tr>
+                        <tr class="receipt-info">
+                            <th class="table-1">{{ castle.buyer.first_name }} {{ castle.buyer.last_name }}</th>
+                            <th class="table-2"></th>
+                            <th class="table-3"></th>
+                            <th class="table-4"></th>
+                            <th class="table-5"></th>
+                            <th class="table-6"></th>
                         </tr>
                     </tbody>
                 </table>
