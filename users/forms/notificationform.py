@@ -19,7 +19,7 @@ class NotificationForm(ModelForm):
         notification = super(NotificationForm, self).save(commit=False)
         buyername = buyer.first_name + ' ' + buyer.last_name
         castlename = castle.name
-        notification.info = buyername + ' just offered ' + str(offer) + ' Golden Dragons for the property: ' + castlename
+        notification.info = buyername + ' just offered ' + str(offer) + ' Gold Dragons for the property: ' + castlename
         castleid = castle.id
         notification.link = '/properties/' + str(castleid)
         notification.resolved = False
@@ -32,7 +32,7 @@ class NotificationForm(ModelForm):
         sellername = seller.first_name + ' ' + seller.last_name
         castlename = castle.name
         notification.info = sellername + ' just rejected your offer of ' + str(
-            price) + ' Golden Dragons for the property: ' + castlename
+            price) + ' Gold Dragons for the property: ' + castlename
         castleid = castle.id
         notification.link = '/properties/' + str(castleid)
         notification.resolved = False
@@ -47,7 +47,7 @@ class NotificationForm(ModelForm):
         buyername = buyer.first_name + ' ' + buyer.last_name
         castlename = castle.name
         notification.info = buyername + ' just offered ' + str(
-            offer) + ' Golden Dragons for the property: ' + castlename
+            offer) + ' Gold Dragons for the property: ' + castlename
         castleid = castle.id
         notification.link = '/properties/' + str(castleid)
         notification.resolved = False
@@ -76,7 +76,7 @@ class NotificationForm(ModelForm):
 
     def save_bought_now_buyer(self, buyer, castle):
         notification = super(NotificationForm, self).save(commit=False)
-        notification.info = 'You just bought ' + str(castle.name) + '. Here is your receipt'
+        notification.info = 'You just bought ' + str(castle.name) + '! Here is your receipt'
         notification.link = '/properties/receipt/' + str(castle.id)
         notification.resolved = False
         notification.receiver = buyer

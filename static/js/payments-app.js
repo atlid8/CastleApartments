@@ -25,4 +25,3 @@ function get_total() {
     let tax = Math.round(Number(price) * 0.029);
     return Math.round(tax + Number(price)).toString()
 }
-

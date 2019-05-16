@@ -70,7 +70,7 @@
                 <table class="details-table">
                     <tr>
                         <td>Name:</td>
-                        <td>{{ castle.buyer.first_name}}</td>
+                        <td>{{ castle.buyer.first_name}} {{ castle.buyer.last_name}}</td>
                     </tr>
                     <tr>
                         <td>Username:</td>
@@ -89,7 +89,7 @@
                 <table class="details-table">
                     <tr>
                         <td>Name:</td>
-                        <td>{{ castle.seller.first_name }}</td>
+                        <td>{{ castle.seller.first_name }} {{ castle.seller.last_name}}</td>
                     </tr>
                     <tr>
                         <td>Username:</td>
@@ -105,7 +105,8 @@
 
         <div class="receipt-div">
             <h4>Receipt</h4>
-            <div class="all-tables">
+
+
                 <table id="search-log-table">
                     <tbody>
                         <tr class="receipt-info">
@@ -153,7 +154,6 @@
                             <th class="table-6"></th>
                         </tr>
                         <tr class="receipt-info">
-                            <th class="table-1">Buyer</th>
                             <th class="table-2"></th>
                             <th class="table-3"></th>
                             <th class="table-4"></th>
@@ -177,10 +177,11 @@
                         </tr>
                     </tbody>
                 </table>
-            </div>
-        </div>
-    </div>
-    <div class="bottom-button-wrapper">
-        <a id="back-button" class="btn btn-primary btn btn-success bottom-button" href="/">Go to Home</a>
-    </div>
 {% endblock %}
+
+
+
+
+
+
+
