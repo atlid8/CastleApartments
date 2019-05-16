@@ -14,13 +14,14 @@ from users.forms.creationform import UserCreationForm
 
 
 def index(request):
+    """View sem sér um forsíðuna"""
     user = request.user
-    if user.is_superuser:
+    if user.is_superuser:#Forsíðan fyrir admin
         if request.method == 'POST':
             form = UserCreationForm(data=request.POST)
             if form.is_valid():
                 form.save_staff()
-                return redirect('/')  # TODO:Check if this is the right path
+                return redirect('/')
         context = {'staff': User.objects.filter(is_staff=True), 'customers': User.objects.filter(is_staff=False),
                    'castles': Castle.objects.all(),
                    'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False),
@@ -211,6 +212,8 @@ def make_offer(request, id):
 
 def create(request):
     user=request.user
+    if not user.id:
+        return redirect('/users/register')
     if not Profile.objects.filter(user=request.user).first():
         return redirect('/users/edit')
     if not Profile.objects.filter(user=request.user).first().profile_image:

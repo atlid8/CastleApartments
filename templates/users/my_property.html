@@ -8,7 +8,7 @@
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img class="d-block w-100" src='{{ castle.castleimage_set.first.image }}' alt="First slide">
+                        <img class="d-block w-100" src='{{ castle.castleimage_set.first.image }}' alt="First slide" onerror="this.src='/static/images/no_image_available.jpg'">
                     </div>
                     {%  for image in castle.castleimage_set.all %}
                         {% if image.image != castle.castleimage_set.first.image %}
