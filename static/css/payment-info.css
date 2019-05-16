@@ -77,21 +77,54 @@ form {
     color: white;
     margin: 0 auto;
 }
-
 #expiry-month{
     display: inline-block;
 }
-
 #cvc-field{
     width: 5em;
     margin-left: 1em;
 }
-
 #expiry-month, #expiry-year{
     width: 4em;
     display: inline-block;
 }
-
 .month-year{
     margin-left: 1em;
+}
+.bottom-buttons-wrapper{
+    margin: 0 auto;
+    width: 100%;
+}
+.bottom-button{
+    width: 45%;
+}
+#pay-button{
+    background-color: dodgerblue;
+    border: none;
+    float:right;
+}
+#back-button{
+    color: #656b74;
+    border: none;
+    background-color: whitesmoke;
+}
+#back-button span{
+    position: relative;
+    right: 0.7em;
+    top: 0.7em;
+    color:#656b74;
+}
+#back-button:hover{
+    background-color: lightgrey;
+}
+#circle1{
+    color: #4f92ff;
+    transition: transform .2s;
+}
+#circle1:hover, #circle2:hover{
+    border: 2px solid whitesmoke;
+    outline: none;
+    box-shadow: 0 0 4px #9ecaed;
+    transform: scale(1.2);
+    cursor: pointer;
 }

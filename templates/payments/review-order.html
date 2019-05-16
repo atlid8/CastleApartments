@@ -33,9 +33,9 @@
       <div class="col-xs-4 step-label3"></div>
   </div>
   <div class="row">
-      <div id="circle1" class="col-xs-4" label="1.contact"><div class="step step1"></div></div>
-      <div class="col-xs-4"><div class="step step2"></div></div>
-      <div id="circle3" class="col-xs-4"><div class="step step3 active"></div></div>
+      <div class="col-xs-4"><a href="/properties/{{ castle.id }}/contact-info-buy/"><div id="circle1" class="step step1 done"></div></a></div>
+      <div class="col-xs-4"><a href="/properties/{{ castle.id }}/payment-info/"><div id="circle2" class="step step2 done"></div></a></div>
+      <div class="col-xs-4"><div id="circle3" class="step step3 active"></div></div>
   </div>
 </div>
 
@@ -85,7 +85,10 @@
                                 </tr>
                             </tbody>
                         </table>
-                    <a class="well well-md text-center btn btn-success btn-lg btn-block" href="/receipt/{{ castle.id }}" class="rd_more btn btn-default" id="pay-button">Confirm Order</a>
+                    <div class="bottom-buttons-wrapper"><a id="back-button" class="btn btn-primary btn btn-success bottom-button" href="/properties/{{ castle.id }}/payment-info/">Back to Payment Info</a>
+                    <a id="pay-button" class="btn btn-success bottom-button" href="{% url 'buy_now' castle.id %}">Confirm Order Payment</a></div>
+
+{#                    <a class="well well-md text-center btn btn-success btn-lg btn-block" href="/receipt/{{ castle.id }}" class="rd_more btn btn-default" id="pay-button">Confirm Order</a>#}
 
                 </div></article></div></form>
 

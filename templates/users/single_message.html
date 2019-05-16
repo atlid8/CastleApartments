@@ -21,7 +21,7 @@
                 <input disabled type="text" class="form-control" placeholder="{{ message.subject }}">
                 <h5>Content:</h5>
                 <textarea disabled id="message-content" type="text" class="form-control" >{{ message.content }}</textarea>
-                <div class="back-btn"><a class="btn btn-primary" href="/users/messages/">Back to inbox</a>
+                <div class="back-btn"><a id="back-button" class="btn btn-primary" href="/users/messages/">Back to inbox</a>
                <a id="reply-btn" class="btn btn-primary" href="mailto:{{ message.email }}">Reply</a></div>
             </div></div></div>
 

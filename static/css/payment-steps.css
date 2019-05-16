@@ -43,12 +43,9 @@
 .step-label2{
     text-align: center;
 }
-
 .step-label3{
   text-align: right;
-
 }
-
 .step{
   width: 20px;
   height: 20px;
@@ -69,16 +66,18 @@
   float: right;
   margin-top: -10px;
 }
+.done{
+  background:cornflowerblue;
+    font-weight: bold;
+    outline: none;
+}
 .active{
   background: dodgerblue;
     font-weight: bold;
-    border: 2px solid #dadada;
+    border: 2px solid white;
     outline: none;
-    border-color: #9ecaed;
     box-shadow: 0 0 10px #9ecaed;
 }
-
-
 #circle1{
     padding-left:0.5em;
 }

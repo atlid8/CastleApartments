@@ -20,9 +20,9 @@
                     </thead>
                     {% for message in messages %}
                         {% if message.read %}
-                            <tr class="message-row clickable-message" data-href="/users/message/{{message.id }}">
+                            <tr class="message-row clickable-message" data-href="/users/messages/{{message.id }}">
                         {% else %}
-                            <tr class="message-row clickable-message unread-row" data-href="/users/message/{{message.id }}">
+                            <tr class="message-row clickable-message unread-row" data-href="/users/messages/{{message.id }}">
                         {% endif %}
                     <td class ="sender-name">{{ message.name }}</td>
                     <td class ="message-title">{{ message.subject }}</td>

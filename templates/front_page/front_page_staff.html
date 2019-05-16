@@ -4,11 +4,11 @@
 
     <link rel="stylesheet" type="text/css" href="{% static 'css/front-page-staff.css' %}"/>
     <div class="container">
-    <h3>{{ messages|length }} unread user message{% if messages|length > 1 %}s{% endif %} </h3>
+    <h3>{{ messages|length }} unread user message{% if messages|length > 1 or messages|length == 0%}s{% endif %} </h3>
         <a {% if messages|length %}
                 id="messages-button-unread"
                 {% endif %}
-                class="messages-button" href="/users/my-inbox"> <i class="fa fa-envelope fa-4x fa-clickable"></i></a>
+                class="messages-button" href="/users/messages"> <i class="fa fa-envelope fa-4x fa-clickable"></i></a>
     <div class="messages-tag-wrapper"><a id="messages-tag" href="/users/messages"> <h4>Click to go to inbox</h4></a></div>
     </div>
     <div class="container">

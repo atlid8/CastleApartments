@@ -2,18 +2,15 @@
 @import url('https://fonts.googleapis.com/css?family=Numans');
 
 html,body{
-
 background-size: cover;
 background-repeat: no-repeat;
 height: 100%;
 
 }
-
 .container{
 height: 100%;
 align-content: center;
 }
-
 .card{
 height: auto;
 margin-top: auto;
@@ -21,55 +18,43 @@ margin-bottom: 2em;
 width: 400px;
 background-color: rgba(0,0,0,0.5) !important;
 }
-
 .card-body{
     width: 90%;
     margin: 0 auto;
 }
-
-
-
 .profile-pic-div{
     width: 50%;
     margin: 0 auto;
 }
-
 .social_icon span:hover{
 color: white;
 cursor: pointer;
 }
-
 .card-header h3{
 color: white;
     margin: 1em auto;
 }
-
 input:focus{
 outline: 0 0 0 0  !important;
 box-shadow: 0 0 0 0 !important;
 
 }
-
 .remember{
 color: white;
 }
-
 h5{
     color: white;
 }
-
 #message-content{
     height: auto;
     color: grey;
     min-height: 10em;
 }
-
 .remember input
 {
 margin-left: 15px;
 margin-right: 5px;
 }
-
 .form-input-field{
     border: none;
     margin: 0 auto;
@@ -77,7 +62,6 @@ margin-right: 5px;
     text-indent: 15px;
 
 }
-
 .form-group{
     border-radius: 4px;
     margin: 0em auto;
@@ -92,30 +76,22 @@ margin-right: 5px;
     height: 2.6em;
     width: 100%;
     text-indent: 15px;
-
 }
-
 .input-group-prepend{
     width: 100%;
     padding: 0.5em;
     margin: 0 auto;
 }
-
 .card-footer{
     margin: 0 auto;
 }
-
-
 .form-horizontal{
     margin: 1em auto;
     text-align: center;
 }
-
 label {
     color: white;
 }
-
-
 #remember-me{
    margin-left: 1.5em;
 }
@@ -123,8 +99,6 @@ label {
 color: grey;
 background-color: white;
 }
-
-
 .links{
 color: white;
 }
@@ -132,7 +106,6 @@ color: white;
 a {
     color: dodgerblue;
 }
-
 .links a{
 margin-left: 4px;
 }
@@ -142,24 +115,24 @@ h4 {
     text-align: center;
     color: whitesmoke;
 }
-
 .footer-links {
     color: dodgerblue;
 }
-
 .footer-links:hover {
     color: whitesmoke;
 }
-
 .form-control{
     margin-bottom: 1.5em;
 }
-
 .back-btn{
     margin: 0 auto;
     width: 90%;
 }
-
+#back-button{
+    background-color: whitesmoke;
+    color: black;
+    border: none;
+}
 #reply-btn{
     width: 43%;
     float:right;
