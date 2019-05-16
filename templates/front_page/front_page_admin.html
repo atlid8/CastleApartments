@@ -6,13 +6,13 @@
     <script src="{% static 'js/admin-app.js' %}"></script>
 
     <div class="container">
-        <h3>Administrative table</h3>
+        <h3>Administrative tools</h3>
         <div class="tab">
             <button class="tablinks" disabled>View by:</button>
-            <button class="tablinks" onclick="openCity(event, 'employees')">Employees</button>
-            <button class="tablinks" onclick="openCity(event, 'customers')">Customers</button>
-            <button class="tablinks" onclick="openCity(event, 'properties')">Properties</button>
-            <button class="tablinks" onclick="openCity(event, 'make-employee')">Add employees</button>
+            <button class="tablinks" onclick="openColumn(event, 'employees')">Employees</button>
+            <button class="tablinks" onclick="openColumn(event, 'customers')">Customers</button>
+            <button class="tablinks" onclick="openColumn(event, 'properties')">Properties</button>
+            <button class="tablinks" onclick="openColumn(event, 'make-employee')">Add employees</button>
         </div>
         <div id="employees" class="tabcontent">
             <h3>Employees</h3>
@@ -96,7 +96,7 @@
                             {{ form.password1 }}
                             <div>Password verification:</div>
                             {{ form.password2 }}
-                            <button type="submit" id="submit-staff-button">Make staff member</button>
+                            <div class="create-emp-btn"><button type="submit" id="submit-staff-button">Create employee</button></div>
                         </form>
                     </div>
             </table>

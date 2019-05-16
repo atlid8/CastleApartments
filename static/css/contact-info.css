@@ -5,8 +5,14 @@ input {
     border-radius: 0 4px 4px 0;
     border: none;
 }
+input, select {
+    text-indent: 1em;
+}
 input, #id_country {
     width: 79.5%;
+}
+#create-button {
+    width: 16em;
 }
 :disabled {
     background-color: lightgrey;
@@ -14,4 +20,7 @@ input, #id_country {
 }
 .input-group-text {
     width: 2.6em;
+}
+.card {
+    margin-top: 3em;
 }

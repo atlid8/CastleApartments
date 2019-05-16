@@ -66,7 +66,7 @@
                                         <label for="cardNumber">CARD NUMBER</label>
                                         <div class="input-group">
 
-                                            <input type="number" maxlength="16" minlength="16" class="form-control" id="cardNumber" placeholder="Valid Card Number" required autofocus />
+                                            <input type="text" minlength="16" maxlength="16" class="form-control" id="cardNumber" placeholder="Valid Card Number" required autofocus />
                                             <span class="input-group-addon">
                                                 <span class="glyphicon glyphicon-lock"></span>
                                             </span>
@@ -76,15 +76,15 @@
                                                 <div class="form-group">
                                                     <label>EXPIRY DATE</label>
                                                     <div class="month-year">
-                                                        <input type="text" class="form-control" id="expiry-month" placeholder="MM" required />
-                                                        <input type="text" class="form-control" id="expiry-year" placeholder="YY" required />
+                                                        <input type="text" maxlength="2" class="form-control" id="expiry-month" placeholder="MM" required />
+                                                        <input type="text" maxlength="2" class="form-control" id="expiry-year" placeholder="YY" required />
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-xs-5 col-md-5 pull-right">
                                                 <div class="form-group">
                                                     <label for="cvcCode">CVC</label>
-                                                    <input id="cvc-field" type="text" class="form-control" placeholder="CVC" required />
+                                                    <input maxlength="3" id="cvc-field" type="text" class="form-control" placeholder="CVC" required />
                                                 </div>
                                             </div>
                                         </div>
