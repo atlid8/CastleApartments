@@ -1,5 +1,5 @@
 textarea {
-  resize: none;
+    resize: none;
 }
 #carouselExampleControls {
     width:80%;
@@ -28,7 +28,6 @@ textarea {
 }
 .card-body {
     width: 100%;
-
 }
 .card-title, .sub-title {
     color: white;
@@ -44,12 +43,11 @@ textarea {
     width: 13em;
 }
 #kingdom-div{
-    width: 1em;
+    max-width: 13.1em;
 }
 .form-group{
     border-bottom-right-radius: 4px;
     border-top-right-radius: 4px;
-    background-color: white;
 }
 textarea{
     margin: 0 auto;
@@ -67,10 +65,13 @@ textarea{
     background-color: dodgerblue;
     float:right;
 }
+#confirm-button:hover {
+    background-color: cornflowerblue;
+}
 #delete-button {
-    color: #656b74;
-    background-color: whitesmoke;
+    color: white;
+    background-color: red;
 }
 #delete-button:hover {
-    background-color: lightgrey;
+    background-color: darkred;
 }

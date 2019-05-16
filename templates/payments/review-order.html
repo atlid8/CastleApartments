@@ -95,7 +95,8 @@
                         </table>
                         <div class="bottom-buttons-wrapper">
                             <a id="back-button" class="btn btn-primary btn btn-success bottom-button" href="/properties/{{ castle.id }}/payment-info/">Back to Payment Info</a>
-                            <a id="pay-button" class="btn btn-success bottom-button" href="{% url 'buy_now' castle.id %}">Confirm Order Payment</a>
+                            <a onclick="return confirm('Are you sure you want to buy this castle? \n You can not ask for a refund!');" id="pay-button" class="btn btn-success bottom-button" href="{% url 'buy_now' castle.id %}">Confirm Order Payment</a>
+                            <a
                         </div>
                     </div>
                 </article>
