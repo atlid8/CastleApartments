@@ -8,7 +8,6 @@ urlpatterns = [
     path('about-us/', views.about_us, name='about-us'),
     path('password-reset/', views.reset_password, name='password-reset'),
     path('my-profile/', views.my_profile, name='my-profile'),
-    path('admin/', views.front_page_admin, name='front-page-admin'),
     path('register/', views.register, name='register'),
     path('search-history/', views.search_history, name='search-history'),
     path('logout', LogoutView.as_view(next_page='login/'), name='logout'), #TODO: breyta next page ef ekki virkar

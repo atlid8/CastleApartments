@@ -33,28 +33,21 @@ def reset_password(request):
 @login_required
 def my_profile(request):
     user = request.user
+    list_of_watches = []
+    watchlist = Watchlist.objects.filter(user_id=user.id)
+    for x in watchlist:
+        list_of_watches.append(Castle.objects.filter(id=x.castle_watch_id).first())
     offer_list = CastleOffer.objects.filter(buyer_id=user.id)
     list_of_offers = []
     for x in offer_list:
         if Castle.objects.filter(id=x.castle_id).first() not in list_of_offers:
             list_of_offers.append(Castle.objects.filter(id=x.castle_id).first())
-    context = {'castle_offer': list_of_offers,
-               'castles': Castle.objects.filter(seller_id=user.id),
-               'castle_watch': Watchlist.objects.filter(user_id=user.id),
+    context = {'castles': Castle.objects.filter(seller_id=user.id),
+               'castle_watch': list_of_watches,
+               'castle_offer': list_of_offers,
                'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False)}
+
     return render(request, 'users/my-profile.html', context)
-
-
-def front_page_admin(request): #TODO eyða ef hitt virkar jafn vel
-    user = request.user
-    if request.method == 'POST':
-        form = UserCreationForm(data=request.POST)
-        if form.is_valid():
-            form.save_staff()
-            return redirect('/') #TODO:Check if this is the right path
-    context = {'staff': User.objects.filter(is_staff=True), 'customers':User.objects.filter(is_staff=False),
-               'castles': Castle.objects.all(), 'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False), 'form': UserCreationForm}
-    return render(request, 'front_page/front_page_admin.html', context)
 
 
 def register(request):
