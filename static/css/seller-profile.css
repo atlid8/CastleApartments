@@ -1,13 +1,13 @@
 #about-table {
     margin-top: 1em;
 }
-#user-info{
+#user-info {
     margin-bottom: 3em;
 }
 #properties-row {
     padding-left: 1.5em;
 }
-.container{
+.container {
     margin-top: 2em;
     height: auto;
     border-radius: 1em;
@@ -66,6 +66,7 @@
     background-color: rgba(255,255,255, 0.4);
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
+    color: white;
 }
 .card-text {
     font-size: 0.75em;
