@@ -26,7 +26,7 @@
                         <td>{{ user.first_name }} {{ user.last_name }}</td>
                         <td>{{ user.email }}</td>
                         <td>{{ user.last_login }}</td>
-                        <td><a href="{% url 'delete_user' user.id %}"><i  class="btn btn-danger" aria-hidden="true"></i></a>
+                        <td><a href="{% url 'delete_user' user.id %}"><i  class="fa fa-ban delete-logo" aria-hidden="true"></i></a>
                   </tr>
                 {% endfor %}
             </table>
@@ -46,7 +46,7 @@
                         <td>{{ user.first_name }} {{ user.last_name }}</td>
                         <td>{{ user.email }}</td>
                         <td>{{ user.last_login }}</td>
-                        <td><a href="{% url 'delete_user' user.id %}"><i  class="btn btn-danger" aria-hidden="true"></i></a>
+                        <td><a href="{% url 'delete_user' user.id %}"><i  class="fa fa-ban delete-logo" aria-hidden="true"></i></a>
                     </tr>
                 {% endfor %}
             </table>
@@ -69,7 +69,7 @@
                         <td>{{ castle.seller.first_name }} {{ castle.seller.last_name }}</td>
                         <td>{{ castle.price }}</td>
                         <td><a href="/properties/{{ castle.id }}"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
-                        <td><a href="{% url 'delete_castle' castle.id %}"><i  class="btn btn-danger" aria-hidden="true"></i></a>
+                        <td><a href="{% url 'delete_castle' castle.id %}"><i  class="fa fa-ban delete-logo" aria-hidden="true"></i></a>
                     </tr>
                 {% endfor %}
             </table>
