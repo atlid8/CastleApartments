@@ -154,7 +154,8 @@ def accept_offer(request, id):
     for watch in the_offer_list:
         form = NotificationForm()
         watcher = User.objects.filter(id=watch.buyer_id).first()
-        form.save_for_watchlist(soldcastle.buyer, soldcastle, offer.offer, watcher)
+        if watcher != soldcastle.buyer:
+            form.save_for_watchlist(soldcastle.buyer, soldcastle, offer.offer, watcher)
     castle.delete()
     return redirect('/')
 
