@@ -16,9 +16,9 @@ class CastleCreationForm(forms.ModelForm):
                     widget=forms.TextInput(attrs={'placeholder': 'street name'}))
     house_number = forms.IntegerField(label='house_number',
                     widget=forms.NumberInput(attrs={'placeholder': 'house number'}))
-    rooms = forms.IntegerField(min_value=0, max_value=50, label='rooms', widget=forms.NumberInput(attrs={'placeholder': 'rooms'}))
-    price = forms.IntegerField(min_value=0, max_value=100000, label='price', widget=forms.NumberInput(attrs={'placeholder': 'price'}))
-    size = forms.IntegerField(min_value=0, max_value=10000, label='size', widget=forms.NumberInput(attrs={'placeholder': 'size (m2)'}))
+    rooms = forms.IntegerField(min_value=1, max_value=50, label='rooms', widget=forms.NumberInput(attrs={'placeholder': 'rooms'}))
+    price = forms.IntegerField(min_value=1, max_value=100000, label='price', widget=forms.NumberInput(attrs={'placeholder': 'price'}))
+    size = forms.IntegerField(min_value=1, max_value=10000, label='size', widget=forms.NumberInput(attrs={'placeholder': 'size (m2)'}))
     info = forms.CharField(label='info', widget=forms.TextInput(attrs={'placeholder': 'describe it in vivid detail'}))
 
 
