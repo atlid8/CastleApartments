@@ -3,12 +3,102 @@
 {% block content %}
  <html lang="en">
 <head>
-    <link rel="stylesheet" href="{% static 'css/payment.css' %}">
+    <link rel="stylesheet" href="{% static 'css/receipt.css' %}">
+    <link rel="stylesheet" href="{% static 'css/payment-steps.css' %}">
     <script type="text/javascript" src="{% static 'js/payments-app.js' %}"></script>
 </head>
 
 <body>
-    <div class="all-tables">
+<div class="container">
+
+      <div class="row ">
+      <div id="icon1" class="col-xs-4 step-label1"><i class="fa fa-address-card fa-2x" aria-hidden="true"></i></div>
+      <div class="col-xs-4 step-label2"><i class="fas fa-coins fa-2x"></i></div>
+      <div id="icon3" class="col-xs-4 step-label3"><i class="fas fa-receipt fa-2x"></i></div>
+      </div><span id="contact">1. Contact info</span>
+    <span id="payment">2. Payment info</span>
+    <span id="review">3. Review</span>
+
+  <div class="row line">
+      <div class="col-xs-4 step-label1"></div>
+      <div class="col-xs-4 step-label2"></div>
+      <div class="col-xs-4 step-label3"></div>
+  </div>
+  <div class="row">
+      <div class="col-xs-4"><div id="circle1" class="step step1 active"></div></div>
+      <div class="col-xs-4"><div id="circle2" class="step step2 active"></div></div>
+      <div class="col-xs-4"><div id="circle3" class="step step3 active"></div></div>
+  </div>
+</div>
+    {% csrf_token %}
+    <div class="receipt-container">
+        <div class="receipt-header">
+                    <h1>Thank you for your order!</h1>
+                </div>
+  <div class="product-info">
+      <div class="product-details">
+          <h4>Product</h4>
+          <span class="fab fa-fort-awesome fa-3x icons"></span>
+           <table class="details-table">
+                        <tr>
+                            <td>Castle:</td>
+                            <td>{{ castle.name }}</td>
+                        </tr>
+                        <tr>
+                            <td>Size:</td>
+                            <td>{{ castle.size }} M2</td>
+                        </tr>
+                        <tr>
+                            <td>Price:</td>
+                            <td>{{ castle.price }}</td>
+                        </tr>
+                </table>
+      </div>
+      <div class="buyer-info">
+         <h4>Buyer</h4>
+          <span class="fas fa-crown fa-3x icons icons-right"></span>
+          <table class="details-table">
+                        <tr>
+                            <td>Name:</td>
+                            <td>{{ castle.buyer.first_name}}</td>
+                        </tr>
+                        <tr>
+                            <td>Username:</td>
+                            <td>{{ castle.buyer.username }}</td>
+                        </tr>
+                        <tr>
+                            <td>Email:</td>
+                            <td>{{ castle.buyer.email }}</td>
+                        </tr>
+                </table>
+        </div>
+      <div class="seller-info">
+           <h4>Seller</h4>
+          <span class="fas fa-user-circle fa-3x icons"></span>
+
+          <table class="details-table">
+                        <tr>
+                            <td>Name:</td>
+                            <td>{{ castle.seller.first_name }}</td>
+                        </tr>
+                        <tr>
+                            <td>Username:</td>
+                            <td>{{ castle.seller.username}}</td>
+                        </tr>
+                        <tr>
+                            <td>Email:</td>
+                            <td>{{ castle.seller.email }}</td>
+                        </tr>
+                </table>
+{#          <div class="col-xs-12 col-sm-3 center" id="img-container">#}
+{#                    <img class="img-responsive" src="{{ profile.profile_image }}" alt="Profile image"/>#}
+{#                </div>#}
+          </div>
+      </div>
+
+        <div class="receipt-div">
+            <h4>Receipt</h4>
+            <div class="all-tables">
         <table id="search-log-table">
             <thead>
 
@@ -57,10 +147,12 @@
                 </tr>
             </tbody>
         </table>
-
-         <a href="/"  id="create-button" class="btn btn-primary" value="Go Home">Go Home<a/>
-         </a>
+        </div>
     </div>
+    </div>
+<div class="bottom-button-wrapper">
+    <a id="back-button" class="btn btn-primary btn btn-success bottom-button" href="/">Go to Home</a>
+</div>
 </body>
 </html>
 
