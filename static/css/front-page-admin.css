@@ -22,15 +22,17 @@ input {
     width: 84.5%;
 }
 #close-table {
-    display: block;
+    width: 1em;
     text-align: center;
     font-size: 2em;
+}
+#close-table:hover {
+    cursor: pointer;
 }
 #submit-staff-button {
     margin-top: 0.5em;
     background-color: dodgerblue;
     color: white;
-    float: right;
     border-radius: 0.3em;
     border-color: dodgerblue;
     min-height: 0.4em;
@@ -65,19 +67,29 @@ input {
     margin-top: 0.5em;
 }
 .tab {
+    width: 100%;
     overflow: hidden;
     border: 1px solid #ccc;
     background-color: #f1f1f1;
 }
 .tabcontent {
+    text-align: center;
     display: none;
     padding: 6px 12px;
     border: 1px solid #ccc;
     border-top: none;
     background-color: rgba(255,255,255, 0.2);
-    animation: fadeEffect 1s; /* Fading effect takes 1 second */
+    animation: fadeEffect 1s;
+}
+.create-emp-btn {
+    margin: 1em;
+    text-align: center;
 }
 @keyframes fadeEffect {
   from {opacity: 0;}
   to {opacity: 1;}
+}
+h3{
+    margin: 1em;
+    text-align: center;
 }
