@@ -144,6 +144,7 @@ $(document).ready(function () {
                 success: function (resp) {
                     var newHTML = resp.data.map(d => {
                         let is_varified = d.verified;
+                        if (is_varified) {
                         return `
                         <div class="col-md-3 well castles">
                                 <a href="/properties/${d.id}">
@@ -159,6 +160,23 @@ $(document).ready(function () {
                                 </div>
                                 </a>
                         </div>`
+                        } else {
+                            return `
+                            <div class="col-md-3 well castles">
+                                    <a href="/properties/${d.id}">
+                                    <div class="card mb-4 box-shadow">
+                                        <img class="card-img-top" src='${d.image}'onerror="this.src='/static/images/no_image_available.jpg'" data-holder-rendered="true">
+                                        <div class="card-body">
+                                            <h1 class="card-text" id="castle-name"> ${d.name}</h1>
+                                            <p class="card-text" id="castle-info "> ${d.info}</p>
+                                            <p class="card-text far fa-money-bill-alt" id="castle-price"> ${d.price}</p>
+                                            <p class="card-text fas fa-expand-arrows-alt" id="castle-size"> ${ d.size }</p>
+                                        </div>
+                                    </div>
+                                    </a>
+                            </div>`
+                        }
+
                     });
                     $('.castles').html(newHTML.join(''));
                 },
@@ -205,20 +223,38 @@ $(document).ready(function () {
             type: 'GET',
             success: function (resp) {
                 var newHTML = resp.data.map(d => {
-                    return `
-                    <div class="col-md-3 well castles">
-                            <a href="/properties/${d.id}">
-                            <div class="card mb-4 box-shadow">
-                                <img class="card-img-top"  alt="Thumbnail [100%x225]" src='${d.image}'onerror="this.src='/static/images/no_image_available.jpg'" data-holder-rendered="true">
-                                <div class="card-body">
-                                    <h1 class="card-text" id="castle-name"> ${d.name}</h1>
-                                    <p class="card-text" id="castle-info ">${d.info}</p>
-                                    <p class="card-text far fa-money-bill-alt" id="castle-price"> ${d.price}</p>
-                                    <p class="card-text fas fa-expand-arrows-alt" id="castle-size"> ${ d.size }</p>
+                    let is_varified = d.verified;
+                        if (is_varified) {
+                        return `
+                        <div class="col-md-3 well castles">
+                                <a href="/properties/${d.id}">
+                                <div class="card mb-4 box-shadow">
+                                    <img class="card-img-top" src='${d.image}'onerror="this.src='/static/images/no_image_available.jpg'" data-holder-rendered="true">
+                                    <div class="click-to-top"><img class="verified" alt="verified" src='/static/images/correct.png'/><span>  Verified property!</span></div>
+                                    <div class="card-body">
+                                        <h1 class="card-text" id="castle-name"> ${d.name}</h1>
+                                        <p class="card-text" id="castle-info "> ${d.info}</p>
+                                        <p class="card-text far fa-money-bill-alt" id="castle-price"> ${d.price}</p>
+                                        <p class="card-text fas fa-expand-arrows-alt" id="castle-size"> ${ d.size }</p>
+                                    </div>
                                 </div>
-                            </div>
-                            </a>
-                    </div>`
+                                </a>
+                        </div>`
+                        } else {
+                            return `
+                            <div class="col-md-3 well castles">
+                                    <a href="/properties/${d.id}">
+                                    <div class="card mb-4 box-shadow">
+                                        <img class="card-img-top" src='${d.image}'onerror="this.src='/static/images/no_image_available.jpg'" data-holder-rendered="true">
+                                        <div class="card-body">
+                                            <h1 class="card-text" id="castle-name"> ${d.name}</h1>
+                                            <p class="card-text" id="castle-info "> ${d.info}</p>
+                                            <p class="card-text far fa-money-bill-alt" id="castle-price"> ${d.price}</p>
+                                            <p class="card-text fas fa-expand-arrows-alt" id="castle-size"> ${ d.size }</p>
+                                        </div>
+                                    </div>
+                                    </a>
+                            </div>`}
                 });
                 window.searchInput = searchText
                 $('.castles').html(newHTML.join(''));
@@ -269,20 +305,38 @@ $(document).ready(function () {
             type: 'GET',
             success: function (resp) {
                 var newHTML = resp.data.map(d => {
-                    return `
-                    <div class="col-md-3 well castles">
-                            <a href="/properties/${d.id}">
-                            <div class="card mb-4 box-shadow">
-                                <img class="card-img-top"  alt="Thumbnail [100%x225]" src='${d.image}'onerror="this.src='/static/images/no_image_available.jpg'" data-holder-rendered="true">
-                                <div class="card-body">
-                                    <h1 class="card-text" id="castle-name"> ${d.name}</h1>
-                                    <p class="card-text" id="castle-info ">${d.info}</p>
-                                    <p class="card-text far fa-money-bill-alt" id="castle-price"> ${d.price}</p>
-                                    <p class="card-text fas fa-expand-arrows-alt" id="castle-size"> ${ d.size }</p>
+                    let is_varified = d.verified;
+                        if (is_varified) {
+                        return `
+                        <div class="col-md-3 well castles">
+                                <a href="/properties/${d.id}">
+                                <div class="card mb-4 box-shadow">
+                                    <img class="card-img-top" src='${d.image}'onerror="this.src='/static/images/no_image_available.jpg'" data-holder-rendered="true">
+                                    <div class="click-to-top"><img class="verified" alt="verified" src='/static/images/correct.png'/><span>  Verified property!</span></div>
+                                    <div class="card-body">
+                                        <h1 class="card-text" id="castle-name"> ${d.name}</h1>
+                                        <p class="card-text" id="castle-info "> ${d.info}</p>
+                                        <p class="card-text far fa-money-bill-alt" id="castle-price"> ${d.price}</p>
+                                        <p class="card-text fas fa-expand-arrows-alt" id="castle-size"> ${ d.size }</p>
+                                    </div>
                                 </div>
-                            </div>
-                            </a>
-                    </div>`
+                                </a>
+                        </div>`
+                        } else {
+                            return `
+                            <div class="col-md-3 well castles">
+                                    <a href="/properties/${d.id}">
+                                    <div class="card mb-4 box-shadow">
+                                        <img class="card-img-top" src='${d.image}'onerror="this.src='/static/images/no_image_available.jpg'" data-holder-rendered="true">
+                                        <div class="card-body">
+                                            <h1 class="card-text" id="castle-name"> ${d.name}</h1>
+                                            <p class="card-text" id="castle-info "> ${d.info}</p>
+                                            <p class="card-text far fa-money-bill-alt" id="castle-price"> ${d.price}</p>
+                                            <p class="card-text fas fa-expand-arrows-alt" id="castle-size"> ${ d.size }</p>
+                                        </div>
+                                    </div>
+                                    </a>
+                            </div>`}
                 });
                 $('.castles').html(newHTML.join(''))
             },
