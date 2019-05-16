@@ -10,9 +10,10 @@
             <button class="tablinks" onclick="openCity(event, 'employees')">Employees</button>
             <button class="tablinks" onclick="openCity(event, 'customers')">Customers</button>
             <button class="tablinks" onclick="openCity(event, 'properties')">Properties</button>
+            <button class="tablinks" onclick="openCity(event, 'make-employee')">Add employees</button>
         </div>
         <div id="employees" class="tabcontent">
-            <h3>Here we'll display the employees</h3>
+            <h3>Employees</h3>
             <table>
                 <tr>
                     <th>Name</th>
@@ -32,7 +33,7 @@
             <span id="close-table" aria-hidden="true" onclick="this.parentElement.style.display='none'">&times;</span>
         </div>
         <div id="customers" class="tabcontent">
-            <h3>Here we'll display the customers</h3>
+            <h3>Customers</h3>
             <table>
                 <tr>
                     <th>Name</th>
@@ -53,7 +54,7 @@
         </div>
 
         <div id="properties" class="tabcontent">
-            <h3>Here we'll display the properties</h3>
+            <h3>Properties</h3>
             <table>
                 <tr>
                     <th>Name</th>
@@ -74,12 +75,30 @@
             </table>
             <span id="close-table" aria-hidden="true" onclick="this.parentElement.style.display='none'">&times;</span>
         </div>
-        <div>
-            <form method="post">
-                {% csrf_token %}
-                {{ form }}
-                <button type="submit">Make staff member</button>
-            </form>
+
+        <div id="make-employee" class="tabcontent">
+            <h3>New employee information</h3>
+            <table>
+                    <div>
+                        <form method="post">
+                            {% csrf_token %}
+                            <div>Username:</div>
+                            {{ form.username }}
+                            <div>Email:</div>
+                            {{ form.email }}
+                            <div>First name:</div>
+                            {{ form.first_name }}
+                            <div>Last name:</div>
+                            {{ form.last_name }}
+                            <div>Password:</div>
+                            {{ form.password1 }}
+                            <div>Password verification:</div>
+                            {{ form.password2 }}
+                            <button type="submit" id="submit-staff-button">Make staff member</button>
+                        </form>
+                    </div>
+            </table>
+            <span id="close-table" aria-hidden="true" onclick="this.parentElement.style.display='none'">&times;</span>
         </div>
     </div>
 {% endblock %}

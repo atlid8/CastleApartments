@@ -15,10 +15,26 @@ img {
     width: 100%;
     height: auto;
 }
+input {
+    width: 50%;
+}
+button {
+    width: 20%;
+    min-height: 5em;
+}
 #close-table {
     display: block;
     text-align: center;
     font-size: 2em;
+}
+#submit-staff-button {
+    margin-top: 0.5em;
+    background-color: dodgerblue;
+    color: white;
+    float: right;
+    border-radius: 0.3em;
+    border-color: dodgerblue;
+    min-height: 0.4em;
 }
 .tab button {
     background-color: inherit;
