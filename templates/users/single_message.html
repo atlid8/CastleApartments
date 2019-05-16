@@ -1,15 +1,12 @@
-
 {% extends 'base.html' %}
-
 {% block content %}
-
-{% load static %}
-
+    {% load static %}
 
     <link rel="stylesheet" type="text/css" href="{% static 'css/single-message.css' %}"/>
-	<div class="d-flex justify-content-center h-100">
-    <div class="card">
-			<div class="card-body">
+
+	<div class="d-flex justify-content-center">
+        <div class="card">
+            <div class="card-body">
                 <h4 id="card-title">Viewing user message</h4>
                 <h5>Sender name:</h5>
                 <input disabled type="text" class="form-control" placeholder="{{ message.name }}">
@@ -17,13 +14,13 @@
                 <input disabled type="text" class="form-control" placeholder="{{ message.email }}">
                 <h5>Time sent:</h5>
                 <input disabled type="text" class="form-control" placeholder="{{ message.time_stamp }}">
-                 <h5>Subject:</h5>
+                <h5>Subject:</h5>
                 <input disabled type="text" class="form-control" placeholder="{{ message.subject }}">
                 <h5>Content:</h5>
-                <textarea disabled id="message-content" type="text" class="form-control" >{{ message.content }}</textarea>
+                <textarea disabled id="message-content" class="form-control">{{ message.content }}</textarea>
                 <div class="back-btn"><a id="back-button" class="btn btn-primary" href="/users/messages/">Back to inbox</a>
-               <a id="reply-btn" class="btn btn-primary" href="mailto:{{ message.email }}">Reply</a></div>
-            </div></div></div>
-
-
+                    <a id="reply-btn" class="btn btn-primary" href="mailto:{{ message.email }}">Reply</a></div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
