@@ -263,6 +263,8 @@ def delete_offer(request, id):
 def edit_property(request, id):
     user = request.user
     castle = Castle.objects.filter(id=id).first()
+    if user != castle.seller:
+        return redirect('/')
     if request.method == 'POST':
         form = CastleEditForm(instance=castle, data=request.POST)
         if form.is_valid:
