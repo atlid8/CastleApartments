@@ -1,95 +1,84 @@
-.receipt-container{
+h1 {
+    color: white;
+}
+h4 {
+    padding-left: 0.8em;
+    color: whitesmoke;
+}
+.receipt-container {
     margin: 0 auto;
-    width: 80%;
     height: 29em;
     width: 50em;
     background-color: rgba(255,255,255,0.4);
     border-radius: 4px;
 }
-.product-info{
-    float:left;
-    height: 85%;
-    width: 50%;
-}
-.receipt-div{
-    color: whitesmoke;
-    float:right;
-    border-left: 1px solid whitesmoke;
-    height: 85%;
-    width: 50%;
-}
-.receipt-header{
+.receipt-header {
     padding: 1em;
     width: 100%;
     height: 15%;
-    text-align: center;
     margin: 0 auto;
 }
-h1{
-    color: white;
+.receipt-div {
+    color: whitesmoke;
+    float:right;
+    border-left: 1px solid whitesmoke;
 }
-.buyer-info{
-    height: 33.33%;
+.product-info, .receipt-div {
+    height: 85%;
+    width: 50%;
 }
-.seller-info{
-    height: 33.33%;
+.product-info {
+    float:left;
 }
-.product-details{
+.bottom-button-wrapper, .receipt-header {
+    text-align: center;
+}
+.buyer-info, .seller-info, .product-details {
     height: 33.33%;
 }
 .details-table td {
-    color: #656b74;
     font-size: 12px;
     text-align: left;
     color:whitesmoke;
-
 }
-.details-table tr{
+.details-table tr {
     border-bottom: 1px rgba(255,255,255,0.5) solid;
     height: 1.7em;
 }
-.details-table{
+.details-table {
     margin-right: 1em;
     float: right;
     width: 60%;
 }
-h4{
-    padding-left: 0.8em;
-    color: whitesmoke;
-}
-.product-details .icons{
+.product-details .icons {
     padding-left: 0.75em;
 }
-.buyer-info .icons{
+.buyer-info .icons {
     padding-top: 0.2em;
     padding-left: 0.55em;
 }
-.seller-info .icons{
+.seller-info .icons {
     padding-left: 0.5em;
 }
-
-.icons{
+.icons {
     color: whitesmoke;
 }
-.buyer-info table{
+.buyer-info table {
     float: left;
     margin-left: 1em;
 }
-.buyer-info h4{
+.buyer-info h4 {
     padding-left: 12.4em;
 }
-.btn-primary{
+.btn-primary {
     border: none;
     margin: 1em auto;
     background-color: dodgerblue;
 }
-.btn-primary:hover{
+.btn-primary:hover {
     background-color: whitesmoke;
     color: black;
 }
-.container{
+.container {
     color: whitesmoke;
-}
-.bottom-button-wrapper{
-    text-align: center;
 }
