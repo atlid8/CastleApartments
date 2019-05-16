@@ -5,13 +5,19 @@ h4 {
     padding-left: 0.8em;
     color: whitesmoke;
 }
-tbody{
+tbody {
     min-height: 100%;
 }
-.table-4{
+#search-log-table tr {
+    border-bottom: 1px rgba(255,255,255,0.5) solid;
+}
+#search-log-table td {
+    margin: 0 auto;
+}
+.table-4 {
     width: 20em;
 }
-.table-5{
+.table-5 {
     width: 10em;
 }
 .receipt-container {
@@ -100,10 +106,4 @@ tbody{
 }
 .container {
     color: whitesmoke;
-}
-#search-log-table tr{
-    border-bottom: 1px rgba(255,255,255,0.5) solid;
-}
-#search-log-table td{
-    margin: 0 auto;
 }
