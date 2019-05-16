@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
     {% load static %}
+    <script type="text/javascript" src="{% static 'js/autofill-kingdom.js' %}"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'css/my-property.css' %}" />
     <link rel="stylesheet" type="text/css" href="{% static 'css/edit_property.css' %}" />
     <div class="card bg-light">
@@ -76,7 +77,7 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-flag"></i> </span>
                         </div>
-                        <input disabled id="kingdom-div" placeholder="kingdom" class="form-control" />
+                        <input disabled id="kingdom-div" placeholder="{{ castle.postcode.kingdom }}" class="form-control" />
                     </div>
                 </div>
                 <div class="row">
@@ -97,10 +98,10 @@
                     {{ form.info }}
                 </div>
                     <div class="bottom-buttons-wrapper">
-                    <a id="delete-button" onclick="return confirm('Are you sure you want to remove the listing {{ castle.name }}?');" href="{% url 'delete_castle' castle.id %}" class="btn btn-danger">Delete Property<i class="fa fa-ban" aria-hidden="true"></i></a>
+                    <a id="delete-button" onclick="return confirm('Are you sure you want to remove the listing {{ castle.name }}?');" href="{% url 'delete_castle' castle.id %}" class="btn btn-danger">Delete Property  <i class="fa fa-ban" aria-hidden="true"></i></a>
                         <button type="submit" id="confirm-button" class="btn btn-success bottom-button">Confirm Changes</button>
                     </div>
-                    <p class="sub-title">Need some help? <a href="">Contact us for assistance</a></p> </div>
+                    <p class="sub-title">Need some help? <a href="mailto: castle@castleapartments.com">Contact us for assistance</a></p> </div>
 
                 </form>
             </article>
