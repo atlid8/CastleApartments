@@ -1,138 +1,37 @@
-.divider-text {
-    position: relative;
-    text-align: center;
-    margin-top: 15px;
-    margin-bottom: 15px;
-}
-.divider-text span {
-    padding: 7px;
-    font-size: 12px;
-    position: relative;
-    z-index: 2;
-}
-.divider-text:after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    border-bottom: 1px solid #ddd;
-    top: 55%;
-    left: 0;
-    z-index: 1;
-}
-.form-input-field {
-    border-radius: 4px;
-    border-bottom-left-radius: 0;
-    border-top-left-radius: 0;
-    border: none;
-    margin: 0 auto;
-    width: 85%;
-    text-indent: 15px;
-
-}
 form {
     width: 100%;
     margin: 2em auto;
 }
-#create-button-container {
-    width: 90%;
-    margin: 2em auto;
+#pay-button, #back-button {
+    border: none;
 }
-#create-button {
-    width: 100%;
-    margin: 0 auto;
+#pay-button {
+    background-color: dodgerblue;
+    float:right;
 }
-.input-group-prepend {
-    height: 100%;
-}
-.input-group {
-    height:2.4em !important;
-    margin: 1em auto;
-    width: 92%;
-}
-.login_btn {
-    color: black;
+#back-button {
+    color: #656b74;
     background-color: whitesmoke;
-    width: 100px;
 }
-.login_btn:hover {
-    color: grey;
-    background-color: white;
+#back-button:hover {
+    background-color: lightgrey;
 }
-.card{
-    height: auto;
-    margin: 0 auto;
-    width: 40em;
-    background-color: rgba(0,0,0,0.5) !important;
+#circle1, #circle2 {
+    transition: transform .2s;
 }
-.card-body{
-    width: 85%;
-    margin: 0 auto;
+#circle1:hover, #circle2:hover, #circle3:hover {
+    border: 2px solid whitesmoke;
+    outline: none;
+    box-shadow: 0 0 4px #9ecaed;
+    transform: scale(1.2);
+    cursor: pointer;
 }
-.card-title {
-    text-align: center;
+#search-log-table, #search-log-table th, .card-title {
     color: white;
 }
-.sub-title {
-    text-align: center;
-    color: white;
-    margin: 0 auto;
-}
-
-#expiry-month{
-    display: inline-block;
-}
-
-#cvc-field{
-    width: 5em;
-    margin-left: 1em;
-}
-
-#expiry-month, #expiry-year{
-    width: 4em;
-    display: inline-block;
-}
-
-.month-year{
-    margin-left: 1em;
-}
-
-
-.table-head {
-    font-weight: bold;
-    color: white;
-    border-bottom: unset !important;
-    font-size: 1.5em;
-}
-.table-1{
-    width: 14em;
-    font-weight: normal;
-}
-.table-2{
-    max-width: 1em;
-    text-align: center !important;
-    font-weight: normal;
-}
-.table-3{
-    max-width: 3em;
-    text-align: left !important;
-    font-weight: normal;
-}
-.table-4{
-    max-width: 6em;
-    text-align: right !important;
-    font-weight: normal;
-}
-.payment-container{
-    display: inline-block;
-    width: 70em;
-    text-align: center;
-    height: auto;
-}
-
 #search-log-table {
     border-collapse: collapse;
     width: 100%;
-    color: white;
 }
 #search-log-table td, #search-log-table th {
     padding: 8px;
@@ -141,50 +40,43 @@ form {
 #search-log-table th {
     padding-top: 12px;
     padding-bottom: 12px;
-    color: white;
     text-align: left;
 }
-#getdate{
-    margin-left:1em;
+.card {
+    height: auto;
+    margin: 0 auto;
+    width: 40em;
+    background-color: rgba(0,0,0,0.5) !important;
 }
-.bottom-buttons-wrapper{
+.card-body {
+    width: 85%;
+    margin: 0 auto;
+}
+.card-title, .table-2 {
+    text-align: center;
+}
+.table-1, .table-2, .table-3, .table-4 {
+    font-weight: normal;
+}
+.table-1 {
+    width: 14em;
+}
+.table-2 {
+    max-width: 1em;
+}
+.table-3 {
+    max-width: 3em;
+    text-align: left !important;
+}
+.table-4 {
+    max-width: 6em;
+    text-align: right !important;
+}
+.bottom-buttons-wrapper {
     margin: 2em auto;
     width: 100%;
 }
-
-.bottom-button{
+.bottom-button {
     width: 45%;
 }
 
-#pay-button{
-    background-color: dodgerblue;
-    border: none;
-    float:right;
-}
-
-#back-button{
-    color: #656b74;
-    border: none;
-    background-color: whitesmoke;
-}
-
-#back-button span{
-    position: relative;
-    right: 0.7em;
-    top: 0.7em;
-    color:#656b74;
-}
-
-#back-button:hover{
-    background-color: lightgrey;
-}
-#circle1, #circle2{
-    transition: transform .2s;
-}
-#circle1:hover, #circle2:hover, #circle3:hover{
-    border: 2px solid whitesmoke;
-    outline: none;
-    box-shadow: 0 0 4px #9ecaed;
-    transform: scale(1.2);
-    cursor: pointer;
-}

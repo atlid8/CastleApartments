@@ -7,7 +7,11 @@
         <div class="container">
             <div class="row">
                  <div class="header-text">
+                     {% if castle_watch %}
                     <h2>Your watch list</h2>
+                     {% else %}
+                         <h2>You have no castles on your watchlist</h2>
+                     {% endif %}
                 </div>
                 {% for castle in castle_watch %}
                     {% include "properties/singleproperty.html" with castle=castle %}
@@ -19,7 +23,11 @@
         <div class="container">
             <div class="row">
                  <div class="header-text" id="after-first-text" >
-                    <h2>Your sales properties</h2>
+                     {% if castles %}
+                    <h2>Castles you have for sale</h2>
+                     {% else %}
+                     <h2>You have no castles for sale</h2>
+                     {% endif %}
                 </div>
                 {% for castle in castles %}
                     {% include "properties/singleproperty.html" with castle=castle %}
@@ -31,7 +39,11 @@
         <div class="container">
             <div class="row">
                  <div class="header-text" id="after-first-text" >
+                     {% if castle_offer %}
                     <h2>Castles you have made offers on</h2>
+                     {% else %}
+                     <h2>You have no outstanding offers on castles</h2>
+                     {% endif %}
                 </div>
                 {% for castle in castle_offer %}
                     {% include "properties/singleproperty.html" with castle=castle %}
