@@ -19,7 +19,7 @@ h3, a:hover, .header-text, .col-md-3, .card-text {
     min-height: 1.3em;
 }
 #castle-name:hover {
-    text-decoration: underline;
+    text-decoration: none;
 }
 #castle-price {
     margin-top: 1.5em;
@@ -91,7 +91,12 @@ h3, a:hover, .header-text, .col-md-3, .card-text {
     margin-top: 2em;
 }
 .card {
+    text-align: center;
     background-color: transparent;
+    transition: transform .2s;
+}
+.card:hover{
+    transform: scale(1.05);
 }
 .card-img-top {
     background-size: cover;
@@ -273,4 +278,7 @@ div.click-to-top:hover span {
     .verified {
         display:none;
     }
+}
+.castles{
+    animation: fadeInTop 1s;
 }

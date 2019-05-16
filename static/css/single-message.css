@@ -17,7 +17,7 @@ align-content: center;
 .card{
 height: auto;
 margin-top: auto;
-margin-bottom: auto;
+margin-bottom: 2em;
 width: 400px;
 background-color: rgba(0,0,0,0.5) !important;
 }
@@ -114,14 +114,6 @@ margin-right: 5px;
 label {
     color: white;
 }
-#update_btn{
-color: white;
-background-color: dodgerblue;
-width: 100px;
-
-    margin: 1em auto !important;
-
-}
 
 
 #remember-me{
@@ -163,14 +155,12 @@ h4 {
     margin-bottom: 1.5em;
 }
 
-.profile-picture{
+.back-btn{
     margin: 0 auto;
-  border: 1px solid whitesmoke;
-  border-radius: 4px;
-  padding: 5px;
-  width: 150px;
+    width: 90%;
 }
 
-.profile-picture:hover {
-  box-shadow: 0 0 2px 1px rgba(255, 255, 255, 10.5);
+#reply-btn{
+    width: 43%;
+    float:right;
 }
