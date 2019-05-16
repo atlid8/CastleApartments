@@ -1,130 +1,67 @@
-.divider-text {
-    position: relative;
-    text-align: center;
-    margin-top: 15px;
-    margin-bottom: 15px;
-}
-.divider-text span {
-    padding: 7px;
-    font-size: 12px;
-    position: relative;
-    z-index: 2;
-}
-.divider-text:after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    border-bottom: 1px solid #ddd;
-    top: 55%;
-    left: 0;
-    z-index: 1;
-}
-.form-input-field {
-    border-radius: 4px;
-    border-bottom-left-radius: 0;
-    border-top-left-radius: 0;
-    border: none;
-    margin: 0 auto;
-    width: 85%;
-    text-indent: 15px;
-
-}
 form {
     width: 100%;
     margin: 2em auto;
 }
-#create-button-container {
-    width: 90%;
-    margin: 2em auto;
+#cvc-field {
+    width: 5em;
+    margin-left: 1em;
 }
-#create-button {
-    width: 100%;
-    margin: 0 auto;
+#expiry-month, #expiry-year {
+    width: 4em;
+    display: inline-block;
 }
-.input-group-prepend {
-    height: 100%;
+#pay-button, #back-button {
+    border: none;
+}
+#pay-button {
+    background-color: dodgerblue;
+    float:right;
+}
+#back-button {
+    color: #656b74;
+    background-color: whitesmoke;
+}
+#back-button:hover {
+    background-color: lightgrey;
+}
+#circle1 {
+    color: #4f92ff;
+    transition: transform .2s;
+}
+#circle1:hover, #circle2:hover {
+    border: 2px solid whitesmoke;
+    outline: none;
+    box-shadow: 0 0 4px #9ecaed;
+    transform: scale(1.2);
+    cursor: pointer;
 }
 .input-group {
     height:2.4em !important;
     margin: 1em auto;
     width: 92%;
 }
-.login_btn {
-    color: black;
-    background-color: whitesmoke;
-    width: 100px;
+.card, .bottom-buttons-wrapper {
+    margin: 0 auto;
 }
-.login_btn:hover {
-    color: grey;
-    background-color: white;
-}
-.card{
+.card {
     height: auto;
     margin: 0 auto;
     width: 30em;
     background-color: rgba(0,0,0,0.5) !important;
 }
-.card-body{
+.card-body {
     width: 85%;
-    margin: 0 auto;
 }
 .card-title {
     text-align: center;
     color: white;
 }
-.sub-title {
-    text-align: center;
-    color: white;
-    margin: 0 auto;
-}
-#expiry-month{
-    display: inline-block;
-}
-#cvc-field{
-    width: 5em;
+.month-year {
     margin-left: 1em;
 }
-#expiry-month, #expiry-year{
-    width: 4em;
-    display: inline-block;
-}
-.month-year{
-    margin-left: 1em;
-}
-.bottom-buttons-wrapper{
-    margin: 0 auto;
+.bottom-buttons-wrapper {
     width: 100%;
 }
-.bottom-button{
+.bottom-button {
     width: 45%;
-}
-#pay-button{
-    background-color: dodgerblue;
-    border: none;
-    float:right;
-}
-#back-button{
-    color: #656b74;
-    border: none;
-    background-color: whitesmoke;
-}
-#back-button span{
-    position: relative;
-    right: 0.7em;
-    top: 0.7em;
-    color:#656b74;
-}
-#back-button:hover{
-    background-color: lightgrey;
-}
-#circle1{
-    color: #4f92ff;
-    transition: transform .2s;
-}
-#circle1:hover, #circle2:hover{
-    border: 2px solid whitesmoke;
-    outline: none;
-    box-shadow: 0 0 4px #9ecaed;
-    transform: scale(1.2);
-    cursor: pointer;
 }
