@@ -18,9 +18,8 @@ img {
 input {
     width: 50%;
 }
-button {
-    width: 20%;
-    min-height: 5em;
+.tab {
+    width: 84.5%;
 }
 #close-table {
     display: block;
