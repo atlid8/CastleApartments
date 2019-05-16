@@ -21,8 +21,12 @@ body {
 }
 #about-us {
     margin-left: 0.5em;
+    text-decoration: none;
+}
+#about-us:hover{
     text-decoration: underline;
 }
+
 #copyright {
     display: inline-block;
     float: right;
