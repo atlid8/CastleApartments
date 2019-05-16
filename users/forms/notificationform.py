@@ -77,7 +77,7 @@ class NotificationForm(ModelForm):
     def save_bought_now_buyer(self, buyer, castle):
         notification = super(NotificationForm, self).save(commit=False)
         notification.info = 'You just bought ' + str(castle.name) + '. Here is your receipt'
-        notification.link = 'properties/receipt/' + str(castle.id)
+        notification.link = '/properties/receipt/' + str(castle.id)
         notification.resolved = False
         notification.receiver = buyer
         notification.save()

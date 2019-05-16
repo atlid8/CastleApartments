@@ -118,7 +118,7 @@ def buy_now(request, id):
     soldcastle.save()
     castle.delete()
     form = NotificationForm()
-    form.save_bought_now_buyer(user, castle)
+    form.save_bought_now_buyer(user, soldcastle)
     form = NotificationForm()
     form.save_bought_now_seller(castle, castle.price, user, castle.seller)
     the_watchlist = Watchlist.objects.filter(castle_watch_id=castle.id)
@@ -153,8 +153,6 @@ def accept_offer(request, id):
     castle.delete()
     form = NotificationForm()
     form.save_offer_accept(soldcastle, offer.offer, offer.buyer)
-    form = NotificationForm()
-    form.save_bought_now_buyer(user, castle)
     the_watchlist = Watchlist.objects.filter(castle_watch_id=castle.id)
     for watch in the_watchlist: #TODO checka hvort þetta fari ekki inn í forlúppuna þegar
         form = NotificationForm()
