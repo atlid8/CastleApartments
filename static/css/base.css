@@ -10,9 +10,8 @@ html, body {
     background-repeat: no-repeat;
     height: 100%;
 }
-
 body {
-    overflow-x: hidden ;
+    overflow-x: hidden;
 }
 #logo, #about-us, #copyright {
     color: white;
