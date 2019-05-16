@@ -8,10 +8,16 @@ h4 {
 tbody{
     min-height: 100%;
 }
+.table-4{
+    width: 20em;
+}
+.table-5{
+    width: 10em;
+}
 .receipt-container {
     margin: 0 auto;
     height: 33em;
-    width: 50%;
+    width: 80%;
     background-color: rgba(255,255,255,0.4);
     border-radius: 4px;
 }
