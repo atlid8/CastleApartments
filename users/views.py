@@ -1,12 +1,11 @@
 from django.contrib.auth.models import User
-from django.shortcuts import render, redirect
 from properties.models import Castle, Watchlist, CastleOffer, SoldCastle
 from users.forms.creationform import UserCreationForm
 from users.forms.ProfileForm import ProfileForm, UserEditForm
 from users.models import Profile, SearchHistory, Notification, Message
 from users.forms.notificationform import NotificationForm
 from users.forms.message import MessageForm
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 
 
@@ -23,8 +22,11 @@ def about_us(request):
     return render(request, 'about_us/about_us.html', {'form': MessageForm(), 'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False) })
 
 
-def reset_password(request): #TODO IF SIGNED IN
-    return render(request, 'users/reset-password.html')
+def reset_password(request):
+    user = request.user
+    if not user.id:
+        return render(request, 'users/reset-password.html')
+    return redirect("/")
 
 def front_page_admin(request): #TODO eyða ef hitt virkar jafn vel
     user = request.user
