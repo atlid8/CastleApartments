@@ -38,7 +38,7 @@ class CastleCreationForm(forms.ModelForm):
 
 
 class CastleImageCreationForm(forms.ModelForm):
-    image = forms.CharField(label='image', widget=forms.TextInput(attrs={'placeholder': 'link to image'}))
+    image = forms.CharField(label='', widget=forms.TextInput(attrs={'placeholder': 'link to image'}))
 
 
     class Meta:

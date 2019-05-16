@@ -1,10 +1,10 @@
-
 #delete-btn, #back-button {
     margin: 1em auto;
 }
 #back-button {
     border: none;
     background-color: dodgerblue;
+     float: left;
 }
 .btn-wrapper {
     text-align: center;
@@ -14,9 +14,36 @@
     width: 100%;
 }
 .card {
-    width: 30em;
-    background-color: rgba(0, 0, 0, 0.2);
+    width: 15em;
+    background-color: rgba(0,0,0,0.01);
+    border: 1px dotted whitesmoke;
     margin: 2em auto;
     padding: 2em;
     color: white;
+}
+.container {
+    width: 100%;
+    height: auto;
+    background-color: rgba(0,0,0,0.5);
+    padding-bottom: 1em;
+    text-align: center;
+    border-radius: 1em;
+}
+.add-img {
+    max-width: 100%;
+
+}
+.btn-container {
+    display: inline-block;
+    width: 70%;
+}
+.add-image {
+    margin-top: 1em;
+    display: inline-block;
+    float: right;
+}
+.btn-container input {
+    height: 2.2em;
+    border-radius: 4px;
+    text-indent: 0.5em;
 }
