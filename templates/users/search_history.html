@@ -24,7 +24,9 @@
                       </td>
                   </tr>
                 {% endfor %}
+
             </tbody>
         </table>
+    <a href="{% url 'delete_user' user.id %}"><i  class="btn btn-danger">Delete search history</i></a>
     </div>
 {% endblock %}
