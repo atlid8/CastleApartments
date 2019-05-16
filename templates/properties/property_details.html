@@ -26,6 +26,24 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
+    <div class="btn-container">
+        <form method="post">
+            {% csrf_token %}
+            <a id="button-down" type="button" class="btn btn-outline" href="/users/{{ castle.seller.profile.id }}">See Seller's Profile</a>
+            {% if watchlist %}
+                <button id="button-down-mid-l" type="submit" class="btn btn-outline-primary">Remove from watchlist</button>
+            {% else %}
+                <button id="button-down-mid-l" type="submit" class="btn btn-outline-primary">Add to watchlist</button>
+            {% endif %}
+            {% if castle.verified %}
+                <a id="button-down-mid-r" type="button" class="btn btn-outline" href="/properties/{{ castle.id }}/make-offer">Make offer</a>
+                <a id="button-down" type="button" class="btn btn-outline-primary" href="contact-info-buy">Buy now</a>
+            {% else %}
+                <div id="button-down-mid-r-disabled" class="btn btn-outline click-to-top">Make offer<span> Property not yet verified!</span></div>
+                <div id="button-down-disabled" class="btn btn-outline-primary click-to-top">Buy now<span> Property not yet verified!</span></div>
+            {% endif %}
+        </form>
+    </div>
     <div class="container">
         <table id="search-log-table">
             <tbody>
@@ -76,22 +94,5 @@
             </tbody>
         </table>
     </div>
-    <div class="btn-container">
-        <form method="post">
-            {% csrf_token %}
-            <a id="button-down" type="button" class="btn btn-outline" href="/users/{{ castle.seller.profile.id }}">See Seller's Profile</a>
-            {% if watchlist %}
-                <button id="button-down-mid-l" type="submit" class="btn btn-outline-primary">Remove from watchlist</button>
-            {% else %}
-                <button id="button-down-mid-l" type="submit" class="btn btn-outline-primary">Add to watchlist</button>
-            {% endif %}
-            {% if castle.verified %}
-                <a id="button-down-mid-r" type="button" class="btn btn-outline" href="/properties/{{ castle.id }}/make-offer">Make offer</a>
-                <a id="button-down" type="button" class="btn btn-outline-primary" href="contact-info-buy">Buy now</a>
-            {% else %}
-                <div id="button-down-mid-r-disabled" class="btn btn-outline click-to-top">Make offer<span> Property not yet verified!</span></div>
-                <div id="button-down-disabled" class="btn btn-outline-primary click-to-top">Buy now<span> Property not yet verified!</span></div>
-            {% endif %}
-        </form>
-    </div>
+
 {% endblock %}

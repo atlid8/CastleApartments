@@ -9,8 +9,10 @@ p {
 #search-log-table {
     border-collapse: collapse;
     width: 100%;
+    height: 100%;
 }
 #search-log-table td, #search-log-table th {
+    font-weight: normal;
     padding: 8px;
     border-bottom: 1px solid white;
 }
@@ -50,8 +52,9 @@ p, #search-log-table, th, .castle-name, h3 {
     color: white;
 }
 .container {
-    width: 45em;
-    height: auto;
+    width: 50em;
+    height: 22em;
+    margin-bottom: 3em;
     background: rgba(0,0,0,0.4);
     border-radius: .5em;
 }

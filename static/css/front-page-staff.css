@@ -5,9 +5,21 @@ img {
 a {
     color: dodgerblue;
 }
-h3 {
+h3, h4 {
     margin-bottom: 1em;
     color: whitesmoke;
+}
+#messages-tag{
+    text-decoration: none;
+    margin: 0 auto;
+    width: 30%;
+}
+.messages-tag-wrapper{
+    width: 33%;
+    margin: 0 auto;
+}
+h4:hover{
+    color: dodgerblue;
 }
 h3, .form-group {
     text-align: center;
@@ -19,8 +31,10 @@ img, .container, .card, .image_box {
     align-content: center;
 }
 .container {
+    text-align: center;
+    align-content: center;
     background-color: rgba(0,0,0,0.2);
-    margin-top: auto;
+    margin-top: 3em;
     width: 45em;
     padding: 2em;
 }
@@ -49,4 +63,36 @@ img, .container, .card, .image_box {
 }
 .btn {
     margin-top: 0.5em;
+}
+.messages-button{
+    color: whitesmoke;
+    display: inline-block;
+    border-radius: 60px;
+    box-shadow: 0px 0px 2px #888;
+    padding: 1em 1em;
+}
+.messages-button:hover{
+    color: dodgerblue;
+}
+#messages-button-unread {
+  animation: shake 1s cubic-bezier(.36,.07,.19,.97) both;
+  animation-delay: 3s;
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
 }

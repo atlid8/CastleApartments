@@ -28,7 +28,7 @@ def reset_password(request): #TODO IF SIGNED IN
 
 def front_page_staff(request):
     user = request.user
-    context = {'castles' : Castle.objects.filter(verified=False),  'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False)}
+    context = {'castles' : Castle.objects.filter(verified=False),  'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False), 'messages': Message.objects.filter(read=False)}
     return render(request, 'front_page/front_page_staff.html', context)
 
 def front_page_admin(request):
@@ -222,6 +222,6 @@ def notification(request):
                    'unseen': unseen})
 
 
-def my_inbox(request):
+def messages(request):
     user = request.user
     return render(request, 'users/my-inbox.html', {'messages': Message.objects.all().order_by('-time_stamp'), 'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False)})
