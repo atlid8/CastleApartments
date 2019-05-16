@@ -13,6 +13,7 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def about_us(request):
+    """Kallar á about us síðuna og tekur við skilaboðum"""
     user = request.user
     if request.method == 'POST':
         form = MessageForm(data=request.POST)
@@ -20,27 +21,29 @@ def about_us(request):
             form.save()
             return redirect('/users/about-us')
     context = {'form': MessageForm(),
-               'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False) }
+               'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False)} #Þetta er allstaðar svo notification uppfærist á öllum síðum
     return render(request, 'about_us/about_us.html', context)
 
 
 def reset_password(request):
+    """kallar á reset password síðuna"""
     user = request.user
-    if not user.id:
+    if not user.id: #Þetta er til að innskráð fólk fari ekki á þessa síðu
         return render(request, 'users/reset-password.html')
     return redirect("/")
 
 @login_required
 def my_profile(request):
+    """Síða sem kallar á my-profile"""
     user = request.user
     list_of_watches = []
     watchlist = Watchlist.objects.filter(user_id=user.id)
-    for x in watchlist:
+    for x in watchlist: #Þessi for lúppa er til að fá castle object úr öllum watchlist objectunum
         list_of_watches.append(Castle.objects.filter(id=x.castle_watch_id).first())
     offer_list = CastleOffer.objects.filter(buyer_id=user.id)
     list_of_offers = []
-    for x in offer_list:
-        if Castle.objects.filter(id=x.castle_id).first() not in list_of_offers:
+    for x in offer_list:#Þessi for lúppa er til að fá castle object úr öllum castleoffer objectunum
+        if Castle.objects.filter(id=x.castle_id).first() not in list_of_offers: #ef að fólk býður oft í sama kastala þá á hann samt bara að koma einu sinni
             list_of_offers.append(Castle.objects.filter(id=x.castle_id).first())
     context = {'castles': Castle.objects.filter(seller_id=user.id),
                'castle_watch': list_of_watches,
@@ -51,7 +54,8 @@ def my_profile(request):
 
 
 def register(request):
-    if request.user.id:
+    """Kallar á síðu til að búa til notanda og býr hann til"""
+    if request.user.id: #Til að innskráðir notendur geti ekki farið á þessa síðu
         return redirect('/')
     if request.method == 'POST':
         form = UserCreationForm(data=request.POST)
@@ -64,29 +68,28 @@ def register(request):
 
 
 def edit(request):
-    profile = Profile.objects.filter(user=request.user).first()
+    """Kallar á síðu til að breyta notendaupplýsingu og breytir þeim"""
     user = request.user
+    profile = Profile.objects.filter(user=user).first()
     if request.method == 'POST':
         form = ProfileForm(instance=profile, data=request.POST)
         form2 = UserEditForm(instance=user, data=request.POST)
         if form.is_valid() and form2.is_valid:
             profile = form.save(commit=False)
-            profile.user = request.user
+            profile.user = user
             profile.save()
             form2.save()
-            return redirect('edit')
-    return render(request, 'users/edit.html', {
-        'form' : ProfileForm(instance=profile),
-        'form2' : UserEditForm(instance=user),
-        'profile' : profile, 'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False)
-    })
+            return redirect('/users/'+str(profile.id))
+    context = {
+            'form' : ProfileForm(instance=profile),
+            'form2' : UserEditForm(instance=user),
+            'profile' : profile,
+            'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False)
+    }
+    return render(request, 'users/edit.html', context)
 
 
-def buy_now(request, id):
-    if not Castle.objects.filter(id=id):
-        return redirect('/')
-    castle = get_object_or_404(Castle, pk=id)
-    user = request.user
+def get_sold_castle(castle):
     soldcastle = SoldCastle()
     soldcastle.name = castle.name
     soldcastle.postcode = castle.postcode
@@ -98,56 +101,58 @@ def buy_now(request, id):
     soldcastle.street = castle.street
     soldcastle.house_number = castle.house_number
     soldcastle.seller = castle.seller
-    soldcastle.buyer = user
     soldcastle.id = castle.id
+    return soldcastle
+
+def buy_now(request, id):
+    """Fall sem að fjarlægir eign af sölu og sendir seljanda og fleirum skilaboð"""
+    if not Castle.objects.filter(id=id):
+        return redirect('/')
+    castle = get_object_or_404(Castle, pk=id)
+    user = request.user
+    soldcastle = get_sold_castle(castle)
+    soldcastle.buyer = user
     soldcastle.save()
     form = NotificationForm()
     form.save_bought_now_buyer(user, soldcastle)
     form = NotificationForm()
     form.save_bought_now_seller(soldcastle, soldcastle.price, user,soldcastle.seller)
     the_watchlist = Watchlist.objects.filter(castle_watch_id=castle.id)
-    for watch in the_watchlist: #TODO checka hvort þetta fari ekki inn í forlúppuna þegar
+    for watch in the_watchlist:
         form = NotificationForm()
         watcher = User.objects.filter(id=watch.user_id).first()
-        form.save_for_watchlist(castle, offer.offer, watcher)
+        form.save_for_watchlist(soldcastle.buyer, soldcastle, soldcastle.price, watcher)
     the_offer_list = CastleOffer.objects.filter(castle_id = castle.id)
-    for watch in the_offer_list: #Todo checka hvort þetta fari ekki í forlúppuna
+    for watch in the_offer_list:
         form = NotificationForm()
         watcher = User.objects.filter(id=watch.buyer_id).first()
-        form.save_for_watchlist(castle, offer.offer, watcher)
+        form.save_for_watchlist(castle, soldcastle.price, watcher)
     castle.delete()
     return redirect('/properties/receipt/'+ str(soldcastle.id))
+
+
 
 def accept_offer(request, id):
     offer = get_object_or_404(CastleOffer, pk=id)
     castle = offer.castle
-    soldcastle = SoldCastle()
-    soldcastle.name = castle.name
-    soldcastle.postcode = castle.postcode
+    soldcastle = get_sold_castle(castle)
+    soldcastle.buyer = offer.buyer
     soldcastle.price = offer.offer
     soldcastle.commission = offer.offer * 0.1
-    soldcastle.rooms = castle.rooms
-    soldcastle.size = castle.size
-    soldcastle.info = castle.info
-    soldcastle.street = castle.street
-    soldcastle.house_number = castle.house_number
-    soldcastle.seller = castle.seller
-    soldcastle.buyer = offer.buyer
-    soldcastle.id = castle.id
     soldcastle.save()
-    castle.delete()
     form = NotificationForm()
     form.save_offer_accept(soldcastle, offer.offer, offer.buyer)
-    the_watchlist = Watchlist.objects.filter(castle_watch_id=castle.id)
-    for watch in the_watchlist: #TODO checka hvort þetta fari ekki inn í forlúppuna þegar
+    the_watchlist = Watchlist.objects.filter(castle_watch_id=soldcastle.id)
+    for watch in the_watchlist:
         form = NotificationForm()
         watcher = User.objects.filter(id=watch.user_id).first()
-        form.save_for_watchlist(castle, offer.offer, watcher)
+        form.save_for_watchlist(castle, soldcastle.price, watcher)
     the_offer_list = CastleOffer.objects.filter(castle_id = castle.id)
-    for watch in the_offer_list: #Todo checka hvort þetta fari ekki í forlúppuna
+    for watch in the_offer_list:
         form = NotificationForm()
         watcher = User.objects.filter(id=watch.buyer_id).first()
         form.save_for_watchlist(castle, offer.offer, watcher)
+    castle.delete()
     return redirect('/')
 
 def delete_user(request, id):
