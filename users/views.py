@@ -106,10 +106,13 @@ def get_sold_castle(castle):
 
 def buy_now(request, id):
     """Fall sem að fjarlægir eign af sölu og sendir seljanda og fleirum skilaboð"""
-    if not Castle.objects.filter(id=id):
-        return redirect('/')
-    castle = get_object_or_404(Castle, pk=id)
     user = request.user
+    if not Castle.objects.filter(id=id):
+        soldcastle = SoldCastle.objects.filter(id=id).first()
+        form = NotificationForm()
+        form.save_bought_now_seller(soldcastle, soldcastle.price, user, soldcastle.seller)
+        return redirect('/properties/receipt/'+ str(soldcastle.id))
+    castle = get_object_or_404(Castle, pk=id)
     soldcastle = get_sold_castle(castle)
     soldcastle.buyer = user
     soldcastle.save()
@@ -151,7 +154,8 @@ def accept_offer(request, id):
     for watch in the_offer_list:
         form = NotificationForm()
         watcher = User.objects.filter(id=watch.buyer_id).first()
-        form.save_for_watchlist(soldcastle.buyer, soldcastle, offer.offer, watcher)
+        if watcher != soldcastle.buyer:
+            form.save_for_watchlist(soldcastle.buyer, soldcastle, offer.offer, watcher)
     castle.delete()
     return redirect('/')
 
