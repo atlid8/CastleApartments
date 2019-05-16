@@ -207,7 +207,7 @@ def make_offer(request, id):
                 form2 = NotificationForm(data=request.POST)
                 watcher = User.objects.filter(id=watch.user_id).first()
                 form2.save_for_watchlist(buyer, castle, offer, watcher)
-            return redirect('/')
+            return redirect('/properties/search')
     return render(request, 'payments/make-offer.html',
                   {'castle': get_object_or_404(Castle, pk=id), 'form': OfferCreationForm(),  'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False)
                    })

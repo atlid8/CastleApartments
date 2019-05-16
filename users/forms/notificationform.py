@@ -57,7 +57,7 @@ class NotificationForm(ModelForm):
 
     def save_offer_accept(self, castle, price, buyer):
         notification = super(NotificationForm, self).save(commit=False)
-        notification.info = 'Your offer of '+ str(price) + ' for ' + str(castle.name) + ' has been accepted'
+        notification.info = 'Your offer of '+ str(price) + ' Gold Dragons for ' + str(castle.name) + ' has been accepted'
         notification.link = '/properties/' +str(castle.id)+ '/contact-info-buy/'
         notification.resolved = False
         notification.receiver = buyer
@@ -67,7 +67,7 @@ class NotificationForm(ModelForm):
     def save_bought_now_seller(self, castle, price, buyer, seller):
         notification = super(NotificationForm, self).save(commit=False)
         buyername = buyer.first_name + ' ' + buyer.last_name
-        notification.info = buyername + ' just bought your castle ' + str(castle.name) + ' for ' + str(price)
+        notification.info = buyername + ' just bought your castle ' + str(castle.name) + ' for ' + str(price) + ' Gold Dragons.'
         notification.link = '/properties/receipt/' + str(castle.id)
         notification.resolved = False
         notification.receiver = seller
@@ -85,7 +85,7 @@ class NotificationForm(ModelForm):
 
     def save_offer_accept_watcher(self, castle, price, watcher):
         notification = super(NotificationForm, self).save(commit=False)
-        notification.info = 'The castle ' + str(castle.name) + ' has been bought for ' + str(price)
+        notification.info = 'The castle ' + str(castle.name) + ' has been bought for ' + str(price) + ' Gold Dragons.'
         notification.link = ''
         notification.resolved = False
         notification.receiver = watcher
