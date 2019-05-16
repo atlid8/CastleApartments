@@ -11,6 +11,7 @@ from properties.forms.offer import OfferCreationForm
 from properties.forms.contactinfo import ContactInfoCreationForm
 from properties.forms.propertyedit import CastleEditForm
 from users.forms.creationform import UserCreationForm
+from users.models import Message
 
 
 def index(request):
@@ -25,11 +26,11 @@ def index(request):
         context = {'staff': User.objects.filter(is_staff=True), 'customers': User.objects.filter(is_staff=False),
                    'castles': Castle.objects.all(),
                    'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False),
-                   'form': UserCreationForm}
+                   'form': UserCreationForm,}
         return render(request, 'front_page/front_page_admin.html', context)
     if user.is_staff:
         context = {'castles': Castle.objects.filter(verified=False),
-                   'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False)}
+                   'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False), 'messages': Message.objects.filter(read=False)}
         return render(request, 'front_page/front_page_staff.html', context)
     return render(request, 'base.html', {'notifications':Notification.objects.filter(receiver_id=user.id, resolved=False)})
 

@@ -26,12 +26,7 @@ def about_us(request):
 def reset_password(request): #TODO IF SIGNED IN
     return render(request, 'users/reset-password.html')
 
-def front_page_staff(request):
-    user = request.user
-    context = {'castles' : Castle.objects.filter(verified=False),  'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False), 'messages': Message.objects.filter(read=False)}
-    return render(request, 'front_page/front_page_staff.html', context)
-
-def front_page_admin(request):
+def front_page_admin(request): #TODO eyða ef hitt virkar jafn vel
     user = request.user
     if request.method == 'POST':
         form = UserCreationForm(data=request.POST)
