@@ -107,7 +107,10 @@ def get_sold_castle(castle):
 def buy_now(request, id):
     """Fall sem að fjarlægir eign af sölu og sendir seljanda og fleirum skilaboð"""
     if not Castle.objects.filter(id=id):
-        return redirect('/')
+        soldcastle = SoldCastle.objects.filter(id=id).first()
+        form = NotificationForm()
+        form.save_bought_now_seller(soldcastle, soldcastle.price, user, soldcastle.seller)
+        return redirect('/properties/receipt/'+ str(soldcastle.id)')
     castle = get_object_or_404(Castle, pk=id)
     user = request.user
     soldcastle = get_sold_castle(castle)
