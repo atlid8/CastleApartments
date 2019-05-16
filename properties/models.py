@@ -16,7 +16,7 @@ class SoldCastle(models.Model):
     house_number = models.IntegerField()
     seller = models.ForeignKey(User, on_delete=models.CASCADE)
     buyer = models.ForeignKey(User,related_name='buyer' ,on_delete=models.CASCADE)
-    time_stamp=time_stamp = models.DateTimeField(default=timezone.now)
+    time_stamp = models.DateTimeField(default=timezone.now)
 
 
 class Castle(models.Model):
@@ -54,5 +54,5 @@ class ContactInfo(models.Model):
     city = models.CharField(max_length=255)
     country = models.CharField(max_length=255)
     postal_code = models.IntegerField()
-    ssn = models.IntegerField()
+    ssn = models.BigIntegerField()
 
