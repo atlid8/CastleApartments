@@ -15,9 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from properties import views
 
 urlpatterns = [
     path('properties/', include('properties.urls')), #TODO: Breyta ur properties (gera restful)
     path('users/', include('users.urls')),
-    path('', include('properties.urls')),
+    path('', views.index, name="base-index"),
 ]
