@@ -10,7 +10,7 @@ class ProfileForm(ModelForm):
             model = Profile
             exclude = ['user', 'id']
             widgets = {
-            'profile_image': widgets.TextInput(attrs={'class': 'form-control'}),
+            'profile_image': widgets.TextInput(attrs={'class': 'form-control', 'placeholder':'Required to sell properties'}),
         }
 
 

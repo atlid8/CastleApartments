@@ -67,7 +67,7 @@ p {
 .receipt-container {
     margin: 0 auto;
     height: 33em;
-    width: 80%;
+    width: 50%;
     background-color: rgba(0,0,0,0.3);
     border-radius: 4px;
 }
