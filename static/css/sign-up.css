@@ -7,6 +7,9 @@ form, #create-button-container {
 #create-button-container {
     width: 90%;
 }
+#login-redirect {
+    margin-left: 1em;
+}
 #create-button, .form-input-field, .card, .card-body, .sub-title {
     margin: 0 auto;
 }

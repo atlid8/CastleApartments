@@ -29,6 +29,9 @@ h4 {
 #no-account {
     margin-right: 1em;
 }
+#login-redirect {
+    margin-left: 1em;
+}
 .card {
     height: auto;
     margin-top: auto;
