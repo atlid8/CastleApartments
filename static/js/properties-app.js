@@ -1,20 +1,5 @@
 window.searchInput = ""
 
-$(function() {
-    // #TODO: Mögulega finna betri leið? brennur upp ram
-    $(window).on('resize', function() {
-        const x = $(this).width();
-        if (x < 769 && x > 600) {
-            $('#square-meters').html('M<sup>2</sup>');
-        }
-        else {
-            $('#square-meters').html('Square meters');
-        }
-    });
-});
-
-
-
 $(document).ready(function () {
     $(".js-range-slider").ionRangeSlider({
         onFinish: function (e) {
@@ -79,28 +64,20 @@ $(document).ready(function () {
                                     </a>
                             </div>`
                         }
-
                     });
                     $('.castles').html(newHTML.join(''));
                 },
                 error: function (xhr, status, error) {
-                    //Todo: gæti þurft eitthvað annað error handling
-                    console.error(error); //Todo: FINNA ÚT HVERNIG ÉG LÆT VERIFICATION VIRKA Í ÞESSUM HTML KÓÐA HÉR AÐ OFAN
+                    console.error(error);
                 },
             })
         },
-
         type: "double",
         skin: "flat",
         min: 0,
         max: 50,
 })
-
 });
-
-
-
-
 $(document).ready(function () {
     $('#search-btn').on('click', function (e) {
         e.preventDefault();
@@ -164,14 +141,11 @@ $(document).ready(function () {
                 $('#search-box').val('');
             },
             error: function (xhr, status, error) {
-                //Todo: gæti þurft eitthvað annað error handling
                 console.error(error);
             }
         })
     })
-
 });
-
 
 $(document).ready(function () {
     $('.dropdown_search').on('change', function (e) {
@@ -243,10 +217,8 @@ $(document).ready(function () {
                 $('.castles').html(newHTML.join(''))
             },
             error: function (xhr, status, error) {
-                //Todo: gæti þurft eitthvað annað error handling
                 console.error(error);
             }
         })
     })
-
 });

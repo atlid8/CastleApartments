@@ -9,8 +9,14 @@
                 id="messages-button-unread"
                 {% endif %}
                 class="messages-button" href="/users/messages"> <i class="fa fa-envelope fa-4x fa-clickable"></i></a>
-    <div class="messages-tag-wrapper"><a id="messages-tag" href="/users/messages"> <h4>Click to go to inbox</h4></a></div>
+
+    <div class="messages-tag-wrapper">
+        <a id="messages-tag" href="/users/messages">
+            <h4>Click to go to inbox</h4>
+        </a>
     </div>
+    </div>
+
     <div class="container">
         <h3>{{ castles|length }} properties pending validation</h3>
             {% for castle in castles %}

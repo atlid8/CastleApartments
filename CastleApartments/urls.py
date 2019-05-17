@@ -18,7 +18,7 @@ from django.urls import path, include
 from properties import views
 
 urlpatterns = [
-    path('properties/', include('properties.urls')), #TODO: Breyta ur properties (gera restful)
+    path('properties/', include('properties.urls')),
     path('users/', include('users.urls')),
     path('', views.index, name="base-index"),
 ]

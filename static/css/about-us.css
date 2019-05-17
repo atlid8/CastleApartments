@@ -1,7 +1,14 @@
+textarea {
+    width: 17em;
+    border-radius: 0.2em;
+}
+input {
+    width: 12em;
+    border-radius: 0.2em;
+}
 address, legend, label, #about-text, #contact-us, #our-employees{
     color:white;
 }
-
 .col-md-4 {
     float: right;
     display: inline-block;
@@ -9,12 +16,10 @@ address, legend, label, #about-text, #contact-us, #our-employees{
     margin-top: 7em;
     margin-left: 2em;
 }
-
 .col-md-8 {
     width: 50%;
     display: inline-block;
 }
-
 #lower-row, #upper-row {
     padding-left: 1.5em;
 }
@@ -48,35 +53,25 @@ address, legend, label, #about-text, #contact-us, #our-employees{
 #our-employees, .container1 {
     text-align: center;
 }
-#contact-us{
+#contact-us {
     background: rgba(0,0,0,0.3) !important;
     padding: 1em;
 }
-
 #input-field {
     background-color: green;
     color: blue;
 }
-
-textarea {
-    width: 17em;
-    border-radius: 0.2em;
-}
-
-input {
-    width: 12em;
-    border-radius: 0.2em;
-}
-
-
 .container {
     background:rgba(0, 0, 0, 0.5);
     max-width: 45em;
     height: auto;
     border-radius: 0.5em;
 }
-
-
+.card-img-top {
+    height: 225px;
+    width: 100%;
+    display: block;
+}
 @media screen and (max-width: 768px) {
     #upper-row, #lower-row {
         display: inline;
@@ -91,29 +86,23 @@ input {
     .container {
         max-width: 16em;
     }
-
     .col-md-4 {
         position: initial;
     }
-
     textarea {
         width: 12em;
         border-radius: 0.2em;
     }
-
     #btnContactUs {
         margin-top: 1em;
         margin-bottom: 2em;
         margin-left: 5.5em;
         float:left;
     }
-
     .col-md-4 {
         float: none;
         margin-top: 1em;
         margin-left: 0.5em;
         margin-bottom: 2em;
-
+    }
 }
-}
-

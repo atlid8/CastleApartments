@@ -1,3 +1,7 @@
+h3 {
+    margin: 1em;
+    text-align: center;
+}
 body {
     color: white;
 }
@@ -88,8 +92,4 @@ input {
 @keyframes fadeEffect {
   from {opacity: 0;}
   to {opacity: 1;}
-}
-h3{
-    margin: 1em;
-    text-align: center;
 }

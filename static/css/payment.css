@@ -2,8 +2,6 @@ p {
     margin-top: unset;
     margin-bottom: unset;
 }
-
-
 #payment-details{
     display: inline-block;
     color: white;
@@ -11,8 +9,6 @@ p {
     float: left;
     padding-top: 1.7em;
 }
-
-
 #cardName{
     background-color: red;
 }
@@ -196,7 +192,6 @@ p {
     }
     .container {
        text-align: center;
-        /*left: 5em;*/
         max-width: 100%;
         left:10%;
     }
@@ -235,6 +230,4 @@ p {
         flex: 0 0 41.666667%;
         max-width: 41.666667%;
     }
-
 }
-/*#TODO: Make responsive below 540 px*/
