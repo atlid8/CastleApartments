@@ -4,10 +4,7 @@ from users.models import Profile, Postcode
 
 
 class UserCreationForm(forms.ModelForm):
-    """
-    A form that creates a user, with no privileges, from the given username and
-    password.
-    """
+    """Form sem býr til notanda út frá notendanafni, fyrra og seinna nafni, póstfangi og lykilorði"""
     error_messages = {
         'password_mismatch': ("The two password fields didn't match."),
     }
@@ -30,6 +27,7 @@ class UserCreationForm(forms.ModelForm):
 
 
     def clean_password2(self):
+        """Fall sem athugar hvort að lykilorðin séu eins"""
         password1 = self.cleaned_data.get("password1")
         password2 = self.cleaned_data.get("password2")
         if password1 and password2 and password1 != password2:
@@ -41,6 +39,7 @@ class UserCreationForm(forms.ModelForm):
 
 
     def save(self, commit=True):
+        """FAll sem að vistar notanda án réttinda starfsmanns"""
         user = super(UserCreationForm, self).save(commit=False)
         user.set_password(self.cleaned_data["password1"])
         if commit:
@@ -48,6 +47,7 @@ class UserCreationForm(forms.ModelForm):
         return user
 
     def save_staff(self, commit=True):
+        """Fall sem að vistar notanda með réttindi starfmanns"""
         user = super(UserCreationForm, self).save(commit=False)
         user.set_password(self.cleaned_data["password1"])
         user.is_staff = True

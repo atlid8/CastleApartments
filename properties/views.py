@@ -4,13 +4,12 @@ from properties.models import *
 from properties.models import Watchlist
 from users.forms.notificationform import NotificationForm
 from users.models import Profile, SearchHistory, Notification
-from properties.forms.create import CastleCreationForm, CastleImageCreationForm
+from properties.forms.CastleForm import CastleCreationForm, CastleImageCreationForm, CastleEditForm
 from properties.forms.watchlist import WatchlistCreationForm
 from django.http import JsonResponse
 from properties.forms.offer import OfferCreationForm
 from properties.forms.contactinfo import ContactInfoCreationForm
-from properties.forms.propertyedit import CastleEditForm
-from users.forms.creationform import UserCreationForm
+from users.forms.userform import UserCreationForm
 from users.models import Message
 
 
@@ -258,13 +257,12 @@ def create(request):
             commission = int(form['price'].value()) * 0.1
             castle = form.save(seller, verified, postcode, commission)
             form2.save(castle)
-            return redirect('/properties/'+str(castle.id)
+            return redirect('/properties/'+str(castle.id))
     context = {
         'form': CastleCreationForm(),
         'form2': CastleImageCreationForm(),
         'profile': Profile.objects.filter(user=request.user).first(),
-        'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False)
-    }
+        'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False)}
     return render(request, 'properties/create_property.html', context)
 
 

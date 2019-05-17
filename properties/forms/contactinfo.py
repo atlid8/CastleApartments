@@ -2,13 +2,14 @@ from django import forms
 from properties.models import ContactInfo
 from users.models import Countries
 
+all_countries = [("", "country")]
+countries_objects = Countries.objects.all()  # Til að geta látið fólk velja úr öllum löndum heimsins
+for countries in countries_objects:
+    all_countries.append((countries.country, countries.country))
+
 
 class ContactInfoCreationForm(forms.ModelForm):
-    all_countries = [("", "country")]
-    countries_objects = Countries.objects.all()
-    for countries in countries_objects:
-        all_countries.append((countries.country, countries.country))
-
+    """Form sem tekur inn og vistar contact info um kaupanda"""
 
     postal_code = forms.IntegerField(min_value=1, max_value=1000, label='postcode', widget=forms.NumberInput(attrs={'placeholder': ' zip code'}))
     street_name = forms.CharField(label='street_name', widget=forms.TextInput(attrs={'placeholder': ' street name'}))
@@ -24,6 +25,7 @@ class ContactInfoCreationForm(forms.ModelForm):
 
 
     def save(self, user, commit=True):
+        """FAll sem vistar upplýsingar um kaupanda"""
         profile = super(ContactInfoCreationForm, self).save(commit=False)
         profile.user = user
         profile.save()

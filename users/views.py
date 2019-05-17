@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from properties.models import Castle, Watchlist, CastleOffer, SoldCastle
-from users.forms.creationform import UserCreationForm
-from users.forms.ProfileForm import ProfileForm, UserEditForm
+from users.forms.userform import UserCreationForm
+from users.forms.profileform import ProfileForm, UserEditForm
 from users.models import Profile, SearchHistory, Notification, Message
 from users.forms.notificationform import NotificationForm
 from users.forms.message import MessageForm

@@ -2,6 +2,7 @@ from django import forms
 from properties.models import Castle
 from properties.models import CastleImage
 from users.models import Postcode
+from django.forms import ModelForm
 
 postcodes = [("", "postcode")]
 postcodes_objects = Postcode.objects.all()
@@ -9,6 +10,7 @@ for zip in postcodes_objects:
     postcodes.append((zip.postcode, zip.postcode))
 
 class CastleCreationForm(forms.ModelForm):
+    """Form sem tekur inn upplýsingar um kastala og búr hann til"""
     name = forms.CharField(label='name',
                     widget=forms.TextInput(attrs={'placeholder': 'castle name'}))
     postcode = forms.ChoiceField(choices=postcodes)
@@ -28,10 +30,11 @@ class CastleCreationForm(forms.ModelForm):
 
 
     def save(self, seller, verified, postcode, commission, commit=True):
+        """FAll sem vistar kastala"""
         profile = super(CastleCreationForm, self).save(commit=False)
         profile.seller = seller
         profile.postcode = Postcode.objects.filter(postcode=postcode).first()
-        profile.verified = verified
+        profile.verified = verified#Verified er alltaf False núna en þetta er svona ef við viljum geta látið starfsmenn setja inn verified kastala beint
         profile.commission = commission
         profile.save()
         return profile
@@ -46,7 +49,15 @@ class CastleImageCreationForm(forms.ModelForm):
         fields = ('image',)
 
     def save(self, castle, commit=True):
+        """Fall sem vistar myndir af kastölum inn"""
         profile = super(CastleImageCreationForm, self).save(commit=False)
         profile.castle = castle
         profile.save()
         return profile
+
+
+class CastleEditForm(ModelForm):
+    """Form sem að leyfir manni að breyta uplýsingum um kastala"""
+    class Meta:
+            model = Castle
+            exclude = ['id', 'seller', 'commission', 'verified']
