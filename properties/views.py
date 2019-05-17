@@ -184,7 +184,7 @@ def receipt(request, id):
                   context)
 
 
-def payments(request, id):#TODO skoða hvort við ættum að taka við einhverjum upplýsingum hér
+def payments(request, id):
     """Fall sem kallar á síðu sem lætur notanda skrá inn kortaupplýsingar"""
     user = request.user
     if not ContactInfo.objects.filter(user_id = user.id):#Ef að notandi hefur ekki fyllt út contact info á hann ekki að geta komist hingað

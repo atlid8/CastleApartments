@@ -1,8 +1,5 @@
-
-
 $(document).ready(function(){
     $('#id_postcode').on("change", function(){
-
         if($(this).val()==101){
             $('#kingdom-div').val("King's Landing");
         }
@@ -18,11 +15,8 @@ $(document).ready(function(){
         else if($(this).val()==401){
             $('#kingdom-div').val("Dorne");
         }
-
         else if($(this).val()==501){
             $('#kingdom-div').val("The North");
         }
-
-
     });
 });

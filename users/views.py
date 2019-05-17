@@ -61,11 +61,10 @@ def register(request):
         form = UserCreationForm(data=request.POST)
         if form.is_valid():
             form.save()
-            return redirect('/users/login/') #TODO:Check if this is the right path
+            return redirect('/users/login/')
     return render(request, 'users/register.html', {
         'form': UserCreationForm(),
     })
-
 
 def edit(request):
     """Kallar á síðu til að breyta notendaupplýsingu og breytir þeim"""
