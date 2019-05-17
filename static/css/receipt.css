@@ -9,11 +9,15 @@ tbody {
     min-height: 100%;
 }
 p {
-    margin-top: 1.5em;
+    margin-top: 1em;
 }
 #contacts {
-    margin-top: 2em;
-    text-align: center;
+    text-align: right;
+    margin-right: 1em;
+    margin-bottom: 1.5em;
+}
+#contacts h6{
+    font-size: 12px;
 }
 #receipt-header {
     padding-left: unset;
@@ -26,10 +30,13 @@ p {
     border-bottom: 1px rgba(255,255,255,0.5) solid;
 }
 #search-log-table td {
-    margin: 0 auto;
+    margin: 4em auto;
 }
 #receipt-header, #time-stamp-header {
     display: inline-block;
+}
+#prices-indicator{
+    font-size: 14px;
 }
 #time-stamp-header {
     float: right;
@@ -121,15 +128,11 @@ p {
 .seller-info .icons {
     padding-left: 0.5em;
 }
+.receipt-div .icons{
+    padding-left: 0.7em;
+}
 .icons {
     color: whitesmoke;
-}
-.buyer-info table {
-    float: left;
-    margin-left: 1em;
-}
-.buyer-info h4 {
-    padding-left: 12.4em;
 }
 .btn-primary {
     border: none;

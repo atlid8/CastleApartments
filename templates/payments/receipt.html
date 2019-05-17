@@ -80,7 +80,6 @@
                     </tr>
                 </table>
             </div>
-
             <div class="seller-info">
                 <h4>Seller</h4>
                 <span class="fas fa-user-circle fa-3x icons"></span>
@@ -100,13 +99,19 @@
                 </table>
             </div>
         </div>
-
         <div class="receipt-div">
             <div>
                 <h4 id="receipt-header">Receipt</h4>
                 <h5 id="time-stamp-header">{{ castle.time_stamp }}</h5>
+                <br>
+                <span class="fas fa-receipt fa-3x icons"></span>
             </div>
-            <br/>
+            <div id="contacts">
+                <h6>Castle Apartments, King's Landing</h6>
+                <h6>Buyer: {{ castle.buyer.first_name }} {{ castle.buyer.last_name }}</h6>
+                <h6>Seller: {{ castle.seller.first_name }} {{  castle.seller.last_name }}</h6>
+                <h6 id="prices-indicator">All prices displayed in Gold Dragons (GD)</h6>
+            </div>
             <div class="receipt-table">
                 <table id="search-log-table">
                     <tbody>
@@ -152,10 +157,6 @@
                         </tr>
                     </tbody>
                 </table>
-            </div>
-            <div id="contacts">
-                <h6>Buyer: {{ castle.buyer.first_name }} {{ castle.buyer.last_name }}</h6>
-                <h6>Seller: {{ castle.seller.first_name }} {{  castle.seller.last_name }}</h6>
             </div>
         </div>
     </div>
