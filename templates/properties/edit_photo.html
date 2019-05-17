@@ -6,22 +6,25 @@
 
     <div class="album py-5 bg-transparent">
         <div class="container">
-
             <div class="row">
                 {% for image in castle_images %}
                     <div class="card">
                             <img class="add-img" src="{{ image.image }}" alt="image"/>
-                            <div class="btn-wrapper"><a href="{% url 'delete_photo' image.id %}" id="delete-btn" class="btn btn-danger">Delete image <i class="fa fa-ban" aria-hidden="true"></i></a></div>
+                            <div class="btn-wrapper">
+                                <a href="{% url 'delete_photo' image.id %}" id="delete-btn" class="btn btn-danger">Delete image
+                                    <i class="fa fa-ban" aria-hidden="true"></i>
+                                </a>
+                            </div>
                     </div>
                 {% endfor %}
             </div>
+
             <div class="btn-container">
                 {% if castle_images %}
                     <a id="back-button" class="btn btn-success" href="/properties/{{ castle_images.first.castle.id }}/edit">Back to Edit Property</a>
                 {% else %}
                     <a id="back-button" class="btn btn-success" href="/">Back to Front Page</a>
                 {% endif %}
-
                 <form method="post" class="add-image">
                     {% csrf_token %}
                     {{ form }}
@@ -30,5 +33,4 @@
             </div>
         </div>
     </div>
-
 {% endblock %}

@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="{% static 'css/properties-index.css' %}">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
@@ -23,6 +24,7 @@
                 <option value="501">501</option>
             </select>
         </div>
+
         <div class="col-two">
             <h3 id="square-meters">Square meters</h3>
             <input type="text" class="js-range-slider search-filter" name="my_range" id="square-slider" data-type="double" data-min="0" data-max="10000"/>
@@ -34,6 +36,7 @@
                 <option value="name">name</option>
             </select>
         </div>
+
         <div class="col-three">
             <h3>Rooms</h3>
             <input type="text" class="js-range-slider search-filter" name="my_range" id="room-slider" data-type="double" data-min="0" data-max="50"/>
@@ -45,9 +48,11 @@
             </div>
         </div>
     </div>
+
     <div class="header-text">
         <h3>Castles that match your search</h3>
     </div>
+
     <div class="album py-5 bg-transparent">
         <div class="container" id="properties-container">
             <div class="row castles">

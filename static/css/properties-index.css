@@ -180,7 +180,6 @@ div.click-to-top:hover span {
         max-width: 35em;
         min-width: 35em;
     }
-
 }
 /*When the website is above 769px and below 991px*/
 @media screen and (max-width: 991px) and (min-width: 769px) {
