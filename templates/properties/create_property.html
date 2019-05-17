@@ -1,8 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
     {% load static %}
+
     <script type="text/javascript" src="{% static 'js/autofill-kingdom.js' %}"></script>
     <link rel="stylesheet" type="text/css" href="{% static 'css/create-property.css' %}"/>
+
     <div class="card bg-light">
         <article class="card-body mx-auto">
             <h3 class="card-title">Create property listing</h3>
@@ -16,6 +18,7 @@
                         </div>
                         {{ form.name }}
                     </div>
+
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa fa-user"></i></span>
@@ -23,6 +26,7 @@
                         <input disabled="disabled" value="{{ user.first_name }} {{ user.last_name }}">
                     </div>
                 </div>
+
                 <div class="row">
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
@@ -30,6 +34,7 @@
                         </div>
                         {{ form.street }}
                     </div>
+
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-chess-rook"></i></span>
@@ -37,6 +42,7 @@
                         {{ form.house_number }}
                     </div>
                 </div>
+
                 <div class="row">
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
@@ -44,6 +50,7 @@
                         </div>
                         {{ form.postcode }}
                     </div>
+
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa fa-flag"></i></span>
@@ -51,6 +58,7 @@
                         <input disabled id="kingdom-div" placeholder="kingdom" class="form-control"/>
                     </div>
                 </div>
+
                 <div class="row">
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
@@ -58,6 +66,7 @@
                         </div>
                         {{ form.price }}
                     </div>
+
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fas fa-expand-arrows-alt"></i></span>
@@ -65,6 +74,7 @@
                         {{ form.size }}
                     </div>
                 </div>
+
                 <div class="row">
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
@@ -72,6 +82,7 @@
                         </div>
                         {{ form.rooms }}
                     </div>
+
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa fa-lock"></i></span>
@@ -79,15 +90,19 @@
                         {{ form2.image }}
                     </div>
                 </div>
+
                 <div class="row" id="add-info">
                     {{ form.info }}
                 </div>
+
                 <div class="row" id="submit-buttons">
                     <div class="form-group">
                         <button type="submit" id="submit-button" class="btn btn-primary btn-block"> Publish Listing  </button>
                     </div>
                 </div>
-                <p class="sub-title">Need some help? <a href="mailto:castle@castleapartments.com">Contact us for assistance</a> </p>
+                <p class="sub-title">Need some help?
+                    <a href="mailto:castle@castleapartments.com">Contact us for assistance</a>
+                </p>
             </form>
         </article>
     </div>
