@@ -1,4 +1,4 @@
-h1 {
+h2 {
     color: white;
 }
 h4 {
@@ -8,24 +8,64 @@ h4 {
 tbody {
     min-height: 100%;
 }
+p {
+    margin-top: 1.5em;
+}
+#contacts {
+    margin-top: 2em;
+    text-align: center;
+}
+#receipt-header {
+    padding-left: unset;
+}
+#search-log-table {
+    width: 30em;
+    display: inline-block;
+}
 #search-log-table tr {
     border-bottom: 1px rgba(255,255,255,0.5) solid;
 }
 #search-log-table td {
     margin: 0 auto;
 }
-.table-4 {
-    width: 20em;
+#receipt-header, #time-stamp-header {
+    display: inline-block;
 }
-.table-5 {
+#time-stamp-header {
+    float: right;
+}
+.header-container {
+    text-align: center;
+}
+.header-row {
+    display: inline-block;
+}
+.table-1 {
+    margin-right: 5em;
+    text-align: center;
+}
+.table-2 {
     width: 10em;
+    text-align: right;
+}
+.table-3 {
+    width: 7em;
+    text-align: center;
+}
+.table-4 {
+    text-align: right;
+    width: 2em;
+    padding-right: 1em;
 }
 .receipt-container {
     margin: 0 auto;
     height: 33em;
     width: 80%;
-    background-color: rgba(255,255,255,0.4);
+    background-color: rgba(0,0,0,0.3);
     border-radius: 4px;
+}
+.receipt-table {
+    text-align: center;
 }
 .receipt-header {
     padding: 1em;
@@ -40,7 +80,6 @@ tbody {
     border-left: 1px solid whitesmoke;
     padding-left: 1em;
     padding-right: 1em;
-
 }
 .product-info, .receipt-div {
     height: 85%;
@@ -68,9 +107,6 @@ tbody {
     margin-right: 1em;
     float: right;
     width: 60%;
-}
-.table-1 .table-5 {
-    margin-right: 5em;
 }
 .receipt-info {
     height: 4em;
@@ -106,4 +142,5 @@ tbody {
 }
 .container {
     color: whitesmoke;
+    margin-bottom: 5em !important;
 }

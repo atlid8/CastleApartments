@@ -18,6 +18,7 @@
                 <i class="fas fa-receipt fa-2x"></i>
             </div>
         </div>
+
         <div class="row line">
             <div class="col-xs-4 step-label1"></div>
             <div class="col-xs-4 step-label2"></div>
@@ -38,7 +39,7 @@
     {% csrf_token %}
     <div class="receipt-container">
         <div class="receipt-header">
-            <h1>Thank you for using Castle Apartments!</h1>
+            <h2>Thank you for using Castle Apartments!</h2>
         </div>
 
         <div class="product-info">
@@ -101,70 +102,47 @@
         </div>
 
         <div class="receipt-div">
-            <h4>Receipt</h4>
-
-
+            <div>
+                <h4 id="receipt-header">Receipt</h4>
+                <h5 id="time-stamp-header">{{ castle.time_stamp }}</h5>
+            </div>
+            <br/>
+            <div class="receipt-table">
                 <table id="search-log-table">
                     <tbody>
                         <tr class="receipt-info">
-                            <th class="table-1">Time</th>
+                            <th class="table-1">Product</th>
                             <th class="table-2"></th>
-                            <th class="table-3"></th>
-                            <th class="table-4">Product</th>
-                            <th class="table-5">Price</th>
-                            <th class="table-6">Subtotal</th>
+                            <th class="table-3">Price</th>
+                            <th class="table-4">Subtotal</th>
                         </tr>
                         <tr class="receipt-info">
-                            <th class="table-1">{{ castle.time_stamp }}</th>
+                            <th class="table-1">{{ castle.name }}</th>
                             <th class="table-2"></th>
-                            <th class="table-3"></th>
-                            <th class="table-4">{{ castle.name }}</th>
-                            <th class="table-5" id="subtotal">{{ castle.price }}</th>
-                            <th class="table-6">{{ castle.price }}</th>
+                            <th class="table-3" id="subtotal">{{ castle.price }}</th>
+                            <th class="table-4">{{ castle.price }}</th>
                         </tr>
                         <tr class="receipt-info">
-                            <th class="table-1">Seller</th>
-                            <th class="table-2"></th>
-                            <th class="table-3"></th>
-                            <th class="table-4">Tax</th>
-                            <th class="table-5">
-                                <p>
-                                    <script>
-                                        document.write(get_tax())
-                                    </script>
-                                </p>
+                            <th class="table-1"></th>
+                            <th class="table-2">Tax:</th>
+                            <th class="table-3">
+                                <p><script>document.write(get_tax())</script></p>
                             </th>
-                            <th class="table-6">
-                                <p>
-                                    <script>
-                                        document.write(get_total())
-                                    </script>
-                                </p>
+                            <th class="table-4">
+                                <p><script>document.write(get_total())</script></p>
                             </th>
                         </tr>
                         <tr class="receipt-info">
-                            <th class="table-1">{{ castle.seller.first_name }} {{ castle.seller.last_name }}</th>
-                            <th class="table-2"></th>
-                            <th class="table-3"></th>
-                            <th class="table-4">Thereof commission</th>
-                            <th class="table-5" id="commission-of-castle">{{ castle.commission }}</th>
-                            <th class="table-6"></th>
+                            <th class="table-1"></th>
+                            <th class="table-2">Thereof commission:</th>
+                            <th class="table-3" id="commission-of-castle">{{ castle.commission }}</th>
+                            <th class="table-4"></th>
                         </tr>
                         <tr class="receipt-info">
+                            <th class="table-1"></th>
                             <th class="table-2"></th>
-                            <th class="table-3"></th>
-                            <th class="table-4"></th>
-                            <th class="table-5" ></th>
-                            <th class="table-6"></th>
-
-                        </tr>
-                        <tr class="receipt-info">
-                            <th class="table-1">{{ castle.buyer.first_name }} {{ castle.buyer.last_name }}</th>
-                            <th class="table-2"></th>
-                            <th class="table-3"></th>
-                            <th class="table-4"></th>
-                            <th class="table-5 total">Total:</th>
-                            <th class="table-6 total">
+                            <th class="table-3 total">Total:</th>
+                            <th class="table-4 total">
                                 <p>
                                     <script>
                                         document.write(get_total())
@@ -174,6 +152,13 @@
                         </tr>
                     </tbody>
                 </table>
+            </div>
+            <div id="contacts">
+                <h6>Buyer: {{ castle.buyer.first_name }} {{ castle.buyer.last_name }}</h6>
+                <h6>Seller: {{ castle.seller.first_name }} {{  castle.seller.last_name }}</h6>
+            </div>
+        </div>
+    </div>
 {% endblock %}
 
 
