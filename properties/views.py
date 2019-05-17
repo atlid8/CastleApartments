@@ -206,9 +206,9 @@ def payments(request, id):#TODO skoða hvort við ættum að taka við einhverju
 
 def review_order(request, id):
     """Fall sem kallar á síðu sem að sýnir kaupanda hvað hann er að fara að kaupa og lætur staðfesta"""
+    user = request.user
     if not ContactInfo.objects.filter(user_id = user.id):#Ef að notandi hefur ekki fyllt út contact info á hann ekki að geta komist hingað
         return redirect('/properties/' + str(id) + '/contact-info-buy')
-    user = request.user
     if not Castle.objects.filter(id=id):
         context = {'castle': SoldCastle.objects.filter(id=id).first(),
                    'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False)}

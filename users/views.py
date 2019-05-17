@@ -139,7 +139,7 @@ def send_notifications(soldcastle):
         form = NotificationForm()
         watcher = User.objects.filter(id=watch.buyer_id).first()
         if watcher != soldcastle.buyer:
-            form.save_for_watchlist_bought(soldcastle, soldcastle.price, watcher)
+            form.save_for_watchlist_bought(soldcastle.buyer, soldcastle, soldcastle.price, watcher)
 
 
 def accept_offer(request, id):
