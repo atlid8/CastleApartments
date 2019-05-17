@@ -16,7 +16,7 @@ p {
     margin-right: 1em;
     margin-bottom: 1.5em;
 }
-#contacts h6{
+#contacts h6 {
     font-size: 12px;
 }
 #receipt-header {
@@ -35,7 +35,7 @@ p {
 #receipt-header, #time-stamp-header {
     display: inline-block;
 }
-#prices-indicator{
+#prices-indicator {
     font-size: 14px;
 }
 #time-stamp-header {
