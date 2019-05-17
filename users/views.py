@@ -1,10 +1,10 @@
 from django.contrib.auth.models import User
 from properties.models import Castle, Watchlist, CastleOffer, SoldCastle
-from users.forms.userform import UserCreationForm
-from users.forms.profileform import ProfileForm, UserEditForm
+from users.forms.user_form import UserCreationForm
+from users.forms.profile_form import ProfileForm, UserEditForm
 from users.models import Profile, SearchHistory, Notification, Message
-from users.forms.notificationform import NotificationForm
-from users.forms.message import MessageForm
+from users.forms.notification_form import NotificationForm
+from users.forms.message_form import MessageForm
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 
@@ -29,7 +29,7 @@ def reset_password(request):
     """kallar á reset password síðuna"""
     user = request.user
     if not user.id: #Þetta er til að innskráð fólk fari ekki á þessa síðu
-        return render(request, 'users/reset-password.html')
+        return render(request, 'users/reset_password.html')
     return redirect("/")
 
 @login_required
@@ -50,7 +50,7 @@ def my_profile(request):
                'castle_offer': list_of_offers,
                'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False)}
 
-    return render(request, 'users/my-profile.html', context)
+    return render(request, 'users/my_profile.html', context)
 
 
 def register(request):
@@ -238,4 +238,4 @@ def messages(request):
     user = request.user
     context =  {'messages': Message.objects.all().order_by('-time_stamp'),
                 'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False)}
-    return render(request, 'users/my-inbox.html', context)
+    return render(request, 'users/my_inbox.html', context)

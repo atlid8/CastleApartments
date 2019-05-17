@@ -2,14 +2,14 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect
 from properties.models import *
 from properties.models import Watchlist
-from users.forms.notificationform import NotificationForm
+from users.forms.notification_form import NotificationForm
 from users.models import Profile, SearchHistory, Notification
-from properties.forms.CastleForm import CastleCreationForm, CastleImageCreationForm, CastleEditForm
-from properties.forms.watchlist import WatchlistCreationForm
+from properties.forms.castle_form import CastleCreationForm, CastleImageCreationForm, CastleEditForm
+from properties.forms.watch_list import WatchlistCreationForm
 from django.http import JsonResponse
-from properties.forms.offer import OfferCreationForm
-from properties.forms.contactinfo import ContactInfoCreationForm
-from users.forms.userform import UserCreationForm
+from properties.forms.offer_form import OfferCreationForm
+from properties.forms.contact_info_form import ContactInfoCreationForm
+from users.forms.user_form import UserCreationForm
 from users.models import Message
 
 
@@ -88,7 +88,7 @@ def properties(request):
         castles = __search_filter(request, request.GET['search-filter'], castles)
         context = {'castles': castles,
                    'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False)}
-        return render(request, 'properties/properties-index.html', context)
+        return render(request, 'properties/properties_index.html', context)
     if 'search-filter' in request.GET:
         did_filter = True
         castles = __search_filter(request, request.GET['search-filter'], castles)
@@ -122,13 +122,13 @@ def properties(request):
             return JsonResponse({'data': list(castles)})
     context = {'castles': Castle.objects.all().order_by('name'),
                'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False)}
-    return render(request, 'properties/properties-index.html', context)
+    return render(request, 'properties/properties_index.html', context)
 
 
 def properties_no_search(request):#TODO eyða þessu falli?
     context = {'castles': Castle.objects.filter(name__icontains=request.GET['search-filter']).order_by('name'),
                'notifications': Notification.objects.filter(receiver_id=request.user.id, resolved=False)}
-    return render(request, 'properties/properties-index.html', context)
+    return render(request, 'properties/properties_index.html', context)
 
 
 def get_property_by_id(request, id):
@@ -176,7 +176,7 @@ def contact_info_buy(request, id):
         if form.is_valid():
             form.save(user)
             return redirect('/properties/' + str(id) + '/payment-info/')
-    return render(request, 'payments/contact-info-buy.html',
+    return render(request, 'payments/contact_info_buy.html',
                   context)
 
 
@@ -200,7 +200,7 @@ def payments(request, id):#TODO skoða hvort við ættum að taka við einhverju
     else:
         context = {'castle': get_object_or_404(Castle, pk=id),
                    'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False)}
-    return render(request, 'payments/payment-info.html',
+    return render(request, 'payments/payment_info.html',
                   context)
 
 
@@ -215,7 +215,7 @@ def review_order(request, id):
     else:
         context = {'castle': get_object_or_404(Castle, pk=id),
                     'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False)}
-    return render(request, 'payments/review-order.html', context)
+    return render(request, 'payments/review_order.html', context)
 
 def make_offer(request, id):
     """Fall sem kallar á síðu sem gefur notanda möguleika á að gera tilboð í eign"""
@@ -238,7 +238,7 @@ def make_offer(request, id):
             return redirect('/properties/search')
     context = {'castle': get_object_or_404(Castle, pk=id), 'form': OfferCreationForm(),  'notifications': Notification.objects.filter(receiver_id=user.id, resolved=False)
                    }
-    return render(request, 'payments/make-offer.html', context
+    return render(request, 'payments/make_offer.html', context
                   )
 
 
