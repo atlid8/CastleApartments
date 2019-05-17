@@ -1,6 +1,9 @@
 p {
     padding-top: 0.3em;
 }
+p, #search-log-table, th, .castle-name, h3 {
+    color: white;
+}
 #carouselExampleControls {
     height: 23rem;
     width: 25rem;
@@ -47,9 +50,6 @@ p {
 #button-down:hover, #button-down-mid-r:hover, #button-down-mid-l:hover {
     background-color: white;
     color: black;
-}
-p, #search-log-table, th, .castle-name, h3 {
-    color: white;
 }
 .container {
     width: 50em;

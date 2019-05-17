@@ -1,8 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+
     <link rel="stylesheet" href="{% static 'css/property-details.css' %}">
     <script type="text/javascript" src="{% static 'js/profile-app.js' %}"></script>
+
     <h3 class="castle-name">{{ castle.name }}</h3>
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
@@ -21,15 +23,17 @@
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
         </a>
+
         <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
         </a>
     </div>
+
     <div class="btn-container">
         <form method="post">
             {% csrf_token %}
-            <a id="button-down" type="button" class="btn btn-outline" href="/users/{{ castle.seller.profile.id }}">See Seller's Profile</a>
+                <a id="button-down" type="button" class="btn btn-outline" href="/users/{{ castle.seller.profile.id }}">See Seller's Profile</a>
             {% if watchlist %}
                 <button id="button-down-mid-l" type="submit" class="btn btn-outline-primary">Remove from watchlist</button>
             {% else %}
@@ -44,6 +48,7 @@
             {% endif %}
         </form>
     </div>
+
     <div class="container">
         <table id="search-log-table">
             <tbody>
@@ -51,30 +56,37 @@
                     <th class="table-left">Price</th>
                     <th>{{ castle.price }}</th>
                 </tr>
+
                 <tr>
                     <th class="table-left">Commission</th>
                     <th>{{ castle.commission }}</th>
                 </tr>
+
                 <tr>
                     <th class="table-left">Number of rooms</th>
                     <th>{{ castle.rooms }}</th>
                 </tr>
+
                 <tr>
                     <th class="table-left">Size</th>
                     <th>{{ castle.size }} m<sup>2</sup></th>
                 </tr>
+
                 <tr>
                     <th class="table-left">Zip</th>
                     <th>{{ castle.postcode.postcode }}</th>
                 </tr>
+
                 <tr>
                     <th class="table-left">Additional information</th>
                     <th>{{ castle.info}}</th>
                 </tr>
+
                 <tr>
                     <th class="table-left">Seller's name</th>
                     <th>{{ castle.seller.first_name }} {{ castle.seller.last_name }}</th>
                 </tr>
+
                 <tr>
                     <th class="table-left table-bottom">Seller's email address</th>
                     <th class="table-bottom">{{ castle.seller.email }}</th>
@@ -84,6 +96,7 @@
                         <td>
                             {{ history.time_stamp }}
                         </td>
+
                         <td>
                             <a href="/properties/search/?search-filter={{ history.search_input }}">
                                 {{ history.search_input }}
@@ -94,5 +107,4 @@
             </tbody>
         </table>
     </div>
-
 {% endblock %}
