@@ -1,3 +1,18 @@
+#contact {
+    margin-left: 12.7em;
+}
+#payment {
+    margin-left: 31.5em;
+}
+#review {
+    margin-left: 33em;
+}
+#circle1 {
+    padding-left:0.5em;
+}
+#circle3 {
+    padding-right:0.2em;
+}
 .line {
     border-bottom: 1px solid rgba(255,255,255,0.5);
     padding-bottom: 10px;
@@ -19,21 +34,6 @@
 .container span {
     display:inline-block;
     font-size: 10px;
-}
-#contact {
-    margin-left: 12.7em;
-}
-#payment {
-    margin-left: 31.5em;
-}
-#review {
-    margin-left: 33em;
-}
-#circle1 {
-    padding-left:0.5em;
-}
-#circle3 {
-    padding-right:0.2em;
 }
 .step-label1 {
     text-align: left;

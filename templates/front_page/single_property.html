@@ -2,6 +2,7 @@
     <div class="image_box">
         <img src='{{castle.castleimage_set.first.image}}' alt="Castle Image">
     </div>
+
     <div class="information">
         <form>
             <div class="input-group form-group">
@@ -10,12 +11,14 @@
                 </div>
                 <input disabled type="text" class="form-control" placeholder="{{castle.name}}">
             </div>
+
             <div class="input-group form-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-user"></i></span>
                 </div>
                 <input disabled type="text" class="form-control" placeholder="{{castle.seller.first_name}} {{castle.seller.last_name}}">
             </div>
+
             <div class="input-group form-group">
                 <div class="input-group-prepend">
                     <span class="input-group-text"><i class="fas fa-coins"></i></span>
@@ -24,9 +27,12 @@
             </div>
         </form>
     </div>
+
     <div class="decision">
         <a href="{% url 'verify_castle' castle.id %}" class="btn btn-success"><i class="fa fa-check" aria-hidden="true"></i></a>
-        <a onclick="return confirm('Are you sure you want to remove the listing {{ castle.name }}');" href="{% url 'delete_castle' castle.id %}" class="btn btn-danger"><i class="fa fa-ban" aria-hidden="true"></i></a>
+        <a onclick="return confirm('Are you sure you want to remove the listing {{ castle.name }}');" href="{% url 'delete_castle' castle.id %}" class="btn btn-danger">
+            <i class="fa fa-ban" aria-hidden="true"></i>
+        </a>
         <a class="btn btn-info" href="/properties/{{ castle.id }}"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
     </div>
 </div>

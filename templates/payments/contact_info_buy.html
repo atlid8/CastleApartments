@@ -11,18 +11,22 @@
             <div id="icon1" class="col-xs-4 step-label1">
                 <i class="fa fa-address-card fa-2x" aria-hidden="true"></i>
             </div>
+
             <div class="col-xs-4 step-label2">
                 <i class="fas fa-coins fa-2x"></i>
             </div>
+
             <div id="icon3" class="col-xs-4 step-label3">
                 <i class="fas fa-receipt fa-2x"></i>
             </div>
         </div>
+
         <div class="row line">
             <div class="col-xs-4 step-label1"></div>
             <div class="col-xs-4 step-label2"></div>
             <div class="col-xs-4 step-label3"></div>
         </div>
+
         <div class="row">
             <div id="circle1" class="col-xs-4">
                 <div class="step step1 active"></div>
@@ -51,6 +55,7 @@
                             </div>
                             <input disabled="disabled" value=" {{ user.first_name }} {{ user.last_name }}">
                         </div>
+
                         <div class="input-row">
                             <div class="form-group input-group">
                                 <div class="input-group-prepend">
@@ -60,6 +65,7 @@
                                 </div>
                                 {{ form.street_name }}
                             </div>
+
                             <div class="input-row">
                                 <div class="form-group input-group">
                                     <div class="input-group-prepend">
@@ -69,6 +75,7 @@
                                     </div>
                                     {{ form.house_number }}
                                 </div>
+
                                 <div class="form-group input-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">
@@ -77,6 +84,7 @@
                                     </div>
                                     {{ form.country }}
                                 </div>
+
                                 <div class="form-group input-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">
@@ -85,6 +93,7 @@
                                     </div>
                                     {{ form.city }}
                                 </div>
+
                                 <div class="form-group input-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">
@@ -93,6 +102,7 @@
                                     </div>
                                     {{ form.postal_code }}
                                 </div>
+
                                 <div class="form-group input-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text">
@@ -101,6 +111,7 @@
                                     </div>
                                     {{ form.ssn }}
                                 </div>
+
                                 <div class="form-group" id="create-button-container">
                                     <input type="submit" id="create-button" class="btn btn-primary" value="Confirm contact info">
                                 </div>
