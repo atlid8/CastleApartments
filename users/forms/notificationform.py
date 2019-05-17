@@ -55,6 +55,20 @@ class NotificationForm(ModelForm):
         notification.save()
         return notification
 
+    def save_for_watchlist_bought(self, buyer, castle, offer, watcher, commit=True):
+        notification = super(NotificationForm, self).save(commit=False)
+        buyername = buyer.first_name + ' ' + buyer.last_name
+        castlename = castle.name
+        notification.info = buyername + ' just bought the property ' + castlename + ' for ' + str(
+            offer) + ' Gold Dragons. You can no longer bid on it.'
+        castleid = castle.id
+        notification.link = '/properties/' + str(castleid)
+        notification.resolved = False
+        notification.receiver = watcher
+        notification.save()
+        return notification
+
+
     def save_offer_accept(self, castle, price, buyer):
         notification = super(NotificationForm, self).save(commit=False)
         notification.info = 'Your offer of '+ str(price) + ' Gold Dragons for ' + str(castle.name) + ' has been accepted'
