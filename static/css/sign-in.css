@@ -26,6 +26,9 @@ h4 {
 #id_username, #id_password, .form-input-field, .form-group, .input-group-prepend, .card-footer {
     margin: 0 auto;
 }
+#no-account {
+    margin-right: 1em;
+}
 .card {
     height: auto;
     margin-top: auto;
