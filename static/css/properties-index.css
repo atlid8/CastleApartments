@@ -32,8 +32,9 @@ h3, a:hover, .header-text, .col-md-3, .card-text {
 #search-btn {
     height: 2.41em;
     margin-top: 2em;
+    color: white;
     border-radius: 0 0.3em 0.3em 0;
-    background-color: #4CAF50 !important;
+    background-color: dodgerblue !important;
 }
 #slider-container, #properties-container {
     border-radius: 0.5em;
