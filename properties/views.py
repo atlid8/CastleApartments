@@ -125,11 +125,6 @@ def properties(request):
     return render(request, 'properties/properties_index.html', context)
 
 
-def properties_no_search(request):#TODO eyða þessu falli?
-    context = {'castles': Castle.objects.filter(name__icontains=request.GET['search-filter']).order_by('name'),
-               'notifications': Notification.objects.filter(receiver_id=request.user.id, resolved=False)}
-    return render(request, 'properties/properties_index.html', context)
-
 
 def get_property_by_id(request, id):
     """Fall sem kallar á síðu fyrir einstakar eignir"""
