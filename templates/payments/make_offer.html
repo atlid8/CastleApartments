@@ -13,19 +13,23 @@
                     <td class="left-column">Seller:</td>
                     <td>{{ castle.seller }}</td>
                 </tr>
+
                 <tr>
                     <td class="left-column">Castle size:</td>
                     <td>{{ castle.size }} m2</td>
                 </tr>
+
                 <tr>
                     <td class="left-column">Number of rooms:</td>
                     <td>{{ castle.rooms }}</td>
                 </tr>
+
                 <tr>
                     <td class="left-column">Suggested price:</td>
                     <td>{{ castle.price }}</td>
                 </tr>
             </table>
+
             <form class="form form-horizontal" method="post">
                 {% csrf_token %}
                 {{ form.info }}
