@@ -41,6 +41,13 @@ p {
 #time-stamp-header {
     float: right;
 }
+#btn-go-home {
+    text-align: center;
+}
+#go-home-btn {
+    display: inline-block;
+    width: 10em;
+}
 .header-container {
     text-align: center;
 }
