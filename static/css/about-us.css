@@ -72,6 +72,7 @@ address, legend, label, #about-text, #contact-us, #our-employees{
     width: 100%;
     display: block;
 }
+
 @media screen and (max-width: 768px) {
     #upper-row, #lower-row {
         display: inline;
