@@ -12,29 +12,35 @@
             <div id="icon1" class="col-xs-4 step-label1">
               <i class="fa fa-address-card fa-2x" aria-hidden="true"></i>
             </div>
+
             <div class="col-xs-4 step-label2">
               <i class="fas fa-coins fa-2x"></i>
             </div>
+
             <div id="icon3" class="col-xs-4 step-label3">
               <i class="fas fa-receipt fa-2x"></i>
             </div>
         </div>
+
         <div class="row line">
             <div class="col-xs-4 step-label1"></div>
             <div class="col-xs-4 step-label2"></div>
             <div class="col-xs-4 step-label3"></div>
         </div>
+
         <div class="row">
             <div class="col-xs-4">
                 <a href="/properties/{{ castle.id }}/contact-info-buy/">
                     <div id="circle1" class="step step1 done"></div>
                 </a>
             </div>
+
             <div class="col-xs-4">
                 <a href="/properties/{{ castle.id }}/payment-info/">
                     <div id="circle2" class="step step2 done"></div>
                 </a>
             </div>
+
             <div class="col-xs-4">
                 <div id="circle3" class="step step3 active"></div>
             </div>
@@ -55,12 +61,14 @@
                                     <th class="table-3">Price</th>
                                     <th class="table-4">Total</th>
                                 </tr>
+
                                 <tr>
                                     <th class="table-1">{{ castle.name }}</th>
                                     <th class="table-2">1</th>
                                     <th class="table-3">{{ castle.price }}</th>
                                     <th class="table-4">{{ castle.price }}</th>
                                 </tr>
+
                                 <tr>
                                     <th class="table-1"> </th>
                                     <th class="table-2"> </th>
@@ -68,23 +76,19 @@
                                         <p>Subtotal: </p>
                                         <p>Tax: </p>
                                     </th>
+
                                     <th class="table-4">
                                         <p id="subtotal">{{ castle.price }}</p>
-                                        <p id="tax">
-                                            <script>
-                                                document.write(get_tax())
-                                            </script>
-                                        </p>
+                                        <p id="tax"><script>document.write(get_tax())</script></p>
                                     </th>
                                 </tr>
+
                                 <tr>
                                     <th class="table-1"> </th>
                                     <th class="table-2"> </th>
                                     <th class="table-3">Total: </th>
                                     <th class="table-4">
-                                        <script>
-                                            document.write(get_total())
-                                        </script>
+                                        <script>document.write(get_total())</script>
                                     </th>
                                 </tr>
                             </tbody>
@@ -92,7 +96,6 @@
                         <div class="bottom-buttons-wrapper">
                             <a id="back-button" class="btn btn-primary btn btn-success bottom-button" href="/properties/{{ castle.id }}/payment-info/">Back to Payment Info</a>
                             <a onclick="return confirm('Are you sure you want to buy this castle? \n You can not ask for a refund!');" id="pay-button" class="btn btn-success bottom-button" href="{% url 'buy_now' castle.id %}">Confirm Order Payment</a>
-                            <a
                         </div>
                     </div>
                 </article>
