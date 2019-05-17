@@ -111,6 +111,7 @@ def buy_now(request, id):
         soldcastle = SoldCastle.objects.filter(id=id).first()
         form = NotificationForm()
         form.save_bought_now_seller(soldcastle, soldcastle.price, user, soldcastle.seller)
+        form.save_bought_now_buyer(user, soldcastle)
         return redirect('/properties/receipt/'+ str(soldcastle.id))
     castle = get_object_or_404(Castle, pk=id)
     soldcastle = get_sold_castle(castle)
