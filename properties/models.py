@@ -5,6 +5,7 @@ from django.utils import timezone
 
 
 class SoldCastle(models.Model):
+    """Klasi sem heldur utan um gögn um selda kastala"""
     name = models.CharField(max_length=255)
     postcode = models.ForeignKey(Postcode, on_delete=models.CASCADE)
     price = models.IntegerField()
@@ -20,6 +21,7 @@ class SoldCastle(models.Model):
 
 
 class Castle(models.Model):
+    """Klasi sem heldur utan um gögn um óselda kastala"""
     name = models.CharField(max_length=255)
     postcode = models.ForeignKey(Postcode, on_delete=models.CASCADE)
     price = models.IntegerField()
@@ -33,10 +35,12 @@ class Castle(models.Model):
     seller = models.ForeignKey(User, on_delete=models.CASCADE)
 
 class CastleImage(models.Model):
+    """Klasi sem heldur utan um myndir sem eru tengdra við kastala"""
     image = models.CharField(max_length=9999)
     castle = models.ForeignKey(Castle, on_delete=models.CASCADE)
 
 class CastleOffer(models.Model):
+    """Klasi sem heldur utan um tilboð í kastala"""
     buyer = models.ForeignKey(User, on_delete=models.CASCADE)
     castle = models.ForeignKey(Castle, on_delete=models.CASCADE)
     offer = models.IntegerField()
@@ -44,10 +48,12 @@ class CastleOffer(models.Model):
 
 
 class Watchlist(models.Model):
+    """klasi sem heldur utan um hvaða notendur fyljgast með hvaða kastölum og öfugt"""
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     castle_watch = models.ForeignKey(Castle, on_delete=models.CASCADE)
 
 class ContactInfo(models.Model):
+    """Klasi sem heldur utan um contact info fyrir kaupendur"""
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     street_name = models.CharField(max_length=255)
     house_number = models.IntegerField()
