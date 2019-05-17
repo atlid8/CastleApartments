@@ -23,10 +23,9 @@ body {
     margin-left: 0.5em;
     text-decoration: none;
 }
-#about-us:hover{
+#about-us:hover {
     text-decoration: underline;
 }
-
 #copyright {
     display: inline-block;
     float: right;
@@ -44,21 +43,21 @@ body {
 .dropdown {
     border: none;
 }
-.dropdown:active{
+.dropdown:active {
     border: none;
     background: none;
 }
-.dropdown-menu{
+.dropdown-menu {
     background-color: rgba(0,0,0,0.3) !important;
     text-align: right;
     margin-right: 0;
     width:4em;
     border: transparent !important;
 }
-.dropdown-item{
+.dropdown-item {
     color: white !important;
 }
-.dropdown-item:hover{
+.dropdown-item:hover {
     color: black !important;
     background:rgba(255,255,255, 0.3);
 }
@@ -71,25 +70,25 @@ body {
     margin-right: 0;
     color: whitesmoke;
 }
-.header-item{
+.header-item {
     margin-top: 1em;
 }
-.header-greeting{
+.header-greeting {
     font-size: 11px;
     margin-top: 1.5em;
 }
-.dropdown show:active{
+.dropdown show:active {
     border: none;
 }
 .dropdown-toggle::after {
     color: whitesmoke;
 }
-.dropdown-toggle:focus{
+.dropdown-toggle:focus {
     outline: none!important;
 }
 .dropdown-toggle {
-   padding: 5px;
- }
+    padding: 5px;
+}
 #notifications-dropdown:before {
     margin-right: 0.5em;
     content: " ";
@@ -109,11 +108,8 @@ body {
     background-color: dodgerblue;
     color: white;
 }
-#navbarSupportedContent{
+#navbarSupportedContent {
     animation: fadeInRight 1.5s;
-}
-.navbar-brand{
-    font-family: Garamond, Baskerville, "Baskerville Old Face", "Hoefler Text", "Times New Roman";
 }
  @keyframes fadeInRight {
    0% {
@@ -143,7 +139,6 @@ body {
       transform: translateX(0);
    }
 }
-
 @keyframes fadeInTop {
    0% {
       opacity: 0;
