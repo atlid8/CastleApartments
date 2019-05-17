@@ -28,7 +28,7 @@ form, #create-button-container {
     width: 92%;
 }
 .card {
-    margin: 12em auto;
+    margin: 3em auto;
     height: auto;
     width: 400px;
     background-color: rgba(0,0,0,0.5) !important;
