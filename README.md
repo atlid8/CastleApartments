@@ -12,6 +12,6 @@ Aðgangar í kerfi
 admin - password
 staff - passord
 hammer - lyannastark
-ned-promisemened
+Ned-promisemened
 goldenlion - password
 nightking - password
