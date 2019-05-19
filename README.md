@@ -8,11 +8,12 @@ Jóhannes Ingi Torfason - johannest18@ru.is<br/>
 Steingrímur Eyjólfsson - steingrimur18@ru.is<br/>
 Theodór Kristjánsson - theodorkri15@ru.is<br/>
 
-Aðgangar í kerfi
+Aðgangar í kerfi:
+Notendanöfn - lykilorð 
 admin - password
-staff - passord
+staff - password
 hammer - lyannastark
-Ned-promisemened
+Ned - promisemened
 goldenlion - password
 nightking - password
 khalessi - ilovejorah
