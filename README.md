@@ -15,3 +15,4 @@ hammer - lyannastark
 Ned-promisemened
 goldenlion - password
 nightking - password
+khalessi - ilovejorah
