@@ -9,11 +9,11 @@ Steingrímur Eyjólfsson - steingrimur18@ru.is<br/>
 Theodór Kristjánsson - theodorkri15@ru.is<br/>
 
 Aðgangar í kerfi:
-Notendanöfn - lykilorð 
-admin - password
-staff - password
-hammer - lyannastark
-Ned - promisemened
-goldenlion - password
-nightking - password
-khalessi - ilovejorah
+Notendanöfn - lykilorð <br/>
+admin - password<br/>
+staff - password<br/>
+hammer - lyannastark<br/>
+Ned - promisemened<br/>
+goldenlion - password<br/>
+nightking - password<br/>
+khalessi - ilovejorah<br/>
