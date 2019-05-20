@@ -39,8 +39,9 @@ def index(request):
 def __search_filter(request, search_filter, castles):
     """Fall sem leitar eftir leitarorðum og vistar í leitarsöguna"""
     user = request.user
-    searchhistory = SearchHistory(user=user, search_input=search_filter)
-    searchhistory.save()
+    if user.id:
+        searchhistory = SearchHistory(user=user, search_input=search_filter)
+        searchhistory.save()
     return castles.filter(name__icontains=search_filter)
 
 
