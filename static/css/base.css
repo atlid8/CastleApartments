@@ -17,6 +17,7 @@ body {
     color: white;
 }
 #logo {
+    font-family: "Garamond";
     animation: fadeInLeft 1.5s;
 }
 #about-us {
